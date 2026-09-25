@@ -1,326 +1,745 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
-<meta name="google-site-verification"
-      content="T9X50zh28h-OUVSkAbQpBpIXp_6jlV_1gj3IwTHCZMw">
+    <meta name="google-site-verification" content="T9X50zh28h-OUVSkAbQpBpIXp_6jlV_1gj3IwTHCZMw">
 
-<title>EduLearn - Educational Videos</title>
+    <title>EduLearn - Educational Videos</title>
 
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-    html {
-        scroll-behavior: smooth;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #222;
+        }
 
-    body {
-        font-family: Arial, sans-serif;
-        background: #f5f5f5;
-        color: #222;
-    }
-
-    header {
-        height: 70px;
-        background: white;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 6%;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-    }
-
-    .logo {
-        font-size: 28px;
-        font-weight: bold;
-        color: #e50914;
-    }
-
-    .search-box {
-        width: 45%;
-        display: flex;
-    }
-
-    .search-box input {
-        width: 100%;
-        padding: 12px 16px;
-        border: 1px solid #ddd;
-        border-radius: 25px;
-        outline: none;
-        font-size: 15px;
-    }
-
-    .login-btn {
-        background: #e50914;
-        color: white;
-        padding: 11px 22px;
-        border-radius: 25px;
-        text-decoration: none;
-        font-weight: bold;
-    }
-
-    .hero {
-        background: linear-gradient(135deg, #e50914, #8b0000);
-        color: white;
-        padding: 70px 6%;
-        text-align: center;
-    }
-
-    .hero h1 {
-        font-size: 42px;
-        margin-bottom: 15px;
-    }
-
-    .hero p {
-        font-size: 18px;
-        margin-bottom: 25px;
-    }
-
-    .start-btn {
-        display: inline-block;
-        background: white;
-        color: #e50914;
-        padding: 13px 28px;
-        border-radius: 25px;
-        font-weight: bold;
-        cursor: pointer;
-        border: none;
-        font-size: 15px;
-    }
-
-    .categories {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 12px;
-        padding: 25px 6%;
-        background: white;
-    }
-
-    .category {
-        background: #f1f1f1;
-        padding: 12px 20px;
-        border-radius: 25px;
-        cursor: pointer;
-        font-weight: bold;
-        transition: 0.3s;
-    }
-
-    .category:hover {
-        background: #e50914;
-        color: white;
-        transform: translateY(-2px);
-    }
-
-    .videos {
-        padding: 55px 6%;
-        scroll-margin-top: 80px;
-    }
-
-    .videos h2 {
-        font-size: 30px;
-        margin-bottom: 25px;
-        color: #222;
-    }
-
-    .video-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 25px;
-    }
-
-    .video-card {
-        background: white;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.10);
-        position: relative;
-        transition: 0.3s;
-    }
-
-    .video-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    .video-card iframe {
-        width: 100%;
-        height: 210px;
-        border: none;
-        display: block;
-    }
-
-    .video-card h3 {
-        padding: 15px 15px 5px;
-        font-size: 18px;
-    }
-
-    .video-card p {
-        padding: 0 15px 18px;
-        color: #666;
-        font-size: 14px;
-    }
-
-    .live-badge {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        background: red;
-        color: white;
-        padding: 5px 9px;
-        border-radius: 5px;
-        font-size: 11px;
-        font-weight: bold;
-    }
-
-    #videos {
-        background: #ffffff;
-    }
-
-    #mathematics {
-        background: #fff8e8;
-    }
-
-    #science {
-        background: #eef7ff;
-    }
-
-    #ict {
-        background: #f4efff;
-    }
-
-    #english {
-        background: #effff2;
-    }
-
-    #history {
-        background: #fff3e8;
-    }
-
-    #sinhala {
-        background: #fff0f5;
-    }
-
-    footer {
-        background: #222;
-        color: white;
-        text-align: center;
-        padding: 25px;
-    }
-
-    @media (max-width: 700px) {
+        /* Header */
         header {
-            height: auto;
-            padding: 15px 5%;
-            gap: 12px;
-            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: 70px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .logo {
-            font-size: 23px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #e50914;
         }
 
         .search-box {
+            width: 45%;
+        }
+
+        .search-box input {
             width: 100%;
-            order: 3;
+            padding: 12px 18px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            outline: none;
+            font-size: 15px;
         }
 
         .login-btn {
-            padding: 9px 15px;
-            font-size: 14px;
+            background: #e50914;
+            color: white;
+            padding: 11px 22px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
         }
 
+        /* Hero */
         .hero {
-            padding: 50px 5%;
+            background: linear-gradient(135deg, #e50914, #ff4b2b);
+            color: white;
+            text-align: center;
+            padding: 70px 20px;
         }
 
         .hero h1 {
-            font-size: 32px;
+            font-size: 45px;
+            margin-bottom: 15px;
         }
 
         .hero p {
-            font-size: 16px;
+            font-size: 18px;
+            margin-bottom: 25px;
         }
 
+        .hero-btn {
+            display: inline-block;
+            background: white;
+            color: #e50914;
+            padding: 13px 28px;
+            border-radius: 25px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        /* Categories */
+        .categories {
+            padding: 30px 5%;
+            background: white;
+            text-align: center;
+        }
+
+        .categories h2 {
+            margin-bottom: 20px;
+        }
+
+        .category-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .category {
+            background: #f1f1f1;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .category:hover {
+            background: #e50914;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Video Sections */
         .videos {
-            padding: 40px 5%;
+            padding: 50px 5%;
+            scroll-margin-top: 80px;
         }
 
         .videos h2 {
-            font-size: 26px;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 30px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .video-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
 
         .video-card iframe {
-            height: 200px;
+            width: 100%;
+            height: 210px;
+            border: none;
+            display: block;
         }
-    }
-</style>
-```
 
+        .video-info {
+            padding: 15px;
+        }
+
+        .video-info h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .video-info p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .live-badge {
+            display: inline-block;
+            background: #e50914;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* Subject Colors */
+        #videos {
+            background: white;
+        }
+
+        #mathematics {
+            background: #fff8e8;
+        }
+
+        #science {
+            background: #eef7ff;
+        }
+
+        #ict {
+            background: #f4efff;
+        }
+
+        #english {
+            background: #effff2;
+        }
+
+        #history {
+            background: #fff3e8;
+        }
+
+        #sinhala {
+            background: #fff0f5;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 0;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+
+            header {
+                height: auto;
+                padding: 15px 5%;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .login-btn {
+                display: none;
+            }
+
+            .hero {
+                padding: 50px 15px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .videos {
+                padding: 35px 5%;
+            }
+
+            .videos h2 {
+                font-size: 25px;
+            }
+
+            .video-card iframe {
+                height: 200px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
+    <!-- Header -->
+    <header>
 
-```
-<div class="logo">EduLearn</div>
+        <div class="logo">
+            📚 EduLearn
+        </div>
 
-<div class="search-box">
-    <input
-        type="text"
-        id="searchInput"
-        placeholder="Search videos..."
-        onkeyup="searchVideos()"
-    >
-</div>
+        <div class="search-box">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="🔎 Search videos..."
+                onkeyup="searchVideos()"
+            >
+        </div>
 
-<a href="#" class="login-btn">Login</a>
-```
+        <a href="#" class="login-btn">
+            🔐 Login
+        </a>
 
-</header>
+    </header>
 
-<section class="hero">
 
-```
-<h1>Learn Anytime, Anywhere</h1>
+    <!-- Hero -->
+    <section class="hero">
 
-<p>
-    Educational videos for your learning journey
-</p>
+        <h1>🎓 Welcome to EduLearn</h1>
 
-<button
-    class="start-btn"
-    onclick="document.getElementById('videos').scrollIntoView()"
->
-    Start Learning
-</button>
-```
+        <p>
+            📖 Learn Anytime, Anywhere with Educational Videos
+        </p>
 
-</section>
+        <a href="#videos" class="hero-btn">
+            ▶️ Start Learning
+        </a>
 
-<div class="categories">
+    </section>
 
-```
-<div
-    class="category"
-    onclick="document.getElementById('mathematics').scrollIntoView()"
->
-    Mathematics
-</div>
 
-<div
-    class="category"
-    onclick="document.getElementById('science').scrollIntoView(
-```
+    <!-- Categories -->
+    <section class="categories">
+
+        <h2>📚 Subjects</h2>
+
+        <div class="category-list">
+
+            <div class="category"
+                onclick="document.getElementById('mathematics').scrollIntoView()">
+                📐 Mathematics
+            </div>
+
+            <div class="category"
+                onclick="document.getElementById('science').scrollIntoView()">
+                🔬 Science
+            </div>
+
+            <div class="category"
+                onclick="document.getElementById('ict').scrollIntoView()">
+                💻 ICT
+            </div>
+
+            <div class="category"
+                onclick="document.getElementById('english').scrollIntoView()">
+                🇬🇧 English
+            </div>
+
+            <div class="category"
+                onclick="document.getElementById('history').scrollIntoView()">
+                🏛️ History
+            </div>
+
+            <div class="category"
+                onclick="document.getElementById('sinhala').scrollIntoView()">
+                📝 Sinhala
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Educational Videos -->
+    <section class="videos" id="videos">
+
+        <h2>🎥 Educational Videos</h2>
+
+        <div class="video-grid">
+
+            <div class="video-card">
+
+                <iframe
+                    src="https://www.youtube.com/embed/EE1m5Bd_MCM"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="video-info">
+
+                    <h3>🎓 Educational Live Class</h3>
+
+                    <p>
+                        📖 Educational learning video
+                    </p>
+
+                    <span class="live-badge">
+                        🔴 LIVE
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Mathematics -->
+    <section class="videos" id="mathematics">
+
+        <h2>📐 Mathematics</h2>
+
+        <div class="video-grid">
+
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BJXF6sPtJVIfdk9h0OyUepx" allowfullscreen></iframe>
+                <div class="video-info">
+                    <h3>📐 Mathematics Playlist 1</h3>
+                    <p>▶️ Mathematics lessons</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BL2Z0BYfQCMzpmj3PXoRgGn" allowfullscreen></iframe>
+                <div class="video-info">
+                    <h3>📐 Mathematics Playlist 2</h3>
+                    <p>▶️ Mathematics lessons</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BKKdJWRKNovRXdNsJr-t6pl" allowfullscreen></iframe>
+                <div class="video-info">
+                    <h3>📐 Mathematics Playlist 3</h3>
+                    <p>▶️ Mathematics lessons</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BIXRADTlGXr2pOTkxJEo40B" allowfullscreen></iframe>
+                <div class="video-info">
+                    <h3>📐 Mathematics Playlist 4</h3>
+                    <p>▶️ Mathematics lessons</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BIcZhRjwKayVTrSrz1YnA8Q" allowfullscreen></iframe>
+                <div class="video-info">
+                    <h3>📐 Mathematics Playlist 5</h3>
+                    <p>▶️ Mathematics lessons</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BJ2SfECDscWQjwkUmtlgmYa" allowfullscreen></iframe>
+                <div class="video-info">
+                    <h3>📐 Mathematics Playlist 6</h3>
+                    <p>▶️ Mathematics lessons</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BK8BP4OvmSq8h2TYwFMLy6w" allowfullscreen></iframe>
+                <div class="video-info">
+                    <h3>📐 Mathematics Playlist 7</h3>
+                    <p>▶️ Mathematics lessons</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BJ_KTPY-6vebFKFg2xAy6uM" allowfullscreen></iframe>
+                <div class="video-info">
+                    <h3>📐 Mathematics Playlist 8</h3>
+                    <p>▶️ Mathematics lessons</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BKAVOfPq5yJAG0NWKfDC9tJ" allowfullscreen></iframe>
+                <div class="video-info">
+                    <h3>📐 Mathematics Playlist 9</h3>
+                    <p>▶️ Mathematics lessons</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BK1EaVLY8IaWBo4Z_Ea9f6o" allowfullscreen></iframe>
+                <div class="video-info">
+                    <h3>📐 Mathematics Playlist 10</h3>
+                    <p>▶️ Mathematics lessons</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BI-MItQMGgeSdIrh6fENmJH" allowfullscreen></iframe>
+                <div class="video-info">
+                    <h3>📐 Mathematics Playlist 11</h3>
+                    <p>▶️ Mathematics lessons</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BK5UHYttmBKlpOo0lmG8b18" allowfullscreen></iframe>
+                <div class="video-info">
+                    <h3>📐 Mathematics Playlist 12</h3>
+                    <p>▶️ Mathematics lessons</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BLjuCdG9-a294a8vz7c1e1A" allowfullscreen></iframe>
+                <div class="video-info">
+                    <h3>📐 Mathematics Playlist 13</h3>
+                    <p>▶️ Mathematics lessons</p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Science -->
+    <section class="videos" id="science">
+
+        <h2>🔬 Science</h2>
+
+        <div class="video-grid">
+
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/HWdIu5-LHhc" allowfullscreen></iframe><div class="video-info"><h3>🔬 Science Lesson 1</h3><p>📖 Science lesson</p></div></div>
+
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/viqFacbGkbA" allowfullscreen></iframe><div class="video-info"><h3>🔬 Science Lesson 2</h3><p>📖 Science lesson</p></div></div>
+
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/EE1m5Bd_MCM" allowfullscreen></iframe><div class="video-info"><h3>🔬 Science Lesson 3</h3><p>📖 Science lesson</p></div></div>
+
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/c3bEJbE-zDM" allowfullscreen></iframe><div class="video-info"><h3>🔬 Science Lesson 4</h3><p>📖 Science lesson</p></div></div>
+
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/Vu7itzyGsqE" allowfullscreen></iframe><div class="video-info"><h3>🔬 Science Lesson 5</h3><p>📖 Science lesson</p></div></div>
+
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/VWgj5EKfbOA" allowfullscreen></iframe><div class="video-info"><h3>🔬 Science Lesson 6</h3><p>📖 Science lesson</p></div></div>
+
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/rV0cEYnjLqA" allowfullscreen></iframe><div class="video-info"><h3>🔬 Science Lesson 7</h3><p>📖 Science lesson</p></div></div>
+
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/_QPePE5B2LI" allowfullscreen></iframe><div class="video-info"><h3>🔬 Science Lesson 8</h3><p>📖 Science lesson</p></div></div>
+
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/WYdefiJgpPs" allowfullscreen></iframe><div class="video-info"><h3>🔬 Science Lesson 9</h3><p>📖 Science lesson</p></div></div>
+
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/UAG_4Lrg5AQ" allowfullscreen></iframe><div class="video-info"><h3>🔬 Science Lesson 10</h3><p>📖 Science lesson</p></div></div>
+
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/tlCXXAa_7m0" allowfullscreen></iframe><div class="video-info"><h3>🔬 Science Lesson 11</h3><p>📖 Science lesson</p></div></div>
+
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/k4SI1NFwmyk" allowfullscreen></iframe><div class="video-info"><h3>🔬 Science Lesson 12</h3><p>📖 Science lesson</p></div></div>
+
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/3AYxCrgwLsk" allowfullscreen></iframe><div class="video-info"><h3>🔬 Science Lesson 13</h3><p>📖 Science lesson</p></div></div>
+
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/tOJv8Zcs2Rg" allowfullscreen></iframe><div class="video-info"><h3>🔬 Science Lesson 14</h3><p>📖 Science lesson</p></div></div>
+
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/EKkPdSYd3fM" allowfullscreen></iframe><div class="video-info"><h3>🔬 Science Lesson 15</h3><p>📖 Science lesson</p></div></div>
+
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/Tl5mMhOPCmg" allowfullscreen></iframe><div class="video-info"><h3>🔬 Science Lesson 16</h3><p>📖 Science lesson</p></div></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ICT -->
+    <section class="videos" id="ict">
+
+        <h2>💻 ICT</h2>
+
+        <div class="video-grid">
+
+            <div class="video-card">
+
+                <div class="video-info">
+
+                    <h3>💻 ICT Videos</h3>
+
+                    <p>
+                        📚 ICT videos will be added here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- English -->
+    <section class="videos" id="english">
+
+        <h2>🇬🇧 English</h2>
+
+        <div class="video-grid">
+
+            <div class="video-card">
+
+                <div class="video-info">
+
+                    <h3>🇬🇧 English Videos</h3>
+
+                    <p>
+                        📚 English videos will be added here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- History -->
+    <section class="videos" id="history">
+
+        <h2>🏛️ History</h2>
+
+        <div class="video-grid">
+
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/Ko7puJQmYTI" allowfullscreen></iframe>
+                <div class="video-info"><h3>🏛️ History Video 1</h3><p>📖 History lesson</p><span class="live-badge">🔴 LIVE</span></div>
+            </div>
+
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/jn1ZLMuEsA0" allowfullscreen></iframe>
+                <div class="video-info"><h3>🏛️ History Video 2</h3><p>📖 History lesson</p><span class="live-badge">🔴 LIVE</span></div>
+            </div>
+
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/HuDuvQTyL4A" allowfullscreen></iframe>
+                <div class="video-info"><h3>🏛️ History Video 3</h3><p>📖 History lesson</p><span class="live-badge">🔴 LIVE</span></div>
+            </div>
+
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/ZdiqAI4ON50" allowfullscreen></iframe>
+                <div class="video-info"><h3>🏛️ History Video 4</h3><p>📖 History lesson</p><span class="live-badge">🔴 LIVE</span></div>
+            </div>
+
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/NzbkmKruKfw" allowfullscreen></iframe>
+                <div class="video-info"><h3>🏛️ History Video 5</h3><p>📖 History lesson</p><span class="live-badge">🔴 LIVE</span></div>
+            </div>
+
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/5F1fkr1dHZY" allowfullscreen></iframe>
+                <div class="video-info"><h3>🏛️ History Video 6</h3><p>📖 History lesson</p><span class="live-badge">🔴 LIVE</span></div>
+            </div>
+
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/rvT2nNxP57I" allowfullscreen></iframe>
+                <div class="video-info"><h3>🏛️ History Video 7</h3><p>📖 History lesson</p><span class="live-badge">🔴 LIVE</span></div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Sinhala -->
+    <section class="videos" id="sinhala">
+
+        <h2>📝 Sinhala</h2>
+
+        <div class="video-grid">
+
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/11muR__BWzg" allowfullscreen></iframe><div class="video-info"><h3>📝 Sinhala Lesson 1</h3><p>📖 Sinhala lesson</p><span class="live-badge">🔴 LIVE</span></div></div>
+
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/gfg2MZGe03g" allowfullscreen></iframe><div class="video-info"><h3>📝 Sinhala Lesson 2</h3><p>📖 Sinhala lesson</p><span class="live-badge">🔴 LIVE</span></div></div>
+
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/YBiDn_bqEnE" allowfullscreen></iframe><div class="video-info"><h3>📝 Sinhala Lesson 3</h3><p>📖 Sinhala lesson</p><span class="live-badge">🔴 LIVE</span></div></div>
+
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/2ZNVOzibtXg" allowfullscreen></iframe><div class="video-info"><h3>📝 Sinhala Lesson 4</h3><p>📖 Sinhala lesson</p><span class="live-badge">🔴 LIVE</span></div></div>
+
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/mHZPuqOH668" allowfullscreen></iframe><div class="video-info"><h3>📝 Sinhala Lesson 5</h3><p>📖 Sinhala lesson</p><span class="live-badge">🔴 LIVE</span></div></div>
+
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/Lz7KjFhycEw" allowfullscreen></iframe><div class="video-info"><h3>📝 Sinhala Lesson 6</h3><p>📖 Sinhala lesson</p><span class="live-badge">🔴 LIVE</span></div></div>
+
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/PfQv8MhAcAY" allowfullscreen></iframe><div class="video-info"><h3>📝 Sinhala Lesson 7</h3><p>📖 Sinhala lesson</p><span class="live-badge">🔴 LIVE</span></div></div>
+
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/XeuNmk2eh40" allowfullscreen></iframe><div class="video-info"><h3>📝 Sinhala Lesson 8</h3><p>📖 Sinhala lesson</p><span class="live-badge">🔴 LIVE</span></div></div>
+
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/AZjyvHyudME" allowfullscreen></iframe><div class="video-info"><h3>📝 Sinhala Lesson 9</h3><p>📖 Sinhala lesson</p><span class="live-badge">🔴 LIVE</span></div></div>
+
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/GAxRRPEV6jQ" allowfullscreen></iframe><div class="video-info"><h3>📝 Sinhala Lesson 10</h3><p>📖 Sinhala lesson</p><span class="live-badge">🔴 LIVE</span></div></div>
+
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/piFtd6vkQIg" allowfullscreen></iframe><div class="video-info"><h3>📝 Sinhala Lesson 11</h3><p>📖 Sinhala lesson</p><span class="live-badge">🔴 LIVE</span></div></div>
+
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/HhIi0aJy47Q" allowfullscreen></iframe><div class="video-info"><h3>📝 Sinhala Lesson 12</h3><p>📖 Sinhala lesson</p><span class="live-badge">🔴 LIVE</span></div></div>
+
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/hjznr6G8sXM" allowfullscreen></iframe><div class="video-info"><h3>📝 Sinhala Lesson 13</h3><p>📖 Sinhala lesson</p><span class="live-badge">🔴 LIVE</span></div></div>
+
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/36HH8eHGozk" allowfullscreen></iframe><div class="video-info"><h3>📝 Sinhala Lesson 14</h3><p>📖 Sinhala lesson</p><span class="live-badge">🔴 LIVE</span></div></div>
+
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/54dBl1daKSs" allowfullscreen></iframe><div class="video-info"><h3>📝 Sinhala Lesson 15</h3><p>📖 Sinhala lesson</p><span class="live-badge">🔴 LIVE</span></div></div>
+
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/gBrzEbO8nUA" allowfullscreen></iframe><div class="video-info"><h3>📝 Sinhala Lesson 16</h3><p>📖 Sinhala lesson</p><span class="live-badge">🔴 LIVE</span></div></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 EduLearn. All Rights Reserved. 📚
+        </p>
+
+    </footer>
+
+
+    <!-- Search -->
+    <script>
+
+        function searchVideos() {
+
+            let input = document
+                .getElementById("searchInput")
+                .value
+                .toLowerCase()
+                .trim();
+
+            let videos = document.querySelectorAll(".video-card");
+
+            videos.forEach(function(video) {
+
+                let titleElement = video.querySelector("h3");
+
+                if (!titleElement) {
+                    return;
+                }
+
+                let title = titleElement.innerText.toLowerCase();
+
+                if (title.includes(input)) {
+                    video.style.display = "block";
+                } else {
+                    video.style.display = "none";
+                }
+
+            });
+
+        }
+
+    </script>
+
+</body>
+</html>
