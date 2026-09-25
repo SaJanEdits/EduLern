@@ -1,11 +1,12 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Search Console Verification -->
-    <meta name="google-site-verification" content="T9X50zh28h-OUVSkAbQpBpIXp_6jlV_1gj3IwTHCZMw" />
+    <meta name="google-site-verification"
+          content="T9X50zh28h-OUVSkAbQpBpIXp_6jlV_1gj3IwTHCZMw">
 
     <title>EduLearn - Educational Videos</title>
 
@@ -192,6 +193,22 @@
             font-weight: bold;
         }
 
+        /* HISTORY */
+        .history {
+            padding: 40px 5% 60px;
+            background: #f5f5f5;
+        }
+
+        .history h2 {
+            font-size: 28px;
+            margin-bottom: 25px;
+        }
+
+        /* HISTORY VIDEO CARD */
+        .history .video-card {
+            background: white;
+        }
+
         /* ABOUT */
         .about {
             background: white;
@@ -244,7 +261,8 @@
                 font-size: 16px;
             }
 
-            .videos {
+            .videos,
+            .history {
                 padding-left: 15px;
                 padding-right: 15px;
             }
@@ -267,6 +285,7 @@
         </div>
 
         <div class="search">
+
             <input
                 type="text"
                 id="searchInput"
@@ -275,6 +294,7 @@
             >
 
             <button>🔍</button>
+
         </div>
 
         <a href="#" class="login">Login</a>
@@ -313,7 +333,10 @@
 
             <div class="category">English</div>
 
-            <div class="category">History</div>
+            <div class="category"
+                 onclick="document.getElementById('history').scrollIntoView()">
+                History
+            </div>
 
             <div class="category">Sinhala</div>
 
@@ -322,12 +345,12 @@
     </section>
 
 
-    <!-- VIDEOS -->
+    <!-- EDUCATIONAL VIDEOS -->
     <section class="videos" id="videos">
 
         <h2>🎥 Educational Videos</h2>
 
-        <div class="video-grid" id="videoGrid">
+        <div class="video-grid">
 
 
             <!-- VIDEO 1 -->
@@ -359,21 +382,18 @@
             <div class="video-card">
 
                 <iframe
-                    src="https://www.youtube.com/embed/7RN-xcU21J4"
-                    title="Educational Live Class"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    src="https://www.youtube.com/embed/VIDEO_ID_2"
+                    title="Mathematics Lesson"
                     allowfullscreen>
                 </iframe>
 
                 <div class="video-info">
 
-                    <h3>Educational Live Class</h3>
+                    <h3>Mathematics Lesson</h3>
 
                     <p>
-                        Learn through this educational live lesson.
+                        Learn mathematics in an easy way.
                     </p>
-
-                    <span class="live">🔴 LIVE</span>
 
                 </div>
 
@@ -418,6 +438,187 @@
                     <p>
                         Learn computer and technology concepts.
                     </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- HISTORY -->
+    <section class="history" id="history">
+
+        <h2>📚 History</h2>
+
+        <div class="video-grid">
+
+
+            <!-- HISTORY VIDEO 1 -->
+            <div class="video-card">
+
+                <iframe
+                    src="https://www.youtube.com/embed/Ko7puJQmYTI"
+                    title="History Video 1"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="video-info">
+
+                    <h3>History Video 1</h3>
+
+                    <p>
+                        History educational lesson.
+                    </p>
+
+                    <span class="live">🔴 LIVE</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- HISTORY VIDEO 2 -->
+            <div class="video-card">
+
+                <iframe
+                    src="https://www.youtube.com/embed/jn1ZLMuEsA0"
+                    title="History Video 2"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="video-info">
+
+                    <h3>History Video 2</h3>
+
+                    <p>
+                        History educational lesson.
+                    </p>
+
+                    <span class="live">🔴 LIVE</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- HISTORY VIDEO 3 -->
+            <div class="video-card">
+
+                <iframe
+                    src="https://www.youtube.com/embed/HuDuvQTyL4A"
+                    title="History Video 3"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="video-info">
+
+                    <h3>History Video 3</h3>
+
+                    <p>
+                        History educational lesson.
+                    </p>
+
+                    <span class="live">🔴 LIVE</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- HISTORY VIDEO 4 -->
+            <div class="video-card">
+
+                <iframe
+                    src="https://www.youtube.com/embed/ZdiqAI4ON50"
+                    title="History Video 4"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="video-info">
+
+                    <h3>History Video 4</h3>
+
+                    <p>
+                        History educational lesson.
+                    </p>
+
+                    <span class="live">🔴 LIVE</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- HISTORY VIDEO 5 -->
+            <div class="video-card">
+
+                <iframe
+                    src="https://www.youtube.com/embed/NzbkmKruKfw"
+                    title="History Video 5"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="video-info">
+
+                    <h3>History Video 5</h3>
+
+                    <p>
+                        History educational lesson.
+                    </p>
+
+                    <span class="live">🔴 LIVE</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- HISTORY VIDEO 6 -->
+            <div class="video-card">
+
+                <iframe
+                    src="https://www.youtube.com/embed/5F1fkr1dHZY"
+                    title="History Video 6"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="video-info">
+
+                    <h3>History Video 6</h3>
+
+                    <p>
+                        History educational lesson.
+                    </p>
+
+                    <span class="live">🔴 LIVE</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- HISTORY VIDEO 7 -->
+            <div class="video-card">
+
+                <iframe
+                    src="https://www.youtube.com/embed/rvT2nNxP57I"
+                    title="History Video 7"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="video-info">
+
+                    <h3>History Video 7</h3>
+
+                    <p>
+                        History educational lesson.
+                    </p>
+
+                    <span class="live">🔴 LIVE</span>
 
                 </div>
 
@@ -491,3 +692,4 @@
 
 </body>
 </html>
+```
