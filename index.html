@@ -17,6 +17,10 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: Arial, sans-serif;
             background: #f5f5f5;
@@ -126,11 +130,13 @@
             border-radius: 25px;
             cursor: pointer;
             box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            transition: 0.2s;
         }
 
         .category:hover {
             background: #e60023;
             color: white;
+            transform: translateY(-2px);
         }
 
         /* VIDEOS */
@@ -193,20 +199,28 @@
             font-weight: bold;
         }
 
+        /* SCIENCE */
+        .science {
+            padding: 40px 5% 60px;
+            background: #eef7ff;
+            scroll-margin-top: 80px;
+        }
+
+        .science h2 {
+            font-size: 30px;
+            margin-bottom: 25px;
+        }
+
         /* HISTORY */
         .history {
             padding: 40px 5% 60px;
             background: #f5f5f5;
+            scroll-margin-top: 80px;
         }
 
         .history h2 {
-            font-size: 28px;
+            font-size: 30px;
             margin-bottom: 25px;
-        }
-
-        /* HISTORY VIDEO CARD */
-        .history .video-card {
-            background: white;
         }
 
         /* ABOUT */
@@ -262,7 +276,8 @@
             }
 
             .videos,
-            .history {
+            .history,
+            .science {
                 padding-left: 15px;
                 padding-right: 15px;
             }
@@ -293,7 +308,7 @@
                 onkeyup="searchVideos()"
             >
 
-            <button>🔍</button>
+            <button onclick="searchVideos()">🔍</button>
 
         </div>
 
@@ -325,27 +340,42 @@
 
         <div class="category-list">
 
-            <div class="category">Mathematics</div>
+            <div class="category"
+                 onclick="document.getElementById('mathematics').scrollIntoView()">
+                Mathematics
+            </div>
 
-            <div class="category">Science</div>
+            <div class="category"
+                 onclick="document.getElementById('science').scrollIntoView()">
+                Science
+            </div>
 
-            <div class="category">ICT</div>
+            <div class="category"
+                 onclick="document.getElementById('ict').scrollIntoView()">
+                ICT
+            </div>
 
-            <div class="category">English</div>
+            <div class="category"
+                 onclick="document.getElementById('english').scrollIntoView()">
+                English
+            </div>
 
             <div class="category"
                  onclick="document.getElementById('history').scrollIntoView()">
                 History
             </div>
 
-            <div class="category">Sinhala</div>
+            <div class="category"
+                 onclick="document.getElementById('sinhala').scrollIntoView()">
+                Sinhala
+            </div>
 
         </div>
 
     </section>
 
 
-    <!-- EDUCATIONAL VIDEOS -->
+    <!-- MAIN EDUCATIONAL VIDEOS -->
     <section class="videos" id="videos">
 
         <h2>🎥 Educational Videos</h2>
@@ -448,7 +478,291 @@
     </section>
 
 
-    <!-- HISTORY -->
+    <!-- SCIENCE SECTION -->
+    <section class="science" id="science">
+
+        <h2>🔬 Science</h2>
+
+        <div class="video-grid">
+
+
+            <!-- SCIENCE VIDEO 1 -->
+            <div class="video-card">
+
+                <iframe
+                    src="https://www.youtube.com/embed/HWdIu5-LHhc"
+                    title="Science Lesson 1"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="video-info">
+                    <h3>Science Lesson 1</h3>
+                    <p>Science educational lesson.</p>
+                </div>
+
+            </div>
+
+
+            <!-- SCIENCE VIDEO 2 -->
+            <div class="video-card">
+
+                <iframe
+                    src="https://www.youtube.com/embed/viqFacbGkbA"
+                    title="Science Lesson 2"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="video-info">
+                    <h3>Science Lesson 2</h3>
+                    <p>Science educational lesson.</p>
+                </div>
+
+            </div>
+
+
+            <!-- SCIENCE VIDEO 3 -->
+            <div class="video-card">
+
+                <iframe
+                    src="https://www.youtube.com/embed/EE1m5Bd_MCM"
+                    title="Science Lesson 3"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="video-info">
+                    <h3>Science Lesson 3</h3>
+                    <p>Science educational lesson.</p>
+                </div>
+
+            </div>
+
+
+            <!-- SCIENCE VIDEO 4 -->
+            <div class="video-card">
+
+                <iframe
+                    src="https://www.youtube.com/embed/c3bEJbE-zDM"
+                    title="Science Lesson 4"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="video-info">
+                    <h3>Science Lesson 4</h3>
+                    <p>Science educational lesson.</p>
+                </div>
+
+            </div>
+
+
+            <!-- SCIENCE VIDEO 5 -->
+            <div class="video-card">
+
+                <iframe
+                    src="https://www.youtube.com/embed/Vu7itzyGsqE"
+                    title="Science Lesson 5"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="video-info">
+                    <h3>Science Lesson 5</h3>
+                    <p>Science educational lesson.</p>
+                </div>
+
+            </div>
+
+
+            <!-- SCIENCE VIDEO 6 -->
+            <div class="video-card">
+
+                <iframe
+                    src="https://www.youtube.com/embed/VWgj5EKfbOA"
+                    title="Science Lesson 6"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="video-info">
+                    <h3>Science Lesson 6</h3>
+                    <p>Science educational lesson.</p>
+                </div>
+
+            </div>
+
+
+            <!-- SCIENCE VIDEO 7 -->
+            <div class="video-card">
+
+                <iframe
+                    src="https://www.youtube.com/embed/rV0cEYnjLqA"
+                    title="Science Lesson 7"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="video-info">
+                    <h3>Science Lesson 7</h3>
+                    <p>Science educational lesson.</p>
+                </div>
+
+            </div>
+
+
+            <!-- SCIENCE VIDEO 8 -->
+            <div class="video-card">
+
+                <iframe
+                    src="https://www.youtube.com/embed/_QPePE5B2LI"
+                    title="Science Lesson 8"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="video-info">
+                    <h3>Science Lesson 8</h3>
+                    <p>Science educational lesson.</p>
+                </div>
+
+            </div>
+
+
+            <!-- SCIENCE VIDEO 9 -->
+            <div class="video-card">
+
+                <iframe
+                    src="https://www.youtube.com/embed/WYdefiJgpPs"
+                    title="Science Lesson 9"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="video-info">
+                    <h3>Science Lesson 9</h3>
+                    <p>Science educational lesson.</p>
+                </div>
+
+            </div>
+
+
+            <!-- SCIENCE VIDEO 10 -->
+            <div class="video-card">
+
+                <iframe
+                    src="https://www.youtube.com/embed/UAG_4Lrg5AQ"
+                    title="Science Lesson 10"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="video-info">
+                    <h3>Science Lesson 10</h3>
+                    <p>Science educational lesson.</p>
+                </div>
+
+            </div>
+
+
+            <!-- SCIENCE VIDEO 11 -->
+            <div class="video-card">
+
+                <iframe
+                    src="https://www.youtube.com/embed/tlCXXAa_7m0"
+                    title="Science Lesson 11"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="video-info">
+                    <h3>Science Lesson 11</h3>
+                    <p>Science educational lesson.</p>
+                </div>
+
+            </div>
+
+
+            <!-- SCIENCE VIDEO 12 -->
+            <div class="video-card">
+
+                <iframe
+                    src="https://www.youtube.com/embed/k4SI1NFwmyk"
+                    title="Science Lesson 12"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="video-info">
+                    <h3>Science Lesson 12</h3>
+                    <p>Science educational lesson.</p>
+                </div>
+
+            </div>
+
+
+            <!-- SCIENCE VIDEO 13 -->
+            <div class="video-card">
+
+                <iframe
+                    src="https://www.youtube.com/embed/3AYxCrgwLsk"
+                    title="Science Lesson 13"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="video-info">
+                    <h3>Science Lesson 13</h3>
+                    <p>Science educational lesson.</p>
+                </div>
+
+            </div>
+
+
+            <!-- SCIENCE VIDEO 14 -->
+            <div class="video-card">
+
+                <iframe
+                    src="https://www.youtube.com/embed/tOJv8Zcs2Rg"
+                    title="Science Lesson 14"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="video-info">
+                    <h3>Science Lesson 14</h3>
+                    <p>Science educational lesson.</p>
+                </div>
+
+            </div>
+
+
+            <!-- SCIENCE VIDEO 15 -->
+            <div class="video-card">
+
+                <iframe
+                    src="https://www.youtube.com/embed/EKkPdSYd3fM"
+                    title="Science Lesson 15"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="video-info">
+                    <h3>Science Lesson 15</h3>
+                    <p>Science educational lesson.</p>
+                </div>
+
+            </div>
+
+
+            <!-- SCIENCE VIDEO 16 -->
+            <div class="video-card">
+
+                <iframe
+                    src="https://www.youtube.com/embed/Tl5mMhOPCmg"
+                    title="Science Lesson 16"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="video-info">
+                    <h3>Science Lesson 16</h3>
+                    <p>Science educational lesson.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- HISTORY SECTION -->
     <section class="history" id="history">
 
         <h2>📚 History</h2>
@@ -462,20 +776,13 @@
                 <iframe
                     src="https://www.youtube.com/embed/Ko7puJQmYTI"
                     title="History Video 1"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
                 </iframe>
 
                 <div class="video-info">
-
                     <h3>History Video 1</h3>
-
-                    <p>
-                        History educational lesson.
-                    </p>
-
+                    <p>History educational lesson.</p>
                     <span class="live">🔴 LIVE</span>
-
                 </div>
 
             </div>
@@ -491,15 +798,9 @@
                 </iframe>
 
                 <div class="video-info">
-
                     <h3>History Video 2</h3>
-
-                    <p>
-                        History educational lesson.
-                    </p>
-
+                    <p>History educational lesson.</p>
                     <span class="live">🔴 LIVE</span>
-
                 </div>
 
             </div>
@@ -515,15 +816,9 @@
                 </iframe>
 
                 <div class="video-info">
-
                     <h3>History Video 3</h3>
-
-                    <p>
-                        History educational lesson.
-                    </p>
-
+                    <p>History educational lesson.</p>
                     <span class="live">🔴 LIVE</span>
-
                 </div>
 
             </div>
@@ -539,15 +834,9 @@
                 </iframe>
 
                 <div class="video-info">
-
                     <h3>History Video 4</h3>
-
-                    <p>
-                        History educational lesson.
-                    </p>
-
+                    <p>History educational lesson.</p>
                     <span class="live">🔴 LIVE</span>
-
                 </div>
 
             </div>
@@ -563,15 +852,9 @@
                 </iframe>
 
                 <div class="video-info">
-
                     <h3>History Video 5</h3>
-
-                    <p>
-                        History educational lesson.
-                    </p>
-
+                    <p>History educational lesson.</p>
                     <span class="live">🔴 LIVE</span>
-
                 </div>
 
             </div>
@@ -587,15 +870,9 @@
                 </iframe>
 
                 <div class="video-info">
-
                     <h3>History Video 6</h3>
-
-                    <p>
-                        History educational lesson.
-                    </p>
-
+                    <p>History educational lesson.</p>
                     <span class="live">🔴 LIVE</span>
-
                 </div>
 
             </div>
@@ -611,17 +888,87 @@
                 </iframe>
 
                 <div class="video-info">
-
                     <h3>History Video 7</h3>
-
-                    <p>
-                        History educational lesson.
-                    </p>
-
+                    <p>History educational lesson.</p>
                     <span class="live">🔴 LIVE</span>
-
                 </div>
 
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MATHEMATICS -->
+    <section class="videos" id="mathematics">
+
+        <h2>📐 Mathematics</h2>
+
+        <div class="video-grid">
+
+            <div class="video-card">
+                <div class="video-info">
+                    <h3>Mathematics</h3>
+                    <p>Mathematics videos will be added here.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ICT -->
+    <section class="videos" id="ict">
+
+        <h2>💻 ICT</h2>
+
+        <div class="video-grid">
+
+            <div class="video-card">
+                <div class="video-info">
+                    <h3>ICT</h3>
+                    <p>ICT videos will be added here.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ENGLISH -->
+    <section class="videos" id="english">
+
+        <h2>🇬🇧 English</h2>
+
+        <div class="video-grid">
+
+            <div class="video-card">
+                <div class="video-info">
+                    <h3>English</h3>
+                    <p>English videos will be added here.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SINHALA -->
+    <section class="videos" id="sinhala">
+
+        <h2>🇱🇰 Sinhala</h2>
+
+        <div class="video-grid">
+
+            <div class="video-card">
+                <div class="video-info">
+                    <h3>Sinhala</h3>
+                    <p>Sinhala videos will be added here.</p>
+                </div>
             </div>
 
         </div>
@@ -662,17 +1009,23 @@
             let input =
                 document.getElementById("searchInput")
                 .value
-                .toLowerCase();
+                .toLowerCase()
+                .trim();
 
             let videos =
                 document.querySelectorAll(".video-card");
 
             videos.forEach(function(video) {
 
+                let titleElement =
+                    video.querySelector("h3");
+
+                if (!titleElement) {
+                    return;
+                }
+
                 let title =
-                    video.querySelector("h3")
-                    .innerText
-                    .toLowerCase();
+                    titleElement.innerText.toLowerCase();
 
                 if (title.includes(input)) {
 
