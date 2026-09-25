@@ -28,7 +28,6 @@
         color: #222;
     }
 
-    /* HEADER */
     header {
         height: 70px;
         background: white;
@@ -39,7 +38,7 @@
         position: sticky;
         top: 0;
         z-index: 1000;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
     }
 
     .logo {
@@ -71,7 +70,6 @@
         font-weight: bold;
     }
 
-    /* HERO */
     .hero {
         background: linear-gradient(135deg, #e50914, #8b0000);
         color: white;
@@ -101,7 +99,6 @@
         font-size: 15px;
     }
 
-    /* CATEGORIES */
     .categories {
         display: flex;
         justify-content: center;
@@ -126,7 +123,6 @@
         transform: translateY(-2px);
     }
 
-    /* VIDEO SECTIONS */
     .videos {
         padding: 55px 6%;
         scroll-margin-top: 80px;
@@ -148,14 +144,14 @@
         background: white;
         border-radius: 12px;
         overflow: hidden;
-        box-shadow: 0 3px 12px rgba(0,0,0,0.10);
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.10);
         position: relative;
         transition: 0.3s;
     }
 
     .video-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     }
 
     .video-card iframe {
@@ -188,7 +184,6 @@
         font-weight: bold;
     }
 
-    /* SECTION BACKGROUNDS */
     #videos {
         background: #ffffff;
     }
@@ -217,18 +212,14 @@
         background: #fff0f5;
     }
 
-    /* FOOTER */
     footer {
         background: #222;
         color: white;
         text-align: center;
         padding: 25px;
-        margin-top: 20px;
     }
 
-    /* MOBILE */
     @media (max-width: 700px) {
-
         header {
             height: auto;
             padding: 15px 5%;
@@ -281,14 +272,10 @@
 
 <body>
 
-<!-- HEADER -->
-
 <header>
 
 ```
-<div class="logo">
-    EduLearn
-</div>
+<div class="logo">EduLearn</div>
 
 <div class="search-box">
     <input
@@ -299,14 +286,10 @@
     >
 </div>
 
-<a href="#" class="login-btn">
-    Login
-</a>
+<a href="#" class="login-btn">Login</a>
 ```
 
 </header>
-
-<!-- HERO -->
 
 <section class="hero">
 
@@ -317,883 +300,27 @@
     Educational videos for your learning journey
 </p>
 
-<button class="start-btn"
-    onclick="document.getElementById('videos').scrollIntoView()">
+<button
+    class="start-btn"
+    onclick="document.getElementById('videos').scrollIntoView()"
+>
     Start Learning
 </button>
 ```
 
 </section>
 
-<!-- CATEGORIES -->
-
 <div class="categories">
 
 ```
-<div class="category"
-    onclick="document.getElementById('mathematics').scrollIntoView()">
+<div
+    class="category"
+    onclick="document.getElementById('mathematics').scrollIntoView()"
+>
     Mathematics
 </div>
 
-<div class="category"
-    onclick="document.getElementById('science').scrollIntoView()">
-    Science
-</div>
-
-<div class="category"
-    onclick="document.getElementById('ict').scrollIntoView()">
-    ICT
-</div>
-
-<div class="category"
-    onclick="document.getElementById('english').scrollIntoView()">
-    English
-</div>
-
-<div class="category"
-    onclick="document.getElementById('history').scrollIntoView()">
-    History
-</div>
-
-<div class="category"
-    onclick="document.getElementById('sinhala').scrollIntoView()">
-    Sinhala
-</div>
+<div
+    class="category"
+    onclick="document.getElementById('science').scrollIntoView(
 ```
-
-</div>
-
-<!-- MAIN EDUCATIONAL VIDEOS -->
-
-<section class="videos" id="videos">
-
-```
-<h2>Educational Videos</h2>
-
-<div class="video-grid">
-
-    <div class="video-card">
-
-        <iframe
-            src="https://www.youtube.com/embed/EE1m5Bd_MCM"
-            title="Educational Live Class"
-            allowfullscreen>
-        </iframe>
-
-        <span class="live-badge">LIVE</span>
-
-        <h3>Educational Live Class</h3>
-
-        <p>
-            Educational live class
-        </p>
-
-    </div>
-
-
-    <div class="video-card">
-
-        <iframe
-            src="https://www.youtube.com/embed/VIDEO_ID_2"
-            title="Mathematics Lesson"
-            allowfullscreen>
-        </iframe>
-
-        <h3>Mathematics Lesson</h3>
-
-        <p>
-            Mathematics educational video
-        </p>
-
-    </div>
-
-
-    <div class="video-card">
-
-        <iframe
-            src="https://www.youtube.com/embed/VIDEO_ID_3"
-            title="Science Lesson"
-            allowfullscreen>
-        </iframe>
-
-        <h3>Science Lesson</h3>
-
-        <p>
-            Science educational video
-        </p>
-
-    </div>
-
-
-    <div class="video-card">
-
-        <iframe
-            src="https://www.youtube.com/embed/VIDEO_ID_4"
-            title="ICT Lesson"
-            allowfullscreen>
-        </iframe>
-
-        <h3>ICT Lesson</h3>
-
-        <p>
-            ICT educational video
-        </p>
-
-    </div>
-
-</div>
-```
-
-</section>
-
-<!-- ====================================================== -->
-
-<!-- MATHEMATICS -->
-
-<!-- ====================================================== -->
-
-<section class="videos" id="mathematics">
-
-```
-<h2>Mathematics</h2>
-
-<div class="video-grid">
-
-
-    <div class="video-card">
-
-        <iframe
-            src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BJXF6sPtJVIfdk9h0OyUepx"
-            title="Mathematics Playlist 1"
-            allowfullscreen>
-        </iframe>
-
-        <h3>Mathematics Playlist 1</h3>
-
-        <p>
-            Mathematics lessons
-        </p>
-
-    </div>
-
-
-    <div class="video-card">
-
-        <iframe
-            src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BL2Z0BYfQCMzpmj3PXoRgGn"
-            title="Mathematics Playlist 2"
-            allowfullscreen>
-        </iframe>
-
-        <h3>Mathematics Playlist 2</h3>
-
-        <p>
-            Mathematics lessons
-        </p>
-
-    </div>
-
-
-    <div class="video-card">
-
-        <iframe
-            src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BKKdJWRKNovRXdNsJr-t6pl"
-            title="Mathematics Playlist 3"
-            allowfullscreen>
-        </iframe>
-
-        <h3>Mathematics Playlist 3</h3>
-
-        <p>
-            Mathematics lessons
-        </p>
-
-    </div>
-
-
-    <div class="video-card">
-
-        <iframe
-            src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BIXRADTlGXr2pOTkxJEo40B"
-            title="Mathematics Playlist 4"
-            allowfullscreen>
-        </iframe>
-
-        <h3>Mathematics Playlist 4</h3>
-
-        <p>
-            Mathematics lessons
-        </p>
-
-    </div>
-
-
-    <div class="video-card">
-
-        <iframe
-            src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BIcZhRjwKayVTrSrz1YnA8Q"
-            title="Mathematics Playlist 5"
-            allowfullscreen>
-        </iframe>
-
-        <h3>Mathematics Playlist 5</h3>
-
-        <p>
-            Mathematics lessons
-        </p>
-
-    </div>
-
-
-    <div class="video-card">
-
-        <iframe
-            src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BJ2SfECDscWQjwkUmtlgmYa"
-            title="Mathematics Playlist 6"
-            allowfullscreen>
-        </iframe>
-
-        <h3>Mathematics Playlist 6</h3>
-
-        <p>
-            Mathematics lessons
-        </p>
-
-    </div>
-
-
-    <div class="video-card">
-
-        <iframe
-            src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BK8BP4OvmSq8h2TYwFMLy6w"
-            title="Mathematics Playlist 7"
-            allowfullscreen>
-        </iframe>
-
-        <h3>Mathematics Playlist 7</h3>
-
-        <p>
-            Mathematics lessons
-        </p>
-
-    </div>
-
-
-    <div class="video-card">
-
-        <iframe
-            src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BJ_KTPY-6vebFKFg2xAy6uM"
-            title="Mathematics Playlist 8"
-            allowfullscreen>
-        </iframe>
-
-        <h3>Mathematics Playlist 8</h3>
-
-        <p>
-            Mathematics lessons
-        </p>
-
-    </div>
-
-
-    <div class="video-card">
-
-        <iframe
-            src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BKAVOfPq5yJAG0NWKfDC9tJ"
-            title="Mathematics Playlist 9"
-            allowfullscreen>
-        </iframe>
-
-        <h3>Mathematics Playlist 9</h3>
-
-        <p>
-            Mathematics lessons
-        </p>
-
-    </div>
-
-
-    <div class="video-card">
-
-        <iframe
-            src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BK1EaVLY8IaWBo4Z_Ea9f6o"
-            title="Mathematics Playlist 10"
-            allowfullscreen>
-        </iframe>
-
-        <h3>Mathematics Playlist 10</h3>
-
-        <p>
-            Mathematics lessons
-        </p>
-
-    </div>
-
-
-    <div class="video-card">
-
-        <iframe
-            src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BI-MItQMGgeSdIrh6fENmJH"
-            title="Mathematics Playlist 11"
-            allowfullscreen>
-        </iframe>
-
-        <h3>Mathematics Playlist 11</h3>
-
-        <p>
-            Mathematics lessons
-        </p>
-
-    </div>
-
-
-    <div class="video-card">
-
-        <iframe
-            src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BK5UHYttmBKlpOo0lmG8b18"
-            title="Mathematics Playlist 12"
-            allowfullscreen>
-        </iframe>
-
-        <h3>Mathematics Playlist 12</h3>
-
-        <p>
-            Mathematics lessons
-        </p>
-
-    </div>
-
-
-    <div class="video-card">
-
-        <iframe
-            src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BLjuCdG9-a294a8vz7c1e1A"
-            title="Mathematics Playlist 13"
-            allowfullscreen>
-        </iframe>
-
-        <h3>Mathematics Playlist 13</h3>
-
-        <p>
-            Mathematics lessons
-        </p>
-
-    </div>
-
-</div>
-```
-
-</section>
-
-<!-- ====================================================== -->
-
-<!-- SCIENCE -->
-
-<!-- ====================================================== -->
-
-<section class="videos" id="science">
-
-```
-<h2>Science</h2>
-
-<div class="video-grid">
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/HWdIu5-LHhc"
-            title="Science Lesson 1" allowfullscreen></iframe>
-        <h3>Science Lesson 1</h3>
-        <p>Science educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/viqFacbGkbA"
-            title="Science Lesson 2" allowfullscreen></iframe>
-        <h3>Science Lesson 2</h3>
-        <p>Science educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/EE1m5Bd_MCM"
-            title="Science Lesson 3" allowfullscreen></iframe>
-        <h3>Science Lesson 3</h3>
-        <p>Science educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/c3bEJbE-zDM"
-            title="Science Lesson 4" allowfullscreen></iframe>
-        <h3>Science Lesson 4</h3>
-        <p>Science educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/Vu7itzyGsqE"
-            title="Science Lesson 5" allowfullscreen></iframe>
-        <h3>Science Lesson 5</h3>
-        <p>Science educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/VWgj5EKfbOA"
-            title="Science Lesson 6" allowfullscreen></iframe>
-        <h3>Science Lesson 6</h3>
-        <p>Science educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/rV0cEYnjLqA"
-            title="Science Lesson 7" allowfullscreen></iframe>
-        <h3>Science Lesson 7</h3>
-        <p>Science educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/_QPePE5B2LI"
-            title="Science Lesson 8" allowfullscreen></iframe>
-        <h3>Science Lesson 8</h3>
-        <p>Science educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/WYdefiJgpPs"
-            title="Science Lesson 9" allowfullscreen></iframe>
-        <h3>Science Lesson 9</h3>
-        <p>Science educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/UAG_4Lrg5AQ"
-            title="Science Lesson 10" allowfullscreen></iframe>
-        <h3>Science Lesson 10</h3>
-        <p>Science educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/tlCXXAa_7m0"
-            title="Science Lesson 11" allowfullscreen></iframe>
-        <h3>Science Lesson 11</h3>
-        <p>Science educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/k4SI1NFwmyk"
-            title="Science Lesson 12" allowfullscreen></iframe>
-        <h3>Science Lesson 12</h3>
-        <p>Science educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/3AYxCrgwLsk"
-            title="Science Lesson 13" allowfullscreen></iframe>
-        <h3>Science Lesson 13</h3>
-        <p>Science educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/tOJv8Zcs2Rg"
-            title="Science Lesson 14" allowfullscreen></iframe>
-        <h3>Science Lesson 14</h3>
-        <p>Science educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/EKkPdSYd3fM"
-            title="Science Lesson 15" allowfullscreen></iframe>
-        <h3>Science Lesson 15</h3>
-        <p>Science educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/Tl5mMhOPCmg"
-            title="Science Lesson 16" allowfullscreen></iframe>
-        <h3>Science Lesson 16</h3>
-        <p>Science educational video</p>
-    </div>
-
-</div>
-```
-
-</section>
-
-<!-- ====================================================== -->
-
-<!-- HISTORY -->
-
-<!-- ====================================================== -->
-
-<section class="videos" id="history">
-
-```
-<h2>History</h2>
-
-<div class="video-grid">
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/Ko7puJQmYTI"
-            title="History Video 1" allowfullscreen></iframe>
-        <span class="live-badge">LIVE</span>
-        <h3>History Video 1</h3>
-        <p>History educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/jn1ZLMuEsA0"
-            title="History Video 2" allowfullscreen></iframe>
-        <span class="live-badge">LIVE</span>
-        <h3>History Video 2</h3>
-        <p>History educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/HuDuvQTyL4A"
-            title="History Video 3" allowfullscreen></iframe>
-        <span class="live-badge">LIVE</span>
-        <h3>History Video 3</h3>
-        <p>History educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/ZdiqAI4ON50"
-            title="History Video 4" allowfullscreen></iframe>
-        <span class="live-badge">LIVE</span>
-        <h3>History Video 4</h3>
-        <p>History educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/NzbkmKruKfw"
-            title="History Video 5" allowfullscreen></iframe>
-        <span class="live-badge">LIVE</span>
-        <h3>History Video 5</h3>
-        <p>History educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/5F1fkr1dHZY"
-            title="History Video 6" allowfullscreen></iframe>
-        <span class="live-badge">LIVE</span>
-        <h3>History Video 6</h3>
-        <p>History educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/rvT2nNxP57I"
-            title="History Video 7" allowfullscreen></iframe>
-        <span class="live-badge">LIVE</span>
-        <h3>History Video 7</h3>
-        <p>History educational video</p>
-    </div>
-
-</div>
-```
-
-</section>
-
-<!-- ====================================================== -->
-
-<!-- SINHALA -->
-
-<!-- ====================================================== -->
-
-<section class="videos" id="sinhala">
-
-```
-<h2>Sinhala</h2>
-
-<div class="video-grid">
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/11muR__BWzg"
-            title="Sinhala Lesson 1" allowfullscreen></iframe>
-        <span class="live-badge">LIVE</span>
-        <h3>Sinhala Lesson 1</h3>
-        <p>Sinhala educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/gfg2MZGe03g"
-            title="Sinhala Lesson 2" allowfullscreen></iframe>
-        <span class="live-badge">LIVE</span>
-        <h3>Sinhala Lesson 2</h3>
-        <p>Sinhala educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/YBiDn_bqEnE"
-            title="Sinhala Lesson 3" allowfullscreen></iframe>
-        <span class="live-badge">LIVE</span>
-        <h3>Sinhala Lesson 3</h3>
-        <p>Sinhala educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/2ZNVOzibtXg"
-            title="Sinhala Lesson 4" allowfullscreen></iframe>
-        <span class="live-badge">LIVE</span>
-        <h3>Sinhala Lesson 4</h3>
-        <p>Sinhala educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/mHZPuqOH668"
-            title="Sinhala Lesson 5" allowfullscreen></iframe>
-        <span class="live-badge">LIVE</span>
-        <h3>Sinhala Lesson 5</h3>
-        <p>Sinhala educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/Lz7KjFhycEw"
-            title="Sinhala Lesson 6" allowfullscreen></iframe>
-        <span class="live-badge">LIVE</span>
-        <h3>Sinhala Lesson 6</h3>
-        <p>Sinhala educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/PfQv8MhAcAY"
-            title="Sinhala Lesson 7" allowfullscreen></iframe>
-        <span class="live-badge">LIVE</span>
-        <h3>Sinhala Lesson 7</h3>
-        <p>Sinhala educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/XeuNmk2eh40"
-            title="Sinhala Lesson 8" allowfullscreen></iframe>
-        <span class="live-badge">LIVE</span>
-        <h3>Sinhala Lesson 8</h3>
-        <p>Sinhala educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/AZjyvHyudME"
-            title="Sinhala Lesson 9" allowfullscreen></iframe>
-        <span class="live-badge">LIVE</span>
-        <h3>Sinhala Lesson 9</h3>
-        <p>Sinhala educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/GAxRRPEV6jQ"
-            title="Sinhala Lesson 10" allowfullscreen></iframe>
-        <span class="live-badge">LIVE</span>
-        <h3>Sinhala Lesson 10</h3>
-        <p>Sinhala educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/piFtd6vkQIg"
-            title="Sinhala Lesson 11" allowfullscreen></iframe>
-        <span class="live-badge">LIVE</span>
-        <h3>Sinhala Lesson 11</h3>
-        <p>Sinhala educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/HhIi0aJy47Q"
-            title="Sinhala Lesson 12" allowfullscreen></iframe>
-        <span class="live-badge">LIVE</span>
-        <h3>Sinhala Lesson 12</h3>
-        <p>Sinhala educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/hjznr6G8sXM"
-            title="Sinhala Lesson 13" allowfullscreen></iframe>
-        <span class="live-badge">LIVE</span>
-        <h3>Sinhala Lesson 13</h3>
-        <p>Sinhala educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/36HH8eHGozk"
-            title="Sinhala Lesson 14" allowfullscreen></iframe>
-        <span class="live-badge">LIVE</span>
-        <h3>Sinhala Lesson 14</h3>
-        <p>Sinhala educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/54dBl1daKSs"
-            title="Sinhala Lesson 15" allowfullscreen></iframe>
-        <span class="live-badge">LIVE</span>
-        <h3>Sinhala Lesson 15</h3>
-        <p>Sinhala educational video</p>
-    </div>
-
-
-    <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/gBrzEbO8nUA"
-            title="Sinhala Lesson 16" allowfullscreen></iframe>
-        <span class="live-badge">LIVE</span>
-        <h3>Sinhala Lesson 16</h3>
-        <p>Sinhala educational video</p>
-    </div>
-
-</div>
-```
-
-</section>
-
-<!-- ====================================================== -->
-
-<!-- ICT -->
-
-<!-- ====================================================== -->
-
-<section class="videos" id="ict">
-
-```
-<h2>ICT</h2>
-
-<div class="video-grid">
-
-    <div class="video-card">
-
-        <iframe
-            src="https://www.youtube.com/embed/VIDEO_ID_4"
-            title="ICT Lesson"
-            allowfullscreen>
-        </iframe>
-
-        <h3>ICT Lesson</h3>
-
-        <p>
-            ICT educational video
-        </p>
-
-    </div>
-
-</div>
-```
-
-</section>
-
-<!-- ====================================================== -->
-
-<!-- ENGLISH -->
-
-<!-- ====================================================== -->
-
-<section class="videos" id="english">
-
-```
-<h2>English</h2>
-
-<div class="video-grid">
-
-    <div class="video-card">
-
-        <iframe
-            src="https://www.youtube.com/embed/VIDEO_ID_5"
-            title="English Lesson"
-            allowfullscreen>
-        </iframe>
-
-        <h3>English Lesson</h3>
-
-        <p>
-            English educational video
-        </p>
-
-    </div>
-
-</div>
-```
-
-</section>
-
-<!-- FOOTER -->
-
-<footer>
-
-```
-<p>
-    © 2026 EduLearn. All Rights Reserved.
-</p>
-```
-
-</footer>
-
-<!-- SEARCH SCRIPT -->
-
-<script>
-
-function searchVideos() {
-
-    let input =
-        document.getElementById("searchInput")
-        .value
-        .toLowerCase()
-        .trim();
-
-    let videos =
-        document.querySelectorAll(".video-card");
-
-    videos.forEach(function(video) {
-
-        let titleElement =
-            video.querySelector("h3");
-
-        if (!titleElement) return;
-
-        let title =
-            titleElement.innerText.toLowerCase();
-
-        if (title.includes(input)) {
-
-            video.style.display = "block";
-
-        } else {
-
-            video.style.display = "none";
-
-        }
-
-    });
-
-}
-
-</script>
-
-</body>
-</html>
