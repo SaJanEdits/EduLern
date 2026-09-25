@@ -2,22 +2,29 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta name="google-site-verification"
 content="T9X50zh28h-OUVSkAbQpBpIXp_6jlV_1gj3IwTHCZMw">
 
-<title>EduLearn | Learn Better</title>
+<title>EduLearn - Online Learning Platform</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
 }
 
 html{
@@ -27,61 +34,86 @@ html{
 body{
     font-family:"Quicksand",Arial,sans-serif;
     background:
-        radial-gradient(circle at 10% 10%,rgba(0,200,255,.12),transparent 30%),
-        radial-gradient(circle at 90% 20%,rgba(120,70,255,.12),transparent 30%),
-        linear-gradient(135deg,#f7fbff,#eef3ff);
-    color:#172033;
+        radial-gradient(circle at top left,#dbeafe 0%,transparent 35%),
+        radial-gradient(circle at bottom right,#fce7f3 0%,transparent 35%),
+        linear-gradient(135deg,#f8fafc,#eef2ff);
+    color:#1e293b;
     min-height:100vh;
 }
 
-/* HEADER */
+button,
+input{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+a{
+    text-decoration:none;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
 header{
     position:sticky;
     top:0;
-    z-index:1000;
-    padding:14px 5%;
+    z-index:9999;
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    background:rgba(255,255,255,.82);
+    border-bottom:1px solid rgba(148,163,184,.25);
+    box-shadow:0 8px 30px rgba(15,23,42,.08);
+}
+
+.navbar{
+    max-width:1400px;
+    margin:auto;
+    padding:14px 22px;
     display:flex;
     align-items:center;
-    gap:18px;
+    gap:14px;
     flex-wrap:wrap;
-    background:rgba(255,255,255,.82);
-    backdrop-filter:blur(18px);
-    border-bottom:1px solid rgba(255,255,255,.7);
-    box-shadow:0 8px 30px rgba(35,50,90,.08);
 }
 
 .logo{
-    font-size:26px;
+    font-size:25px;
     font-weight:700;
-    color:#315bea;
-    cursor:pointer;
+    color:#4f46e5;
+    margin-right:10px;
     white-space:nowrap;
 }
 
-.nav{
+.nav-links{
     display:flex;
-    gap:8px;
+    gap:7px;
     flex-wrap:wrap;
 }
 
-.nav button,
-.login-btn{
-    border:0;
-    padding:10px 14px;
-    border-radius:14px;
+.nav-btn{
+    border:none;
     background:transparent;
-    color:#30394f;
-    font-family:inherit;
-    font-weight:600;
-    cursor:pointer;
+    padding:10px 14px;
+    border-radius:12px;
+    font-weight:700;
+    color:#475569;
     transition:.25s;
 }
 
-.nav button:hover,
-.login-btn:hover{
-    background:#e9efff;
-    color:#315bea;
+.nav-btn:hover{
+    background:#eef2ff;
+    color:#4f46e5;
     transform:translateY(-2px);
+}
+
+.nav-btn.active{
+    background:linear-gradient(135deg,#6366f1,#8b5cf6);
+    color:white;
+    box-shadow:0 8px 20px rgba(99,102,241,.25);
 }
 
 .search-box{
@@ -90,47 +122,65 @@ header{
 }
 
 .search-box input{
-    width:230px;
-    padding:11px 15px;
-    border:1px solid #dce3f2;
-    border-radius:15px;
-    outline:none;
-    font-family:inherit;
+    width:220px;
+    border:1px solid #cbd5e1;
     background:white;
+    padding:11px 15px 11px 40px;
+    border-radius:14px;
+    outline:none;
     transition:.25s;
 }
 
 .search-box input:focus{
-    width:270px;
-    border-color:#5574ff;
-    box-shadow:0 0 0 4px rgba(85,116,255,.1);
+    border-color:#6366f1;
+    box-shadow:0 0 0 4px rgba(99,102,241,.1);
 }
 
-.login-btn{
-    background:linear-gradient(135deg,#4868ff,#7548ed);
+.search-icon{
+    position:absolute;
+    left:14px;
+    top:10px;
+}
+
+.auth-btn{
+    border:none;
+    padding:11px 17px;
+    border-radius:13px;
+    background:linear-gradient(135deg,#0f172a,#334155);
     color:white;
-    box-shadow:0 8px 20px rgba(77,91,235,.25);
+    font-weight:700;
+    transition:.25s;
 }
 
-.login-btn:hover{
-    background:linear-gradient(135deg,#3958ed,#6337d9);
-    color:white;
+.auth-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(15,23,42,.2);
 }
 
-/* PAGES */
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+main{
+    max-width:1400px;
+    margin:auto;
+    padding:30px 22px 60px;
+}
+
 .page{
     display:none;
-    animation:pageIn .45s ease;
+    animation:fadeIn .35s ease;
 }
 
 .page.active{
     display:block;
 }
 
-@keyframes pageIn{
+@keyframes fadeIn{
     from{
         opacity:0;
-        transform:translateY(15px);
+        transform:translateY(10px);
     }
     to{
         opacity:1;
@@ -138,373 +188,521 @@ header{
     }
 }
 
-.container{
-    width:min(1200px,90%);
-    margin:auto;
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    position:relative;
+    overflow:hidden;
+    min-height:400px;
+    border-radius:30px;
+    padding:70px 50px;
+    display:flex;
+    align-items:center;
+    background:
+        linear-gradient(135deg,rgba(79,70,229,.96),rgba(124,58,237,.92)),
+        url("");
+    color:white;
+    box-shadow:0 25px 60px rgba(79,70,229,.25);
 }
 
-/* HERO */
-.hero{
-    min-height:560px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:70px 20px;
+.hero::before{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    right:-80px;
+    top:-100px;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    left:-50px;
+    bottom:-70px;
 }
 
 .hero-content{
-    max-width:850px;
+    position:relative;
+    z-index:2;
+    max-width:720px;
 }
 
 .hero h1{
-    font-size:clamp(42px,7vw,78px);
+    font-size:clamp(38px,6vw,72px);
     line-height:1.05;
-    background:linear-gradient(135deg,#2859ed,#793de7,#00a9d9);
-    -webkit-background-clip:text;
-    color:transparent;
-    animation:floatTitle 3s ease-in-out infinite;
-}
-
-@keyframes floatTitle{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-7px)}
+    margin-bottom:20px;
 }
 
 .hero p{
-    margin:22px auto 30px;
-    max-width:700px;
     font-size:19px;
-    color:#59647a;
+    line-height:1.7;
+    opacity:.94;
+    margin-bottom:28px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.primary-btn,
+.secondary-btn{
+    border:none;
+    padding:13px 20px;
+    border-radius:14px;
+    font-weight:700;
+    transition:.25s;
 }
 
 .primary-btn{
-    border:0;
-    padding:15px 26px;
-    border-radius:17px;
-    font-family:inherit;
-    font-size:16px;
-    font-weight:700;
+    background:white;
+    color:#4f46e5;
+}
+
+.secondary-btn{
+    background:rgba(255,255,255,.15);
     color:white;
-    background:linear-gradient(135deg,#4169ff,#7a43e7);
-    box-shadow:0 12px 28px rgba(75,83,230,.25);
-    cursor:pointer;
-    transition:.3s;
+    border:1px solid rgba(255,255,255,.3);
 }
 
-.primary-btn:hover{
-    transform:translateY(-4px) scale(1.02);
-    box-shadow:0 18px 35px rgba(75,83,230,.35);
+.primary-btn:hover,
+.secondary-btn:hover{
+    transform:translateY(-3px);
 }
 
-/* SECTION */
-.section{
-    padding:70px 0;
-}
+
+/* =========================================================
+   SECTION TITLE
+========================================================= */
 
 .section-title{
-    text-align:center;
-    margin-bottom:35px;
+    margin:45px 0 20px;
 }
 
 .section-title h2{
-    font-size:36px;
-    margin-bottom:8px;
+    font-size:30px;
+    color:#0f172a;
 }
 
 .section-title p{
-    color:#68738a;
+    color:#64748b;
+    margin-top:5px;
 }
 
-/* SUBJECT CARDS */
+
+/* =========================================================
+   SUBJECT CARDS
+========================================================= */
+
 .subject-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
+    grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+    gap:18px;
 }
 
 .subject-card{
-    min-height:190px;
-    padding:28px;
-    border-radius:25px;
+    min-height:170px;
+    border-radius:23px;
+    padding:25px;
     color:white;
-    cursor:pointer;
     position:relative;
     overflow:hidden;
-    box-shadow:0 15px 35px rgba(40,55,100,.15);
-    transition:.35s;
-}
-
-.subject-card:before{
-    content:"";
-    position:absolute;
-    width:140px;
-    height:140px;
-    right:-45px;
-    top:-45px;
-    background:rgba(255,255,255,.15);
-    border-radius:50%;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 15px 30px rgba(15,23,42,.12);
 }
 
 .subject-card:hover{
-    transform:translateY(-8px) rotate(.5deg);
+    transform:translateY(-7px) scale(1.015);
+    box-shadow:0 25px 45px rgba(15,23,42,.17);
 }
 
-.subject-card .icon{
-    font-size:42px;
-    margin-bottom:18px;
+.subject-card::after{
+    content:"";
+    position:absolute;
+    width:110px;
+    height:110px;
+    right:-25px;
+    bottom:-30px;
+    border-radius:50%;
+    background:rgba(255,255,255,.12);
+}
+
+.subject-icon{
+    font-size:40px;
+    margin-bottom:15px;
 }
 
 .subject-card h3{
-    font-size:23px;
+    font-size:21px;
 }
 
-.math{background:linear-gradient(135deg,#3968ff,#6a42e8)}
-.science{background:linear-gradient(135deg,#00a879,#00c4a2)}
-.ict{background:linear-gradient(135deg,#087ee8,#00b4d8)}
-.english{background:linear-gradient(135deg,#ee4266,#ff7b54)}
-.history{background:linear-gradient(135deg,#a95c16,#e68a25)}
-.sinhala{background:linear-gradient(135deg,#813ccf,#c047e9)}
+.math{
+    background:linear-gradient(135deg,#2563eb,#4f46e5);
+}
 
-/* GRADES */
+.science{
+    background:linear-gradient(135deg,#059669,#10b981);
+}
+
+.ict{
+    background:linear-gradient(135deg,#7c3aed,#a855f7);
+}
+
+.english{
+    background:linear-gradient(135deg,#db2777,#ec4899);
+}
+
+.history{
+    background:linear-gradient(135deg,#b45309,#f59e0b);
+}
+
+.sinhala{
+    background:linear-gradient(135deg,#dc2626,#ef4444);
+}
+
+
+/* =========================================================
+   GRADE CARDS
+========================================================= */
+
 .grade-grid{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
     gap:20px;
 }
 
 .grade-card{
-    min-height:150px;
-    border-radius:25px;
+    min-height:160px;
+    border-radius:24px;
     padding:28px;
     color:white;
     cursor:pointer;
-    box-shadow:0 14px 30px rgba(40,50,90,.14);
-    transition:.3s;
     position:relative;
     overflow:hidden;
+    transition:.3s;
+    box-shadow:0 15px 30px rgba(15,23,42,.12);
 }
 
 .grade-card:hover{
-    transform:translateY(-8px);
+    transform:translateY(-7px);
+    box-shadow:0 25px 45px rgba(15,23,42,.17);
 }
 
 .grade-card h3{
-    font-size:26px;
+    font-size:28px;
+    margin-bottom:8px;
 }
 
 .grade-card p{
-    margin-top:8px;
     opacity:.9;
 }
 
-.g6{background:linear-gradient(135deg,#00b8d9,#2979ff)}
-.g7{background:linear-gradient(135deg,#00a878,#00c6a7)}
-.g8{background:linear-gradient(135deg,#ff8a00,#ffb300)}
-.g9{background:linear-gradient(135deg,#5b42d9,#8c42e8)}
-.g10{background:linear-gradient(135deg,#ed4d87,#ff6b6b)}
-.g11{background:linear-gradient(135deg,#e53935,#ff7043)}
-.g12{background:linear-gradient(135deg,#2455d6,#1976d2)}
-.g13{background:linear-gradient(135deg,#6a35b9,#a343e7)}
-
-/* SUBJECT PAGE */
-.back-row{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:15px;
-    margin-bottom:30px;
+.grade-card::after{
+    content:"";
+    position:absolute;
+    width:150px;
+    height:150px;
+    right:-50px;
+    bottom:-60px;
+    background:rgba(255,255,255,.12);
+    border-radius:50%;
 }
+
+.g6{
+    background:linear-gradient(135deg,#2563eb,#38bdf8);
+}
+
+.g7{
+    background:linear-gradient(135deg,#7c3aed,#c084fc);
+}
+
+.g8{
+    background:linear-gradient(135deg,#db2777,#fb7185);
+}
+
+.g9{
+    background:linear-gradient(135deg,#059669,#34d399);
+}
+
+.g10{
+    background:linear-gradient(135deg,#ea580c,#fbbf24);
+}
+
+.g11{
+    background:linear-gradient(135deg,#0891b2,#22d3ee);
+}
+
+.g12{
+    background:linear-gradient(135deg,#4338ca,#818cf8);
+}
+
+.g13{
+    background:linear-gradient(135deg,#be123c,#fb7185);
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
 
 .back-btn{
-    border:0;
-    padding:11px 16px;
-    border-radius:14px;
+    border:none;
     background:white;
-    color:#315bea;
-    font-family:inherit;
+    color:#475569;
+    padding:11px 17px;
+    border-radius:12px;
     font-weight:700;
-    cursor:pointer;
-    box-shadow:0 6px 18px rgba(30,50,100,.1);
+    box-shadow:0 5px 15px rgba(15,23,42,.08);
+    margin-bottom:20px;
 }
 
+.back-btn:hover{
+    color:#4f46e5;
+}
+
+
+/* =========================================================
+   SUBJECT PAGE
+========================================================= */
+
 .page-heading{
-    padding:50px 0 30px;
-    text-align:center;
+    padding:25px;
+    background:rgba(255,255,255,.7);
+    border:1px solid rgba(148,163,184,.2);
+    border-radius:22px;
+    margin-bottom:25px;
 }
 
 .page-heading h1{
-    font-size:42px;
+    font-size:34px;
+    margin-bottom:6px;
 }
 
 .page-heading p{
-    color:#68738a;
-    margin-top:8px;
+    color:#64748b;
 }
 
-/* VIDEO GRID */
+
+/* =========================================================
+   VIDEO GRID
+========================================================= */
+
 .video-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
     gap:22px;
 }
 
 .video-card{
-    background:white;
+    background:rgba(255,255,255,.92);
     border-radius:22px;
-    padding:12px;
-    box-shadow:0 10px 30px rgba(35,55,100,.11);
-    transition:.3s;
     overflow:hidden;
+    border:1px solid rgba(148,163,184,.2);
+    box-shadow:0 12px 30px rgba(15,23,42,.08);
+    transition:.3s;
 }
 
 .video-card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 18px 38px rgba(35,55,100,.17);
+    transform:translateY(-5px);
+    box-shadow:0 20px 40px rgba(15,23,42,.13);
 }
 
 .video-frame{
     width:100%;
     aspect-ratio:16/9;
-    border:0;
-    border-radius:16px;
     display:block;
-    background:#101010;
+    border:none;
+    background:#0f172a;
 }
 
 .video-info{
-    padding:13px 6px 5px;
+    padding:17px;
 }
 
 .video-info h3{
-    font-size:16px;
+    font-size:18px;
+    margin-bottom:10px;
+    color:#0f172a;
 }
 
 .badge{
     display:inline-block;
-    margin-top:8px;
-    padding:5px 9px;
-    border-radius:10px;
+    padding:6px 10px;
+    border-radius:999px;
     font-size:12px;
     font-weight:700;
+    margin-bottom:13px;
 }
 
-.live{
-    background:#ffe5e8;
-    color:#e3263d;
-    animation:pulse 1.7s infinite;
+.badge.live{
+    background:#fee2e2;
+    color:#dc2626;
 }
 
-.playlist{
-    background:#e6edff;
-    color:#365eea;
+.badge.playlist{
+    background:#ede9fe;
+    color:#7c3aed;
 }
 
-@keyframes pulse{
-    0%,100%{opacity:1}
-    50%{opacity:.55}
-}
-
-/* CHANNEL */
-.channel-card{
-    margin:35px 0 60px;
-    padding:25px;
-    border-radius:24px;
-    background:linear-gradient(135deg,#ffffff,#f3f6ff);
-    border:1px solid #e1e7f5;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:20px;
-}
-
-.channel-card h3{
-    font-size:22px;
-    margin-bottom:7px;
-}
-
-.channel-card p{
-    color:#6b7488;
-}
-
-.channel-btn{
-    text-decoration:none;
-    display:inline-block;
-    padding:12px 18px;
-    border-radius:14px;
-    background:#ff0033;
-    color:white;
-    font-weight:700;
-    white-space:nowrap;
-}
-
-/* COMING SOON */
-.coming{
+.watch-btn{
+    display:block;
+    width:100%;
     text-align:center;
-    padding:80px 20px;
+    padding:11px 13px;
+    border-radius:12px;
+    color:white;
+    background:linear-gradient(135deg,#ef4444,#dc2626);
+    font-weight:700;
+    transition:.25s;
+}
+
+.watch-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 18px rgba(220,38,38,.22);
+}
+
+.playlist-btn{
+    background:linear-gradient(135deg,#7c3aed,#6366f1);
+}
+
+.video-buttons{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+
+/* =========================================================
+   TEACHER
+========================================================= */
+
+.teacher-box{
+    margin-top:28px;
+    background:linear-gradient(135deg,#ffffff,#f8fafc);
+    border:1px solid #e2e8f0;
+    border-radius:22px;
+    padding:22px;
+}
+
+.teacher-box h3{
+    margin-bottom:8px;
+}
+
+.teacher-link{
+    display:inline-flex;
+    margin-top:12px;
+    background:#111827;
+    color:white;
+    padding:10px 15px;
+    border-radius:12px;
+    font-weight:700;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-results{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:18px;
+}
+
+.search-result-card{
     background:white;
-    border-radius:25px;
-    box-shadow:0 10px 30px rgba(30,50,100,.08);
+    padding:20px;
+    border-radius:18px;
+    border:1px solid #e2e8f0;
+    box-shadow:0 8px 20px rgba(15,23,42,.06);
 }
 
-.coming .big{
-    font-size:60px;
-    margin-bottom:15px;
+.search-result-card h3{
+    margin-bottom:8px;
 }
 
-/* ABOUT */
-.info-box{
-    background:white;
-    padding:35px;
-    border-radius:25px;
-    box-shadow:0 12px 30px rgba(35,50,90,.09);
-    margin-bottom:25px;
-}
-
-.info-box h2{
+.search-result-card p{
+    color:#64748b;
     margin-bottom:12px;
 }
 
-.info-box p{
-    color:#5e697e;
-    line-height:1.8;
+.no-results{
+    text-align:center;
+    padding:50px;
+    color:#64748b;
 }
 
-/* SUPPORT */
+
+/* =========================================================
+   ABOUT / SUPPORT
+========================================================= */
+
+.info-card{
+    background:rgba(255,255,255,.82);
+    border:1px solid rgba(148,163,184,.2);
+    border-radius:25px;
+    padding:35px;
+    line-height:1.8;
+    box-shadow:0 15px 35px rgba(15,23,42,.07);
+}
+
+.info-card h2{
+    margin-bottom:15px;
+}
+
+.info-card p{
+    color:#475569;
+    margin-bottom:15px;
+}
+
 .support-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     gap:20px;
 }
 
 .support-card{
-    padding:30px;
     background:white;
     border-radius:22px;
-    text-align:center;
-    box-shadow:0 10px 30px rgba(35,50,90,.09);
+    padding:28px;
+    border:1px solid #e2e8f0;
+    box-shadow:0 10px 25px rgba(15,23,42,.06);
 }
 
 .support-card .icon{
-    font-size:45px;
-    margin-bottom:15px;
+    font-size:35px;
+    margin-bottom:12px;
 }
 
-.support-card p{
-    color:#667085;
-    margin-top:8px;
+.support-card h3{
+    margin-bottom:8px;
 }
 
-/* AUTH MODAL */
+
+/* =========================================================
+   AUTH MODAL
+========================================================= */
+
 .modal{
     display:none;
     position:fixed;
     inset:0;
-    z-index:2000;
-    background:rgba(10,18,40,.55);
+    z-index:10000;
+    background:rgba(15,23,42,.65);
     backdrop-filter:blur(8px);
-    justify-content:center;
     align-items:center;
+    justify-content:center;
     padding:20px;
 }
 
@@ -513,18 +711,20 @@ header{
 }
 
 .auth-box{
-    width:min(420px,100%);
+    width:100%;
+    max-width:430px;
     background:white;
-    padding:32px;
-    border-radius:28px;
-    box-shadow:0 30px 70px rgba(0,0,0,.25);
+    border-radius:25px;
+    padding:30px;
+    position:relative;
+    box-shadow:0 30px 80px rgba(0,0,0,.25);
     animation:modalIn .3s ease;
 }
 
 @keyframes modalIn{
     from{
         opacity:0;
-        transform:scale(.9) translateY(20px);
+        transform:scale(.92) translateY(20px);
     }
     to{
         opacity:1;
@@ -532,539 +732,739 @@ header{
     }
 }
 
-.auth-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:20px;
-}
-
-.close{
-    border:0;
-    background:#f0f2f7;
+.close-modal{
+    position:absolute;
+    right:18px;
+    top:15px;
+    border:none;
+    background:#f1f5f9;
     width:35px;
     height:35px;
     border-radius:50%;
-    cursor:pointer;
-    font-size:18px;
+    font-size:20px;
 }
 
-.auth-box input{
+.auth-box h2{
+    margin-bottom:7px;
+}
+
+.auth-box > p{
+    color:#64748b;
+    margin-bottom:22px;
+}
+
+.auth-input{
     width:100%;
-    padding:13px;
-    margin:8px 0;
-    border:1px solid #dce2ee;
-    border-radius:13px;
+    padding:13px 15px;
+    border:1px solid #cbd5e1;
+    border-radius:12px;
     outline:none;
-    font-family:inherit;
+    margin-bottom:12px;
 }
 
-.auth-box input:focus{
-    border-color:#526eff;
+.auth-input:focus{
+    border-color:#6366f1;
+    box-shadow:0 0 0 4px rgba(99,102,241,.1);
 }
 
 .auth-submit{
     width:100%;
-    margin-top:10px;
+    border:none;
+    padding:13px;
+    border-radius:12px;
+    background:linear-gradient(135deg,#6366f1,#8b5cf6);
+    color:white;
+    font-weight:700;
+    font-size:16px;
 }
 
 .auth-switch{
-    text-align:center;
     margin-top:15px;
-    color:#68738a;
+    text-align:center;
+    color:#64748b;
 }
 
-.auth-switch span{
-    color:#4262ed;
-    cursor:pointer;
+.auth-switch button{
+    border:none;
+    background:none;
+    color:#4f46e5;
     font-weight:700;
 }
 
-.auth-error{
-    color:#e3263d;
-    background:#fff0f2;
-    padding:9px;
-    border-radius:10px;
-    margin-top:10px;
-    display:none;
+.auth-message{
+    margin-top:12px;
+    min-height:20px;
+    color:#dc2626;
     font-size:14px;
 }
 
-/* SEARCH */
-.search-results{
-    margin-top:25px;
-}
 
-.search-empty{
-    text-align:center;
-    padding:50px;
-    background:white;
-    border-radius:20px;
-}
+/* =========================================================
+   FOOTER
+========================================================= */
 
-/* FOOTER */
 footer{
-    margin-top:70px;
-    padding:35px 20px;
-    text-align:center;
-    background:#11182b;
+    background:#0f172a;
     color:white;
+    text-align:center;
+    padding:28px 20px;
+    margin-top:30px;
 }
 
 footer p{
-    margin:6px;
-    opacity:.85;
+    margin:6px 0;
+    opacity:.9;
 }
 
 .creator{
-    color:#7fa0ff;
+    color:#a5b4fc;
     font-weight:700;
 }
 
-/* RESPONSIVE */
-@media(max-width:950px){
-    .subject-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
 
-    .grade-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
+/* =========================================================
+   MOBILE
+========================================================= */
 
-    .video-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
+@media(max-width:850px){
 
-    .support-grid{
-        grid-template-columns:1fr;
-    }
-
-    .search-box{
-        margin-left:0;
-    }
-}
-
-@media(max-width:650px){
-    header{
+    .navbar{
         justify-content:center;
     }
 
     .logo{
         width:100%;
         text-align:center;
-    }
-
-    .nav{
-        justify-content:center;
+        margin:0;
     }
 
     .search-box{
+        margin:0;
         width:100%;
     }
 
-    .search-box input,
-    .search-box input:focus{
+    .search-box input{
         width:100%;
-    }
-
-    .subject-grid,
-    .grade-grid,
-    .video-grid{
-        grid-template-columns:1fr;
     }
 
     .hero{
-        min-height:500px;
+        padding:50px 28px;
+        min-height:360px;
     }
 
     .hero h1{
-        font-size:48px;
+        font-size:44px;
     }
 
-    .page-heading h1{
-        font-size:34px;
-    }
-
-    .channel-card{
-        flex-direction:column;
-        align-items:flex-start;
+    .video-grid{
+        grid-template-columns:1fr;
     }
 }
 
-@media(prefers-reduced-motion:reduce){
-    *,
-    *::before,
-    *::after{
-        animation:none!important;
-        transition:none!important;
+@media(max-width:500px){
+
+    main{
+        padding:20px 14px 50px;
+    }
+
+    .nav-links{
+        justify-content:center;
+    }
+
+    .nav-btn{
+        padding:8px 10px;
+        font-size:13px;
+    }
+
+    .hero{
+        border-radius:22px;
+        padding:40px 22px;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .section-title h2{
+        font-size:25px;
+    }
+
+    .video-grid{
+        grid-template-columns:1fr;
     }
 }
+
 </style>
 </head>
 
+
 <body>
 
-<!-- HEADER -->
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
 <header>
-    <div class="logo" onclick="showPage('home')">📚 EduLearn</div>
 
-    <nav class="nav">
-        <button onclick="showPage('home')">🏠 Home</button>
-        <button onclick="showPage('grades')">🎓 Grades</button>
-        <button onclick="showPage('about')">ℹ️ About</button>
-        <button onclick="showPage('support')">💬 Support</button>
-    </nav>
+<div class="navbar">
 
-    <div class="search-box">
-        <input
-            id="searchInput"
-            type="search"
-            placeholder="🔎 Search videos..."
-            onkeydown="searchVideos(event)"
-        >
+    <div class="logo">
+        📚 EduLearn
     </div>
 
-    <button class="login-btn" id="authButton" onclick="openAuth()">
+    <div class="nav-links">
+
+        <button class="nav-btn active" onclick="showPage('home',this)">
+            🏠 Home
+        </button>
+
+        <button class="nav-btn" onclick="showPage('grades',this)">
+            🎓 Grades
+        </button>
+
+        <button class="nav-btn" onclick="showPage('about',this)">
+            ℹ️ About
+        </button>
+
+        <button class="nav-btn" onclick="showPage('support',this)">
+            💬 Support
+        </button>
+
+    </div>
+
+    <div class="search-box">
+
+        <span class="search-icon">🔎</span>
+
+        <input
+            id="searchInput"
+            type="text"
+            placeholder="Search videos..."
+            oninput="performSearch()">
+
+    </div>
+
+    <button class="auth-btn" id="authButton" onclick="openAuthModal()">
         🔐 Login
     </button>
+
+</div>
+
 </header>
 
 
-<!-- HOME -->
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main>
+
+
+<!-- =========================================================
+     HOME
+========================================================= -->
+
 <section id="home" class="page active">
 
     <div class="hero">
+
         <div class="hero-content">
-            <h1>🎓 Welcome to EduLearn</h1>
+
+            <h1>
+                🎓 Welcome to EduLearn
+            </h1>
 
             <p>
-                Learn smarter with educational videos, playlists and
-                teacher lessons for Grades 6 - 13.
+                Learn smarter with educational videos,
+                subject lessons and trusted teachers.
+                Choose your grade and start learning today.
             </p>
 
-            <button class="primary-btn" onclick="showPage('grades')">
-                ▶️ Start Learning
-            </button>
+            <div class="hero-buttons">
+
+                <button
+                    class="primary-btn"
+                    onclick="showPage('grades')">
+                    🚀 Start Learning
+                </button>
+
+                <button
+                    class="secondary-btn"
+                    onclick="showPage('about')">
+                    ℹ️ Learn More
+                </button>
+
+            </div>
+
         </div>
+
     </div>
 
-    <div class="container section">
 
-        <div class="section-title">
-            <h2>📚 Subjects</h2>
-            <p>Select a subject and start learning.</p>
-        </div>
+    <div class="section-title">
 
-        <div class="subject-grid">
+        <h2>📚 Subjects</h2>
 
-            <div class="subject-card math"
-                 onclick="homeSubjectSearch('mathematics')">
-                <div class="icon">📐</div>
-                <h3>Mathematics</h3>
-            </div>
+        <p>
+            Select a subject to explore learning content.
+        </p>
 
-            <div class="subject-card science"
-                 onclick="homeSubjectSearch('science')">
-                <div class="icon">🔬</div>
-                <h3>Science</h3>
-            </div>
+    </div>
 
-            <div class="subject-card ict"
-                 onclick="homeSubjectSearch('ict')">
-                <div class="icon">💻</div>
-                <h3>ICT</h3>
-            </div>
 
-            <div class="subject-card english"
-                 onclick="homeSubjectSearch('english')">
-                <div class="icon">🇬🇧</div>
-                <h3>English</h3>
-            </div>
+    <div class="subject-grid">
 
-            <div class="subject-card history"
-                 onclick="homeSubjectSearch('history')">
-                <div class="icon">🏛️</div>
-                <h3>History</h3>
-            </div>
+        <div class="subject-card math"
+             onclick="openSubjectDirect('Mathematics')">
 
-            <div class="subject-card sinhala"
-                 onclick="homeSubjectSearch('sinhala')">
-                <div class="icon">📝</div>
-                <h3>Sinhala</h3>
-            </div>
+            <div class="subject-icon">📐</div>
+
+            <h3>Mathematics</h3>
+
+            <p>Grade 9 - 11</p>
 
         </div>
+
+
+        <div class="subject-card science"
+             onclick="openSubjectDirect('Science')">
+
+            <div class="subject-icon">🔬</div>
+
+            <h3>Science</h3>
+
+            <p>Grade 9</p>
+
+        </div>
+
+
+        <div class="subject-card ict"
+             onclick="openSubjectDirect('ICT')">
+
+            <div class="subject-icon">💻</div>
+
+            <h3>ICT</h3>
+
+            <p>Grade 10 - 11</p>
+
+        </div>
+
+
+        <div class="subject-card english"
+             onclick="openSubjectDirect('English')">
+
+            <div class="subject-icon">🇬🇧</div>
+
+            <h3>English</h3>
+
+            <p>Grade 6 - 11</p>
+
+        </div>
+
+
+        <div class="subject-card history"
+             onclick="openSubjectDirect('History')">
+
+            <div class="subject-icon">🏛️</div>
+
+            <h3>History</h3>
+
+            <p>Grade 6, 9 - 11</p>
+
+        </div>
+
+
+        <div class="subject-card sinhala"
+             onclick="openSubjectDirect('Sinhala')">
+
+            <div class="subject-icon">📖</div>
+
+            <h3>Sinhala</h3>
+
+            <p>Grade 9</p>
+
+        </div>
+
     </div>
 
 </section>
 
 
-<!-- GRADES -->
+<!-- =========================================================
+     GRADES
+========================================================= -->
+
 <section id="grades" class="page">
 
-    <div class="container">
+    <div class="page-heading">
 
-        <div class="page-heading">
-            <h1>🎓 Choose Your Grade</h1>
-            <p>Select a grade to see available subjects.</p>
+        <h1>🎓 Select Your Grade</h1>
+
+        <p>
+            Choose your grade to find available subjects.
+        </p>
+
+    </div>
+
+
+    <div class="grade-grid">
+
+        <div class="grade-card g6"
+             onclick="openGrade(6)">
+            <h3>Grade 6</h3>
+            <p>Explore lessons</p>
         </div>
 
-        <div class="grade-grid">
+        <div class="grade-card g7"
+             onclick="openGrade(7)">
+            <h3>Grade 7</h3>
+            <p>Explore lessons</p>
+        </div>
 
-            <div class="grade-card g6" onclick="openGrade(6)">
-                <h3>Grade 06</h3>
-                <p>Start Learning 🚀</p>
-            </div>
+        <div class="grade-card g8"
+             onclick="openGrade(8)">
+            <h3>Grade 8</h3>
+            <p>Explore lessons</p>
+        </div>
 
-            <div class="grade-card g7" onclick="openGrade(7)">
-                <h3>Grade 07</h3>
-                <p>Keep Learning 📚</p>
-            </div>
+        <div class="grade-card g9"
+             onclick="openGrade(9)">
+            <h3>Grade 9</h3>
+            <p>Explore lessons</p>
+        </div>
 
-            <div class="grade-card g8" onclick="openGrade(8)">
-                <h3>Grade 08</h3>
-                <p>Learn More 💡</p>
-            </div>
+        <div class="grade-card g10"
+             onclick="openGrade(10)">
+            <h3>Grade 10</h3>
+            <p>Explore lessons</p>
+        </div>
 
-            <div class="grade-card g9" onclick="openGrade(9)">
-                <h3>Grade 09</h3>
-                <p>Level Up 🔥</p>
-            </div>
+        <div class="grade-card g11"
+             onclick="openGrade(11)">
+            <h3>Grade 11</h3>
+            <p>Explore lessons</p>
+        </div>
 
-            <div class="grade-card g10" onclick="openGrade(10)">
-                <h3>Grade 10</h3>
-                <p>O/L Preparation 🎯</p>
-            </div>
+        <div class="grade-card g12"
+             onclick="openGrade(12)">
+            <h3>Grade 12</h3>
+            <p>Explore lessons</p>
+        </div>
 
-            <div class="grade-card g11" onclick="openGrade(11)">
-                <h3>Grade 11</h3>
-                <p>O/L Learning 🏆</p>
-            </div>
-
-            <div class="grade-card g12" onclick="openGrade(12)">
-                <h3>Grade 12</h3>
-                <p>A/L Learning 🚀</p>
-            </div>
-
-            <div class="grade-card g13" onclick="openGrade(13)">
-                <h3>Grade 13</h3>
-                <p>A/L Final Year 🎓</p>
-            </div>
-
+        <div class="grade-card g13"
+             onclick="openGrade(13)">
+            <h3>Grade 13</h3>
+            <p>Explore lessons</p>
         </div>
 
     </div>
+
 </section>
 
 
-<!-- GRADE SUBJECTS -->
+<!-- =========================================================
+     GRADE SUBJECTS
+========================================================= -->
+
 <section id="gradeSubjects" class="page">
 
-    <div class="container">
+    <button class="back-btn" onclick="showPage('grades')">
+        ← Back to Grades
+    </button>
 
-        <div class="page-heading">
-            <div class="back-row">
-                <button class="back-btn" onclick="showPage('grades')">
-                    ← Back to Grades
-                </button>
-            </div>
+    <div class="page-heading">
 
-            <h1 id="gradeTitle">🎓 Grade</h1>
-            <p>Select a subject.</p>
-        </div>
+        <h1 id="gradeSubjectTitle">
+            🎓 Grade
+        </h1>
 
-        <div id="gradeSubjectGrid" class="subject-grid"></div>
+        <p>
+            Select a subject.
+        </p>
 
     </div>
+
+    <div id="gradeSubjectGrid" class="subject-grid"></div>
+
 </section>
 
 
-<!-- VIDEOS -->
+<!-- =========================================================
+     VIDEOS
+========================================================= -->
+
 <section id="videos" class="page">
 
-    <div class="container">
+    <button class="back-btn" onclick="backToGradeSubjects()">
+        ← Back
+    </button>
 
-        <div class="page-heading">
+    <div class="page-heading">
 
-            <div class="back-row">
-                <button class="back-btn"
-                        onclick="goBackToGradeSubjects()">
-                    ← Back to Subjects
-                </button>
+        <h1 id="videoPageTitle">
+            📺 Videos
+        </h1>
 
-                <button class="back-btn"
-                        onclick="showPage('home')">
-                    🏠 Home
-                </button>
-            </div>
-
-            <h1 id="videoPageTitle">📚 Videos</h1>
-            <p id="videoPageSubtitle"></p>
-
-        </div>
-
-        <div id="channelContainer"></div>
-
-        <div id="videoGrid" class="video-grid"></div>
+        <p id="videoPageDescription">
+            Educational lessons
+        </p>
 
     </div>
+
+    <div id="videoGrid" class="video-grid"></div>
+
+    <div id="teacherBox"></div>
+
 </section>
 
 
-<!-- SEARCH -->
+<!-- =========================================================
+     SEARCH PAGE
+========================================================= -->
+
 <section id="searchPage" class="page">
 
-    <div class="container">
+    <div class="page-heading">
 
-        <div class="page-heading">
-            <h1>🔎 Search Results</h1>
-            <p id="searchText"></p>
-        </div>
+        <h1>🔎 Search Results</h1>
 
-        <div id="searchResults" class="video-grid"></div>
+        <p id="searchText">
+            Search results
+        </p>
 
     </div>
+
+    <div id="searchResults" class="search-results"></div>
+
 </section>
 
 
-<!-- ABOUT -->
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
 <section id="about" class="page">
 
-    <div class="container section">
+    <div class="page-heading">
 
-        <div class="section-title">
-            <h2>ℹ️ About EduLearn</h2>
-            <p>Learn anytime, anywhere.</p>
-        </div>
+        <h1>ℹ️ About EduLearn</h1>
 
-        <div class="info-box">
-            <h2>📚 What is EduLearn?</h2>
-            <p>
-                EduLearn is an educational video platform designed to
-                help students learn through organised lessons, YouTube
-                playlists and live educational sessions.
-            </p>
-        </div>
-
-        <div class="info-box">
-            <h2>🎓 Grades 6 - 13</h2>
-            <p>
-                Students can select their grade, choose a subject and
-                access available educational videos and playlists.
-            </p>
-        </div>
-
-        <div class="info-box">
-            <h2>🚀 Learn Better</h2>
-            <p>
-                Our goal is to make educational content easier to find,
-                organised and accessible for students.
-            </p>
-        </div>
+        <p>
+            Learn anywhere. Learn anytime.
+        </p>
 
     </div>
+
+    <div class="info-card">
+
+        <h2>📚 What is EduLearn?</h2>
+
+        <p>
+            EduLearn is an online educational platform designed
+            to help students access useful learning videos
+            organized by grade and subject.
+        </p>
+
+        <p>
+            Students can select their grade, choose a subject,
+            and watch available lessons directly through
+            YouTube.
+        </p>
+
+        <p>
+            The platform includes Mathematics, Science, ICT,
+            English, History and Sinhala content.
+        </p>
+
+        <p>
+            EduLearn is designed with a simple and
+            student-friendly interface so learning resources
+            are easy to find.
+        </p>
+
+    </div>
+
 </section>
 
 
-<!-- SUPPORT -->
+<!-- =========================================================
+     SUPPORT
+========================================================= -->
+
 <section id="support" class="page">
 
-    <div class="container section">
+    <div class="page-heading">
 
-        <div class="section-title">
-            <h2>💬 Support</h2>
-            <p>EduLearn support and information.</p>
+        <h1>💬 Support</h1>
+
+        <p>
+            Need help using EduLearn?
+        </p>
+
+    </div>
+
+
+    <div class="support-grid">
+
+        <div class="support-card">
+
+            <div class="icon">🎓</div>
+
+            <h3>Choose Your Grade</h3>
+
+            <p>
+                Open the Grades section and select your
+                required grade.
+            </p>
+
         </div>
 
-        <div class="support-grid">
 
-            <div class="support-card">
-                <div class="icon">📚</div>
-                <h3>Learning</h3>
-                <p>Choose your grade and subject to start learning.</p>
-            </div>
+        <div class="support-card">
 
-            <div class="support-card">
-                <div class="icon">▶️</div>
-                <h3>YouTube Lessons</h3>
-                <p>Watch lessons directly through YouTube.</p>
-            </div>
+            <div class="icon">📚</div>
 
-            <div class="support-card">
-                <div class="icon">🔐</div>
-                <h3>Account</h3>
-                <p>Create an account or sign in using Firebase.</p>
-            </div>
+            <h3>Select Subject</h3>
+
+            <p>
+                Choose the subject you want to study.
+            </p>
+
+        </div>
+
+
+        <div class="support-card">
+
+            <div class="icon">▶️</div>
+
+            <h3>Watch Videos</h3>
+
+            <p>
+                Watch lessons inside EduLearn or open them
+                directly on YouTube.
+            </p>
+
+        </div>
+
+
+        <div class="support-card">
+
+            <div class="icon">🔐</div>
+
+            <h3>Account</h3>
+
+            <p>
+                Create an account or sign in using the
+                Login button.
+            </p>
 
         </div>
 
     </div>
+
 </section>
 
 
-<!-- AUTH MODAL -->
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <p>
+        © 2026 EduLearn. All Rights Reserved. 📚
+    </p>
+
+    <p class="creator">
+        ✨ Created By SaJan Edits
+    </p>
+
+</footer>
+
+
+<!-- =========================================================
+     AUTH MODAL
+========================================================= -->
+
 <div id="authModal" class="modal">
 
     <div class="auth-box">
 
-        <div class="auth-top">
-            <h2 id="authTitle">🔐 Login</h2>
-
-            <button class="close" onclick="closeAuth()">
-                ✕
-            </button>
-        </div>
-
-        <input
-            id="email"
-            type="email"
-            placeholder="📧 Email"
-        >
-
-        <input
-            id="password"
-            type="password"
-            placeholder="🔑 Password"
-        >
-
-        <div id="authError" class="auth-error"></div>
-
         <button
-            class="primary-btn auth-submit"
-            onclick="submitAuth()"
-        >
-            Continue
+            class="close-modal"
+            onclick="closeAuthModal()">
+            ×
         </button>
 
+        <h2 id="authTitle">
+            🔐 Login
+        </h2>
+
+        <p id="authSubtitle">
+            Sign in to your EduLearn account.
+        </p>
+
+
+        <input
+            id="authEmail"
+            class="auth-input"
+            type="email"
+            placeholder="Email address">
+
+
+        <input
+            id="authPassword"
+            class="auth-input"
+            type="password"
+            placeholder="Password">
+
+
+        <button
+            id="authSubmit"
+            class="auth-submit"
+            onclick="submitAuth()">
+            Login
+        </button>
+
+
+        <div
+            id="authMessage"
+            class="auth-message">
+        </div>
+
+
         <div class="auth-switch">
+
             <span id="authSwitchText">
                 Don't have an account?
             </span>
 
-            <span
-                id="authSwitchButton"
-                onclick="switchAuthMode(true)"
-            >
-                Sign Up
-            </span>
+            <button onclick="switchAuthMode()">
+                <span id="authSwitchButton">
+                    Sign Up
+                </span>
+            </button>
+
         </div>
 
     </div>
+
 </div>
 
 
-<!-- FOOTER -->
-<footer>
-    <p>© 2026 EduLearn. All Rights Reserved. 📚</p>
-    <p class="creator">✨ Created By SaJan Edits</p>
-</footer>
-
+<!-- =========================================================
+     FIREBASE + APPLICATION
+========================================================= -->
 
 <script type="module">
-
-/* =========================================================
-   FIREBASE
-========================================================= */
 
 import { initializeApp }
 from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
@@ -1079,133 +1479,587 @@ import {
 from "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
 
 
+/* =========================================================
+   FIREBASE CONFIG
+========================================================= */
+
 const firebaseConfig = {
-    apiKey: "AIzaSyBHKOClpITXnQ1nZUViBdYd1KZfXIsmoMQ",
-    authDomain: "sajan-edits.firebaseapp.com",
-    projectId: "sajan-edits",
-    storageBucket: "sajan-edits.firebasestorage.app",
-    messagingSenderId: "282546165467",
-    appId: "1:282546165467:web:9c7507ad756b19e4b95efe",
-    measurementId: "G-0WJ91B96G3"
+
+    apiKey:
+        "AIzaSyBHKOClpITXnQ1nZUViBdYd1KZfXIsmoMQ",
+
+    authDomain:
+        "sajan-edits.firebaseapp.com",
+
+    projectId:
+        "sajan-edits",
+
+    storageBucket:
+        "sajan-edits.firebasestorage.app",
+
+    messagingSenderId:
+        "282546165467",
+
+    appId:
+        "1:282546165467:web:9c7507ad756b19e4b95efe",
+
+    measurementId:
+        "G-0WJ91B96G3"
+
 };
 
+
 const app = initializeApp(firebaseConfig);
+
 const auth = getAuth(app);
 
 
 /* =========================================================
-   MATHS PLAYLISTS
+   AUTH
 ========================================================= */
 
-const mathsPlaylists = [
+let isSignUp = false;
 
-    {id:"PLc_3axmFr0BJXF6sPtJVIfdk9h0OyUepx",grade:9,number:1},
-    {id:"PLc_3axmFr0BL2Z0BYfQCMzpmj3PXoRgGn",grade:9,number:2},
-    {id:"PLc_3axmFr0BKKdJWRKNovRXdNsJr-t6pl",grade:9,number:3},
-    {id:"PLc_3axmFr0BIXRADTlGXr2pOTkxJEo40B",grade:9,number:4},
+window.openAuthModal = function(){
 
-    {id:"PLc_3axmFr0BIcZhRjwKayVTrSrz1YnA8Q",grade:10,number:5},
-    {id:"PLc_3axmFr0BJ2SfECDscWQjwkUmtlgmYa",grade:10,number:6},
-    {id:"PLc_3axmFr0BK8BP4OvmSq8h2TYwFMLy6w",grade:10,number:7},
-    {id:"PLc_3axmFr0BJ_KTPY-6vebFKFg2xAy6uM",grade:10,number:8},
+    if(auth.currentUser){
 
-    {id:"PLc_3axmFr0BKAVOfPq5yJAG0NWKfDC9tJ",grade:11,number:9},
-    {id:"PLc_3axmFr0BK1EaVLY8IaWBo4Z_Ea9f6o",grade:11,number:10},
-    {id:"PLc_3axmFr0BI-MItQMGgeSdIrh6fENmJH",grade:11,number:11},
-    {id:"PLc_3axmFr0BK5UHYttmBKlpOo0lmG8b18",grade:11,number:12},
-    {id:"PLc_3axmFr0BLjuCdG9-a294a8vz7c1e1A",grade:11,number:13}
+        signOut(auth);
 
-];
+        return;
+
+    }
+
+    document
+        .getElementById("authModal")
+        .classList.add("show");
+
+};
+
+
+window.closeAuthModal = function(){
+
+    document
+        .getElementById("authModal")
+        .classList.remove("show");
+
+    document.getElementById("authMessage").textContent = "";
+
+};
+
+
+window.switchAuthMode = function(){
+
+    isSignUp = !isSignUp;
+
+    const title =
+        document.getElementById("authTitle");
+
+    const subtitle =
+        document.getElementById("authSubtitle");
+
+    const submit =
+        document.getElementById("authSubmit");
+
+    const switchText =
+        document.getElementById("authSwitchText");
+
+    const switchButton =
+        document.getElementById("authSwitchButton");
+
+
+    if(isSignUp){
+
+        title.textContent = "📝 Create Account";
+
+        subtitle.textContent =
+            "Create your EduLearn account.";
+
+        submit.textContent = "Sign Up";
+
+        switchText.textContent =
+            "Already have an account?";
+
+        switchButton.textContent =
+            "Login";
+
+    }else{
+
+        title.textContent = "🔐 Login";
+
+        subtitle.textContent =
+            "Sign in to your EduLearn account.";
+
+        submit.textContent = "Login";
+
+        switchText.textContent =
+            "Don't have an account?";
+
+        switchButton.textContent =
+            "Sign Up";
+
+    }
+
+};
+
+
+window.submitAuth = async function(){
+
+    const email =
+        document.getElementById("authEmail")
+        .value
+        .trim();
+
+    const password =
+        document.getElementById("authPassword")
+        .value;
+
+    const message =
+        document.getElementById("authMessage");
+
+
+    message.textContent = "";
+
+
+    if(!email || !password){
+
+        message.textContent =
+            "Please enter email and password.";
+
+        return;
+
+    }
+
+
+    if(password.length < 6){
+
+        message.textContent =
+            "Password must contain at least 6 characters.";
+
+        return;
+
+    }
+
+
+    try{
+
+        if(isSignUp){
+
+            await createUserWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+
+        }else{
+
+            await signInWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+
+        }
+
+
+        document
+            .getElementById("authEmail")
+            .value = "";
+
+        document
+            .getElementById("authPassword")
+            .value = "";
+
+        closeAuthModal();
+
+
+    }catch(error){
+
+        console.error(error);
+
+        let msg =
+            "Something went wrong. Please try again.";
+
+
+        if(error.code ===
+            "auth/email-already-in-use"){
+
+            msg =
+                "This email is already registered.";
+
+        }
+
+        else if(error.code ===
+            "auth/invalid-email"){
+
+            msg =
+                "Invalid email address.";
+
+        }
+
+        else if(
+            error.code === "auth/invalid-credential" ||
+            error.code === "auth/wrong-password" ||
+            error.code === "auth/user-not-found"
+        ){
+
+            msg =
+                "Incorrect email or password.";
+
+        }
+
+        else if(error.code ===
+            "auth/weak-password"){
+
+            msg =
+                "Password is too weak.";
+
+        }
+
+        message.textContent = msg;
+
+    }
+
+};
+
+
+onAuthStateChanged(auth,(user)=>{
+
+    const button =
+        document.getElementById("authButton");
+
+
+    if(user){
+
+        button.textContent =
+            "🚪 Sign Out";
+
+    }else{
+
+        button.textContent =
+            "🔐 Login";
+
+    }
+
+});
 
 
 /* =========================================================
-   SCIENCE - GRADE 9
+   DATA
 ========================================================= */
+
+
+/* ---------------------------------------------------------
+   TEACHERS
+--------------------------------------------------------- */
+
+const teachers = {
+
+    Mathematics:{
+        name:"Ishara Madushan",
+        url:"https://www.youtube.com/@isharamadushanofficial"
+    },
+
+    Science:{
+        name:"Geethan Devinda",
+        url:"https://www.youtube.com/@geethandevinda6483"
+    },
+
+    Sinhala:{
+        name:"භාෂා පාරාදීසය",
+        url:"https://www.youtube.com/@bashaparadisaya"
+    },
+
+    History:{
+        name:"Prabath Udayakantha",
+        url:"https://www.youtube.com/@prabathudayakantha2795"
+    },
+
+    ICT:{
+        name:"Ravindu Bandaranayake",
+        url:"https://www.youtube.com/@RavinduBandaranayake"
+    },
+
+    English:{
+        name:"Tharaka Senadheera English",
+        url:"https://www.youtube.com/@tharakasenadheeraenglish880"
+    }
+
+};
+
+
+/* ---------------------------------------------------------
+   SUBJECTS
+--------------------------------------------------------- */
+
+const allSubjects = [
+    "Mathematics",
+    "Science",
+    "ICT",
+    "English",
+    "History",
+    "Sinhala"
+];
+
+
+/* ---------------------------------------------------------
+   SCIENCE
+   ALL GRADE 9
+--------------------------------------------------------- */
 
 const scienceVideos = [
-    "vz5evr",
-    "HWdIu5-LHhc",
-    "viqFacbGkbA",
-    "EE1m5Bd_MCM",
-    "c3bEJbE-zDM",
-    "Vu7itzyGsqE",
-    "VWgj5EKfbOA",
-    "rV0cEYnjLqA",
-    "_QPePE5B2LI",
-    "WYdefiJgpPs",
-    "UAG_4Lrg5AQ",
-    "tlCXXAa_7m0",
-    "k4SI1NFwmyk",
-    "3AYxCrgwLsk",
-    "tOJv8Zcs2Rg",
-    "EKkPdSYd3fM",
-    "Tl5mMhOPCmg"
+
+    {id:"v9kiwf",grade:9,number:1,live:true},
+
+    {id:"vz5evr",grade:9,number:2,live:true},
+
+    {id:"HWdIu5-LHhc",grade:9,number:3,live:true},
+
+    {id:"viqFacbGkbA",grade:9,number:4,live:true},
+
+    {id:"EE1m5Bd_MCM",grade:9,number:5,live:true},
+
+    {id:"c3bEJbE-zDM",grade:9,number:6,live:true},
+
+    {id:"Vu7itzyGsqE",grade:9,number:7,live:true},
+
+    {id:"VWgj5EKfbOA",grade:9,number:8,live:true},
+
+    {id:"rV0cEYnjLqA",grade:9,number:9,live:true},
+
+    {id:"_QPePE5B2LI",grade:9,number:10,live:true},
+
+    {id:"WYdefiJgpPs",grade:9,number:11,live:true},
+
+    {id:"UAG_4Lrg5AQ",grade:9,number:12,live:true},
+
+    {id:"tlCXXAa_7m0",grade:9,number:13,live:true},
+
+    {id:"k4SI1NFwmyk",grade:9,number:14,live:true},
+
+    {id:"3AYxCrgwLsk",grade:9,number:15,live:true},
+
+    {id:"tOJv8Zcs2Rg",grade:9,number:16,live:true},
+
+    {id:"EKkPdSYd3fM",grade:9,number:17,live:true},
+
+    {id:"Tl5mMhOPCmg",grade:9,number:18,live:true}
+
 ];
 
 
-/* =========================================================
-   SINHALA - GRADE 9
-========================================================= */
+/* ---------------------------------------------------------
+   MATHEMATICS PLAYLISTS
+--------------------------------------------------------- */
 
-const sinhalaVideos = [
-    "11muR__BWzg",
-    "gfg2MZGe03g",
-    "YBiDn_bqEnE",
-    "2ZNVOzibtXg",
-    "mHZPuqOH668",
-    "Lz7KjFhycEw",
-    "PfQv8MhAcAY",
-    "XeuNmk2eh40",
-    "AZjyvHyudME",
-    "GAxRRPEV6jQ",
-    "piFtd6vkQIg",
-    "HhIi0aJy47Q",
-    "hjznr6G8sXM",
-    "36HH8eHGozk",
-    "54dBl1daKSs",
-    "gBrzEbO8nUA"
+const mathPlaylists = [
+
+    {
+        id:"PLc_3axmFr0BJXF6sPtJVIfdk9h0OyUepx",
+        grade:9,
+        number:1
+    },
+
+    {
+        id:"PLc_3axmFr0BL2Z0BYfQCMzpmj3PXoRgGn",
+        grade:9,
+        number:2
+    },
+
+    {
+        id:"PLc_3axmFr0BKKdJWRKNovRXdNsJr-t6pl",
+        grade:9,
+        number:3
+    },
+
+    {
+        id:"PLc_3axmFr0BIXRADTlGXr2pOTkxJEo40B",
+        grade:9,
+        number:4
+    },
+
+    {
+        id:"PLc_3axmFr0BIcZhRjwKayVTrSrz1YnA8Q",
+        grade:10,
+        number:5
+    },
+
+    {
+        id:"PLc_3axmFr0BJ2SfECDscWQjwkUmtlgmYa",
+        grade:10,
+        number:6
+    },
+
+    {
+        id:"PLc_3axmFr0BK8BP4OvmSq8h2TYwFMLy6w",
+        grade:10,
+        number:7
+    },
+
+    {
+        id:"PLc_3axmFr0BJ_KTPY-6vebFKFg2xAy6uM",
+        grade:10,
+        number:8
+    },
+
+    {
+        id:"PLc_3axmFr0BKAVOfPq5yJAG0NWKfDC9tJ",
+        grade:11,
+        number:9
+    },
+
+    {
+        id:"PLc_3axmFr0BK1EaVLY8IaWBo4Z_Ea9f6o",
+        grade:11,
+        number:10
+    },
+
+    {
+        id:"PLc_3axmFr0BI-MItQMGgeSdIrh6fENmJH",
+        grade:11,
+        number:11
+    },
+
+    {
+        id:"PLc_3axmFr0BK5UHYttmBKlpOo0lmG8b18",
+        grade:11,
+        number:12
+    },
+
+    {
+        id:"PLc_3axmFr0BLjuCdG9-a294a8vz7c1e1A",
+        grade:11,
+        number:13
+    }
+
 ];
 
 
-/* =========================================================
+/* ---------------------------------------------------------
    HISTORY
-========================================================= */
+--------------------------------------------------------- */
 
 const historyVideos = [
 
-    {id:"Ko7puJQmYTI",number:1,grade:10},
-    {id:"jn1ZLMuEsA0",number:2,grade:11},
-    {id:"HuDuvQTyL4A",number:3,grade:10},
-    {id:"ZdiqAI4ON50",number:4,grade:6},
-    {id:"NzbkmKruKfw",number:5,grade:9},
-    {id:"5F1fkr1dHZY",number:6,grade:9},
-    {id:"rvT2nNxP57I",number:7,grade:9}
+    {
+        id:"Ko7puJQmYTI",
+        grade:10,
+        number:1,
+        live:true
+    },
+
+    {
+        id:"jn1ZLMuEsA0",
+        grade:11,
+        number:2,
+        live:true
+    },
+
+    {
+        id:"HuDuvQTyL4A",
+        grade:10,
+        number:3,
+        live:true
+    },
+
+    {
+        id:"ZdiqAI4ON50",
+        grade:6,
+        number:4,
+        live:true
+    },
+
+    {
+        id:"NzbkmKruKfw",
+        grade:9,
+        number:5,
+        live:true
+    },
+
+    {
+        id:"5F1fkr1dHZY",
+        grade:9,
+        number:6,
+        live:true
+    },
+
+    {
+        id:"rvT2nNxP57I",
+        grade:9,
+        number:7,
+        live:true
+    }
 
 ];
 
 
-/* =========================================================
+/* ---------------------------------------------------------
+   SINHALA
+   ALL GRADE 9
+--------------------------------------------------------- */
+
+const sinhalaVideos = [
+
+    {id:"11muR__BWzg",grade:9,number:1,live:true},
+
+    {id:"gfg2MZGe03g",grade:9,number:2,live:true},
+
+    {id:"YBiDn_bqEnE",grade:9,number:3,live:true},
+
+    {id:"2ZNVOzibtXg",grade:9,number:4,live:true},
+
+    {id:"mHZPuqOH668",grade:9,number:5,live:true},
+
+    {id:"Lz7KjFhycEw",grade:9,number:6,live:true},
+
+    {id:"PfQv8MhAcAY",grade:9,number:7,live:true},
+
+    {id:"XeuNmk2eh40",grade:9,number:8,live:true},
+
+    {id:"AZjyvHyudME",grade:9,number:9,live:true},
+
+    {id:"GAxRRPEV6jQ",grade:9,number:10,live:true},
+
+    {id:"piFtd6vkQIg",grade:9,number:11,live:true},
+
+    {id:"HhIi0aJy47Q",grade:9,number:12,live:true},
+
+    {id:"hjznr6G8sXM",grade:9,number:13,live:true},
+
+    {id:"36HH8eHGozk",grade:9,number:14,live:true},
+
+    {id:"54dBl1daKSs",grade:9,number:15,live:true},
+
+    {id:"gBrzEbO8nUA",grade:9,number:16,live:true}
+
+];
+
+
+/* ---------------------------------------------------------
    ICT
-   Grade 10 + Grade 11
-========================================================= */
+   SAME PLAYLIST FOR GRADE 10 + 11
+--------------------------------------------------------- */
 
 const ictPlaylists = [
+
     {
         id:"PLmGEAkxTEZANKm78GEX8ccOGqXssL_F1R",
         grade:10,
         number:1
     },
+
     {
         id:"PLmGEAkxTEZANKm78GEX8ccOGqXssL_F1R",
         grade:11,
         number:1
     }
+
 ];
 
 
-/* =========================================================
-   ENGLISH
-========================================================= */
+/* ---------------------------------------------------------
+   ENGLISH PLAYLISTS
+--------------------------------------------------------- */
 
 const englishPlaylists = [
 
@@ -1268,177 +2122,287 @@ const englishPlaylists = [
         grade:11,
         number:3
     }
+
 ];
 
 
-/* =========================================================
-   ENGLISH LIVE VIDEOS
-========================================================= */
+/* ---------------------------------------------------------
+   ENGLISH VIDEOS
+--------------------------------------------------------- */
 
 const englishVideos = [
 
-    /* Grade 6 */
-    {id:"uXOve86Ge-s",grade:6,number:1},
-    {id:"aDLwFtiH0Fs",grade:6,number:2},
-    {id:"82Di17GXfoA",grade:6,number:3},
-    {id:"6xRF1mwOwDs",grade:6,number:4},
+    {
+        id:"uXOve86Ge-s",
+        grade:6,
+        number:1,
+        live:true
+    },
 
-    /* Grade 7 */
-    {id:"-WrUMCcRVcg",grade:7,number:1},
+    {
+        id:"aDLwFtiH0Fs",
+        grade:6,
+        number:2,
+        live:true
+    },
 
-    /* Grade 8 */
-    {id:"yrGm7LhUQ0w",grade:8,number:1},
-    {id:"YpZqZRcxnP0",grade:8,number:2},
-    {id:"hYfzGAKzTUY",grade:8,number:3},
-    {id:"qQrFEeJx80I",grade:8,number:4},
-    {id:"kWFa14ngC_4",grade:8,number:5},
-    {id:"83DMG_RSSus",grade:8,number:6},
-    {id:"SHUOcW_Or4o",grade:8,number:7},
-    {id:"X_AtaekniO8",grade:8,number:8},
-    {id:"VsNwASdcOIo",grade:8,number:9},
-    {id:"d68THhVLxP4",grade:8,number:10},
-    {id:"vQsJk7xQ71A",grade:8,number:11},
-    {id:"niVnj_ifopQ",grade:8,number:12},
+    {
+        id:"82Di17GXfoA",
+        grade:6,
+        number:3,
+        live:true
+    },
 
-    /* Grade 9 */
-    {id:"crs0Xavf8EU",grade:9,number:1},
-    {id:"cEpQelYkBV8",grade:9,number:2},
-    {id:"p3jg1UDoDx8",grade:9,number:3},
-    {id:"orKMpbasNOs",grade:9,number:4},
-    {id:"koA_IE7A8pE",grade:9,number:5},
-    {id:"xhYH4ya_3TE",grade:9,number:6},
+    {
+        id:"6xRF1mwOwDs",
+        grade:6,
+        number:4,
+        live:true
+    },
 
-    /* Grade 10 + 11 */
-    {id:"LU7A7RNfzuM",grade:10,number:1},
-    {id:"jYKoZCLKpdQ",grade:10,number:2},
 
-    {id:"LU7A7RNfzuM",grade:11,number:1},
-    {id:"jYKoZCLKpdQ",grade:11,number:2}
+    {
+        id:"-WrUMCcRVcg",
+        grade:7,
+        number:1,
+        live:true
+    },
+
+
+    {
+        id:"yrGm7LhUQ0w",
+        grade:8,
+        number:1,
+        live:true
+    },
+
+    {
+        id:"YpZqZRcxnP0",
+        grade:8,
+        number:2,
+        live:true
+    },
+
+    {
+        id:"hYfzGAKzTUY",
+        grade:8,
+        number:3,
+        live:true
+    },
+
+    {
+        id:"qQrFEeJx80I",
+        grade:8,
+        number:4,
+        live:true
+    },
+
+    {
+        id:"kWFa14ngC_4",
+        grade:8,
+        number:5,
+        live:true
+    },
+
+    {
+        id:"83DMG_RSSus",
+        grade:8,
+        number:6,
+        live:true
+    },
+
+    {
+        id:"SHUOcW_Or4o",
+        grade:8,
+        number:7,
+        live:true
+    },
+
+    {
+        id:"X_AtaekniO8",
+        grade:8,
+        number:8,
+        live:true
+    },
+
+    {
+        id:"VsNwASdcOIo",
+        grade:8,
+        number:9,
+        live:true
+    },
+
+    {
+        id:"d68THhVLxP4",
+        grade:8,
+        number:10,
+        live:true
+    },
+
+    {
+        id:"vQsJk7xQ71A",
+        grade:8,
+        number:11,
+        live:true
+    },
+
+    {
+        id:"niVnj_ifopQ",
+        grade:8,
+        number:12,
+        live:true
+    },
+
+
+    {
+        id:"crs0Xavf8EU",
+        grade:9,
+        number:1,
+        live:true
+    },
+
+    {
+        id:"cEpQelYkBV8",
+        grade:9,
+        number:2,
+        live:true
+    },
+
+    {
+        id:"p3jg1UDoDx8",
+        grade:9,
+        number:3,
+        live:true
+    },
+
+    {
+        id:"orKMpbasNOs",
+        grade:9,
+        number:4,
+        live:true
+    },
+
+    {
+        id:"koA_IE7A8pE",
+        grade:9,
+        number:5,
+        live:true
+    },
+
+    {
+        id:"xhYH4ya_3TE",
+        grade:9,
+        number:6,
+        live:true
+    },
+
+
+    {
+        id:"LU7A7RNfzuM",
+        grade:10,
+        number:1,
+        live:true
+    },
+
+    {
+        id:"jYKoZCLKpdQ",
+        grade:10,
+        number:2,
+        live:true
+    },
+
+
+    {
+        id:"LU7A7RNfzuM",
+        grade:11,
+        number:1,
+        live:true
+    },
+
+    {
+        id:"jYKoZCLKpdQ",
+        grade:11,
+        number:2,
+        live:true
+    }
+
 ];
 
 
 /* =========================================================
-   CHANNELS
+   SUBJECT ICONS
 ========================================================= */
 
-const channels = {
+const subjectIcons = {
 
-    mathematics:{
-        name:"📐 Mathematics Teacher Channel",
-        description:"Mathematics lessons and educational videos.",
-        teacher:"👨‍🏫 Ishara Madushan",
-        url:"https://www.youtube.com/@isharamadushanofficial"
-    },
+    Mathematics:"📐",
 
-    science:{
-        name:"🔬 Science Teacher Channel",
-        description:"Science lessons and educational videos.",
-        teacher:"👨‍🏫 Geethan Devinda",
-        url:"https://www.youtube.com/@geethandevinda6483"
-    },
+    Science:"🔬",
 
-    sinhala:{
-        name:"📝 Sinhala Teacher Channel",
-        description:"Sinhala lessons and educational videos.",
-        teacher:"👨‍🏫 භාෂා පාරාදීසය",
-        url:"https://www.youtube.com/@bashaparadisaya"
-    },
+    ICT:"💻",
 
-    history:{
-        name:"🏛️ History Teacher Channel",
-        description:"History lessons and educational videos.",
-        teacher:"👨‍🏫 Prabath Udayakantha",
-        url:"https://www.youtube.com/@prabathudayakantha2795"
-    },
+    English:"🇬🇧",
 
-    ict:{
-        name:"💻 ICT Teacher Channel",
-        description:"ICT educational lessons for Grade 10 and Grade 11.",
-        teacher:"👨‍🏫 Ravindu Bandaranayake",
-        url:"https://www.youtube.com/@RavinduBandaranayake"
-    },
+    History:"🏛️",
 
-    english:{
-        name:"🇬🇧 English Teacher Channel",
-        description:"English educational lessons for Grades 6 - 11.",
-        teacher:"👨‍🏫 Tharaka Senadheera English",
-        url:"https://www.youtube.com/@tharakasenadheeraenglish880"
-    }
+    Sinhala:"📖"
 
 };
 
 
 /* =========================================================
-   SUBJECT DETAILS
+   SUBJECT GRADES
 ========================================================= */
 
-const subjectDetails = {
+const subjectGrades = {
 
-    mathematics:{
-        icon:"📐",
-        name:"Mathematics",
-        className:"math"
-    },
+    Mathematics:[9,10,11],
 
-    science:{
-        icon:"🔬",
-        name:"Science",
-        className:"science"
-    },
+    Science:[9],
 
-    ict:{
-        icon:"💻",
-        name:"ICT",
-        className:"ict"
-    },
+    ICT:[10,11],
 
-    english:{
-        icon:"🇬🇧",
-        name:"English",
-        className:"english"
-    },
+    English:[6,7,8,9,10,11],
 
-    history:{
-        icon:"🏛️",
-        name:"History",
-        className:"history"
-    },
+    History:[6,9,10,11],
 
-    sinhala:{
-        icon:"📝",
-        name:"Sinhala",
-        className:"sinhala"
-    }
+    Sinhala:[9]
 
 };
 
 
 /* =========================================================
-   PAGE FUNCTIONS
+   PAGE NAVIGATION
 ========================================================= */
 
-let currentGrade = null;
-let currentSubject = null;
+window.showPage = function(pageId,clickedButton=null){
+
+    document
+        .querySelectorAll(".page")
+        .forEach(page=>{
+            page.classList.remove("active");
+        });
 
 
-function hideAllPages(){
+    const page =
+        document.getElementById(pageId);
 
-    document.querySelectorAll(".page").forEach(page=>{
-        page.classList.remove("active");
-    });
-
-}
-
-
-window.showPage = function(page){
-
-    hideAllPages();
-
-    const target = document.getElementById(page);
-
-    if(target){
-        target.classList.add("active");
+    if(page){
+        page.classList.add("active");
     }
+
+
+    document
+        .querySelectorAll(".nav-btn")
+        .forEach(btn=>{
+            btn.classList.remove("active");
+        });
+
+
+    if(clickedButton){
+        clickedButton.classList.add("active");
+    }
+
 
     window.scrollTo({
         top:0,
@@ -1448,384 +2412,415 @@ window.showPage = function(page){
 };
 
 
+function activateNav(pageId){
+
+    document
+        .querySelectorAll(".nav-btn")
+        .forEach(btn=>{
+            btn.classList.remove("active");
+        });
+
+
+    const mapping = {
+
+        home:0,
+        grades:1,
+        about:2,
+        support:3
+
+    };
+
+
+    if(mapping[pageId] !== undefined){
+
+        const buttons =
+            document.querySelectorAll(".nav-btn");
+
+        if(buttons[mapping[pageId]]){
+            buttons[mapping[pageId]]
+                .classList.add("active");
+        }
+
+    }
+
+}
+
+
 /* =========================================================
-   GRADE
+   OPEN GRADE
 ========================================================= */
+
+let currentGrade = null;
+
+let currentSubject = null;
+
 
 window.openGrade = function(grade){
 
     currentGrade = grade;
 
-    document.getElementById("gradeTitle").textContent =
-        "🎓 Grade " + grade + " Subjects";
+    const title =
+        document.getElementById(
+            "gradeSubjectTitle"
+        );
 
-    renderGradeSubjects();
+    title.textContent =
+        `🎓 Grade ${grade} Subjects`;
+
+
+    const grid =
+        document.getElementById(
+            "gradeSubjectGrid"
+        );
+
+    grid.innerHTML = "";
+
+
+    const available =
+        allSubjects.filter(subject=>{
+
+            return subjectGrades[subject]
+                .includes(grade);
+
+        });
+
+
+    if(available.length === 0){
+
+        grid.innerHTML = `
+            <div class="no-results">
+                <h3>📚 No subjects available</h3>
+                <p>
+                    Content for Grade ${grade}
+                    will be added soon.
+                </p>
+            </div>
+        `;
+
+    }else{
+
+        available.forEach(subject=>{
+
+            const card =
+                document.createElement("div");
+
+            card.className =
+                "subject-card " +
+                subject.toLowerCase();
+
+            card.onclick = ()=>{
+                openVideos(grade,subject);
+            };
+
+
+            card.innerHTML = `
+
+                <div class="subject-icon">
+                    ${subjectIcons[subject]}
+                </div>
+
+                <h3>${subject}</h3>
+
+                <p>
+                    Grade ${grade}
+                </p>
+
+            `;
+
+
+            grid.appendChild(card);
+
+        });
+
+    }
+
 
     showPage("gradeSubjects");
+
 };
 
 
 /* =========================================================
-   AVAILABLE SUBJECTS
+   OPEN SUBJECT DIRECTLY FROM HOME
 ========================================================= */
 
-function getAvailableSubjects(grade){
+window.openSubjectDirect = function(subject){
 
-    const subjects = [];
-
-    /* Mathematics */
-    if(
-        mathsPlaylists.some(item=>item.grade===grade)
-    ){
-        subjects.push("mathematics");
-    }
-
-    /* Science */
-    if(grade===9){
-        subjects.push("science");
-    }
-
-    /* Sinhala */
-    if(grade===9){
-        subjects.push("sinhala");
-    }
-
-    /* History */
-    if(
-        historyVideos.some(item=>item.grade===grade)
-    ){
-        subjects.push("history");
-    }
-
-    /* ICT */
-    if(
-        ictPlaylists.some(item=>item.grade===grade)
-    ){
-        subjects.push("ict");
-    }
-
-    /* English */
-    if(
-        englishPlaylists.some(item=>item.grade===grade) ||
-        englishVideos.some(item=>item.grade===grade)
-    ){
-        subjects.push("english");
-    }
-
-    return subjects;
-}
+    const grades =
+        subjectGrades[subject] || [];
 
 
-/* =========================================================
-   RENDER SUBJECTS
-========================================================= */
-
-function renderGradeSubjects(){
-
-    const grid =
-        document.getElementById("gradeSubjectGrid");
-
-    grid.innerHTML = "";
-
-    const subjects =
-        getAvailableSubjects(currentGrade);
-
-    if(subjects.length===0){
-
-        grid.innerHTML = `
-            <div class="coming" style="grid-column:1/-1">
-                <div class="big">📚</div>
-                <h2>Coming Soon</h2>
-                <p>Lessons for this grade will be added soon.</p>
-            </div>
-        `;
-
+    if(grades.length === 0){
         return;
     }
 
-    subjects.forEach(subject=>{
 
-        const data =
-            subjectDetails[subject];
+    if(grades.length === 1){
+
+        openVideos(
+            grades[0],
+            subject
+        );
+
+        return;
+
+    }
+
+
+    currentSubject = subject;
+
+    const title =
+        document.getElementById(
+            "gradeSubjectTitle"
+        );
+
+    title.textContent =
+        `${subjectIcons[subject]} ${subject} - Select Grade`;
+
+
+    const grid =
+        document.getElementById(
+            "gradeSubjectGrid"
+        );
+
+    grid.innerHTML = "";
+
+
+    grades.forEach(grade=>{
 
         const card =
             document.createElement("div");
 
         card.className =
-            `subject-card ${data.className}`;
+            "grade-card " +
+            `g${grade}`;
 
-        card.onclick =
-            ()=>openSubject(subject,true);
+
+        card.onclick = ()=>{
+
+            openVideos(
+                grade,
+                subject
+            );
+
+        };
+
 
         card.innerHTML = `
-            <div class="icon">${data.icon}</div>
-            <h3>${data.name}</h3>
-            <p style="margin-top:8px">
-                🎬 Watch Lessons
+
+            <h3>Grade ${grade}</h3>
+
+            <p>
+                ${subject} lessons
             </p>
+
         `;
+
 
         grid.appendChild(card);
 
     });
 
-}
 
+    showPage("gradeSubjects");
 
-/* =========================================================
-   OPEN SUBJECT
-========================================================= */
-
-window.openSubject = function(subject,available=true){
-
-    if(!available){
-        showComingSoon(subject);
-        return;
-    }
-
-    currentSubject = subject;
-
-    renderSubjectVideos(
-        subject,
-        currentGrade
-    );
-
-    showPage("videos");
 };
 
 
 /* =========================================================
-   COMING SOON
+   GET SUBJECT DATA
 ========================================================= */
 
-function showComingSoon(subject){
+function getSubjectData(
+    subject,
+    grade
+){
 
-    const data =
-        subjectDetails[subject];
+    if(subject === "Science"){
 
-    document.getElementById("videoPageTitle").textContent =
-        `${data.icon} ${data.name}`;
+        return scienceVideos
+            .filter(v=>v.grade === grade)
+            .map(v=>({
+                ...v,
+                type:"video"
+            }));
 
-    document.getElementById("videoPageSubtitle").textContent =
-        "Coming Soon";
+    }
 
-    document.getElementById("channelContainer").innerHTML = "";
 
-    document.getElementById("videoGrid").innerHTML = `
-        <div class="coming" style="grid-column:1/-1">
-            <div class="big">🚀</div>
-            <h2>${data.name} Coming Soon</h2>
-            <p>Educational videos will be added soon.</p>
-        </div>
-    `;
+    if(subject === "Mathematics"){
 
-    showPage("videos");
+        return mathPlaylists
+            .filter(v=>v.grade === grade)
+            .map(v=>({
+                ...v,
+                type:"playlist"
+            }));
+
+    }
+
+
+    if(subject === "History"){
+
+        return historyVideos
+            .filter(v=>v.grade === grade)
+            .map(v=>({
+                ...v,
+                type:"video"
+            }));
+
+    }
+
+
+    if(subject === "Sinhala"){
+
+        return sinhalaVideos
+            .filter(v=>v.grade === grade)
+            .map(v=>({
+                ...v,
+                type:"video"
+            }));
+
+    }
+
+
+    if(subject === "ICT"){
+
+        return ictPlaylists
+            .filter(v=>v.grade === grade)
+            .map(v=>({
+                ...v,
+                type:"playlist"
+            }));
+
+    }
+
+
+    if(subject === "English"){
+
+        const playlists =
+            englishPlaylists
+            .filter(v=>v.grade === grade)
+            .map(v=>({
+                ...v,
+                type:"playlist"
+            }));
+
+
+        const videos =
+            englishVideos
+            .filter(v=>v.grade === grade)
+            .map(v=>({
+                ...v,
+                type:"video"
+            }));
+
+
+        return [
+            ...playlists,
+            ...videos
+        ];
+
+    }
+
+
+    return [];
+
 }
 
 
 /* =========================================================
-   RENDER VIDEOS
+   OPEN VIDEOS
 ========================================================= */
 
-function renderSubjectVideos(subject,grade){
+window.openVideos = function(
+    grade,
+    subject
+){
 
-    const data =
-        subjectDetails[subject];
+    currentGrade = grade;
 
-    document.getElementById("videoPageTitle").textContent =
-        `${data.icon} ${data.name} - Grade ${grade}`;
+    currentSubject = subject;
 
-    document.getElementById("videoPageSubtitle").textContent =
-        "🎬 Educational Videos & Playlists";
+
+    document
+        .getElementById("videoPageTitle")
+        .textContent =
+        `${subjectIcons[subject]} ${subject} - Grade ${grade}`;
+
+
+    document
+        .getElementById("videoPageDescription")
+        .textContent =
+        `Grade ${grade} ${subject} lessons`;
+
 
     const grid =
-        document.getElementById("videoGrid");
+        document.getElementById(
+            "videoGrid"
+        );
 
     grid.innerHTML = "";
 
-    showChannel(
-        subject,
-        document.getElementById("channelContainer")
-    );
+
+    const data =
+        getSubjectData(
+            subject,
+            grade
+        );
 
 
-    /* =========================
-       MATHEMATICS
-    ========================= */
-
-    if(subject==="mathematics"){
-
-        const items =
-            mathsPlaylists.filter(
-                item=>item.grade===grade
-            );
-
-        items.forEach(item=>{
-
-            createVideoCard({
-                playlist:item.id,
-                title:`📚 Mathematics Playlist ${item.number}`,
-                label:"PLAYLIST",
-                playlistBadge:true
-            },grid);
-
-        });
-
-    }
-
-
-    /* =========================
-       SCIENCE
-    ========================= */
-
-    if(subject==="science"){
-
-        scienceVideos.forEach((id,index)=>{
-
-            createVideoCard({
-                id:id,
-                title:`🔬 Science Lesson ${index+1}`,
-                label:"LIVE",
-                live:true
-            },grid);
-
-        });
-
-    }
-
-
-    /* =========================
-       SINHALA
-    ========================= */
-
-    if(subject==="sinhala"){
-
-        sinhalaVideos.forEach((id,index)=>{
-
-            createVideoCard({
-                id:id,
-                title:`📝 Sinhala Lesson ${index+1}`,
-                label:"LIVE",
-                live:true
-            },grid);
-
-        });
-
-    }
-
-
-    /* =========================
-       HISTORY
-    ========================= */
-
-    if(subject==="history"){
-
-        const items =
-            historyVideos.filter(
-                item=>item.grade===grade
-            );
-
-        items.forEach(item=>{
-
-            createVideoCard({
-                id:item.id,
-                title:`🏛️ History Lesson ${item.number}`,
-                label:"LIVE",
-                live:true
-            },grid);
-
-        });
-
-    }
-
-
-    /* =========================
-       ICT
-    ========================= */
-
-    if(subject==="ict"){
-
-        const items =
-            ictPlaylists.filter(
-                item=>item.grade===grade
-            );
-
-        items.forEach(item=>{
-
-            createVideoCard({
-                playlist:item.id,
-                title:`💻 ICT Playlist ${item.number}`,
-                label:"PLAYLIST",
-                playlistBadge:true
-            },grid);
-
-        });
-
-    }
-
-
-    /* =========================
-       ENGLISH
-    ========================= */
-
-    if(subject==="english"){
-
-        const playlists =
-            englishPlaylists.filter(
-                item=>item.grade===grade
-            );
-
-        playlists.forEach(item=>{
-
-            createVideoCard({
-                playlist:item.id,
-                title:`🇬🇧 English Playlist ${item.number}`,
-                label:"PLAYLIST",
-                playlistBadge:true
-            },grid);
-
-        });
-
-
-        const lives =
-            englishVideos.filter(
-                item=>item.grade===grade
-            );
-
-        lives.forEach(item=>{
-
-            createVideoCard({
-                id:item.id,
-                title:`🇬🇧 English Live Lesson ${item.number}`,
-                label:"LIVE",
-                live:true
-            },grid);
-
-        });
-
-    }
-
-
-    if(!grid.children.length){
+    if(data.length === 0){
 
         grid.innerHTML = `
-            <div class="coming" style="grid-column:1/-1">
-                <div class="big">📚</div>
-                <h2>No Videos Yet</h2>
-                <p>Videos for this subject will be added soon.</p>
+
+            <div class="no-results">
+
+                <h3>📚 No videos yet</h3>
+
+                <p>
+                    Content for this subject
+                    will be added soon.
+                </p>
+
             </div>
+
         `;
+
+    }else{
+
+        data.forEach(item=>{
+
+            createVideoCard(
+                item,
+                grid,
+                subject,
+                grade
+            );
+
+        });
 
     }
 
-}
+
+    createTeacherBox(subject);
+
+
+    showPage("videos");
+
+};
 
 
 /* =========================================================
    CREATE VIDEO CARD
 ========================================================= */
 
-function createVideoCard(video,grid){
+function createVideoCard(
+    video,
+    grid,
+    subject,
+    grade
+){
 
     const card =
         document.createElement("div");
@@ -1833,95 +2828,162 @@ function createVideoCard(video,grid){
     card.className =
         "video-card";
 
-    let src = "";
 
-    if(video.playlist){
+    let iframeSrc = "";
 
-        src =
-        `https://www.youtube.com/embed/videoseries?list=${video.playlist}`;
+    let youtubeUrl = "";
+
+    let title = "";
+
+
+    if(video.type === "playlist"){
+
+        /*
+         YouTube official playlist embed format:
+         https://www.youtube.com/embed?listType=playlist&list=PLAYLIST_ID
+        */
+
+        iframeSrc =
+            `https://www.youtube.com/embed?listType=playlist&list=${video.id}`;
+
+        youtubeUrl =
+            `https://www.youtube.com/playlist?list=${video.id}`;
+
+        title =
+            `${subject} - Grade ${grade} Playlist ${video.number}`;
 
     }else{
 
-        src =
-        `https://www.youtube.com/embed/${video.id}`;
+        iframeSrc =
+            `https://www.youtube.com/embed/${video.id}`;
+
+        youtubeUrl =
+            `https://www.youtube.com/watch?v=${video.id}`;
+
+        title =
+            `${subject} - Grade ${grade} Video ${video.number}`;
 
     }
+
+
+    const badgeClass =
+        video.type === "playlist"
+        ? "playlist"
+        : "live";
+
+
+    const badgeText =
+        video.type === "playlist"
+        ? "📚 PLAYLIST"
+        : "🔴 LIVE";
+
+
+    const buttonText =
+        video.type === "playlist"
+        ? "▶️ Open Playlist on YouTube"
+        : "▶️ Watch on YouTube";
+
+
+    const buttonClass =
+        video.type === "playlist"
+        ? "watch-btn playlist-btn"
+        : "watch-btn";
+
 
     card.innerHTML = `
 
         <iframe
             class="video-frame"
-            src="${src}"
-            title="${video.title}"
+            src="${iframeSrc}"
+            title="${title}"
             loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write;
-                   encrypted-media; gyroscope; picture-in-picture;
-                   web-share"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen>
         </iframe>
 
+
         <div class="video-info">
 
-            <h3>${video.title}</h3>
+            <h3>
+                ${title}
+            </h3>
 
-            <span class="badge ${
-                video.playlistBadge
-                ? "playlist"
-                : "live"
-            }">
-                ${
-                    video.playlistBadge
-                    ? "📚 PLAYLIST"
-                    : "🔴 LIVE"
-                }
+
+            <span class="badge ${badgeClass}">
+                ${badgeText}
             </span>
+
+
+            <div class="video-buttons">
+
+                <a
+                    class="${buttonClass}"
+                    href="${youtubeUrl}"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    ${buttonText}
+
+                </a>
+
+            </div>
 
         </div>
 
     `;
 
+
     grid.appendChild(card);
+
 }
 
 
 /* =========================================================
-   TEACHER CHANNEL
+   TEACHER BOX
 ========================================================= */
 
-function showChannel(subject,container){
+function createTeacherBox(subject){
 
-    const channel =
-        channels[subject];
+    const box =
+        document.getElementById(
+            "teacherBox"
+        );
 
-    if(!channel){
 
-        container.innerHTML="";
+    const teacher =
+        teachers[subject];
+
+
+    if(!teacher){
+
+        box.innerHTML = "";
+
         return;
 
     }
 
-    container.innerHTML = `
 
-        <div class="channel-card">
+    box.innerHTML = `
 
-            <div>
+        <div class="teacher-box">
 
-                <h3>${channel.name}</h3>
+            <h3>
+                👨‍🏫 Teacher / YouTube Channel
+            </h3>
 
-                <p>${channel.description}</p>
-
-                <p style="margin-top:8px">
-                    ${channel.teacher}
-                </p>
-
-            </div>
+            <p>
+                ${teacher.name}
+            </p>
 
             <a
-                class="channel-btn"
-                href="${channel.url}"
+                class="teacher-link"
+                href="${teacher.url}"
                 target="_blank"
                 rel="noopener noreferrer">
-                ▶️ YouTube Channel
+
+                ▶️ Visit YouTube Channel
+
             </a>
 
         </div>
@@ -1932,472 +2994,414 @@ function showChannel(subject,container){
 
 
 /* =========================================================
-   BACK
+   BACK TO GRADE SUBJECTS
 ========================================================= */
 
-window.goBackToGradeSubjects = function(){
+window.backToGradeSubjects = function(){
 
-    renderGradeSubjects();
+    if(currentSubject){
 
-    showPage("gradeSubjects");
+        openGrade(currentGrade);
+
+    }else{
+
+        showPage("grades");
+
+    }
 
 };
 
 
 /* =========================================================
-   HOME SUBJECT
+   SEARCH DATA
 ========================================================= */
 
-window.homeSubjectSearch = function(subject){
+function getAllSearchItems(){
 
-    /*
-       Home subject cards open the Grades page,
-       because videos are organised by grade.
-    */
+    const items = [];
 
-    showPage("grades");
 
-};
+    mathPlaylists.forEach(v=>{
+
+        items.push({
+
+            subject:"Mathematics",
+
+            grade:v.grade,
+
+            type:"playlist",
+
+            id:v.id,
+
+            title:
+                `Mathematics Grade ${v.grade} Playlist ${v.number}`
+
+        });
+
+    });
+
+
+    scienceVideos.forEach(v=>{
+
+        items.push({
+
+            subject:"Science",
+
+            grade:v.grade,
+
+            type:"video",
+
+            id:v.id,
+
+            title:
+                `Science Grade ${v.grade} Video ${v.number}`
+
+        });
+
+    });
+
+
+    historyVideos.forEach(v=>{
+
+        items.push({
+
+            subject:"History",
+
+            grade:v.grade,
+
+            type:"video",
+
+            id:v.id,
+
+            title:
+                `History Grade ${v.grade} Video ${v.number}`
+
+        });
+
+    });
+
+
+    sinhalaVideos.forEach(v=>{
+
+        items.push({
+
+            subject:"Sinhala",
+
+            grade:v.grade,
+
+            type:"video",
+
+            id:v.id,
+
+            title:
+                `Sinhala Grade ${v.grade} Video ${v.number}`
+
+        });
+
+    });
+
+
+    ictPlaylists.forEach(v=>{
+
+        items.push({
+
+            subject:"ICT",
+
+            grade:v.grade,
+
+            type:"playlist",
+
+            id:v.id,
+
+            title:
+                `ICT Grade ${v.grade} Playlist`
+
+        });
+
+    });
+
+
+    englishPlaylists.forEach(v=>{
+
+        items.push({
+
+            subject:"English",
+
+            grade:v.grade,
+
+            type:"playlist",
+
+            id:v.id,
+
+            title:
+                `English Grade ${v.grade} Playlist ${v.number}`
+
+        });
+
+    });
+
+
+    englishVideos.forEach(v=>{
+
+        items.push({
+
+            subject:"English",
+
+            grade:v.grade,
+
+            type:"video",
+
+            id:v.id,
+
+            title:
+                `English Grade ${v.grade} Video ${v.number}`
+
+        });
+
+    });
+
+
+    return items;
+
+}
 
 
 /* =========================================================
    SEARCH
 ========================================================= */
 
-function normalizeSearch(value){
-
-    return value
-        .toLowerCase()
-        .trim();
-
-}
-
-
-window.searchVideos = function(event){
-
-    if(event.key==="Enter"){
-
-        performSearch();
-
-    }
-
-};
+let searchTimer = null;
 
 
 window.performSearch = function(){
 
-    const input =
-        document.getElementById("searchInput");
-
-    const value =
-        normalizeSearch(input.value);
-
-    if(!value){
-
-        showPage("grades");
-        return;
-
-    }
-
-    const results =
-        document.getElementById("searchResults");
-
-    document.getElementById("searchText").textContent =
-        `Results for "${input.value}"`;
-
-    results.innerHTML="";
+    clearTimeout(searchTimer);
 
 
-    const allResults = [];
+    searchTimer =
+        setTimeout(()=>{
+
+            const input =
+                document
+                .getElementById("searchInput");
 
 
-    /* Mathematics */
-    mathsPlaylists.forEach(item=>{
-
-        allResults.push({
-            type:"playlist",
-            subject:"Mathematics",
-            grade:item.grade,
-            number:item.number,
-            id:item.id,
-            title:`Mathematics Playlist ${item.number}`
-        });
-
-    });
+            const query =
+                input.value
+                .trim()
+                .toLowerCase();
 
 
-    /* Science */
-    scienceVideos.forEach((id,index)=>{
+            if(query === ""){
 
-        allResults.push({
-            type:"video",
-            subject:"Science",
-            grade:9,
-            number:index+1,
-            id:id,
-            title:`Science Lesson ${index+1}`
-        });
+                showPage("home");
 
-    });
+                activateNav("home");
+
+                return;
+
+            }
 
 
-    /* Sinhala */
-    sinhalaVideos.forEach((id,index)=>{
-
-        allResults.push({
-            type:"video",
-            subject:"Sinhala",
-            grade:9,
-            number:index+1,
-            id:id,
-            title:`Sinhala Lesson ${index+1}`
-        });
-
-    });
+            const all =
+                getAllSearchItems();
 
 
-    /* History */
-    historyVideos.forEach(item=>{
+            const results =
+                all.filter(item=>{
 
-        allResults.push({
-            type:"video",
-            subject:"History",
-            grade:item.grade,
-            number:item.number,
-            id:item.id,
-            title:`History Lesson ${item.number}`
-        });
+                    return (
 
-    });
+                        item.title
+                            .toLowerCase()
+                            .includes(query)
 
+                        ||
 
-    /* ICT */
-    ictPlaylists.forEach(item=>{
+                        item.subject
+                            .toLowerCase()
+                            .includes(query)
 
-        allResults.push({
-            type:"playlist",
-            subject:"ICT",
-            grade:item.grade,
-            number:item.number,
-            id:item.id,
-            title:`ICT Playlist ${item.number}`
-        });
+                        ||
 
-    });
+                        String(item.grade)
+                            .includes(query)
+
+                    );
+
+                });
 
 
-    /* English Playlists */
-    englishPlaylists.forEach(item=>{
+            renderSearchResults(
+                results,
+                query
+            );
 
-        allResults.push({
-            type:"playlist",
-            subject:"English",
-            grade:item.grade,
-            number:item.number,
-            id:item.id,
-            title:`English Playlist ${item.number}`
-        });
+        },200);
 
-    });
+};
 
 
-    /* English Videos */
-    englishVideos.forEach(item=>{
+/* =========================================================
+   RENDER SEARCH RESULTS
+========================================================= */
 
-        allResults.push({
-            type:"video",
-            subject:"English",
-            grade:item.grade,
-            number:item.number,
-            id:item.id,
-            title:`English Live Lesson ${item.number}`
-        });
+function renderSearchResults(
+    results,
+    query
+){
 
-    });
-
-
-    const filtered =
-        allResults.filter(item=>{
-
-            const text =
-                `${item.subject}
-                 ${item.grade}
-                 ${item.title}`.toLowerCase();
-
-            return text.includes(value);
-
-        });
+    const container =
+        document.getElementById(
+            "searchResults"
+        );
 
 
-    if(!filtered.length){
+    document
+        .getElementById("searchText")
+        .textContent =
+        `Results for "${query}"`;
 
-        results.innerHTML = `
-            <div class="search-empty"
-                 style="grid-column:1/-1">
-                <div style="font-size:50px">🔎</div>
-                <h2>No Results Found</h2>
-                <p>Try another search.</p>
+
+    container.innerHTML = "";
+
+
+    if(results.length === 0){
+
+        container.innerHTML = `
+
+            <div class="no-results">
+
+                <h3>
+                    🔎 No results found
+                </h3>
+
+                <p>
+                    Try another subject,
+                    grade or keyword.
+                </p>
+
             </div>
+
         `;
 
-        showPage("searchPage");
-        return;
+    }else{
+
+        results.forEach(item=>{
+
+            const card =
+                document.createElement("div");
+
+            card.className =
+                "search-result-card";
+
+
+            const url =
+                item.type === "playlist"
+
+                ?
+
+                `https://www.youtube.com/playlist?list=${item.id}`
+
+                :
+
+                `https://www.youtube.com/watch?v=${item.id}`;
+
+
+            const buttonText =
+                item.type === "playlist"
+
+                ?
+
+                "▶️ Open Playlist"
+
+                :
+
+                "▶️ Watch Video";
+
+
+            card.innerHTML = `
+
+                <h3>
+                    ${item.title}
+                </h3>
+
+                <p>
+                    📚 ${item.subject}
+                    &nbsp; | &nbsp;
+                    🎓 Grade ${item.grade}
+                </p>
+
+                <a
+                    class="watch-btn"
+                    href="${url}"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    ${buttonText}
+
+                </a>
+
+            `;
+
+
+            container.appendChild(card);
+
+        });
 
     }
-
-
-    filtered.forEach(item=>{
-
-        createVideoCard({
-
-            id:item.type==="video"
-                ? item.id
-                : null,
-
-            playlist:item.type==="playlist"
-                ? item.id
-                : null,
-
-            title:
-                `${item.title} • Grade ${item.grade}`,
-
-            live:item.type==="video",
-
-            playlistBadge:item.type==="playlist"
-
-        },results);
-
-    });
 
 
     showPage("searchPage");
 
-}
+    activateNav("home");
+
+};
 
 
 /* =========================================================
-   AUTH
+   KEYBOARD SHORTCUT
 ========================================================= */
 
-let isSignUp = false;
+document.addEventListener(
+    "keydown",
+    event=>{
 
+        if(event.key === "Escape"){
 
-window.openAuth = function(){
-
-    if(auth.currentUser){
-
-        signOut(auth);
-        return;
-
-    }
-
-    document
-        .getElementById("authModal")
-        .classList.add("show");
-
-};
-
-
-window.closeAuth = function(){
-
-    document
-        .getElementById("authModal")
-        .classList.remove("show");
-
-    clearAuthError();
-
-};
-
-
-window.switchAuthMode = function(signup){
-
-    isSignUp = signup;
-
-    document.getElementById("authTitle").textContent =
-        signup ? "📝 Sign Up" : "🔐 Login";
-
-    document.getElementById("authSwitchText").textContent =
-        signup
-        ? "Already have an account?"
-        : "Don't have an account?";
-
-    document.getElementById("authSwitchButton").textContent =
-        signup
-        ? "Login"
-        : "Sign Up";
-
-    document.getElementById("authSwitchButton").onclick =
-        ()=>switchAuthMode(!signup);
-
-    clearAuthError();
-
-};
-
-
-function showAuthError(message){
-
-    const error =
-        document.getElementById("authError");
-
-    error.textContent = message;
-    error.style.display = "block";
-
-}
-
-
-function clearAuthError(){
-
-    const error =
-        document.getElementById("authError");
-
-    error.textContent="";
-    error.style.display="none";
-
-}
-
-
-window.submitAuth = async function(){
-
-    const email =
-        document.getElementById("email").value.trim();
-
-    const password =
-        document.getElementById("password").value;
-
-    clearAuthError();
-
-
-    if(!email || !password){
-
-        showAuthError(
-            "Please enter email and password."
-        );
-
-        return;
-
-    }
-
-
-    if(password.length < 6){
-
-        showAuthError(
-            "Password must contain at least 6 characters."
-        );
-
-        return;
-
-    }
-
-
-    try{
-
-        if(isSignUp){
-
-            await createUserWithEmailAndPassword(
-                auth,
-                email,
-                password
-            );
-
-        }else{
-
-            await signInWithEmailAndPassword(
-                auth,
-                email,
-                password
-            );
+            closeAuthModal();
 
         }
 
-        closeAuth();
-
-        document.getElementById("email").value="";
-        document.getElementById("password").value="";
-
-    }catch(error){
-
-        let message =
-            "Something went wrong. Please try again.";
-
-        switch(error.code){
-
-            case "auth/email-already-in-use":
-                message="This email is already registered.";
-                break;
-
-            case "auth/invalid-email":
-                message="Please enter a valid email.";
-                break;
-
-            case "auth/weak-password":
-                message="Password is too weak.";
-                break;
-
-            case "auth/invalid-credential":
-                message="Incorrect email or password.";
-                break;
-
-            case "auth/user-not-found":
-                message="No account found with this email.";
-                break;
-
-            case "auth/wrong-password":
-                message="Incorrect password.";
-                break;
-
-            default:
-                message=error.message;
-
-        }
-
-        showAuthError(message);
-
     }
-
-};
+);
 
 
 /* =========================================================
-   AUTH STATE
-========================================================= */
-
-onAuthStateChanged(auth,user=>{
-
-    const button =
-        document.getElementById("authButton");
-
-    if(user){
-
-        button.textContent="🚪 Sign Out";
-
-    }else{
-
-        button.textContent="🔐 Login";
-
-    }
-
-});
-
-
-/* =========================================================
-   MODAL OUTSIDE CLICK
+   CLOSE MODAL WHEN CLICK OUTSIDE
 ========================================================= */
 
 document
     .getElementById("authModal")
-    .addEventListener("click",event=>{
+    .addEventListener(
+        "click",
+        event=>{
 
-        if(event.target.id==="authModal"){
+            if(
+                event.target.id ===
+                "authModal"
+            ){
 
-            closeAuth();
+                closeAuthModal();
+
+            }
 
         }
-
-    });
+    );
 
 
 /* =========================================================
-   INITIAL PAGE
+   INITIAL
 ========================================================= */
 
 showPage("home");
