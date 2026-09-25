@@ -747,6 +747,385 @@ footer{
         text-align:center;
     }
 
+}/* ============================= */
+/* ✨ EDULEARN ANIMATIONS */
+/* ============================= */
+
+/* Page Load */
+@keyframes pageFade{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+body{
+    animation:pageFade 0.7s ease-out;
+}
+
+
+/* ============================= */
+/* 🎓 HERO ANIMATION */
+/* ============================= */
+
+@keyframes heroFade{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.hero h1{
+    animation:heroFade 0.8s ease-out;
+}
+
+.hero p{
+    animation:heroFade 1s ease-out;
+}
+
+.hero button{
+    animation:
+        heroFade 1.2s ease-out,
+        buttonFloat 3s ease-in-out infinite 1.2s;
+}
+
+
+/* Hero Button Floating */
+@keyframes buttonFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-5px);
+    }
+}
+
+
+/* ============================= */
+/* 📚 SUBJECT CARDS */
+/* ============================= */
+
+@keyframes cardAppear{
+    from{
+        opacity:0;
+        transform:translateY(25px) scale(0.97);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+.subject-card{
+    animation:cardAppear 0.6s ease both;
+}
+
+
+/* Different delays */
+
+.subject-card:nth-child(1){
+    animation-delay:0.1s;
+}
+
+.subject-card:nth-child(2){
+    animation-delay:0.2s;
+}
+
+.subject-card:nth-child(3){
+    animation-delay:0.3s;
+}
+
+.subject-card:nth-child(4){
+    animation-delay:0.4s;
+}
+
+.subject-card:nth-child(5){
+    animation-delay:0.5s;
+}
+
+.subject-card:nth-child(6){
+    animation-delay:0.6s;
+}
+
+
+/* Subject Hover */
+
+.subject-card:hover{
+    transform:
+        translateY(-8px)
+        scale(1.03);
+
+    box-shadow:
+        0 15px 35px rgba(37,99,235,0.18);
+}
+
+
+/* ============================= */
+/* 🎬 VIDEO CARDS */
+/* ============================= */
+
+.video-card{
+    animation:cardAppear 0.6s ease both;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        opacity 0.3s ease;
+}
+
+
+.video-card:hover{
+    transform:
+        translateY(-8px)
+        scale(1.015);
+
+    box-shadow:
+        0 18px 40px rgba(37,99,235,0.18);
+}
+
+
+/* Video image/iframe zoom */
+
+.video-card iframe{
+    transition:
+        transform 0.4s ease;
+}
+
+.video-card:hover iframe{
+    transform:scale(1.02);
+}
+
+
+/* ============================= */
+/* 🔎 SEARCH ANIMATION */
+/* ============================= */
+
+.search-box{
+    transition:
+        transform 0.25s ease;
+}
+
+.search-box:focus-within{
+    transform:scale(1.02);
+}
+
+
+/* Search button */
+
+.search-box button{
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.search-box button:hover{
+    transform:scale(1.05);
+}
+
+
+/* ============================= */
+/* 🔐 LOGIN BUTTON */
+/* ============================= */
+
+.login-btn{
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.login-btn:hover{
+    transform:
+        translateY(-2px)
+        scale(1.03);
+}
+
+.login-btn:active{
+    transform:scale(0.96);
+}
+
+
+/* ============================= */
+/* 📺 CHANNEL RESULT */
+/* ============================= */
+
+@keyframes channelAppear{
+    from{
+        opacity:0;
+        transform:
+            translateY(-15px)
+            scale(0.98);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+.channel-result{
+    animation:channelAppear 0.5s ease;
+}
+
+
+/* ============================= */
+/* ▶️ CHANNEL BUTTON */
+/* ============================= */
+
+.channel-button{
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.channel-button:hover{
+    transform:
+        translateY(-3px)
+        scale(1.04);
+
+    box-shadow:
+        0 8px 20px rgba(255,0,0,0.25);
+}
+
+.channel-button:active{
+    transform:scale(0.96);
+}
+
+
+/* ============================= */
+/* 🔴 LIVE BADGE */
+/* ============================= */
+
+@keyframes livePulse{
+    0%,100%{
+        transform:scale(1);
+        opacity:1;
+    }
+
+    50%{
+        transform:scale(1.08);
+        opacity:0.75;
+    }
+}
+
+.live-badge{
+    animation:livePulse 1.5s infinite;
+}
+
+
+/* ============================= */
+/* 📚 LOGO ANIMATION */
+/* ============================= */
+
+.logo{
+    transition:
+        transform 0.3s ease;
+}
+
+.logo:hover{
+    transform:
+        scale(1.05)
+        rotate(-2deg);
+}
+
+
+/* ============================= */
+/* 🔐 AUTH MODAL */
+/* ============================= */
+
+@keyframes modalBackground{
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+}
+
+@keyframes modalBox{
+    from{
+        opacity:0;
+        transform:
+            translateY(-30px)
+            scale(0.95);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+.auth-modal{
+    animation:modalBackground 0.25s ease;
+}
+
+.auth-box{
+    animation:modalBox 0.35s ease;
+}
+
+
+/* ============================= */
+/* ❌ CLOSE BUTTON */
+/* ============================= */
+
+.close-modal{
+    transition:
+        transform 0.2s ease,
+        color 0.2s ease;
+}
+
+.close-modal:hover{
+    transform:
+        rotate(90deg)
+        scale(1.1);
+
+    color:#ef4444;
+}
+
+
+/* ============================= */
+/* 🪄 SECTION TITLE */
+/* ============================= */
+
+.section-title,
+.search-title{
+    animation:heroFade 0.7s ease;
+}
+
+
+/* ============================= */
+/* 📱 MOBILE */
+/* ============================= */
+
+@media(max-width:700px){
+
+    .subject-card:hover{
+        transform:
+            translateY(-5px)
+            scale(1.01);
+    }
+
+    .video-card:hover{
+        transform:
+            translateY(-5px)
+            scale(1.01);
+    }
+
 }
 </style>
 </head>
