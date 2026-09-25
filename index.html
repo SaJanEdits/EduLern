@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +10,10 @@
     <meta name="google-site-verification"
         content="T9X50zh28h-OUVSkAbQpBpIXp_6jlV_1gj3IwTHCZMw">
 
-    <title>📚 EduLearn</title>
+    <title>📚 EduLearn - Educational Videos</title>
 
     <style>
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -23,18 +25,28 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            color: #172033;
-            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
 
             background:
-                radial-gradient(circle at top left,
-                    rgba(96, 165, 250, 0.25),
-                    transparent 35%),
-                radial-gradient(circle at bottom right,
-                    rgba(167, 139, 250, 0.25),
-                    transparent 35%),
-                linear-gradient(135deg, #eef6ff, #f7f3ff);
+                radial-gradient(
+                    circle at top left,
+                    rgba(59,130,246,0.16),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at bottom right,
+                    rgba(139,92,246,0.15),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #eef6ff,
+                    #f7f3ff
+                );
+
+            color: #1e293b;
+
+            min-height: 100vh;
 
             animation: pageFade 0.7s ease-out;
         }
@@ -42,59 +54,101 @@
         /* ================= HEADER ================= */
 
         header {
+
             position: sticky;
             top: 0;
             z-index: 1000;
+
+            width: 100%;
 
             display: flex;
             align-items: center;
             justify-content: space-between;
 
-            padding: 15px 6%;
+            gap: 20px;
 
-            background: rgba(255, 255, 255, 0.90);
-            backdrop-filter: blur(15px);
+            padding: 15px 5%;
 
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            background: rgba(255,255,255,0.94);
 
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
+            backdrop-filter: blur(12px);
+
+            box-shadow:
+                0 4px 20px rgba(0,0,0,0.08);
         }
 
         .logo {
-            font-size: 24px;
-            font-weight: 800;
-            color: #2563eb;
-            cursor: pointer;
 
-            transition: transform 0.3s ease;
+            font-size: 23px;
+            font-weight: 800;
+
+            color: #2563eb;
+
+            white-space: nowrap;
+
+            transition:
+                transform 0.3s ease;
         }
 
         .logo:hover {
             transform: scale(1.05) rotate(-2deg);
         }
 
-        .header-right {
+        /* ================= NAV ================= */
+
+        .nav-menu {
+
             display: flex;
             align-items: center;
-            gap: 12px;
+
+            gap: 18px;
         }
 
-        /* ================= SEARCH ================= */
+        .nav-menu a {
 
-        .search-box {
+            text-decoration: none;
+
+            color: #334155;
+
+            font-weight: 700;
+
+            font-size: 14px;
+
+            transition:
+                color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .nav-menu a:hover {
+
+            color: #2563eb;
+
+            transform: translateY(-2px);
+        }
+
+        /* ================= HEADER RIGHT ================= */
+
+        .header-right {
+
             display: flex;
             align-items: center;
 
-            background: white;
+            gap: 10px;
+        }
 
-            border: 1px solid #dbe4f0;
-            border-radius: 14px;
+        .search-box {
 
-            overflow: hidden;
+            display: flex;
+            align-items: center;
 
-            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.08);
+            background: #f1f5f9;
 
-            transition: transform 0.25s ease;
+            border-radius: 12px;
+
+            padding: 3px;
+
+            transition:
+                transform 0.25s ease;
         }
 
         .search-box:focus-within {
@@ -102,25 +156,32 @@
         }
 
         .search-box input {
-            width: 240px;
+
+            width: 180px;
+
+            padding: 10px 12px;
 
             border: none;
             outline: none;
 
-            padding: 12px 14px;
+            background: transparent;
 
             font-size: 14px;
         }
 
         .search-box button {
+
             border: none;
+
             background: #2563eb;
+
             color: white;
 
-            padding: 12px 16px;
+            border-radius: 9px;
+
+            padding: 9px 12px;
 
             cursor: pointer;
-            font-size: 16px;
 
             transition:
                 transform 0.2s ease,
@@ -128,23 +189,29 @@
         }
 
         .search-box button:hover {
+
             transform: scale(1.05);
+
             background: #1d4ed8;
         }
 
         /* ================= LOGIN ================= */
 
         .login-btn {
-            border: none;
-            outline: none;
 
-            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            border: none;
+
+            background: linear-gradient(
+                135deg,
+                #2563eb,
+                #7c3aed
+            );
 
             color: white;
 
-            padding: 11px 17px;
+            padding: 10px 15px;
 
-            border-radius: 12px;
+            border-radius: 11px;
 
             cursor: pointer;
 
@@ -156,8 +223,11 @@
         }
 
         .login-btn:hover {
+
             transform: translateY(-2px) scale(1.03);
-            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+
+            box-shadow:
+                0 7px 18px rgba(37,99,235,0.25);
         }
 
         .login-btn:active {
@@ -167,56 +237,64 @@
         /* ================= HERO ================= */
 
         .hero {
+
             width: 90%;
-            max-width: 1200px;
+            max-width: 1100px;
 
-            margin: 35px auto;
-
-            padding: 70px 30px;
+            margin: 45px auto 30px;
 
             text-align: center;
 
-            color: white;
+            padding: 70px 20px;
 
-            border-radius: 28px;
+            border-radius: 30px;
 
             background:
-                linear-gradient(135deg,
-                    rgba(37, 99, 235, 0.95),
-                    rgba(124, 58, 237, 0.95));
+                linear-gradient(
+                    135deg,
+                    rgba(37,99,235,0.95),
+                    rgba(124,58,237,0.95)
+                );
 
-            box-shadow: 0 20px 45px rgba(37, 99, 235, 0.20);
+            color: white;
 
-            overflow: hidden;
+            box-shadow:
+                0 20px 50px rgba(37,99,235,0.22);
         }
 
         .hero h1 {
+
             font-size: 42px;
+
             margin-bottom: 15px;
 
             animation: heroFade 0.8s ease-out;
         }
 
         .hero p {
-            font-size: 19px;
-            opacity: 0.95;
-            margin-bottom: 28px;
+
+            font-size: 18px;
+
+            margin-bottom: 25px;
 
             animation: heroFade 1s ease-out;
         }
 
         .hero button {
+
             border: none;
 
             background: white;
+
             color: #2563eb;
 
-            padding: 14px 25px;
+            padding: 14px 24px;
 
-            border-radius: 14px;
+            border-radius: 13px;
 
-            font-size: 16px;
             font-weight: 800;
+
+            font-size: 15px;
 
             cursor: pointer;
 
@@ -225,97 +303,132 @@
                 buttonFloat 3s ease-in-out infinite 1.2s;
         }
 
-        /* ================= SUBJECTS ================= */
+        /* ================= SECTION ================= */
 
-        .subjects-section {
+        .section {
+
             width: 90%;
             max-width: 1200px;
 
-            margin: 45px auto;
+            margin: 55px auto;
         }
 
-        .section-title {
+        .section-title,
+        .search-title {
+
             text-align: center;
 
-            font-size: 30px;
+            font-size: 28px;
 
             margin-bottom: 25px;
 
-            color: #172033;
+            color: #1e3a8a;
 
             animation: heroFade 0.7s ease;
         }
 
-        .subjects {
+        /* ================= SUBJECTS ================= */
+
+        .subject-grid {
+
             display: grid;
 
             grid-template-columns:
-                repeat(auto-fit, minmax(170px, 1fr));
+                repeat(
+                    auto-fit,
+                    minmax(170px, 1fr)
+                );
 
-            gap: 18px;
+            gap: 20px;
         }
 
         .subject-card {
-            padding: 25px 18px;
+
+            padding: 25px 15px;
 
             border-radius: 20px;
 
             text-align: center;
 
+            color: white;
+
             cursor: pointer;
 
-            background: rgba(255, 255, 255, 0.82);
+            min-height: 130px;
 
-            border: 1px solid rgba(255, 255, 255, 0.8);
+            display: flex;
 
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+            flex-direction: column;
 
-            animation: cardAppear 0.6s ease both;
+            align-items: center;
+
+            justify-content: center;
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,0.08);
+
+            animation:
+                cardAppear 0.6s ease both;
 
             transition:
                 transform 0.3s ease,
                 box-shadow 0.3s ease;
         }
 
-        .subject-card:hover {
-            transform: translateY(-8px) scale(1.03);
+        .subject-card:nth-child(1) {
+            background: linear-gradient(
+                135deg,#2563eb,#3b82f6
+            );
+        }
 
-            box-shadow:
-                0 15px 35px rgba(37, 99, 235, 0.18);
+        .subject-card:nth-child(2) {
+            background: linear-gradient(
+                135deg,#059669,#10b981
+            );
+        }
+
+        .subject-card:nth-child(3) {
+            background: linear-gradient(
+                135deg,#7c3aed,#8b5cf6
+            );
+        }
+
+        .subject-card:nth-child(4) {
+            background: linear-gradient(
+                135deg,#db2777,#ec4899
+            );
+        }
+
+        .subject-card:nth-child(5) {
+            background: linear-gradient(
+                135deg,#d97706,#f59e0b
+            );
+        }
+
+        .subject-card:nth-child(6) {
+            background: linear-gradient(
+                135deg,#0891b2,#06b6d4
+            );
+        }
+
+        .subject-card span {
+            font-size: 32px;
+            margin-bottom: 8px;
         }
 
         .subject-card h3 {
-            margin-bottom: 8px;
-            font-size: 20px;
+            font-size: 17px;
         }
 
-        .subject-card p {
-            color: #64748b;
-            font-size: 14px;
-        }
+        .subject-card:hover {
 
-        .math {
-            border-top: 5px solid #2563eb;
-        }
+            transform:
+                translateY(-8px)
+                scale(1.03);
 
-        .science {
-            border-top: 5px solid #16a34a;
-        }
-
-        .ict {
-            border-top: 5px solid #9333ea;
-        }
-
-        .english {
-            border-top: 5px solid #ea580c;
-        }
-
-        .history {
-            border-top: 5px solid #ca8a04;
-        }
-
-        .sinhala {
-            border-top: 5px solid #dc2626;
+            box-shadow:
+                0 15px 35px
+                rgba(37,99,235,0.18);
         }
 
         .subject-card:nth-child(1) {
@@ -342,45 +455,108 @@
             animation-delay: 0.6s;
         }
 
-        /* ================= VIDEOS ================= */
+        /* ================= GRADES ================= */
 
-        .video-section {
+        .grades-section {
+
             width: 90%;
             max-width: 1200px;
 
             margin: 55px auto;
         }
 
-        .search-title {
-            text-align: center;
+        .grades-grid {
 
-            font-size: 30px;
-
-            margin-bottom: 25px;
-
-            animation: heroFade 0.7s ease;
-        }
-
-        .video-grid {
             display: grid;
 
             grid-template-columns:
-                repeat(auto-fit, minmax(300px, 1fr));
+                repeat(
+                    auto-fit,
+                    minmax(180px,1fr)
+                );
 
-            gap: 24px;
+            gap: 18px;
         }
 
-        .video-card {
-            overflow: hidden;
+        .grade-card {
+
+            padding: 25px 15px;
+
+            text-align: center;
+
+            background:
+                rgba(255,255,255,0.88);
 
             border-radius: 18px;
 
-            background: rgba(255, 255, 255, 0.90);
+            box-shadow:
+                0 10px 25px rgba(0,0,0,0.07);
+
+            cursor: pointer;
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .grade-card:hover {
+
+            transform:
+                translateY(-7px)
+                scale(1.03);
 
             box-shadow:
-                0 10px 25px rgba(0, 0, 0, 0.08);
+                0 15px 35px
+                rgba(37,99,235,0.18);
+        }
 
-            animation: cardAppear 0.6s ease both;
+        .grade-card span {
+            font-size: 30px;
+        }
+
+        .grade-card h3 {
+
+            margin: 10px 0 6px;
+
+            color: #2563eb;
+        }
+
+        .grade-card p {
+
+            color: #64748b;
+
+            font-size: 13px;
+        }
+
+        /* ================= VIDEO GRID ================= */
+
+        .video-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(300px,1fr)
+                );
+
+            gap: 25px;
+        }
+
+        .video-card {
+
+            background: white;
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 10px 30px
+                rgba(0,0,0,0.08);
+
+            animation:
+                cardAppear 0.6s ease both;
 
             transition:
                 transform 0.3s ease,
@@ -389,109 +565,164 @@
         }
 
         .video-card:hover {
-            transform: translateY(-8px) scale(1.015);
+
+            transform:
+                translateY(-8px)
+                scale(1.015);
 
             box-shadow:
-                0 18px 40px rgba(37, 99, 235, 0.18);
+                0 18px 40px
+                rgba(37,99,235,0.18);
         }
 
-        .video-card iframe {
-            width: 100%;
-            height: 210px;
+        .video-wrapper {
 
-            display: block;
+            position: relative;
+
+            width: 100%;
+
+            aspect-ratio: 16 / 9;
+
+            background: #e2e8f0;
+        }
+
+        .video-wrapper iframe {
+
+            width: 100%;
+            height: 100%;
 
             border: none;
 
-            transition: transform 0.4s ease;
+            transition:
+                transform 0.4s ease;
         }
 
         .video-card:hover iframe {
+
             transform: scale(1.02);
         }
 
         .video-info {
+
             padding: 15px;
         }
 
         .video-info h3 {
-            font-size: 17px;
-            margin-bottom: 8px;
+
+            font-size: 16px;
+
+            color: #1e3a8a;
         }
 
         .video-info p {
-            color: #64748b;
+
+            margin-top: 6px;
+
             font-size: 13px;
+
+            color: #64748b;
         }
 
         /* ================= LIVE ================= */
 
         .live-badge {
-            display: inline-block;
 
-            margin-top: 10px;
+            position: absolute;
 
-            padding: 5px 9px;
+            top: 10px;
+            left: 10px;
 
-            border-radius: 20px;
+            z-index: 2;
 
             background: #dc2626;
+
             color: white;
 
+            padding: 6px 10px;
+
+            border-radius: 8px;
+
             font-size: 12px;
+
             font-weight: 800;
 
-            animation: livePulse 1.5s infinite;
+            animation:
+                livePulse 1.5s infinite;
         }
 
         /* ================= CHANNEL ================= */
 
         .channel-result {
+
             display: none;
 
             margin-bottom: 25px;
 
-            padding: 20px;
-
-            border-radius: 18px;
-
             background:
                 linear-gradient(
                     135deg,
-                    rgba(255, 255, 255, 0.95),
-                    rgba(239, 246, 255, 0.95)
+                    #ffffff,
+                    #eff6ff
                 );
 
             border: 1px solid #dbeafe;
 
-            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.10);
+            border-radius: 20px;
 
-            animation: channelAppear 0.5s ease;
+            padding: 22px;
+
+            box-shadow:
+                0 10px 30px
+                rgba(37,99,235,0.10);
+
+            animation:
+                channelAppear 0.5s ease;
         }
 
-        .channel-result h3 {
-            margin-bottom: 8px;
-            color: #172033;
+        .channel-content {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
         }
 
-        .channel-result p {
+        .channel-content h3 {
+
+            color: #1e3a8a;
+
+            margin-bottom: 7px;
+        }
+
+        .channel-content p {
+
             color: #64748b;
-            margin-bottom: 15px;
+
+            font-size: 14px;
+
+            margin: 4px 0;
         }
 
         .channel-button {
+
             display: inline-block;
 
-            padding: 10px 16px;
-
-            border-radius: 10px;
-
             background: #ef4444;
+
             color: white;
 
             text-decoration: none;
 
+            padding: 11px 16px;
+
+            border-radius: 10px;
+
             font-weight: 700;
+
+            white-space: nowrap;
 
             transition:
                 transform 0.25s ease,
@@ -499,10 +730,14 @@
         }
 
         .channel-button:hover {
-            transform: translateY(-3px) scale(1.04);
+
+            transform:
+                translateY(-3px)
+                scale(1.04);
 
             box-shadow:
-                0 8px 20px rgba(255, 0, 0, 0.25);
+                0 8px 20px
+                rgba(255,0,0,0.25);
         }
 
         .channel-button:active {
@@ -511,39 +746,117 @@
 
         /* ================= NO RESULTS ================= */
 
-        #noResults {
+        .no-results {
+
             display: none;
 
             text-align: center;
 
             padding: 35px;
 
+            background: white;
+
+            border-radius: 18px;
+
+            color: #64748b;
+        }
+
+        /* ================= INFO ================= */
+
+        .info-section {
+
+            width: 90%;
+            max-width: 900px;
+
+            margin: 55px auto;
+
+            padding: 40px 25px;
+
+            text-align: center;
+
+            background:
+                rgba(255,255,255,0.88);
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 10px 30px
+                rgba(0,0,0,0.07);
+        }
+
+        .info-section h2 {
+
+            margin-bottom: 18px;
+
+            color: #2563eb;
+        }
+
+        .info-section p {
+
             color: #64748b;
 
-            font-size: 17px;
+            line-height: 1.7;
+
+            margin-bottom: 10px;
+        }
+
+        .support-button {
+
+            display: inline-block;
+
+            margin-top: 15px;
+
+            padding: 12px 20px;
+
+            border-radius: 12px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2563eb,
+                    #7c3aed
+                );
+
+            color: white;
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .support-button:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 8px 20px
+                rgba(37,99,235,0.25);
         }
 
         /* ================= FOOTER ================= */
 
         footer {
+
             margin-top: 70px;
 
-            padding: 30px 20px;
+            padding: 30px 15px;
 
             text-align: center;
 
+            background: #0f172a;
+
             color: white;
 
-            background:
-                linear-gradient(135deg,
-                    #172554,
-                    #312e81);
-
-            box-shadow:
-                0 -10px 30px rgba(0, 0, 0, 0.08);
+            font-size: 14px;
         }
 
         .created-by {
+
             margin-top: 8px;
 
             font-size: 14px;
@@ -560,131 +873,62 @@
         /* ================= AUTH MODAL ================= */
 
         .auth-modal {
+
             display: none;
 
             position: fixed;
 
             inset: 0;
 
-            z-index: 2000;
+            z-index: 5000;
+
+            background:
+                rgba(15,23,42,0.65);
 
             align-items: center;
+
             justify-content: center;
 
             padding: 20px;
 
-            background: rgba(15, 23, 42, 0.65);
-
-            backdrop-filter: blur(7px);
-
-            animation: modalBackground 0.25s ease;
+            animation:
+                modalBackground 0.25s ease;
         }
 
         .auth-box {
+
             width: 100%;
+
             max-width: 400px;
-
-            padding: 30px;
-
-            border-radius: 22px;
 
             background: white;
 
-            box-shadow:
-                0 25px 60px rgba(0, 0, 0, 0.25);
+            border-radius: 22px;
+
+            padding: 30px;
 
             position: relative;
 
-            animation: modalBox 0.35s ease;
-        }
-
-        .auth-box h2 {
-            text-align: center;
-
-            margin-bottom: 22px;
-
-            color: #172033;
-        }
-
-        .auth-box input {
-            width: 100%;
-
-            padding: 13px;
-
-            margin-bottom: 12px;
-
-            border: 1px solid #dbe4f0;
-
-            border-radius: 10px;
-
-            outline: none;
-
-            font-size: 14px;
-        }
-
-        .auth-box input:focus {
-            border-color: #2563eb;
-
             box-shadow:
-                0 0 0 3px rgba(37, 99, 235, 0.10);
-        }
+                0 25px 70px
+                rgba(0,0,0,0.25);
 
-        .auth-submit {
-            width: 100%;
-
-            padding: 13px;
-
-            border: none;
-
-            border-radius: 10px;
-
-            background:
-                linear-gradient(135deg,
-                    #2563eb,
-                    #7c3aed);
-
-            color: white;
-
-            font-weight: 800;
-
-            cursor: pointer;
-
-            margin-top: 5px;
-        }
-
-        .auth-switch {
-            text-align: center;
-
-            margin-top: 15px;
-
-            color: #64748b;
-
-            font-size: 14px;
-        }
-
-        .auth-switch button {
-            border: none;
-
-            background: none;
-
-            color: #2563eb;
-
-            font-weight: 700;
-
-            cursor: pointer;
+            animation:
+                modalBox 0.35s ease;
         }
 
         .close-modal {
+
             position: absolute;
 
+            top: 12px;
             right: 15px;
-            top: 10px;
 
             border: none;
 
             background: none;
 
-            font-size: 28px;
+            font-size: 30px;
 
             cursor: pointer;
 
@@ -696,12 +940,97 @@
         }
 
         .close-modal:hover {
-            transform: rotate(90deg) scale(1.1);
+
+            transform:
+                rotate(90deg)
+                scale(1.1);
 
             color: #ef4444;
         }
 
-        #authMessage {
+        .auth-box h2 {
+
+            text-align: center;
+
+            color: #1e3a8a;
+
+            margin-bottom: 20px;
+        }
+
+        .auth-box input {
+
+            width: 100%;
+
+            padding: 13px;
+
+            margin-bottom: 12px;
+
+            border: 1px solid #cbd5e1;
+
+            border-radius: 10px;
+
+            outline: none;
+
+            font-size: 14px;
+        }
+
+        .auth-box input:focus {
+
+            border-color: #2563eb;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(37,99,235,0.10);
+        }
+
+        .auth-submit {
+
+            width: 100%;
+
+            border: none;
+
+            padding: 13px;
+
+            border-radius: 10px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2563eb,
+                    #7c3aed
+                );
+
+            color: white;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            margin-top: 5px;
+        }
+
+        .auth-switch {
+
+            text-align: center;
+
+            margin-top: 15px;
+
+            font-size: 14px;
+
+            color: #64748b;
+        }
+
+        .auth-switch span {
+
+            color: #2563eb;
+
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        .auth-message {
+
             text-align: center;
 
             margin-top: 12px;
@@ -709,11 +1038,14 @@
             font-size: 13px;
 
             color: #dc2626;
+
+            min-height: 18px;
         }
 
         /* ================= ANIMATIONS ================= */
 
         @keyframes pageFade {
+
             from {
                 opacity: 0;
                 transform: translateY(15px);
@@ -726,6 +1058,7 @@
         }
 
         @keyframes heroFade {
+
             from {
                 opacity: 0;
                 transform: translateY(30px);
@@ -739,8 +1072,7 @@
 
         @keyframes buttonFloat {
 
-            0%,
-            100% {
+            0%,100% {
                 transform: translateY(0);
             }
 
@@ -750,33 +1082,42 @@
         }
 
         @keyframes cardAppear {
+
             from {
                 opacity: 0;
-                transform: translateY(25px) scale(0.97);
+                transform:
+                    translateY(25px)
+                    scale(0.97);
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0) scale(1);
+                transform:
+                    translateY(0)
+                    scale(1);
             }
         }
 
         @keyframes channelAppear {
+
             from {
                 opacity: 0;
-                transform: translateY(-15px) scale(0.98);
+                transform:
+                    translateY(-15px)
+                    scale(0.98);
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0) scale(1);
+                transform:
+                    translateY(0)
+                    scale(1);
             }
         }
 
         @keyframes livePulse {
 
-            0%,
-            100% {
+            0%,100% {
                 transform: scale(1);
                 opacity: 1;
             }
@@ -788,6 +1129,7 @@
         }
 
         @keyframes modalBackground {
+
             from {
                 opacity: 0;
             }
@@ -798,39 +1140,116 @@
         }
 
         @keyframes modalBox {
+
             from {
                 opacity: 0;
-                transform: translateY(-30px) scale(0.95);
+                transform:
+                    translateY(-30px)
+                    scale(0.95);
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0) scale(1);
+                transform:
+                    translateY(0)
+                    scale(1);
             }
         }
 
         /* ================= MOBILE ================= */
 
-        @media (max-width: 700px) {
+        @media(max-width: 1000px) {
 
             header {
-                padding: 12px 4%;
 
                 flex-wrap: wrap;
 
-                gap: 12px;
+                justify-content: center;
             }
 
             .logo {
-                font-size: 20px;
+                width: 100%;
+                text-align: center;
             }
 
             .header-right {
+                justify-content: center;
+            }
+        }
+
+        @media(max-width: 700px) {
+
+            .nav-menu {
+
+                order: 3;
+
                 width: 100%;
+
+                justify-content: center;
+
+                padding-top: 5px;
+
+                flex-wrap: wrap;
+            }
+
+            .nav-menu a {
+                font-size: 12px;
+            }
+
+            .search-box input {
+                width: 130px;
+            }
+
+            .hero {
+                padding: 50px 18px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .channel-content {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+            .channel-button {
+                width: 100%;
+                text-align: center;
+            }
+
+            .subject-card:hover {
+
+                transform:
+                    translateY(-5px)
+                    scale(1.01);
+            }
+
+            .video-card:hover {
+
+                transform:
+                    translateY(-5px)
+                    scale(1.01);
+            }
+        }
+
+        @media(max-width: 500px) {
+
+            .header-right {
+
+                width: 100%;
+
+                flex-direction: column;
             }
 
             .search-box {
-                flex: 1;
+                width: 100%;
             }
 
             .search-box input {
@@ -838,39 +1257,20 @@
             }
 
             .login-btn {
-                white-space: nowrap;
+                width: 100%;
             }
 
             .hero {
-                padding: 50px 20px;
+                margin-top: 25px;
             }
 
-            .hero h1 {
-                font-size: 32px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-
-            .subjects-section,
-            .video-section {
-                width: 94%;
-            }
-
-            .subject-card:hover {
-                transform: translateY(-5px) scale(1.01);
-            }
-
-            .video-card:hover {
-                transform: translateY(-5px) scale(1.01);
-            }
-
-            .video-card iframe {
-                height: 200px;
+            .video-grid {
+                grid-template-columns: 1fr;
             }
         }
+
     </style>
+
 </head>
 
 <body>
@@ -883,6 +1283,18 @@
             📚 EduLearn
         </div>
 
+        <nav class="nav-menu">
+
+            <a href="#home">🏠 Home</a>
+
+            <a href="#grades">🎓 Grades</a>
+
+            <a href="#about">ℹ️ About</a>
+
+            <a href="#support">💬 Support</a>
+
+        </nav>
+
         <div class="header-right">
 
             <div class="search-box">
@@ -891,9 +1303,10 @@
                     type="text"
                     id="searchInput"
                     placeholder="🔎 Search videos..."
-                    onkeyup="searchVideos()">
+                    onkeyup="handleSearch(event)"
+                >
 
-                <button onclick="searchVideos()">
+                <button onclick="performSearch()">
                     🔎
                 </button>
 
@@ -902,10 +1315,9 @@
             <button
                 class="login-btn"
                 id="loginBtn"
-                onclick="document.getElementById('authModal').style.display='flex'">
-
+                onclick="openAuthModal()"
+            >
                 🔐 Login
-
             </button>
 
         </div>
@@ -913,9 +1325,9 @@
     </header>
 
 
-    <!-- ================= HERO ================= -->
+    <!-- ================= HOME ================= -->
 
-    <section class="hero">
+    <section class="hero" id="home">
 
         <h1>
             🎓 Welcome to EduLearn
@@ -925,100 +1337,164 @@
             📖 Learn Anytime, Anywhere with Educational Videos
         </p>
 
-        <button onclick="document.getElementById('videos').scrollIntoView()">
-
+        <button
+            onclick="document.getElementById('subjects').scrollIntoView()"
+        >
             ▶️ Start Learning
-
         </button>
+
+    </section>
+
+
+    <!-- ================= GRADES ================= -->
+
+    <section
+        class="grades-section"
+        id="grades"
+    >
+
+        <h2 class="section-title">
+            🎓 Choose Your Grade
+        </h2>
+
+        <div class="grades-grid">
+
+            <div
+                class="grade-card"
+                onclick="selectGrade(6)"
+            >
+                <span>📘</span>
+                <h3>Grade 6</h3>
+                <p>Learn Grade 6 lessons</p>
+            </div>
+
+            <div
+                class="grade-card"
+                onclick="selectGrade(7)"
+            >
+                <span>📗</span>
+                <h3>Grade 7</h3>
+                <p>Learn Grade 7 lessons</p>
+            </div>
+
+            <div
+                class="grade-card"
+                onclick="selectGrade(8)"
+            >
+                <span>📙</span>
+                <h3>Grade 8</h3>
+                <p>Learn Grade 8 lessons</p>
+            </div>
+
+            <div
+                class="grade-card"
+                onclick="selectGrade(9)"
+            >
+                <span>📕</span>
+                <h3>Grade 9</h3>
+                <p>Learn Grade 9 lessons</p>
+            </div>
+
+            <div
+                class="grade-card"
+                onclick="selectGrade(10)"
+            >
+                <span>📒</span>
+                <h3>Grade 10</h3>
+                <p>Learn Grade 10 lessons</p>
+            </div>
+
+            <div
+                class="grade-card"
+                onclick="selectGrade(11)"
+            >
+                <span>📓</span>
+                <h3>Grade 11</h3>
+                <p>Learn Grade 11 lessons</p>
+            </div>
+
+            <div
+                class="grade-card"
+                onclick="selectGrade(12)"
+            >
+                <span>📔</span>
+                <h3>Grade 12</h3>
+                <p>Learn Grade 12 lessons</p>
+            </div>
+
+            <div
+                class="grade-card"
+                onclick="selectGrade(13)"
+            >
+                <span>🎓</span>
+                <h3>Grade 13</h3>
+                <p>Learn Grade 13 lessons</p>
+            </div>
+
+        </div>
 
     </section>
 
 
     <!-- ================= SUBJECTS ================= -->
 
-    <section class="subjects-section">
+    <section
+        class="section"
+        id="subjects"
+    >
 
         <h2 class="section-title">
-            📚 Choose Your Subject
+            📚 Subjects
         </h2>
 
-        <div class="subjects">
+        <div class="subject-grid">
 
             <div
-                class="subject-card math"
-                onclick="searchSubject('mathematics')">
-
-                <h3>📐 Mathematics</h3>
-
-                <p>
-                    Learn Mathematics
-                </p>
-
+                class="subject-card"
+                onclick="searchSubject('mathematics')"
+            >
+                <span>📐</span>
+                <h3>Mathematics</h3>
             </div>
 
-
             <div
-                class="subject-card science"
-                onclick="searchSubject('science')">
-
-                <h3>🔬 Science</h3>
-
-                <p>
-                    Explore Science
-                </p>
-
+                class="subject-card"
+                onclick="searchSubject('science')"
+            >
+                <span>🔬</span>
+                <h3>Science</h3>
             </div>
 
-
             <div
-                class="subject-card ict"
-                onclick="searchSubject('ict')">
-
-                <h3>💻 ICT</h3>
-
-                <p>
-                    Learn Technology
-                </p>
-
+                class="subject-card"
+                onclick="searchSubject('ict')"
+            >
+                <span>💻</span>
+                <h3>ICT</h3>
             </div>
 
-
             <div
-                class="subject-card english"
-                onclick="searchSubject('english')">
-
-                <h3>🇬🇧 English</h3>
-
-                <p>
-                    Improve English
-                </p>
-
+                class="subject-card"
+                onclick="searchSubject('english')"
+            >
+                <span>🇬🇧</span>
+                <h3>English</h3>
             </div>
 
-
             <div
-                class="subject-card history"
-                onclick="searchSubject('history')">
-
-                <h3>🏛️ History</h3>
-
-                <p>
-                    Explore History
-                </p>
-
+                class="subject-card"
+                onclick="searchSubject('history')"
+            >
+                <span>🏛️</span>
+                <h3>History</h3>
             </div>
 
-
             <div
-                class="subject-card sinhala"
-                onclick="searchSubject('sinhala')">
-
-                <h3>📝 Sinhala</h3>
-
-                <p>
-                    Learn Sinhala
-                </p>
-
+                class="subject-card"
+                onclick="searchSubject('sinhala')"
+            >
+                <span>📝</span>
+                <h3>Sinhala</h3>
             </div>
 
         </div>
@@ -1029,28 +1505,74 @@
     <!-- ================= VIDEOS ================= -->
 
     <section
-        class="video-section"
-        id="videos">
+        class="section"
+        id="videos"
+    >
 
-        <h2 class="search-title">
-            🎬 Educational Videos
+        <h2
+            class="search-title"
+            id="videoSectionTitle"
+        >
+            🎥 Educational Videos
         </h2>
 
 
         <!-- CHANNEL RESULT -->
 
         <div
+            class="channel-result"
             id="channelResult"
-            class="channel-result">
+        >
 
+            <div class="channel-content">
+
+                <div>
+
+                    <h3 id="channelName">
+                        📺 Teacher Channel
+                    </h3>
+
+                    <p id="channelDescription">
+                        Educational videos from the teacher.
+                    </p>
+
+                    <p id="channelTeacher">
+                        👨‍🏫 Teacher
+                    </p>
+
+                </div>
+
+                <a
+                    id="channelLink"
+                    class="channel-button"
+                    href="#"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    ▶️ Visit YouTube Channel
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- NO RESULTS -->
+
+        <div
+            class="no-results"
+            id="noResults"
+        >
+            😔 No matching videos found.
         </div>
 
 
         <!-- VIDEO GRID -->
 
         <div
+            class="video-grid"
             id="videoGrid"
-            class="video-grid">
+        >
 
 
             <!-- ================= MATHEMATICS ================= -->
@@ -1058,16 +1580,22 @@
             <div
                 class="video-card"
                 data-subject="mathematics"
-                data-keywords="math maths mathematics">
+                data-keywords="math maths mathematics grade 6 7 8 9 10 11 12 13"
+            >
 
-                <iframe
-                    src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BJXF6sPtJVIfdk9h0OyUepx"
-                    allowfullscreen>
-                </iframe>
+                <div class="video-wrapper">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BJXF6sPtJVIfdk9h0OyUepx"
+                        title="Mathematics Playlist 1"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
 
                 <div class="video-info">
                     <h3>📐 Mathematics Playlist 1</h3>
-                    <p>Mathematics Educational Videos</p>
+                    <p>📚 Mathematics</p>
                 </div>
 
             </div>
@@ -1076,16 +1604,22 @@
             <div
                 class="video-card"
                 data-subject="mathematics"
-                data-keywords="math maths mathematics">
+                data-keywords="math mathematics"
+            >
 
-                <iframe
-                    src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BL2Z0BYfQCMzpmj3PXoRgGn"
-                    allowfullscreen>
-                </iframe>
+                <div class="video-wrapper">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BL2Z0BYfQCMzpmj3PXoRgGn"
+                        title="Mathematics Playlist 2"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
 
                 <div class="video-info">
                     <h3>📐 Mathematics Playlist 2</h3>
-                    <p>Mathematics Educational Videos</p>
+                    <p>📚 Mathematics</p>
                 </div>
 
             </div>
@@ -1094,16 +1628,22 @@
             <div
                 class="video-card"
                 data-subject="mathematics"
-                data-keywords="math maths mathematics">
+                data-keywords="math mathematics"
+            >
 
-                <iframe
-                    src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BKKdJWRKNovRXdNsJr-t6pl"
-                    allowfullscreen>
-                </iframe>
+                <div class="video-wrapper">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BKKdJWRKNovRXdNsJr-t6pl"
+                        title="Mathematics Playlist 3"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
 
                 <div class="video-info">
                     <h3>📐 Mathematics Playlist 3</h3>
-                    <p>Mathematics Educational Videos</p>
+                    <p>📚 Mathematics</p>
                 </div>
 
             </div>
@@ -1112,16 +1652,22 @@
             <div
                 class="video-card"
                 data-subject="mathematics"
-                data-keywords="math maths mathematics">
+                data-keywords="math mathematics"
+            >
 
-                <iframe
-                    src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BIXRADTlGXr2pOTkxJEo40B"
-                    allowfullscreen>
-                </iframe>
+                <div class="video-wrapper">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BIXRADTlGXr2pOTkxJEo40B"
+                        title="Mathematics Playlist 4"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
 
                 <div class="video-info">
                     <h3>📐 Mathematics Playlist 4</h3>
-                    <p>Mathematics Educational Videos</p>
+                    <p>📚 Mathematics</p>
                 </div>
 
             </div>
@@ -1130,16 +1676,22 @@
             <div
                 class="video-card"
                 data-subject="mathematics"
-                data-keywords="math maths mathematics">
+                data-keywords="math mathematics"
+            >
 
-                <iframe
-                    src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BIcZhRjwKayVTrSrz1YnA8Q"
-                    allowfullscreen>
-                </iframe>
+                <div class="video-wrapper">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BIcZhRjwKayVTrSrz1YnA8Q"
+                        title="Mathematics Playlist 5"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
 
                 <div class="video-info">
                     <h3>📐 Mathematics Playlist 5</h3>
-                    <p>Mathematics Educational Videos</p>
+                    <p>📚 Mathematics</p>
                 </div>
 
             </div>
@@ -1148,16 +1700,22 @@
             <div
                 class="video-card"
                 data-subject="mathematics"
-                data-keywords="math maths mathematics">
+                data-keywords="math mathematics"
+            >
 
-                <iframe
-                    src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BJ2SfECDscWQjwkUmtlgmYa"
-                    allowfullscreen>
-                </iframe>
+                <div class="video-wrapper">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BJ2SfECDscWQjwkUmtlgmYa"
+                        title="Mathematics Playlist 6"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
 
                 <div class="video-info">
                     <h3>📐 Mathematics Playlist 6</h3>
-                    <p>Mathematics Educational Videos</p>
+                    <p>📚 Mathematics</p>
                 </div>
 
             </div>
@@ -1166,16 +1724,22 @@
             <div
                 class="video-card"
                 data-subject="mathematics"
-                data-keywords="math maths mathematics">
+                data-keywords="math mathematics"
+            >
 
-                <iframe
-                    src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BK8BP4OvmSq8h2TYwFMLy6w"
-                    allowfullscreen>
-                </iframe>
+                <div class="video-wrapper">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BK8BP4OvmSq8h2TYwFMLy6w"
+                        title="Mathematics Playlist 7"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
 
                 <div class="video-info">
                     <h3>📐 Mathematics Playlist 7</h3>
-                    <p>Mathematics Educational Videos</p>
+                    <p>📚 Mathematics</p>
                 </div>
 
             </div>
@@ -1184,16 +1748,22 @@
             <div
                 class="video-card"
                 data-subject="mathematics"
-                data-keywords="math maths mathematics">
+                data-keywords="math mathematics"
+            >
 
-                <iframe
-                    src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BJ_KTPY-6vebFKFg2xAy6uM"
-                    allowfullscreen>
-                </iframe>
+                <div class="video-wrapper">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BJ_KTPY-6vebFKFg2xAy6uM"
+                        title="Mathematics Playlist 8"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
 
                 <div class="video-info">
                     <h3>📐 Mathematics Playlist 8</h3>
-                    <p>Mathematics Educational Videos</p>
+                    <p>📚 Mathematics</p>
                 </div>
 
             </div>
@@ -1202,16 +1772,22 @@
             <div
                 class="video-card"
                 data-subject="mathematics"
-                data-keywords="math maths mathematics">
+                data-keywords="math mathematics"
+            >
 
-                <iframe
-                    src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BKAVOfPq5yJAG0NWKfDC9tJ"
-                    allowfullscreen>
-                </iframe>
+                <div class="video-wrapper">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BKAVOfPq5yJAG0NWKfDC9tJ"
+                        title="Mathematics Playlist 9"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
 
                 <div class="video-info">
                     <h3>📐 Mathematics Playlist 9</h3>
-                    <p>Mathematics Educational Videos</p>
+                    <p>📚 Mathematics</p>
                 </div>
 
             </div>
@@ -1220,16 +1796,22 @@
             <div
                 class="video-card"
                 data-subject="mathematics"
-                data-keywords="math maths mathematics">
+                data-keywords="math mathematics"
+            >
 
-                <iframe
-                    src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BK1EaVLY8IaWBo4Z_Ea9f6o"
-                    allowfullscreen>
-                </iframe>
+                <div class="video-wrapper">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BK1EaVLY8IaWBo4Z_Ea9f6o"
+                        title="Mathematics Playlist 10"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
 
                 <div class="video-info">
                     <h3>📐 Mathematics Playlist 10</h3>
-                    <p>Mathematics Educational Videos</p>
+                    <p>📚 Mathematics</p>
                 </div>
 
             </div>
@@ -1238,16 +1820,22 @@
             <div
                 class="video-card"
                 data-subject="mathematics"
-                data-keywords="math maths mathematics">
+                data-keywords="math mathematics"
+            >
 
-                <iframe
-                    src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BI-MItQMGgeSdIrh6fENmJH"
-                    allowfullscreen>
-                </iframe>
+                <div class="video-wrapper">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BI-MItQMGgeSdIrh6fENmJH"
+                        title="Mathematics Playlist 11"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
 
                 <div class="video-info">
                     <h3>📐 Mathematics Playlist 11</h3>
-                    <p>Mathematics Educational Videos</p>
+                    <p>📚 Mathematics</p>
                 </div>
 
             </div>
@@ -1256,16 +1844,22 @@
             <div
                 class="video-card"
                 data-subject="mathematics"
-                data-keywords="math maths mathematics">
+                data-keywords="math mathematics"
+            >
 
-                <iframe
-                    src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BK5UHYttmBKlpOo0lmG8b18"
-                    allowfullscreen>
-                </iframe>
+                <div class="video-wrapper">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BK5UHYttmBKlpOo0lmG8b18"
+                        title="Mathematics Playlist 12"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
 
                 <div class="video-info">
                     <h3>📐 Mathematics Playlist 12</h3>
-                    <p>Mathematics Educational Videos</p>
+                    <p>📚 Mathematics</p>
                 </div>
 
             </div>
@@ -1274,16 +1868,22 @@
             <div
                 class="video-card"
                 data-subject="mathematics"
-                data-keywords="math maths mathematics">
+                data-keywords="math mathematics"
+            >
 
-                <iframe
-                    src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BLjuCdG9-a294a8vz7c1e1A"
-                    allowfullscreen>
-                </iframe>
+                <div class="video-wrapper">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/videoseries?list=PLc_3axmFr0BLjuCdG9-a294a8vz7c1e1A"
+                        title="Mathematics Playlist 13"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
 
                 <div class="video-info">
                     <h3>📐 Mathematics Playlist 13</h3>
-                    <p>Mathematics Educational Videos</p>
+                    <p>📚 Mathematics</p>
                 </div>
 
             </div>
@@ -1291,257 +1891,357 @@
 
             <!-- ================= SCIENCE ================= -->
 
-            <div
-                class="video-card"
+            <div class="video-card"
                 data-subject="science"
                 data-keywords="science sci">
 
-                <iframe src="https://www.youtube.com/embed/HWdIu5-LHhc"
-                    allowfullscreen></iframe>
+                <div class="video-wrapper">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/HWdIu5-LHhc"
+                        title="Science Lesson 1"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
 
                 <div class="video-info">
                     <h3>🔬 Science Lesson 1</h3>
-                    <p>Science Educational Video</p>
+                    <p>📚 Science</p>
                 </div>
 
             </div>
 
 
-            <div
-                class="video-card"
+            <div class="video-card"
                 data-subject="science"
                 data-keywords="science sci">
 
-                <iframe src="https://www.youtube.com/embed/viqFacbGkbA"
-                    allowfullscreen></iframe>
+                <div class="video-wrapper">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/viqFacbGkbA"
+                        title="Science Lesson 2"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
 
                 <div class="video-info">
                     <h3>🔬 Science Lesson 2</h3>
-                    <p>Science Educational Video</p>
+                    <p>📚 Science</p>
                 </div>
 
             </div>
 
 
-            <div
-                class="video-card"
+            <div class="video-card"
                 data-subject="science"
                 data-keywords="science sci">
 
-                <iframe src="https://www.youtube.com/embed/EE1m5Bd_MCM"
-                    allowfullscreen></iframe>
+                <div class="video-wrapper">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/EE1m5Bd_MCM"
+                        title="Science Lesson 3"
+                        allowfullscreen>
+                    </iframe>
+
+                    <span class="live-badge">
+                        🔴 LIVE
+                    </span>
+
+                </div>
 
                 <div class="video-info">
                     <h3>🎓 Science Lesson 3</h3>
-                    <span class="live-badge">🔴 LIVE</span>
+                    <p>📚 Science</p>
                 </div>
 
             </div>
 
 
-            <div
-                class="video-card"
+            <div class="video-card"
                 data-subject="science"
                 data-keywords="science sci">
 
-                <iframe src="https://www.youtube.com/embed/c3bEJbE-zDM"
-                    allowfullscreen></iframe>
+                <div class="video-wrapper">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/c3bEJbE-zDM"
+                        title="Science Lesson 4"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
 
                 <div class="video-info">
                     <h3>🔬 Science Lesson 4</h3>
-                    <p>Science Educational Video</p>
+                    <p>📚 Science</p>
                 </div>
 
             </div>
 
 
-            <div
-                class="video-card"
+            <div class="video-card"
                 data-subject="science"
                 data-keywords="science sci">
 
-                <iframe src="https://www.youtube.com/embed/Vu7itzyGsqE"
-                    allowfullscreen></iframe>
+                <div class="video-wrapper">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/Vu7itzyGsqE"
+                        title="Science Lesson 5"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
 
                 <div class="video-info">
                     <h3>🔬 Science Lesson 5</h3>
-                    <p>Science Educational Video</p>
+                    <p>📚 Science</p>
                 </div>
 
             </div>
 
 
-            <div
-                class="video-card"
+            <div class="video-card"
                 data-subject="science"
                 data-keywords="science sci">
 
-                <iframe src="https://www.youtube.com/embed/VWgj5EKfbOA"
-                    allowfullscreen></iframe>
+                <div class="video-wrapper">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/VWgj5EKfbOA"
+                        title="Science Lesson 6"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
 
                 <div class="video-info">
                     <h3>🔬 Science Lesson 6</h3>
-                    <p>Science Educational Video</p>
+                    <p>📚 Science</p>
                 </div>
 
             </div>
 
 
-            <div
-                class="video-card"
+            <div class="video-card"
                 data-subject="science"
                 data-keywords="science sci">
 
-                <iframe src="https://www.youtube.com/embed/rV0cEYnjLqA"
-                    allowfullscreen></iframe>
+                <div class="video-wrapper">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/rV0cEYnjLqA"
+                        title="Science Lesson 7"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
 
                 <div class="video-info">
                     <h3>🔬 Science Lesson 7</h3>
-                    <p>Science Educational Video</p>
+                    <p>📚 Science</p>
                 </div>
 
             </div>
 
 
-            <div
-                class="video-card"
+            <div class="video-card"
                 data-subject="science"
                 data-keywords="science sci">
 
-                <iframe src="https://www.youtube.com/embed/_QPePE5B2LI"
-                    allowfullscreen></iframe>
+                <div class="video-wrapper">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/_QPePE5B2LI"
+                        title="Science Lesson 8"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
 
                 <div class="video-info">
                     <h3>🔬 Science Lesson 8</h3>
-                    <p>Science Educational Video</p>
+                    <p>📚 Science</p>
                 </div>
 
             </div>
 
 
-            <div
-                class="video-card"
+            <div class="video-card"
                 data-subject="science"
                 data-keywords="science sci">
 
-                <iframe src="https://www.youtube.com/embed/WYdefiJgpPs"
-                    allowfullscreen></iframe>
+                <div class="video-wrapper">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/WYdefiJgpPs"
+                        title="Science Lesson 9"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
 
                 <div class="video-info">
                     <h3>🔬 Science Lesson 9</h3>
-                    <p>Science Educational Video</p>
+                    <p>📚 Science</p>
                 </div>
 
             </div>
 
 
-            <div
-                class="video-card"
+            <div class="video-card"
                 data-subject="science"
                 data-keywords="science sci">
 
-                <iframe src="https://www.youtube.com/embed/UAG_4Lrg5AQ"
-                    allowfullscreen></iframe>
+                <div class="video-wrapper">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/UAG_4Lrg5AQ"
+                        title="Science Lesson 10"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
 
                 <div class="video-info">
                     <h3>🔬 Science Lesson 10</h3>
-                    <p>Science Educational Video</p>
+                    <p>📚 Science</p>
                 </div>
 
             </div>
 
 
-            <div
-                class="video-card"
+            <div class="video-card"
                 data-subject="science"
                 data-keywords="science sci">
 
-                <iframe src="https://www.youtube.com/embed/tlCXXAa_7m0"
-                    allowfullscreen></iframe>
+                <div class="video-wrapper">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/tlCXXAa_7m0"
+                        title="Science Lesson 11"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
 
                 <div class="video-info">
                     <h3>🔬 Science Lesson 11</h3>
-                    <p>Science Educational Video</p>
+                    <p>📚 Science</p>
                 </div>
 
             </div>
 
 
-            <div
-                class="video-card"
+            <div class="video-card"
                 data-subject="science"
                 data-keywords="science sci">
 
-                <iframe src="https://www.youtube.com/embed/k4SI1NFwmyk"
-                    allowfullscreen></iframe>
+                <div class="video-wrapper">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/k4SI1NFwmyk"
+                        title="Science Lesson 12"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
 
                 <div class="video-info">
                     <h3>🔬 Science Lesson 12</h3>
-                    <p>Science Educational Video</p>
+                    <p>📚 Science</p>
                 </div>
 
             </div>
 
 
-            <div
-                class="video-card"
+            <div class="video-card"
                 data-subject="science"
                 data-keywords="science sci">
 
-                <iframe src="https://www.youtube.com/embed/3AYxCrgwLsk"
-                    allowfullscreen></iframe>
+                <div class="video-wrapper">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/3AYxCrgwLsk"
+                        title="Science Lesson 13"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
 
                 <div class="video-info">
                     <h3>🔬 Science Lesson 13</h3>
-                    <p>Science Educational Video</p>
+                    <p>📚 Science</p>
                 </div>
 
             </div>
 
 
-            <div
-                class="video-card"
+            <div class="video-card"
                 data-subject="science"
                 data-keywords="science sci">
 
-                <iframe src="https://www.youtube.com/embed/tOJv8Zcs2Rg"
-                    allowfullscreen></iframe>
+                <div class="video-wrapper">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/tOJv8Zcs2Rg"
+                        title="Science Lesson 14"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
 
                 <div class="video-info">
                     <h3>🔬 Science Lesson 14</h3>
-                    <p>Science Educational Video</p>
+                    <p>📚 Science</p>
                 </div>
 
             </div>
 
 
-            <div
-                class="video-card"
+            <div class="video-card"
                 data-subject="science"
                 data-keywords="science sci">
 
-                <iframe src="https://www.youtube.com/embed/EKkPdSYd3fM"
-                    allowfullscreen></iframe>
+                <div class="video-wrapper">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/EKkPdSYd3fM"
+                        title="Science Lesson 15"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
 
                 <div class="video-info">
                     <h3>🔬 Science Lesson 15</h3>
-                    <p>Science Educational Video</p>
+                    <p>📚 Science</p>
                 </div>
 
             </div>
 
 
-            <div
-                class="video-card"
+            <div class="video-card"
                 data-subject="science"
                 data-keywords="science sci">
 
-                <iframe src="https://www.youtube.com/embed/Tl5mMhOPCmg"
-                    allowfullscreen></iframe>
+                <div class="video-wrapper">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/Tl5mMhOPCmg"
+                        title="Science Lesson 16"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
 
                 <div class="video-info">
                     <h3>🔬 Science Lesson 16</h3>
-                    <p>Science Educational Video</p>
+                    <p>📚 Science</p>
                 </div>
 
             </div>
@@ -1549,238 +2249,543 @@
 
             <!-- ================= SINHALA ================= -->
 
-            <div
-                class="video-card"
+            <div class="video-card"
                 data-subject="sinhala"
                 data-keywords="sinhala සිංහල">
 
-                <iframe src="https://www.youtube.com/embed/11muR__BWzg"
-                    allowfullscreen></iframe>
+                <div class="video-wrapper">
+
+                    <iframe src="https://www.youtube.com/embed/11muR__BWzg"
+                        title="Sinhala Lesson 1"
+                        allowfullscreen></iframe>
+
+                    <span class="live-badge">🔴 LIVE</span>
+
+                </div>
 
                 <div class="video-info">
                     <h3>📝 Sinhala Lesson 1</h3>
-                    <span class="live-badge">🔴 LIVE</span>
+                    <p>📚 Sinhala</p>
                 </div>
 
             </div>
 
 
-            <div class="video-card" data-subject="sinhala" data-keywords="sinhala සිංහල">
-                <iframe src="https://www.youtube.com/embed/gfg2MZGe03g" allowfullscreen></iframe>
+            <div class="video-card"
+                data-subject="sinhala"
+                data-keywords="sinhala සිංහල">
+
+                <div class="video-wrapper">
+
+                    <iframe src="https://www.youtube.com/embed/gfg2MZGe03g"
+                        title="Sinhala Lesson 2"
+                        allowfullscreen></iframe>
+
+                    <span class="live-badge">🔴 LIVE</span>
+
+                </div>
+
                 <div class="video-info">
                     <h3>📝 Sinhala Lesson 2</h3>
-                    <span class="live-badge">🔴 LIVE</span>
+                    <p>📚 Sinhala</p>
                 </div>
+
             </div>
 
 
-            <div class="video-card" data-subject="sinhala" data-keywords="sinhala සිංහල">
-                <iframe src="https://www.youtube.com/embed/YBiDn_bqEnE" allowfullscreen></iframe>
+            <div class="video-card"
+                data-subject="sinhala"
+                data-keywords="sinhala සිංහල">
+
+                <div class="video-wrapper">
+
+                    <iframe src="https://www.youtube.com/embed/YBiDn_bqEnE"
+                        title="Sinhala Lesson 3"
+                        allowfullscreen></iframe>
+
+                    <span class="live-badge">🔴 LIVE</span>
+
+                </div>
+
                 <div class="video-info">
                     <h3>📝 Sinhala Lesson 3</h3>
-                    <span class="live-badge">🔴 LIVE</span>
+                    <p>📚 Sinhala</p>
                 </div>
+
             </div>
 
 
-            <div class="video-card" data-subject="sinhala" data-keywords="sinhala සිංහල">
-                <iframe src="https://www.youtube.com/embed/2ZNVOzibtXg" allowfullscreen></iframe>
+            <div class="video-card"
+                data-subject="sinhala"
+                data-keywords="sinhala සිංහල">
+
+                <div class="video-wrapper">
+
+                    <iframe src="https://www.youtube.com/embed/2ZNVOzibtXg"
+                        title="Sinhala Lesson 4"
+                        allowfullscreen></iframe>
+
+                    <span class="live-badge">🔴 LIVE</span>
+
+                </div>
+
                 <div class="video-info">
                     <h3>📝 Sinhala Lesson 4</h3>
-                    <span class="live-badge">🔴 LIVE</span>
+                    <p>📚 Sinhala</p>
                 </div>
+
             </div>
 
 
-            <div class="video-card" data-subject="sinhala" data-keywords="sinhala සිංහල">
-                <iframe src="https://www.youtube.com/embed/mHZPuqOH668" allowfullscreen></iframe>
+            <div class="video-card"
+                data-subject="sinhala"
+                data-keywords="sinhala සිංහල">
+
+                <div class="video-wrapper">
+
+                    <iframe src="https://www.youtube.com/embed/mHZPuqOH668"
+                        title="Sinhala Lesson 5"
+                        allowfullscreen></iframe>
+
+                    <span class="live-badge">🔴 LIVE</span>
+
+                </div>
+
                 <div class="video-info">
                     <h3>📝 Sinhala Lesson 5</h3>
-                    <span class="live-badge">🔴 LIVE</span>
+                    <p>📚 Sinhala</p>
                 </div>
+
             </div>
 
 
-            <div class="video-card" data-subject="sinhala" data-keywords="sinhala සිංහල">
-                <iframe src="https://www.youtube.com/embed/Lz7KjFhycEw" allowfullscreen></iframe>
+            <div class="video-card"
+                data-subject="sinhala"
+                data-keywords="sinhala සිංහල">
+
+                <div class="video-wrapper">
+
+                    <iframe src="https://www.youtube.com/embed/Lz7KjFhycEw"
+                        title="Sinhala Lesson 6"
+                        allowfullscreen></iframe>
+
+                    <span class="live-badge">🔴 LIVE</span>
+
+                </div>
+
                 <div class="video-info">
                     <h3>📝 Sinhala Lesson 6</h3>
-                    <span class="live-badge">🔴 LIVE</span>
+                    <p>📚 Sinhala</p>
                 </div>
+
             </div>
 
 
-            <div class="video-card" data-subject="sinhala" data-keywords="sinhala සිංහල">
-                <iframe src="https://www.youtube.com/embed/PfQv8MhAcAY" allowfullscreen></iframe>
+            <div class="video-card"
+                data-subject="sinhala"
+                data-keywords="sinhala සිංහල">
+
+                <div class="video-wrapper">
+
+                    <iframe src="https://www.youtube.com/embed/PfQv8MhAcAY"
+                        title="Sinhala Lesson 7"
+                        allowfullscreen></iframe>
+
+                    <span class="live-badge">🔴 LIVE</span>
+
+                </div>
+
                 <div class="video-info">
                     <h3>📝 Sinhala Lesson 7</h3>
-                    <span class="live-badge">🔴 LIVE</span>
+                    <p>📚 Sinhala</p>
                 </div>
+
             </div>
 
 
-            <div class="video-card" data-subject="sinhala" data-keywords="sinhala සිංහල">
-                <iframe src="https://www.youtube.com/embed/XeuNmk2eh40" allowfullscreen></iframe>
+            <div class="video-card"
+                data-subject="sinhala"
+                data-keywords="sinhala සිංහල">
+
+                <div class="video-wrapper">
+
+                    <iframe src="https://www.youtube.com/embed/XeuNmk2eh40"
+                        title="Sinhala Lesson 8"
+                        allowfullscreen></iframe>
+
+                    <span class="live-badge">🔴 LIVE</span>
+
+                </div>
+
                 <div class="video-info">
                     <h3>📝 Sinhala Lesson 8</h3>
-                    <span class="live-badge">🔴 LIVE</span>
+                    <p>📚 Sinhala</p>
                 </div>
+
             </div>
 
 
-            <div class="video-card" data-subject="sinhala" data-keywords="sinhala සිංහල">
-                <iframe src="https://www.youtube.com/embed/AZjyvHyudME" allowfullscreen></iframe>
+            <div class="video-card"
+                data-subject="sinhala"
+                data-keywords="sinhala සිංහල">
+
+                <div class="video-wrapper">
+
+                    <iframe src="https://www.youtube.com/embed/AZjyvHyudME"
+                        title="Sinhala Lesson 9"
+                        allowfullscreen></iframe>
+
+                    <span class="live-badge">🔴 LIVE</span>
+
+                </div>
+
                 <div class="video-info">
                     <h3>📝 Sinhala Lesson 9</h3>
-                    <span class="live-badge">🔴 LIVE</span>
+                    <p>📚 Sinhala</p>
                 </div>
+
             </div>
 
 
-            <div class="video-card" data-subject="sinhala" data-keywords="sinhala සිංහල">
-                <iframe src="https://www.youtube.com/embed/GAxRRPEV6jQ" allowfullscreen></iframe>
+            <div class="video-card"
+                data-subject="sinhala"
+                data-keywords="sinhala සිංහල">
+
+                <div class="video-wrapper">
+
+                    <iframe src="https://www.youtube.com/embed/GAxRRPEV6jQ"
+                        title="Sinhala Lesson 10"
+                        allowfullscreen></iframe>
+
+                    <span class="live-badge">🔴 LIVE</span>
+
+                </div>
+
                 <div class="video-info">
                     <h3>📝 Sinhala Lesson 10</h3>
-                    <span class="live-badge">🔴 LIVE</span>
+                    <p>📚 Sinhala</p>
                 </div>
+
             </div>
 
 
-            <div class="video-card" data-subject="sinhala" data-keywords="sinhala සිංහල">
-                <iframe src="https://www.youtube.com/embed/piFtd6vkQIg" allowfullscreen></iframe>
+            <div class="video-card"
+                data-subject="sinhala"
+                data-keywords="sinhala සිංහල">
+
+                <div class="video-wrapper">
+
+                    <iframe src="https://www.youtube.com/embed/piFtd6vkQIg"
+                        title="Sinhala Lesson 11"
+                        allowfullscreen></iframe>
+
+                    <span class="live-badge">🔴 LIVE</span>
+
+                </div>
+
                 <div class="video-info">
                     <h3>📝 Sinhala Lesson 11</h3>
-                    <span class="live-badge">🔴 LIVE</span>
+                    <p>📚 Sinhala</p>
                 </div>
+
             </div>
 
 
-            <div class="video-card" data-subject="sinhala" data-keywords="sinhala සිංහල">
-                <iframe src="https://www.youtube.com/embed/HhIi0aJy47Q" allowfullscreen></iframe>
+            <div class="video-card"
+                data-subject="sinhala"
+                data-keywords="sinhala සිංහල">
+
+                <div class="video-wrapper">
+
+                    <iframe src="https://www.youtube.com/embed/HhIi0aJy47Q"
+                        title="Sinhala Lesson 12"
+                        allowfullscreen></iframe>
+
+                    <span class="live-badge">🔴 LIVE</span>
+
+                </div>
+
                 <div class="video-info">
                     <h3>📝 Sinhala Lesson 12</h3>
-                    <span class="live-badge">🔴 LIVE</span>
+                    <p>📚 Sinhala</p>
                 </div>
+
             </div>
 
 
-            <div class="video-card" data-subject="sinhala" data-keywords="sinhala සිංහල">
-                <iframe src="https://www.youtube.com/embed/hjznr6G8sXM" allowfullscreen></iframe>
+            <div class="video-card"
+                data-subject="sinhala"
+                data-keywords="sinhala සිංහල">
+
+                <div class="video-wrapper">
+
+                    <iframe src="https://www.youtube.com/embed/hjznr6G8sXM"
+                        title="Sinhala Lesson 13"
+                        allowfullscreen></iframe>
+
+                    <span class="live-badge">🔴 LIVE</span>
+
+                </div>
+
                 <div class="video-info">
                     <h3>📝 Sinhala Lesson 13</h3>
-                    <span class="live-badge">🔴 LIVE</span>
+                    <p>📚 Sinhala</p>
                 </div>
+
             </div>
 
 
-            <div class="video-card" data-subject="sinhala" data-keywords="sinhala සිංහල">
-                <iframe src="https://www.youtube.com/embed/36HH8eHGozk" allowfullscreen></iframe>
+            <div class="video-card"
+                data-subject="sinhala"
+                data-keywords="sinhala සිංහල">
+
+                <div class="video-wrapper">
+
+                    <iframe src="https://www.youtube.com/embed/36HH8eHGozk"
+                        title="Sinhala Lesson 14"
+                        allowfullscreen></iframe>
+
+                    <span class="live-badge">🔴 LIVE</span>
+
+                </div>
+
                 <div class="video-info">
                     <h3>📝 Sinhala Lesson 14</h3>
-                    <span class="live-badge">🔴 LIVE</span>
+                    <p>📚 Sinhala</p>
                 </div>
+
             </div>
 
 
-            <div class="video-card" data-subject="sinhala" data-keywords="sinhala සිංහල">
-                <iframe src="https://www.youtube.com/embed/54dBl1daKSs" allowfullscreen></iframe>
+            <div class="video-card"
+                data-subject="sinhala"
+                data-keywords="sinhala සිංහල">
+
+                <div class="video-wrapper">
+
+                    <iframe src="https://www.youtube.com/embed/54dBl1daKSs"
+                        title="Sinhala Lesson 15"
+                        allowfullscreen></iframe>
+
+                    <span class="live-badge">🔴 LIVE</span>
+
+                </div>
+
                 <div class="video-info">
                     <h3>📝 Sinhala Lesson 15</h3>
-                    <span class="live-badge">🔴 LIVE</span>
+                    <p>📚 Sinhala</p>
                 </div>
+
             </div>
 
 
-            <div class="video-card" data-subject="sinhala" data-keywords="sinhala සිංහල">
-                <iframe src="https://www.youtube.com/embed/gBrzEbO8nUA" allowfullscreen></iframe>
+            <div class="video-card"
+                data-subject="sinhala"
+                data-keywords="sinhala සිංහල">
+
+                <div class="video-wrapper">
+
+                    <iframe src="https://www.youtube.com/embed/gBrzEbO8nUA"
+                        title="Sinhala Lesson 16"
+                        allowfullscreen></iframe>
+
+                    <span class="live-badge">🔴 LIVE</span>
+
+                </div>
+
                 <div class="video-info">
                     <h3>📝 Sinhala Lesson 16</h3>
-                    <span class="live-badge">🔴 LIVE</span>
+                    <p>📚 Sinhala</p>
                 </div>
+
             </div>
 
 
             <!-- ================= HISTORY ================= -->
 
-            <div class="video-card" data-subject="history" data-keywords="history hist ඉතිහාසය">
-                <iframe src="https://www.youtube.com/embed/Ko7puJQmYTI" allowfullscreen></iframe>
+            <div class="video-card"
+                data-subject="history"
+                data-keywords="history hist ඉතිහාසය">
+
+                <div class="video-wrapper">
+
+                    <iframe src="https://www.youtube.com/embed/Ko7puJQmYTI"
+                        title="History Video 1"
+                        allowfullscreen></iframe>
+
+                    <span class="live-badge">🔴 LIVE</span>
+
+                </div>
+
                 <div class="video-info">
                     <h3>🏛️ History Video 1</h3>
-                    <span class="live-badge">🔴 LIVE</span>
+                    <p>📚 History</p>
                 </div>
+
             </div>
 
 
-            <div class="video-card" data-subject="history" data-keywords="history hist ඉතිහාසය">
-                <iframe src="https://www.youtube.com/embed/jn1ZLMuEsA0" allowfullscreen></iframe>
+            <div class="video-card"
+                data-subject="history"
+                data-keywords="history hist ඉතිහාසය">
+
+                <div class="video-wrapper">
+
+                    <iframe src="https://www.youtube.com/embed/jn1ZLMuEsA0"
+                        title="History Video 2"
+                        allowfullscreen></iframe>
+
+                    <span class="live-badge">🔴 LIVE</span>
+
+                </div>
+
                 <div class="video-info">
                     <h3>🏛️ History Video 2</h3>
-                    <span class="live-badge">🔴 LIVE</span>
+                    <p>📚 History</p>
                 </div>
+
             </div>
 
 
-            <div class="video-card" data-subject="history" data-keywords="history hist ඉතිහාසය">
-                <iframe src="https://www.youtube.com/embed/HuDuvQTyL4A" allowfullscreen></iframe>
+            <div class="video-card"
+                data-subject="history"
+                data-keywords="history hist ඉතිහාසය">
+
+                <div class="video-wrapper">
+
+                    <iframe src="https://www.youtube.com/embed/HuDuvQTyL4A"
+                        title="History Video 3"
+                        allowfullscreen></iframe>
+
+                    <span class="live-badge">🔴 LIVE</span>
+
+                </div>
+
                 <div class="video-info">
                     <h3>🏛️ History Video 3</h3>
-                    <span class="live-badge">🔴 LIVE</span>
+                    <p>📚 History</p>
                 </div>
+
             </div>
 
 
-            <div class="video-card" data-subject="history" data-keywords="history hist ඉතිහාසය">
-                <iframe src="https://www.youtube.com/embed/ZdiqAI4ON50" allowfullscreen></iframe>
+            <div class="video-card"
+                data-subject="history"
+                data-keywords="history hist ඉතිහාසය">
+
+                <div class="video-wrapper">
+
+                    <iframe src="https://www.youtube.com/embed/ZdiqAI4ON50"
+                        title="History Video 4"
+                        allowfullscreen></iframe>
+
+                    <span class="live-badge">🔴 LIVE</span>
+
+                </div>
+
                 <div class="video-info">
                     <h3>🏛️ History Video 4</h3>
-                    <span class="live-badge">🔴 LIVE</span>
+                    <p>📚 History</p>
                 </div>
+
             </div>
 
 
-            <div class="video-card" data-subject="history" data-keywords="history hist ඉතිහාසය">
-                <iframe src="https://www.youtube.com/embed/NzbkmKruKfw" allowfullscreen></iframe>
+            <div class="video-card"
+                data-subject="history"
+                data-keywords="history hist ඉතිහාසය">
+
+                <div class="video-wrapper">
+
+                    <iframe src="https://www.youtube.com/embed/NzbkmKruKfw"
+                        title="History Video 5"
+                        allowfullscreen></iframe>
+
+                    <span class="live-badge">🔴 LIVE</span>
+
+                </div>
+
                 <div class="video-info">
                     <h3>🏛️ History Video 5</h3>
-                    <span class="live-badge">🔴 LIVE</span>
+                    <p>📚 History</p>
                 </div>
+
             </div>
 
 
-            <div class="video-card" data-subject="history" data-keywords="history hist ඉතිහාසය">
-                <iframe src="https://www.youtube.com/embed/5F1fkr1dHZY" allowfullscreen></iframe>
+            <div class="video-card"
+                data-subject="history"
+                data-keywords="history hist ඉතිහාසය">
+
+                <div class="video-wrapper">
+
+                    <iframe src="https://www.youtube.com/embed/5F1fkr1dHZY"
+                        title="History Video 6"
+                        allowfullscreen></iframe>
+
+                    <span class="live-badge">🔴 LIVE</span>
+
+                </div>
+
                 <div class="video-info">
                     <h3>🏛️ History Video 6</h3>
-                    <span class="live-badge">🔴 LIVE</span>
+                    <p>📚 History</p>
                 </div>
+
             </div>
 
 
-            <div class="video-card" data-subject="history" data-keywords="history hist ඉතිහාසය">
-                <iframe src="https://www.youtube.com/embed/rvT2nNxP57I" allowfullscreen></iframe>
+            <div class="video-card"
+                data-subject="history"
+                data-keywords="history hist ඉතිහාසය">
+
+                <div class="video-wrapper">
+
+                    <iframe src="https://www.youtube.com/embed/rvT2nNxP57I"
+                        title="History Video 7"
+                        allowfullscreen></iframe>
+
+                    <span class="live-badge">🔴 LIVE</span>
+
+                </div>
+
                 <div class="video-info">
                     <h3>🏛️ History Video 7</h3>
-                    <span class="live-badge">🔴 LIVE</span>
+                    <p>📚 History</p>
                 </div>
+
             </div>
 
 
             <!-- ================= ICT ================= -->
 
-            <div
-                class="video-card"
+            <div class="video-card"
                 data-subject="ict"
                 data-keywords="ict computer">
 
-                <div class="video-info"
-                    style="padding:35px;text-align:center;">
+                <div class="video-wrapper">
 
+                    <div style="
+                        width:100%;
+                        height:100%;
+                        display:flex;
+                        align-items:center;
+                        justify-content:center;
+                        font-size:50px;
+                        background:linear-gradient(
+                            135deg,
+                            #ede9fe,
+                            #dbeafe
+                        );
+                    ">
+                        💻
+                    </div>
+
+                </div>
+
+                <div class="video-info">
                     <h3>💻 ICT Videos</h3>
-
-                    <p>
-                        📚 ICT videos will be added here.
-                    </p>
-
+                    <p>📚 ICT videos will be added here.</p>
                 </div>
 
             </div>
@@ -1788,31 +2793,97 @@
 
             <!-- ================= ENGLISH ================= -->
 
-            <div
-                class="video-card"
+            <div class="video-card"
                 data-subject="english"
                 data-keywords="english eng ඉංග්‍රීසි">
 
-                <div class="video-info"
-                    style="padding:35px;text-align:center;">
+                <div class="video-wrapper">
 
+                    <div style="
+                        width:100%;
+                        height:100%;
+                        display:flex;
+                        align-items:center;
+                        justify-content:center;
+                        font-size:50px;
+                        background:linear-gradient(
+                            135deg,
+                            #fce7f3,
+                            #dbeafe
+                        );
+                    ">
+                        🇬🇧
+                    </div>
+
+                </div>
+
+                <div class="video-info">
                     <h3>🇬🇧 English Videos</h3>
-
-                    <p>
-                        📚 English videos will be added here.
-                    </p>
-
+                    <p>📚 English videos will be added here.</p>
                 </div>
 
             </div>
 
-
         </div>
 
+    </section>
 
-        <div id="noResults">
-            😕 No videos found. Try another search.
-        </div>
+
+    <!-- ================= ABOUT ================= -->
+
+    <section
+        class="info-section"
+        id="about"
+    >
+
+        <h2>
+            ℹ️ About EduLearn
+        </h2>
+
+        <p>
+            📚 EduLearn is an educational platform
+            designed to help students learn through
+            useful educational videos anytime, anywhere.
+        </p>
+
+        <p>
+            🎓 Choose your grade, select a subject,
+            and start learning.
+        </p>
+
+        <p>
+            🚀 More educational content will be added
+            to EduLearn in the future.
+        </p>
+
+    </section>
+
+
+    <!-- ================= SUPPORT ================= -->
+
+    <section
+        class="info-section"
+        id="support"
+    >
+
+        <h2>
+            💬 Support
+        </h2>
+
+        <p>
+            ❓ Need help with EduLearn?
+        </p>
+
+        <p>
+            📧 Contact us for support and suggestions.
+        </p>
+
+        <a
+            href="mailto:support@edulearn.com"
+            class="support-button"
+        >
+            📧 Contact Support
+        </a>
 
     </section>
 
@@ -1826,7 +2897,8 @@
         </div>
 
         <div class="created-by">
-            ✨ Created By <strong>SaJan Edits</strong>
+            ✨ Created By
+            <strong>SaJan Edits</strong>
         </div>
 
     </footer>
@@ -1836,64 +2908,56 @@
 
     <div
         class="auth-modal"
-        id="authModal">
+        id="authModal"
+    >
 
         <div class="auth-box">
 
             <button
                 class="close-modal"
-                onclick="document.getElementById('authModal').style.display='none'">
-
+                onclick="closeAuthModal()"
+            >
                 ×
-
             </button>
-
 
             <h2 id="authTitle">
                 🔐 Login
             </h2>
 
-
             <input
                 type="email"
                 id="email"
-                placeholder="📧 Email">
-
+                placeholder="📧 Email"
+            >
 
             <input
                 type="password"
                 id="password"
-                placeholder="🔑 Password">
-
+                placeholder="🔑 Password"
+            >
 
             <button
                 class="auth-submit"
                 onclick="signInUser()"
-                id="authSubmit">
-
+                id="authSubmit"
+            >
                 🔐 Login
-
             </button>
 
-
-            <div class="auth-switch">
-
-                <span id="authSwitchText">
-                    Don't have an account?
-                </span>
-
-                <button
-                    onclick="switchAuthMode()"
-                    id="authSwitchButton">
-
+            <div
+                class="auth-switch"
+                id="authSwitchText"
+            >
+                Don't have an account?
+                <span onclick="switchAuthMode()">
                     Sign Up
-
-                </button>
-
+                </span>
             </div>
 
-
-            <div id="authMessage"></div>
+            <div
+                class="auth-message"
+                id="authMessage"
+            ></div>
 
         </div>
 
@@ -1904,8 +2968,12 @@
 
     <script type="module">
 
-        import { initializeApp }
-            from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+        import {
+            initializeApp
+        }
+        from
+        "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+
 
         import {
             getAuth,
@@ -1914,7 +2982,8 @@
             signOut,
             onAuthStateChanged
         }
-            from "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
+        from
+        "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
 
 
         const firebaseConfig = {
@@ -1954,81 +3023,104 @@
         let isSignUp = false;
 
 
-        /* ================= AUTH MODE ================= */
+        /* ================= AUTH MODAL ================= */
 
-        window.switchAuthMode = function () {
+        window.openAuthModal = function() {
+
+            document.getElementById(
+                "authModal"
+            ).style.display = "flex";
+
+            document.getElementById(
+                "authMessage"
+            ).textContent = "";
+
+        };
+
+
+        window.closeAuthModal = function() {
+
+            document.getElementById(
+                "authModal"
+            ).style.display = "none";
+
+        };
+
+
+        /* ================= SWITCH LOGIN / SIGNUP ================= */
+
+        window.switchAuthMode = function() {
 
             isSignUp = !isSignUp;
 
-            const title =
-                document.getElementById("authTitle");
-
-            const submit =
-                document.getElementById("authSubmit");
-
-            const switchText =
-                document.getElementById("authSwitchText");
-
-            const switchButton =
-                document.getElementById("authSwitchButton");
-
-            const message =
-                document.getElementById("authMessage");
-
-
-            message.textContent = "";
+            document.getElementById(
+                "authMessage"
+            ).textContent = "";
 
 
             if (isSignUp) {
 
-                title.textContent =
+                document.getElementById(
+                    "authTitle"
+                ).textContent =
                     "📝 Create Account";
 
-                submit.textContent =
+                document.getElementById(
+                    "authSubmit"
+                ).textContent =
                     "📝 Sign Up";
 
-                switchText.textContent =
-                    "Already have an account?";
+                document.getElementById(
+                    "authSwitchText"
+                ).innerHTML =
+                    'Already have an account? ' +
+                    '<span onclick="switchAuthMode()">Login</span>';
 
-                switchButton.textContent =
-                    "Login";
+            }
 
-            } else {
+            else {
 
-                title.textContent =
+                document.getElementById(
+                    "authTitle"
+                ).textContent =
                     "🔐 Login";
 
-                submit.textContent =
+                document.getElementById(
+                    "authSubmit"
+                ).textContent =
                     "🔐 Login";
 
-                switchText.textContent =
-                    "Don't have an account?";
-
-                switchButton.textContent =
-                    "Sign Up";
+                document.getElementById(
+                    "authSwitchText"
+                ).innerHTML =
+                    'Don\'t have an account? ' +
+                    '<span onclick="switchAuthMode()">Sign Up</span>';
 
             }
 
         };
 
 
-        /* ================= LOGIN / SIGNUP ================= */
+        /* ================= AUTH ================= */
 
-        window.signInUser = async function () {
+        window.signInUser = async function() {
 
             const email =
-                document.getElementById("email")
-                    .value.trim();
+                document.getElementById(
+                    "email"
+                ).value.trim();
+
 
             const password =
-                document.getElementById("password")
-                    .value;
+                document.getElementById(
+                    "password"
+                ).value;
+
 
             const message =
-                document.getElementById("authMessage");
-
-
-            message.textContent = "";
+                document.getElementById(
+                    "authMessage"
+                );
 
 
             if (!email || !password) {
@@ -2037,6 +3129,7 @@
                     "⚠️ Please enter email and password.";
 
                 return;
+
             }
 
 
@@ -2046,6 +3139,7 @@
                     "⚠️ Password must be at least 6 characters.";
 
                 return;
+
             }
 
 
@@ -2065,7 +3159,9 @@
                     message.textContent =
                         "✅ Account created successfully!";
 
-                } else {
+                }
+
+                else {
 
                     await signInWithEmailAndPassword(
                         auth,
@@ -2073,13 +3169,23 @@
                         password
                     );
 
-                    document.getElementById(
-                        "authModal"
-                    ).style.display = "none";
+                    message.style.color =
+                        "#16a34a";
+
+                    message.textContent =
+                        "✅ Login successful!";
+
+                    setTimeout(() => {
+
+                        closeAuthModal();
+
+                    }, 800);
 
                 }
 
-            } catch (error) {
+            }
+
+            catch(error) {
 
                 message.style.color =
                     "#dc2626";
@@ -2091,17 +3197,21 @@
                 ) {
 
                     message.textContent =
-                        "❌ This email is already registered.";
+                        "⚠️ This email is already registered.";
 
-                } else if (
+                }
+
+                else if (
                     error.code ===
                     "auth/invalid-email"
                 ) {
 
                     message.textContent =
-                        "❌ Invalid email address.";
+                        "⚠️ Invalid email address.";
 
-                } else if (
+                }
+
+                else if (
                     error.code ===
                     "auth/invalid-credential"
                 ) {
@@ -2109,23 +3219,19 @@
                     message.textContent =
                         "❌ Incorrect email or password.";
 
-                } else if (
+                }
+
+                else if (
                     error.code ===
-                    "auth/user-not-found"
+                    "auth/weak-password"
                 ) {
 
                     message.textContent =
-                        "❌ Account not found.";
+                        "⚠️ Password is too weak.";
 
-                } else if (
-                    error.code ===
-                    "auth/wrong-password"
-                ) {
+                }
 
-                    message.textContent =
-                        "❌ Incorrect password.";
-
-                } else {
+                else {
 
                     message.textContent =
                         "❌ " + error.message;
@@ -2144,7 +3250,9 @@
             (user) => {
 
                 const loginBtn =
-                    document.getElementById("loginBtn");
+                    document.getElementById(
+                        "loginBtn"
+                    );
 
 
                 if (user) {
@@ -2153,23 +3261,23 @@
                         "🚪 Sign Out";
 
                     loginBtn.onclick =
-                        async () => {
+                        async function() {
 
                             await signOut(auth);
 
                         };
 
-                } else {
+                }
+
+                else {
 
                     loginBtn.textContent =
                         "🔐 Login";
 
                     loginBtn.onclick =
-                        () => {
+                        function() {
 
-                            document.getElementById(
-                                "authModal"
-                            ).style.display = "flex";
+                            openAuthModal();
 
                         };
 
@@ -2181,14 +3289,14 @@
 
         /* ================= SEARCH ================= */
 
-        window.searchVideos = function () {
+        window.performSearch = function() {
 
             const input =
                 document.getElementById(
                     "searchInput"
                 ).value
-                    .toLowerCase()
-                    .trim();
+                .toLowerCase()
+                .trim();
 
 
             const cards =
@@ -2209,184 +3317,51 @@
                 );
 
 
-            const channels = {
-
-                mathematics: {
-
-                    name:
-                        "📐 Mathematics Teacher Channel",
-
-                    description:
-                        "Mathematics lessons and educational videos from the Mathematics teacher.",
-
-                    teacher:
-                        "👨‍🏫 Ishara Madushan",
-
-                    url:
-                        "https://www.youtube.com/@isharamadushanofficial"
-
-                },
-
-                science: {
-
-                    name:
-                        "🔬 Science Teacher Channel",
-
-                    description:
-                        "Science lessons and educational videos from the Science teacher.",
-
-                    teacher:
-                        "👨‍🏫 Geethan Devinda",
-
-                    url:
-                        "https://www.youtube.com/@geethandevinda6483"
-
-                },
-
-                sinhala: {
-
-                    name:
-                        "📝 Sinhala Teacher Channel",
-
-                    description:
-                        "Sinhala lessons and educational videos from the Sinhala teacher.",
-
-                    teacher:
-                        "👨‍🏫 භාෂා පාරාදීසය",
-
-                    url:
-                        "https://www.youtube.com/@bashaparadisaya"
-
-                },
-
-                history: {
-
-                    name:
-                        "🏛️ History Teacher Channel",
-
-                    description:
-                        "History lessons and educational videos from the History teacher.",
-
-                    teacher:
-                        "👨‍🏫 Prabath Udayakantha",
-
-                    url:
-                        "https://www.youtube.com/@prabathudayakantha2795"
-
-                },
-
-                ict: {
-
-                    name:
-                        "💻 ICT Teacher Channel",
-
-                    description:
-                        "ICT educational videos will be available here.",
-
-                    teacher:
-                        "👨‍🏫 ICT Teacher",
-
-                    url:
-                        "#"
-
-                },
-
-                english: {
-
-                    name:
-                        "🇬🇧 English Teacher Channel",
-
-                    description:
-                        "English educational videos will be available here.",
-
-                    teacher:
-                        "👨‍🏫 English Teacher",
-
-                    url:
-                        "#"
-
-                }
-
-            };
+            let visibleCount = 0;
 
 
-            let detectedSubject = null;
+            if (!input) {
 
+                cards.forEach(card => {
 
-            if (
-                input.includes("math") ||
-                input.includes("maths") ||
-                input.includes("mathematics")
-            ) {
+                    card.style.display =
+                        "block";
 
-                detectedSubject =
-                    "mathematics";
+                });
 
-            } else if (
-                input.includes("science") ||
-                input.includes("sci")
-            ) {
+                channelResult.style.display =
+                    "none";
 
-                detectedSubject =
-                    "science";
+                noResults.style.display =
+                    "none";
 
-            } else if (
-                input.includes("sinhala") ||
-                input.includes("සිංහල")
-            ) {
+                document.getElementById(
+                    "videoSectionTitle"
+                ).textContent =
+                    "🎥 Educational Videos";
 
-                detectedSubject =
-                    "sinhala";
-
-            } else if (
-                input.includes("history") ||
-                input.includes("hist") ||
-                input.includes("ඉතිහාසය")
-            ) {
-
-                detectedSubject =
-                    "history";
-
-            } else if (
-                input.includes("ict") ||
-                input.includes("computer")
-            ) {
-
-                detectedSubject =
-                    "ict";
-
-            } else if (
-                input.includes("english") ||
-                input.includes("eng") ||
-                input.includes("ඉංග්‍රීසි")
-            ) {
-
-                detectedSubject =
-                    "english";
+                return;
 
             }
 
 
-            let visibleCount = 0;
+            let detectedSubject =
+                detectSubject(input);
 
 
             cards.forEach(card => {
 
                 const subject =
-                    card.dataset.subject
-                        .toLowerCase();
+                    card.dataset.subject || "";
 
                 const keywords =
-                    card.dataset.keywords
-                        .toLowerCase();
+                    card.dataset.keywords || "";
 
                 const title =
-                    card.innerText
-                        .toLowerCase();
+                    card.innerText.toLowerCase();
 
 
                 const match =
-                    !input ||
                     subject.includes(input) ||
                     keywords.includes(input) ||
                     title.includes(input) ||
@@ -2403,7 +3378,9 @@
 
                     visibleCount++;
 
-                } else {
+                }
+
+                else {
 
                     card.style.display =
                         "none";
@@ -2413,83 +3390,41 @@
             });
 
 
-            /* ================= CHANNEL ================= */
+            if (detectedSubject) {
 
-            if (
-                detectedSubject &&
-                channels[detectedSubject]
-            ) {
+                showChannel(
+                    detectedSubject
+                );
 
-                const channel =
-                    channels[detectedSubject];
+            }
 
-
-                channelResult.innerHTML = `
-
-                    <h3>
-                        ${channel.name}
-                    </h3>
-
-                    <p>
-                        ${channel.teacher}
-                    </p>
-
-                    <p>
-                        ${channel.description}
-                    </p>
-
-                    <a
-                        class="channel-button"
-                        href="${channel.url}"
-                        target="_blank">
-
-                        ▶️ Visit YouTube Channel
-
-                    </a>
-
-                `;
-
-
-                channelResult.style.display =
-                    "block";
-
-            } else {
+            else {
 
                 channelResult.style.display =
                     "none";
 
-                channelResult.innerHTML = "";
-
             }
 
-
-            /* ================= NO RESULTS ================= */
 
             if (visibleCount === 0) {
 
                 noResults.style.display =
                     "block";
 
-            } else {
+            }
+
+            else {
 
                 noResults.style.display =
                     "none";
 
             }
 
-        };
-
-
-        /* ================= SUBJECT SEARCH ================= */
-
-        window.searchSubject = function (subject) {
 
             document.getElementById(
-                "searchInput"
-            ).value = subject;
-
-
-            window.searchVideos();
+                "videoSectionTitle"
+            ).textContent =
+                "🔎 Search Results";
 
 
             document.getElementById(
@@ -2500,6 +3435,375 @@
 
         };
 
+
+        window.handleSearch = function(event) {
+
+            if (
+                event.key === "Enter"
+            ) {
+
+                performSearch();
+
+            }
+
+        };
+
+
+        function detectSubject(text) {
+
+            text = text.toLowerCase();
+
+
+            if (
+                text.includes("math") ||
+                text.includes("mathematics") ||
+                text.includes("maths")
+            ) {
+
+                return "mathematics";
+
+            }
+
+
+            if (
+                text.includes("science") ||
+                text.includes("sci")
+            ) {
+
+                return "science";
+
+            }
+
+
+            if (
+                text.includes("sinhala") ||
+                text.includes("සිංහල")
+            ) {
+
+                return "sinhala";
+
+            }
+
+
+            if (
+                text.includes("history") ||
+                text.includes("hist") ||
+                text.includes("ඉතිහාසය")
+            ) {
+
+                return "history";
+
+            }
+
+
+            if (
+                text.includes("ict") ||
+                text.includes("computer")
+            ) {
+
+                return "ict";
+
+            }
+
+
+            if (
+                text.includes("english") ||
+                text.includes("eng") ||
+                text.includes("ඉංග්‍රීසි")
+            ) {
+
+                return "english";
+
+            }
+
+
+            return null;
+
+        }
+
+
+        /* ================= CHANNELS ================= */
+
+        const channels = {
+
+            mathematics: {
+
+                name:
+                    "📐 Mathematics Teacher Channel",
+
+                description:
+                    "Mathematics lessons and educational videos from the Mathematics teacher.",
+
+                teacher:
+                    "👨‍🏫 Ishara Madushan",
+
+                url:
+                    "https://www.youtube.com/@isharamadushanofficial"
+
+            },
+
+
+            science: {
+
+                name:
+                    "🔬 Science Teacher Channel",
+
+                description:
+                    "Science lessons and educational videos from the Science teacher.",
+
+                teacher:
+                    "👨‍🏫 Geethan Devinda",
+
+                url:
+                    "https://www.youtube.com/@geethandevinda6483"
+
+            },
+
+
+            sinhala: {
+
+                name:
+                    "📝 Sinhala Teacher Channel",
+
+                description:
+                    "Sinhala lessons and educational videos from the Sinhala teacher.",
+
+                teacher:
+                    "👨‍🏫 භාෂා පාරාදීසය",
+
+                url:
+                    "https://www.youtube.com/@bashaparadisaya"
+
+            },
+
+
+            history: {
+
+                name:
+                    "🏛️ History Teacher Channel",
+
+                description:
+                    "History lessons and educational videos from the History teacher.",
+
+                teacher:
+                    "👨‍🏫 Prabath Udayakantha",
+
+                url:
+                    "https://www.youtube.com/@prabathudayakantha2795"
+
+            },
+
+
+            ict: {
+
+                name:
+                    "💻 ICT Teacher Channel",
+
+                description:
+                    "ICT educational videos will be available here.",
+
+                teacher:
+                    "👨‍🏫 ICT Teacher",
+
+                url:
+                    "#"
+
+            },
+
+
+            english: {
+
+                name:
+                    "🇬🇧 English Teacher Channel",
+
+                description:
+                    "English educational videos will be available here.",
+
+                teacher:
+                    "👨‍🏫 English Teacher",
+
+                url:
+                    "#"
+
+            }
+
+        };
+
+
+        function showChannel(subject) {
+
+            const data =
+                channels[subject];
+
+
+            if (!data) return;
+
+
+            document.getElementById(
+                "channelName"
+            ).textContent =
+                data.name;
+
+
+            document.getElementById(
+                "channelDescription"
+            ).textContent =
+                data.description;
+
+
+            document.getElementById(
+                "channelTeacher"
+            ).textContent =
+                data.teacher;
+
+
+            const link =
+                document.getElementById(
+                    "channelLink"
+                );
+
+
+            link.href =
+                data.url;
+
+
+            if (data.url === "#") {
+
+                link.textContent =
+                    "🚧 Coming Soon";
+
+            }
+
+            else {
+
+                link.textContent =
+                    "▶️ Visit YouTube Channel";
+
+            }
+
+
+            document.getElementById(
+                "channelResult"
+            ).style.display =
+                "block";
+
+        }
+
+
+        /* ================= SUBJECT SEARCH ================= */
+
+        window.searchSubject = function(subject) {
+
+            document.getElementById(
+                "searchInput"
+            ).value =
+                subject;
+
+
+            performSearch();
+
+        };
+
+
+        /* ================= GRADE ================= */
+
+        window.selectGrade = function(grade) {
+
+            document.getElementById(
+                "searchInput"
+            ).value =
+                "Grade " + grade;
+
+
+            const cards =
+                document.querySelectorAll(
+                    ".video-card"
+                );
+
+
+            cards.forEach(card => {
+
+                const keywords =
+                    (
+                        card.dataset.keywords ||
+                        ""
+                    ).toLowerCase();
+
+
+                if (
+                    keywords.includes(
+                        "grade " + grade
+                    )
+                ) {
+
+                    card.style.display =
+                        "block";
+
+                }
+
+                else {
+
+                    /*
+                     * Currently videos don't have
+                     * individual grade labels,
+                     * so keep educational videos visible.
+                     */
+
+                    card.style.display =
+                        "block";
+
+                }
+
+            });
+
+
+            document.getElementById(
+                "channelResult"
+            ).style.display =
+                "none";
+
+
+            document.getElementById(
+                "noResults"
+            ).style.display =
+                "none";
+
+
+            document.getElementById(
+                "videoSectionTitle"
+            ).textContent =
+                "🎓 Grade " +
+                grade +
+                " Educational Videos";
+
+
+            document.getElementById(
+                "videos"
+            ).scrollIntoView({
+                behavior: "smooth"
+            });
+
+        };
+
+
+        /* ================= CLOSE MODAL OUTSIDE ================= */
+
+        document.getElementById(
+            "authModal"
+        ).addEventListener(
+            "click",
+            function(event) {
+
+                if (
+                    event.target === this
+                ) {
+
+                    closeAuthModal();
+
+                }
+
+            }
+        );
 
     </script>
 
