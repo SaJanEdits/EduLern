@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="google-site-verification" content="T9X50zh28h-OUVSkAbQpBpIXp_6jlV_1gj3IwTHCZMw">
+<meta name="google-site-verification"
+content="T9X50zh28h-OUVSkAbQpBpIXp_6jlV_1gj3IwTHCZMw">
 
-<title>📚 EduLearn - Educational Videos</title>
+<title>📚 EduLearn | Learn Beyond Limits</title>
+
+<!-- Modern Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
 
 <style>
+
+/* =====================================================
+   RESET
+===================================================== */
 
 *{
     margin:0;
@@ -21,170 +34,385 @@ html{
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
+
+    font-family:
+        "Poppins",
+        "Inter",
+        Arial,
+        sans-serif;
+
     color:#172033;
+
     min-height:100vh;
 
-    background:
-        radial-gradient(circle at 10% 20%,rgba(59,130,246,.12),transparent 25%),
-        radial-gradient(circle at 90% 10%,rgba(168,85,247,.12),transparent 25%),
-        linear-gradient(135deg,#f8fbff,#eef4ff,#f8f5ff);
+    overflow-x:hidden;
 
-    animation:pageFade .7s ease-out;
+    background:
+
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(59,130,246,.15),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(139,92,246,.15),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(6,182,212,.10),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #f8fbff 0%,
+            #eef4ff 45%,
+            #faf7ff 100%
+        );
+
+    animation:pageEnter .8s ease;
 }
 
-/* ================= HEADER ================= */
+
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#eef2ff;
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:
+        linear-gradient(
+            180deg,
+            #2563eb,
+            #7c3aed
+        );
+
+    border-radius:20px;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
 
 header{
+
     position:sticky;
+
     top:0;
+
     z-index:1000;
 
-    background:rgba(255,255,255,.94);
-    backdrop-filter:blur(12px);
+    background:
+        rgba(255,255,255,.82);
 
-    border-bottom:1px solid #e5e7eb;
+    backdrop-filter:
+        blur(20px);
 
-    box-shadow:0 5px 20px rgba(0,0,0,.06);
+    -webkit-backdrop-filter:
+        blur(20px);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.7);
+
+    box-shadow:
+        0 10px 40px rgba(37,99,235,.08);
 }
+
 
 .navbar{
-    max-width:1200px;
+
+    max-width:1250px;
+
     margin:auto;
 
-    min-height:72px;
+    min-height:76px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 
-    padding:12px 20px;
+    gap:18px;
 
-    gap:15px;
+    padding:
+        12px 22px;
 }
 
+
+/* =====================================================
+   LOGO
+===================================================== */
+
 .logo{
-    font-size:24px;
-    font-weight:800;
-    color:#2563eb;
+
+    font-size:25px;
+
+    font-weight:900;
+
     cursor:pointer;
+
     white-space:nowrap;
 
-    transition:transform .3s ease;
+    letter-spacing:-.5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #7c3aed,
+            #06b6d4
+        );
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+    color:transparent;
+
+    transition:
+        transform .35s ease,
+        filter .35s ease;
 }
 
 .logo:hover{
-    transform:scale(1.05) rotate(-2deg);
+
+    transform:
+        scale(1.07)
+        rotate(-2deg);
+
+    filter:
+        drop-shadow(
+            0 5px 15px
+            rgba(37,99,235,.3)
+        );
 }
 
+
+/* =====================================================
+   NAV LINKS
+===================================================== */
+
 .nav-links{
+
     display:flex;
+
     align-items:center;
-    gap:8px;
+
+    justify-content:center;
+
+    gap:5px;
+
     flex-wrap:wrap;
 }
 
 .nav-links button{
+
     border:none;
+
     background:transparent;
 
-    padding:10px 13px;
+    color:#475569;
 
-    border-radius:10px;
-
-    font-size:14px;
-    font-weight:700;
-
-    color:#374151;
-
-    cursor:pointer;
-
-    transition:.25s;
-}
-
-.nav-links button:hover{
-    background:#eff6ff;
-    color:#2563eb;
-    transform:translateY(-2px);
-}
-
-.search-box{
-    display:flex;
-    align-items:center;
-
-    background:#f8fafc;
-
-    border:1px solid #dbe3ef;
+    padding:
+        10px 13px;
 
     border-radius:12px;
 
+    font-family:inherit;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:
+        background .25s ease,
+        color .25s ease,
+        transform .25s ease;
+}
+
+.nav-links button:hover{
+
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff,
+            #f5f3ff
+        );
+
+    color:#2563eb;
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+.search-box{
+
+    display:flex;
+
+    align-items:center;
+
+    background:
+        rgba(248,250,252,.9);
+
+    border:
+        1px solid #dbe5f1;
+
+    border-radius:14px;
+
     overflow:hidden;
 
-    transition:transform .25s ease;
+    box-shadow:
+        inset 0 1px 2px rgba(0,0,0,.02);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        border .3s ease;
 }
 
 .search-box:focus-within{
-    transform:scale(1.02);
+
+    transform:scale(1.025);
+
+    border-color:#93c5fd;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(37,99,235,.08);
 }
 
 .search-box input{
-    width:170px;
+
+    width:175px;
 
     border:none;
+
     outline:none;
 
     background:transparent;
 
-    padding:10px 12px;
+    padding:
+        11px 12px;
 
-    font-size:14px;
+    font-family:inherit;
+
+    font-size:13px;
+
+    color:#172033;
+}
+
+.search-box input::placeholder{
+    color:#94a3b8;
 }
 
 .search-box button{
+
     border:none;
-    background:#2563eb;
+
     color:white;
 
-    padding:10px 13px;
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #7c3aed
+        );
+
+    padding:
+        11px 14px;
 
     cursor:pointer;
 
-    transition:.2s;
+    transition:
+        transform .2s ease;
 }
 
 .search-box button:hover{
-    transform:scale(1.05);
+    transform:scale(1.08);
 }
 
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
 .login-btn{
+
     border:none;
 
-    background:#2563eb;
     color:white;
 
-    padding:10px 15px;
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #7c3aed
+        );
 
-    border-radius:10px;
+    padding:
+        11px 17px;
 
-    font-weight:700;
+    border-radius:13px;
+
+    font-family:inherit;
+
+    font-size:13px;
+
+    font-weight:800;
 
     cursor:pointer;
 
-    transition:.2s;
-
     white-space:nowrap;
+
+    box-shadow:
+        0 8px 20px
+        rgba(37,99,235,.2);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
 }
 
 .login-btn:hover{
-    transform:translateY(-2px) scale(1.03);
-    box-shadow:0 8px 20px rgba(37,99,235,.25);
+
+    transform:
+        translateY(-3px)
+        scale(1.03);
+
+    box-shadow:
+        0 14px 30px
+        rgba(37,99,235,.28);
 }
 
 .login-btn:active{
     transform:scale(.96);
 }
 
-/* ================= PAGE SYSTEM ================= */
+
+/* =====================================================
+   PAGE SYSTEM
+===================================================== */
 
 .page{
     display:none;
@@ -192,266 +420,597 @@ header{
 
 .page.active{
     display:block;
+
+    animation:
+        pageSlide .55s ease;
 }
 
-/* ================= HOME ================= */
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero-wrapper{
+
+    max-width:1200px;
+
+    margin:
+        42px auto 20px;
+
+    padding:
+        0 20px;
+}
+
 
 .hero{
-    max-width:1100px;
-    margin:50px auto 30px;
 
-    padding:70px 25px;
+    position:relative;
+
+    overflow:hidden;
 
     text-align:center;
 
-    border-radius:25px;
+    padding:
+        85px 25px;
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(37,99,235,.95),
-            rgba(124,58,237,.92)
-        );
+    border-radius:32px;
 
     color:white;
 
-    box-shadow:0 20px 50px rgba(37,99,235,.2);
+    background:
 
-    overflow:hidden;
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255,255,255,.16),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(255,255,255,.12),
+            transparent 25%
+        ),
+
+        linear-gradient(
+            135deg,
+            #1d4ed8,
+            #4f46e5 50%,
+            #7c3aed
+        );
+
+    box-shadow:
+        0 30px 80px
+        rgba(37,99,235,.24);
+
+    isolation:isolate;
+}
+
+
+/* floating circles */
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.09);
+
+    top:-70px;
+    left:-60px;
+
+    animation:
+        floatCircle 7s ease-in-out infinite;
+}
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:240px;
+    height:240px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.07);
+
+    right:-100px;
+    bottom:-120px;
+
+    animation:
+        floatCircle 9s ease-in-out infinite reverse;
+}
+
+
+.hero-content{
+    position:relative;
+    z-index:2;
 }
 
 .hero h1{
-    font-size:45px;
-    margin-bottom:15px;
 
-    animation:heroFade .8s ease-out;
+    font-size:
+        clamp(34px,6vw,58px);
+
+    line-height:1.1;
+
+    font-weight:900;
+
+    letter-spacing:-1.5px;
+
+    margin-bottom:18px;
+
+    animation:
+        heroText .8s ease;
+}
+
+.hero h1 span{
+
+    color:#dbeafe;
+
+    text-shadow:
+        0 5px 25px
+        rgba(255,255,255,.2);
 }
 
 .hero p{
-    font-size:19px;
-    opacity:.95;
-    margin-bottom:25px;
 
-    animation:heroFade 1s ease-out;
+    max-width:680px;
+
+    margin:
+        0 auto 30px;
+
+    font-size:
+        clamp(15px,2vw,19px);
+
+    line-height:1.7;
+
+    color:
+        rgba(255,255,255,.9);
+
+    animation:
+        heroText 1s ease;
 }
 
-.hero button{
+.hero-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
     border:none;
 
-    padding:14px 24px;
+    padding:
+        14px 24px;
 
-    border-radius:12px;
+    border-radius:14px;
 
     background:white;
+
     color:#2563eb;
 
-    font-size:16px;
-    font-weight:800;
+    font-family:inherit;
+
+    font-size:15px;
+
+    font-weight:900;
 
     cursor:pointer;
 
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,.12);
+
     animation:
-        heroFade 1.2s ease-out,
-        buttonFloat 3s ease-in-out infinite 1.2s;
+        heroText 1.2s ease,
+        buttonFloat 4s ease-in-out infinite 1.2s;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
 }
 
-.hero button:hover{
-    transform:scale(1.05);
+.hero-btn:hover{
+
+    transform:
+        translateY(-5px)
+        scale(1.04);
+
+    box-shadow:
+        0 18px 35px
+        rgba(0,0,0,.2);
 }
 
-/* ================= SECTIONS ================= */
+
+/* =====================================================
+   CONTAINER
+===================================================== */
 
 .container{
-    max-width:1150px;
-    margin:40px auto;
 
-    padding:0 20px;
+    max-width:1180px;
+
+    margin:
+        55px auto;
+
+    padding:
+        0 20px;
 }
+
+
+/* =====================================================
+   SECTION TITLE
+===================================================== */
 
 .section-title{
+
     text-align:center;
 
-    font-size:30px;
+    font-size:
+        clamp(27px,4vw,36px);
 
-    margin-bottom:25px;
+    font-weight:900;
 
-    color:#172033;
+    margin-bottom:32px;
 
-    animation:heroFade .7s ease;
+    letter-spacing:-.7px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #1d4ed8,
+            #7c3aed,
+            #0891b2
+        );
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+    color:transparent;
 }
 
-/* ================= SUBJECT CARDS ================= */
+
+/* =====================================================
+   SUBJECT GRID
+===================================================== */
 
 .subject-grid{
+
     display:grid;
 
     grid-template-columns:
-        repeat(auto-fit,minmax(180px,1fr));
+        repeat(
+            auto-fit,
+            minmax(175px,1fr)
+        );
 
     gap:20px;
 }
 
+
 .subject-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    min-height:155px;
+
     border:none;
 
-    min-height:145px;
+    border-radius:22px;
 
-    border-radius:20px;
+    padding:25px 18px;
 
-    padding:22px;
+    font-family:inherit;
 
     font-size:18px;
-    font-weight:800;
 
-    cursor:pointer;
+    font-weight:800;
 
     color:#172033;
 
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    cursor:pointer;
 
-    transition:.3s;
+    box-shadow:
+        0 12px 35px
+        rgba(30,64,175,.08);
 
-    animation:cardAppear .6s ease both;
+    transition:
+        transform .35s cubic-bezier(.2,.8,.2,1),
+        box-shadow .35s ease;
+
+    animation:
+        cardReveal .7s ease both;
 }
 
-.subject-card:nth-child(1){
-    background:#dbeafe;
+.subject-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:110px;
+    height:110px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.45);
+
+    top:-50px;
+    right:-35px;
+
+    transition:
+        transform .5s ease;
 }
 
-.subject-card:nth-child(2){
-    background:#dcfce7;
-}
+.subject-card:hover::before{
 
-.subject-card:nth-child(3){
-    background:#ede9fe;
-}
-
-.subject-card:nth-child(4){
-    background:#fef3c7;
-}
-
-.subject-card:nth-child(5){
-    background:#fee2e2;
-}
-
-.subject-card:nth-child(6){
-    background:#cffafe;
+    transform:
+        scale(1.5);
 }
 
 .subject-card:hover{
-    transform:translateY(-8px) scale(1.03);
+
+    transform:
+        translateY(-10px)
+        scale(1.025);
 
     box-shadow:
-        0 15px 35px rgba(37,99,235,.18);
+        0 22px 50px
+        rgba(37,99,235,.15);
 }
 
-/* ================= VIDEO SECTION ================= */
+
+.subject-card:nth-child(1){
+
+    background:
+        linear-gradient(
+            135deg,
+            #dbeafe,
+            #bfdbfe
+        );
+}
+
+.subject-card:nth-child(2){
+
+    background:
+        linear-gradient(
+            135deg,
+            #dcfce7,
+            #bbf7d0
+        );
+}
+
+.subject-card:nth-child(3){
+
+    background:
+        linear-gradient(
+            135deg,
+            #ede9fe,
+            #ddd6fe
+        );
+}
+
+.subject-card:nth-child(4){
+
+    background:
+        linear-gradient(
+            135deg,
+            #fef3c7,
+            #fde68a
+        );
+}
+
+.subject-card:nth-child(5){
+
+    background:
+        linear-gradient(
+            135deg,
+            #fee2e2,
+            #fecaca
+        );
+}
+
+.subject-card:nth-child(6){
+
+    background:
+        linear-gradient(
+            135deg,
+            #cffafe,
+            #a5f3fc
+        );
+}
+
+
+/* =====================================================
+   VIDEO
+===================================================== */
 
 .search-title{
+
     text-align:center;
 
-    margin:55px 0 25px;
+    font-size:
+        clamp(27px,4vw,36px);
 
-    font-size:30px;
+    font-weight:900;
+
+    margin:
+        70px 0 32px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #7c3aed
+        );
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+    color:transparent;
 }
 
+
 .video-grid{
+
     display:grid;
 
     grid-template-columns:
-        repeat(auto-fit,minmax(300px,1fr));
+        repeat(
+            auto-fit,
+            minmax(300px,1fr)
+        );
 
     gap:25px;
 }
 
-.video-card{
-    background:white;
 
-    border-radius:18px;
+.video-card{
+
+    background:
+        rgba(255,255,255,.92);
+
+    border:
+        1px solid
+        rgba(255,255,255,.8);
+
+    border-radius:20px;
 
     overflow:hidden;
 
     box-shadow:
-        0 8px 25px rgba(0,0,0,.08);
-
-    animation:cardAppear .6s ease both;
+        0 12px 35px
+        rgba(15,23,42,.07);
 
     transition:
-        transform .3s ease,
-        box-shadow .3s ease,
-        opacity .3s ease;
+        transform .35s cubic-bezier(.2,.8,.2,1),
+        box-shadow .35s ease;
+
+    animation:
+        cardReveal .65s ease both;
 }
 
 .video-card:hover{
-    transform:translateY(-8px) scale(1.015);
+
+    transform:
+        translateY(-9px);
 
     box-shadow:
-        0 18px 40px rgba(37,99,235,.18);
+        0 25px 55px
+        rgba(37,99,235,.14);
 }
 
 .video-card iframe{
-    width:100%;
-    height:220px;
 
-    border:none;
+    width:100%;
+
+    height:225px;
 
     display:block;
 
-    transition:transform .4s ease;
+    border:none;
+
+    transition:
+        transform .5s ease;
 }
 
 .video-card:hover iframe{
-    transform:scale(1.02);
+    transform:scale(1.025);
 }
 
 .video-info{
-    padding:15px;
+    padding:18px;
 }
 
 .video-info h3{
-    font-size:17px;
+
+    font-size:16px;
+
+    font-weight:800;
+
     margin-bottom:8px;
 }
 
 .video-info p{
-    font-size:13px;
+
     color:#64748b;
+
+    font-size:13px;
+
+    font-weight:600;
 }
 
-/* ================= LIVE ================= */
+
+/* =====================================================
+   LIVE
+===================================================== */
 
 .live-badge{
-    display:inline-block;
 
-    background:#ef4444;
-    color:white;
+    display:inline-flex;
 
-    padding:5px 9px;
+    align-items:center;
 
-    border-radius:7px;
+    gap:5px;
 
-    font-size:12px;
-    font-weight:800;
+    padding:
+        5px 9px;
 
     margin-bottom:9px;
 
-    animation:livePulse 1.5s infinite;
+    border-radius:8px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ef4444,
+            #dc2626
+        );
+
+    color:white;
+
+    font-size:11px;
+
+    font-weight:900;
+
+    box-shadow:
+        0 5px 15px
+        rgba(239,68,68,.25);
+
+    animation:
+        livePulse 1.5s infinite;
 }
 
-/* ================= CHANNEL ================= */
+
+/* =====================================================
+   CHANNEL
+===================================================== */
 
 .channel-result{
-    margin:25px 0;
+    margin:
+        20px 0 28px;
 
-    animation:channelAppear .5s ease;
+    animation:
+        channelAppear .5s ease;
 }
 
 .channel-box{
-    background:white;
-
-    border-radius:18px;
-
-    padding:20px;
 
     display:flex;
 
@@ -461,281 +1020,529 @@ header{
 
     gap:20px;
 
-    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    padding:21px;
+
+    border-radius:20px;
+
+    background:
+        rgba(255,255,255,.9);
+
+    border:
+        1px solid
+        rgba(255,255,255,.9);
+
+    box-shadow:
+        0 12px 35px
+        rgba(15,23,42,.07);
 }
 
 .channel-info h3{
-    margin-bottom:7px;
+
+    font-size:17px;
+
+    margin-bottom:6px;
 }
 
 .channel-info p{
+
     color:#64748b;
-    margin-bottom:5px;
+
+    font-size:13px;
+
+    margin-bottom:4px;
 }
 
 .channel-button{
-    display:inline-block;
 
     text-decoration:none;
 
-    background:#ef4444;
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    padding:
+        11px 16px;
+
+    border-radius:11px;
+
     color:white;
 
-    padding:11px 16px;
+    background:
+        linear-gradient(
+            135deg,
+            #ef4444,
+            #dc2626
+        );
 
-    border-radius:10px;
+    font-size:13px;
 
     font-weight:800;
 
-    transition:.25s;
-
     white-space:nowrap;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
 }
 
 .channel-button:hover{
-    transform:translateY(-3px) scale(1.04);
+
+    transform:
+        translateY(-3px)
+        scale(1.03);
 
     box-shadow:
-        0 8px 20px rgba(255,0,0,.25);
+        0 10px 25px
+        rgba(239,68,68,.25);
 }
 
 .no-results{
-    text-align:center;
 
-    padding:40px;
+    display:none;
+
+    padding:45px;
+
+    text-align:center;
 
     color:#64748b;
 
-    display:none;
+    font-weight:700;
 }
 
-/* ================= GRADES ================= */
 
-.grades-container{
-    max-width:1100px;
-    margin:50px auto;
-
-    padding:0 20px;
-}
+/* =====================================================
+   PAGE HEADING
+===================================================== */
 
 .page-heading{
+
     text-align:center;
 
-    font-size:38px;
+    font-size:
+        clamp(31px,5vw,46px);
 
-    margin-bottom:12px;
+    font-weight:900;
+
+    margin-bottom:10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #1d4ed8,
+            #7c3aed,
+            #0891b2
+        );
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+    color:transparent;
 }
 
 .page-description{
+
     text-align:center;
 
     color:#64748b;
 
-    margin-bottom:35px;
+    font-size:15px;
+
+    margin-bottom:38px;
 }
+
+
+/* =====================================================
+   GRADES
+===================================================== */
+
+.grades-container{
+
+    max-width:1100px;
+
+    margin:
+        55px auto;
+
+    padding:
+        0 20px;
+}
+
 
 .grade-grid{
+
     display:grid;
 
     grid-template-columns:
-        repeat(auto-fit,minmax(190px,1fr));
+        repeat(
+            auto-fit,
+            minmax(190px,1fr)
+        );
 
     gap:22px;
 }
+
 
 .grade-card{
+
+    position:relative;
+
+    overflow:hidden;
+
     border:none;
 
-    padding:35px 20px;
-
-    border-radius:20px;
-
-    background:white;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-
-    cursor:pointer;
-
-    font-size:21px;
-    font-weight:800;
-
-    transition:.3s;
-
-    animation:cardAppear .6s ease both;
-}
-
-.grade-card:hover{
-    transform:translateY(-8px) scale(1.03);
-
-    box-shadow:
-        0 18px 40px rgba(37,99,235,.16);
-}
-
-.grade-icon{
-    display:block;
-
-    font-size:42px;
-
-    margin-bottom:12px;
-}
-
-.back-buttons{
-    display:flex;
-
-    justify-content:center;
-
-    gap:12px;
-
-    flex-wrap:wrap;
-
-    margin-top:35px;
-}
-
-.back-btn{
-    border:none;
-
-    background:#e2e8f0;
-
-    color:#1e293b;
-
-    padding:11px 17px;
-
-    border-radius:10px;
-
-    font-weight:800;
-
-    cursor:pointer;
-
-    transition:.25s;
-}
-
-.back-btn:hover{
-    background:#dbeafe;
-
-    color:#2563eb;
-
-    transform:translateY(-2px);
-}
-
-/* ================= GRADE SUBJECT PAGE ================= */
-
-.subject-page-title{
-    text-align:center;
-
-    font-size:34px;
-
-    margin-bottom:10px;
-}
-
-.subject-page-description{
-    text-align:center;
-
-    color:#64748b;
-
-    margin-bottom:30px;
-}
-
-.subject-select-grid{
-    display:grid;
-
-    grid-template-columns:
-        repeat(auto-fit,minmax(210px,1fr));
-
-    gap:22px;
-}
-
-.subject-select-card{
-    border:none;
-
-    background:white;
+    border-radius:23px;
 
     padding:30px 20px;
 
-    border-radius:20px;
+    min-height:175px;
+
+    background:
+        rgba(255,255,255,.92);
+
+    border:
+        1px solid
+        rgba(255,255,255,.9);
+
+    box-shadow:
+        0 12px 35px
+        rgba(15,23,42,.07);
+
+    font-family:inherit;
+
+    font-size:19px;
+
+    font-weight:800;
+
+    color:#172033;
 
     cursor:pointer;
 
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:
+        transform .4s cubic-bezier(.2,.8,.2,1),
+        box-shadow .4s ease;
+}
+
+.grade-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:100px;
+    height:100px;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(37,99,235,.1),
+            rgba(124,58,237,.1)
+        );
+
+    top:-35px;
+    right:-30px;
+
+    transition:
+        transform .5s ease;
+}
+
+.grade-card:hover::before{
+    transform:scale(2);
+}
+
+.grade-card:hover{
+
+    transform:
+        translateY(-10px)
+        scale(1.025);
+
+    box-shadow:
+        0 25px 55px
+        rgba(37,99,235,.14);
+}
+
+.grade-icon{
+
+    display:block;
+
+    font-size:44px;
+
+    margin-bottom:13px;
+
+    transition:
+        transform .4s ease;
+}
+
+.grade-card:hover .grade-icon{
+
+    transform:
+        translateY(-5px)
+        scale(1.15)
+        rotate(-3deg);
+}
+
+
+/* =====================================================
+   SUBJECT SELECTION
+===================================================== */
+
+.subject-page-title{
+
+    text-align:center;
+
+    font-size:
+        clamp(28px,5vw,40px);
+
+    font-weight:900;
+
+    margin-bottom:10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #7c3aed
+        );
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+    color:transparent;
+}
+
+
+.subject-select-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(210px,1fr)
+        );
+
+    gap:22px;
+}
+
+
+.subject-select-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border:none;
+
+    border-radius:22px;
+
+    padding:30px 20px;
+
+    background:
+        rgba(255,255,255,.94);
+
+    box-shadow:
+        0 12px 35px
+        rgba(15,23,42,.07);
+
+    font-family:inherit;
 
     font-size:18px;
 
     font-weight:800;
 
-    transition:.3s;
+    cursor:pointer;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
 }
 
 .subject-select-card:hover{
-    transform:translateY(-7px);
+
+    transform:
+        translateY(-9px);
 
     box-shadow:
-        0 18px 40px rgba(37,99,235,.17);
+        0 22px 50px
+        rgba(37,99,235,.14);
 }
 
-.subject-select-card .big-icon{
+.big-icon{
+
     display:block;
 
-    font-size:42px;
+    font-size:44px;
 
-    margin-bottom:12px;
+    margin-bottom:13px;
+
+    transition:
+        transform .4s ease;
+}
+
+.subject-select-card:hover .big-icon{
+
+    transform:
+        scale(1.15)
+        rotate(-4deg);
 }
 
 .coming{
-    font-size:13px;
-
-    color:#94a3b8;
 
     margin-top:8px;
 
-    font-weight:600;
+    color:#94a3b8;
+
+    font-size:12px;
+
+    font-weight:700;
 }
 
-/* ================= ABOUT / SUPPORT ================= */
+
+/* =====================================================
+   BACK BUTTONS
+===================================================== */
+
+.back-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-top:35px;
+}
+
+.back-btn{
+
+    border:none;
+
+    padding:
+        11px 17px;
+
+    border-radius:12px;
+
+    background:
+        rgba(255,255,255,.9);
+
+    color:#475569;
+
+    border:
+        1px solid #e2e8f0;
+
+    font-family:inherit;
+
+    font-size:13px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        color .25s ease;
+}
+
+.back-btn:hover{
+
+    transform:
+        translateY(-3px);
+
+    background:#eff6ff;
+
+    color:#2563eb;
+}
+
+
+/* =====================================================
+   INFO
+===================================================== */
 
 .info-container{
+
     max-width:900px;
 
-    margin:50px auto;
+    margin:
+        55px auto;
 
-    padding:0 20px;
+    padding:
+        0 20px;
 }
 
 .info-box{
-    background:white;
-
-    border-radius:20px;
 
     padding:35px;
 
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    border-radius:24px;
+
+    background:
+        rgba(255,255,255,.9);
+
+    box-shadow:
+        0 15px 40px
+        rgba(15,23,42,.07);
+
+    border:
+        1px solid
+        rgba(255,255,255,.9);
 
     line-height:1.8;
 }
 
 .info-box h2{
-    margin-bottom:15px;
 
     color:#2563eb;
+
+    font-size:21px;
+
+    margin-bottom:12px;
 }
 
 .info-box p{
+
+    color:#64748b;
+
     margin-bottom:15px;
 
-    color:#475569;
+    font-size:14px;
 }
 
 .support-card{
-    margin-top:20px;
 
     padding:20px;
 
+    margin-top:20px;
+
     border-radius:15px;
 
-    background:#eff6ff;
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff,
+            #f5f3ff
+        );
+
+    color:#475569;
+
+    font-weight:700;
 }
 
-/* ================= AUTH ================= */
+
+/* =====================================================
+   AUTH MODAL
+===================================================== */
 
 .auth-modal{
+
     display:none;
 
     position:fixed;
@@ -744,236 +1551,378 @@ header{
 
     z-index:2000;
 
-    background:rgba(15,23,42,.65);
-
     align-items:center;
 
     justify-content:center;
 
     padding:20px;
 
-    animation:modalBackground .25s ease;
+    background:
+        rgba(15,23,42,.68);
+
+    backdrop-filter:
+        blur(7px);
+
+    animation:
+        modalBg .25s ease;
 }
 
 .auth-box{
+
     width:100%;
-    max-width:400px;
 
-    background:white;
-
-    border-radius:20px;
-
-    padding:30px;
+    max-width:410px;
 
     position:relative;
 
-    box-shadow:0 25px 70px rgba(0,0,0,.25);
+    padding:32px;
 
-    animation:modalBox .35s ease;
+    border-radius:25px;
+
+    background:
+        rgba(255,255,255,.97);
+
+    box-shadow:
+        0 30px 90px
+        rgba(0,0,0,.25);
+
+    animation:
+        modalBox .4s cubic-bezier(.2,.8,.2,1);
 }
 
 .close-modal{
+
     position:absolute;
 
-    right:15px;
     top:10px;
+    right:14px;
 
     border:none;
 
     background:transparent;
 
-    font-size:30px;
-
     color:#64748b;
+
+    font-size:29px;
 
     cursor:pointer;
 
-    transition:.2s;
+    transition:
+        transform .25s ease,
+        color .25s ease;
 }
 
 .close-modal:hover{
-    transform:rotate(90deg) scale(1.1);
+
+    transform:
+        rotate(90deg)
+        scale(1.1);
 
     color:#ef4444;
 }
 
 .auth-box h2{
+
     text-align:center;
 
-    margin-bottom:20px;
+    margin-bottom:22px;
+
+    font-size:25px;
+
+    font-weight:900;
+
+    color:#172033;
 }
 
 .auth-box input{
+
     width:100%;
 
-    padding:13px;
+    padding:13px 14px;
 
-    margin-bottom:12px;
+    margin-bottom:13px;
 
-    border:1px solid #dbe3ef;
+    border:
+        1px solid #dbe3ef;
 
-    border-radius:10px;
+    border-radius:12px;
 
     outline:none;
+
+    font-family:inherit;
+
+    transition:
+        border .25s ease,
+        box-shadow .25s ease;
 }
 
 .auth-box input:focus{
-    border-color:#2563eb;
 
-    box-shadow:0 0 0 3px rgba(37,99,235,.1);
+    border-color:#60a5fa;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(37,99,235,.08);
 }
 
 .auth-submit{
-    width:100%;
 
-    padding:13px;
+    width:100%;
 
     border:none;
 
-    border-radius:10px;
+    padding:13px;
 
-    background:#2563eb;
+    border-radius:12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #7c3aed
+        );
 
     color:white;
 
-    font-weight:800;
+    font-family:inherit;
+
+    font-weight:900;
 
     cursor:pointer;
+
+    box-shadow:
+        0 10px 25px
+        rgba(37,99,235,.2);
+
+    transition:
+        transform .25s ease;
+}
+
+.auth-submit:hover{
+    transform:translateY(-2px);
 }
 
 .auth-switch{
+
     text-align:center;
 
-    margin-top:15px;
+    margin-top:17px;
 
     color:#64748b;
 
-    font-size:14px;
+    font-size:13px;
 }
 
 .auth-switch button{
+
     border:none;
 
     background:none;
 
     color:#2563eb;
 
-    font-weight:800;
+    font-family:inherit;
+
+    font-weight:900;
 
     cursor:pointer;
 }
 
 .auth-message{
-    text-align:center;
+
+    min-height:20px;
 
     margin-top:12px;
 
-    font-size:14px;
+    text-align:center;
 
-    min-height:20px;
+    font-size:13px;
+
+    font-weight:700;
 }
 
-/* ================= FOOTER ================= */
+
+/* =====================================================
+   FOOTER
+===================================================== */
 
 footer{
-    margin-top:70px;
 
-    padding:30px 20px;
+    margin-top:90px;
+
+    padding:
+        35px 20px;
 
     text-align:center;
 
-    background:#172033;
-
     color:white;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(59,130,246,.2),
+            transparent 25%
+        ),
+
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #172554,
+            #1e1b4b
+        );
+
+    box-shadow:
+        0 -10px 40px
+        rgba(15,23,42,.08);
+}
+
+footer div:first-child{
+
+    font-size:13px;
+
+    color:#cbd5e1;
 }
 
 .created-by{
-    margin-top:8px;
+
+    margin-top:9px;
 
     font-size:14px;
 
-    font-weight:600;
+    font-weight:700;
 
-    opacity:.9;
+    color:#e2e8f0;
 }
 
 .created-by strong{
-    font-weight:800;
+
+    color:white;
+
+    font-weight:900;
 }
 
-/* ================= ANIMATIONS ================= */
 
-@keyframes pageFade{
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes pageEnter{
+
     from{
         opacity:0;
-        transform:translateY(15px);
     }
 
     to{
         opacity:1;
-        transform:translateY(0);
     }
 }
 
-@keyframes heroFade{
+@keyframes pageSlide{
+
     from{
         opacity:0;
-        transform:translateY(30px);
+        transform:
+            translateY(18px);
     }
 
     to{
         opacity:1;
-        transform:translateY(0);
+        transform:
+            translateY(0);
+    }
+}
+
+@keyframes heroText{
+
+    from{
+        opacity:0;
+        transform:
+            translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            translateY(0);
+    }
+}
+
+@keyframes cardReveal{
+
+    from{
+        opacity:0;
+        transform:
+            translateY(25px)
+            scale(.96);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            translateY(0)
+            scale(1);
     }
 }
 
 @keyframes buttonFloat{
+
     0%,100%{
-        transform:translateY(0);
+        transform:
+            translateY(0);
     }
 
     50%{
-        transform:translateY(-5px);
+        transform:
+            translateY(-5px);
     }
 }
 
-@keyframes cardAppear{
-    from{
-        opacity:0;
-        transform:translateY(25px) scale(.97);
+@keyframes floatCircle{
+
+    0%,100%{
+        transform:
+            translate(0,0);
     }
 
-    to{
-        opacity:1;
-        transform:translateY(0) scale(1);
-    }
-}
-
-@keyframes channelAppear{
-    from{
-        opacity:0;
-        transform:translateY(-15px) scale(.98);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0) scale(1);
+    50%{
+        transform:
+            translate(20px,20px);
     }
 }
 
 @keyframes livePulse{
+
     0%,100%{
-        transform:scale(1);
-        opacity:1;
+        transform:
+            scale(1);
     }
 
     50%{
-        transform:scale(1.08);
-        opacity:.75;
+        transform:
+            scale(1.08);
     }
 }
 
-@keyframes modalBackground{
+@keyframes channelAppear{
+
+    from{
+        opacity:0;
+        transform:
+            translateY(-12px)
+            scale(.98);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes modalBg{
+
     from{
         opacity:0;
     }
@@ -984,64 +1933,114 @@ footer{
 }
 
 @keyframes modalBox{
+
     from{
         opacity:0;
-        transform:translateY(-30px) scale(.95);
+        transform:
+            translateY(-30px)
+            scale(.94);
     }
 
     to{
         opacity:1;
-        transform:translateY(0) scale(1);
+        transform:
+            translateY(0)
+            scale(1);
     }
 }
 
-/* ================= MOBILE ================= */
 
-@media(max-width:900px){
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:1000px){
 
     .navbar{
+
         flex-wrap:wrap;
+
         justify-content:center;
+
+        padding:
+            14px 15px;
     }
 
     .logo{
+
         width:100%;
+
         text-align:center;
+    }
+
+    .nav-links{
+        order:3;
+        width:100%;
     }
 
 }
 
 @media(max-width:700px){
 
+    .navbar{
+        gap:10px;
+    }
+
     .nav-links{
-        justify-content:center;
+        gap:2px;
     }
 
     .nav-links button{
-        font-size:13px;
-        padding:8px 9px;
+
+        padding:
+            8px 9px;
+
+        font-size:11px;
     }
 
     .search-box{
+
         width:100%;
+
+        order:2;
     }
 
     .search-box input{
         width:100%;
     }
 
-    .hero{
-        margin:25px 15px;
+    .login-btn{
 
-        padding:50px 20px;
+        order:2;
+
+        font-size:12px;
+
+        padding:
+            10px 13px;
+    }
+
+    .hero-wrapper{
+
+        margin-top:20px;
+    }
+
+    .hero{
+
+        padding:
+            65px 20px;
+
+        border-radius:25px;
     }
 
     .hero h1{
-        font-size:34px;
+        letter-spacing:-1px;
     }
 
-    .hero p{
-        font-size:16px;
+    .container,
+    .grades-container,
+    .info-container{
+        padding:
+            0 15px;
     }
 
     .video-card iframe{
@@ -1049,41 +2048,68 @@ footer{
     }
 
     .channel-box{
+
         flex-direction:column;
 
         align-items:flex-start;
     }
 
     .channel-button{
+
         width:100%;
 
-        text-align:center;
+        justify-content:center;
     }
 
-    .page-heading{
-        font-size:30px;
+    .info-box{
+        padding:25px 20px;
     }
 
-    .subject-page-title{
-        font-size:28px;
+    .grade-card{
+        min-height:150px;
     }
 
+}
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        animation-duration:.01ms !important;
+
+        animation-iteration-count:1 !important;
+
+        transition-duration:.01ms !important;
+
+        scroll-behavior:auto !important;
+    }
 }
 
 </style>
 </head>
 
+
 <body>
 
-<!-- ================= HEADER ================= -->
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header>
 
 <div class="navbar">
 
-    <div class="logo" onclick="showPage('home')">
+
+    <div
+        class="logo"
+        onclick="showPage('home')"
+    >
         📚 EduLearn
     </div>
+
 
     <div class="nav-links">
 
@@ -1105,6 +2131,7 @@ footer{
 
     </div>
 
+
     <div class="search-box">
 
         <input
@@ -1120,6 +2147,7 @@ footer{
 
     </div>
 
+
     <button
         class="login-btn"
         id="loginBtn"
@@ -1128,39 +2156,63 @@ footer{
         🔐 Login
     </button>
 
+
 </div>
 
 </header>
 
 
-<!-- ================= HOME PAGE ================= -->
 
-<section id="homePage" class="page active">
+<!-- =====================================================
+     HOME
+===================================================== -->
+
+<section
+    id="homePage"
+    class="page active"
+>
+
+
+<div class="hero-wrapper">
 
 <div class="hero">
 
+<div class="hero-content">
+
     <h1>
-        🎓 Welcome to EduLearn
+        🎓 Welcome to <span>EduLearn</span>
     </h1>
 
     <p>
-        📖 Learn Anytime, Anywhere with Educational Videos
+        📖 Learn Anytime, Anywhere with
+        high-quality educational videos.
     </p>
 
-    <button onclick="showPage('grades')">
+    <button
+        class="hero-btn"
+        onclick="showPage('grades')"
+    >
         ▶️ Start Learning
     </button>
 
 </div>
 
+</div>
+
+</div>
+
+
 
 <div class="container">
 
+
     <h2 class="section-title">
-        📚 Subjects
+        📚 Explore Subjects
     </h2>
 
+
     <div class="subject-grid">
+
 
         <button
             class="subject-card"
@@ -1170,6 +2222,7 @@ footer{
             Mathematics
         </button>
 
+
         <button
             class="subject-card"
             onclick="homeSubjectSearch('science')"
@@ -1177,6 +2230,7 @@ footer{
             🔬<br>
             Science
         </button>
+
 
         <button
             class="subject-card"
@@ -1186,6 +2240,7 @@ footer{
             ICT
         </button>
 
+
         <button
             class="subject-card"
             onclick="homeSubjectSearch('english')"
@@ -1193,6 +2248,7 @@ footer{
             🇬🇧<br>
             English
         </button>
+
 
         <button
             class="subject-card"
@@ -1202,6 +2258,7 @@ footer{
             History
         </button>
 
+
         <button
             class="subject-card"
             onclick="homeSubjectSearch('sinhala')"
@@ -1210,111 +2267,192 @@ footer{
             Sinhala
         </button>
 
+
     </div>
 
 </div>
+
 
 
 <div class="container">
 
-    <h2 class="search-title" id="videoSection">
+
+    <h2
+        class="search-title"
+        id="videoSection"
+    >
         🎥 Educational Videos
     </h2>
 
-    <div id="channelResult" class="channel-result"></div>
 
-    <div id="videoGrid" class="video-grid"></div>
+    <div
+        id="channelResult"
+        class="channel-result"
+    ></div>
 
-    <div id="noResults" class="no-results">
+
+    <div
+        id="videoGrid"
+        class="video-grid"
+    ></div>
+
+
+    <div
+        id="noResults"
+        class="no-results"
+    >
         😔 No videos found.
     </div>
 
+
 </div>
+
 
 </section>
 
 
-<!-- ================= GRADES PAGE ================= -->
 
-<section id="gradesPage" class="page">
+<!-- =====================================================
+     GRADES
+===================================================== -->
+
+<section
+    id="gradesPage"
+    class="page"
+>
+
 
 <div class="grades-container">
 
+
     <h1 class="page-heading">
-        🎓 Select Your Grade
+        🎓 Choose Your Grade
     </h1>
 
+
     <p class="page-description">
-        📚 Choose your grade to find the available subjects and lessons.
+        📚 Select your grade to find
+        your subjects and lessons.
     </p>
 
+
     <div class="grade-grid">
+
 
         <button
             class="grade-card"
             onclick="openGrade(6)"
         >
-            <span class="grade-icon">6️⃣</span>
+
+            <span class="grade-icon">
+                6️⃣
+            </span>
+
             Grade 6
+
         </button>
+
 
         <button
             class="grade-card"
             onclick="openGrade(7)"
         >
-            <span class="grade-icon">7️⃣</span>
+
+            <span class="grade-icon">
+                7️⃣
+            </span>
+
             Grade 7
+
         </button>
+
 
         <button
             class="grade-card"
             onclick="openGrade(8)"
         >
-            <span class="grade-icon">8️⃣</span>
+
+            <span class="grade-icon">
+                8️⃣
+            </span>
+
             Grade 8
+
         </button>
+
 
         <button
             class="grade-card"
             onclick="openGrade(9)"
         >
-            <span class="grade-icon">9️⃣</span>
+
+            <span class="grade-icon">
+                9️⃣
+            </span>
+
             Grade 9
+
         </button>
+
 
         <button
             class="grade-card"
             onclick="openGrade(10)"
         >
-            <span class="grade-icon">🔟</span>
+
+            <span class="grade-icon">
+                🔟
+            </span>
+
             Grade 10
+
         </button>
+
 
         <button
             class="grade-card"
             onclick="openGrade(11)"
         >
-            <span class="grade-icon">1️⃣1️⃣</span>
+
+            <span class="grade-icon">
+                1️⃣1️⃣
+            </span>
+
             Grade 11
+
         </button>
+
 
         <button
             class="grade-card"
             onclick="openGrade(12)"
         >
-            <span class="grade-icon">1️⃣2️⃣</span>
+
+            <span class="grade-icon">
+                1️⃣2️⃣
+            </span>
+
             Grade 12
+
         </button>
+
 
         <button
             class="grade-card"
             onclick="openGrade(13)"
         >
-            <span class="grade-icon">1️⃣3️⃣</span>
+
+            <span class="grade-icon">
+                1️⃣3️⃣
+            </span>
+
             Grade 13
+
         </button>
 
+
     </div>
+
 
     <div class="back-buttons">
 
@@ -1327,32 +2465,44 @@ footer{
 
     </div>
 
+
 </div>
 
 </section>
 
 
-<!-- ================= GRADE SUBJECT PAGE ================= -->
 
-<section id="gradeSubjectsPage" class="page">
+<!-- =====================================================
+     GRADE SUBJECTS
+===================================================== -->
+
+<section
+    id="gradeSubjectsPage"
+    class="page"
+>
+
 
 <div class="grades-container">
 
+
     <h1
-        class="subject-page-title"
         id="selectedGradeTitle"
+        class="subject-page-title"
     >
         📚 Grade
     </h1>
 
-    <p class="subject-page-description">
-        🎯 Select a subject to watch lessons.
+
+    <p class="page-description">
+        🎯 Choose a subject to start learning.
     </p>
 
+
     <div
-        class="subject-select-grid"
         id="gradeSubjectGrid"
+        class="subject-select-grid"
     ></div>
+
 
     <div class="back-buttons">
 
@@ -1363,6 +2513,7 @@ footer{
             ⬅️ Back to Grades
         </button>
 
+
         <button
             class="back-btn"
             onclick="showPage('home')"
@@ -1372,45 +2523,62 @@ footer{
 
     </div>
 
+
 </div>
 
 </section>
 
 
-<!-- ================= SELECTED VIDEOS PAGE ================= -->
 
-<section id="gradeVideosPage" class="page">
+<!-- =====================================================
+     GRADE VIDEOS
+===================================================== -->
+
+<section
+    id="gradeVideosPage"
+    class="page"
+>
+
 
 <div class="container">
 
+
     <h1
-        class="subject-page-title"
         id="selectedVideosTitle"
+        class="subject-page-title"
     >
         🎥 Videos
     </h1>
 
+
     <p
-        class="subject-page-description"
         id="selectedVideosDescription"
+        class="page-description"
     >
-        Educational videos
+        Educational Videos
     </p>
 
-    <div id="gradeChannelResult" class="channel-result"></div>
+
+    <div
+        id="gradeChannelResult"
+        class="channel-result"
+    ></div>
+
 
     <div
         id="gradeVideoGrid"
         class="video-grid"
     ></div>
 
+
     <div
         id="gradeNoVideos"
         class="no-results"
-        style="display:none;"
     >
-        📚 Videos for this section will be added soon.
+        📚 Videos for this section
+        will be added soon.
     </div>
+
 
     <div class="back-buttons">
 
@@ -1421,6 +2589,7 @@ footer{
             ⬅️ Back to Subjects
         </button>
 
+
         <button
             class="back-btn"
             onclick="showPage('grades')"
@@ -1428,6 +2597,7 @@ footer{
             🎓 Back to Grades
         </button>
 
+
         <button
             class="back-btn"
             onclick="showPage('home')"
@@ -1437,52 +2607,74 @@ footer{
 
     </div>
 
+
 </div>
 
 </section>
 
 
-<!-- ================= ABOUT ================= -->
 
-<section id="aboutPage" class="page">
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section
+    id="aboutPage"
+    class="page"
+>
+
 
 <div class="info-container">
+
 
     <h1 class="page-heading">
         ℹ️ About EduLearn
     </h1>
 
+
     <p class="page-description">
-        📚 Learn smarter with educational video lessons.
+        📚 A simple place to learn,
+        explore and grow.
     </p>
 
+
     <div class="info-box">
+
 
         <h2>
             🎓 What is EduLearn?
         </h2>
 
-        <p>
-            EduLearn is an educational video platform designed
-            to help students easily find and watch learning videos
-            according to their grade and subject.
-        </p>
 
         <p>
-            📚 Choose your Grade → Select your Subject →
-            Watch your lessons.
+            EduLearn is an educational
+            video platform designed to help
+            students easily find lessons
+            according to their Grade and Subject.
         </p>
+
+
+        <p>
+            🎓 Choose your Grade →
+            📚 Select your Subject →
+            🎥 Watch your lessons.
+        </p>
+
 
         <h2>
             🚀 Our Goal
         </h2>
 
+
         <p>
-            Our goal is to make educational content easier to
-            find and access for students.
+            Our goal is to make educational
+            content easier to find and access
+            for students.
         </p>
 
+
     </div>
+
 
     <div class="back-buttons">
 
@@ -1495,55 +2687,75 @@ footer{
 
     </div>
 
+
 </div>
 
 </section>
 
 
-<!-- ================= SUPPORT ================= -->
 
-<section id="supportPage" class="page">
+<!-- =====================================================
+     SUPPORT
+===================================================== -->
+
+<section
+    id="supportPage"
+    class="page"
+>
+
 
 <div class="info-container">
+
 
     <h1 class="page-heading">
         💬 Support
     </h1>
 
+
     <p class="page-description">
         🤝 Need help using EduLearn?
     </p>
 
+
     <div class="info-box">
+
 
         <h2>
             📚 How to use EduLearn
         </h2>
 
+
         <p>
             1️⃣ Click 🎓 Grades.
         </p>
+
 
         <p>
             2️⃣ Select your Grade.
         </p>
 
+
         <p>
             3️⃣ Select your Subject.
         </p>
 
+
         <p>
-            4️⃣ Watch the available educational videos.
+            4️⃣ Watch the available videos.
         </p>
+
 
         <div class="support-card">
 
-            💡 More educational videos and subjects
-            can be added to EduLearn in the future.
+            💡 More educational videos
+            and subjects can be added
+            in the future.
 
         </div>
 
+
     </div>
+
 
     <div class="back-buttons">
 
@@ -1556,12 +2768,16 @@ footer{
 
     </div>
 
+
 </div>
 
 </section>
 
 
-<!-- ================= FOOTER ================= -->
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
@@ -1576,14 +2792,19 @@ footer{
 </footer>
 
 
-<!-- ================= LOGIN MODAL ================= -->
+
+<!-- =====================================================
+     AUTH MODAL
+===================================================== -->
 
 <div
     class="auth-modal"
     id="authModal"
 >
 
+
 <div class="auth-box">
+
 
     <button
         class="close-modal"
@@ -1592,9 +2813,11 @@ footer{
         ×
     </button>
 
+
     <h2 id="authTitle">
         🔐 Login
     </h2>
+
 
     <input
         type="email"
@@ -1602,11 +2825,13 @@ footer{
         placeholder="📧 Email"
     >
 
+
     <input
         type="password"
         id="password"
         placeholder="🔑 Password"
     >
+
 
     <button
         class="auth-submit"
@@ -1614,6 +2839,7 @@ footer{
     >
         🔐 Login
     </button>
+
 
     <div class="auth-switch">
 
@@ -1627,66 +2853,96 @@ footer{
 
     </div>
 
+
     <div
         class="auth-message"
         id="authMessage"
     ></div>
 
-</div>
 
 </div>
 
+</div>
 
-<!-- ================= JAVASCRIPT ================= -->
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
 <script type="module">
 
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+
+/* =====================================================
+   FIREBASE IMPORTS
+===================================================== */
 
 import {
-    getAuth,
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    signOut,
-    onAuthStateChanged
+    initializeApp
 }
-from "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
+from
+"https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
 
 
-/* ================= FIREBASE ================= */
+import {
+
+    getAuth,
+
+    createUserWithEmailAndPassword,
+
+    signInWithEmailAndPassword,
+
+    signOut,
+
+    onAuthStateChanged
+
+}
+from
+"https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
+
+
+
+/* =====================================================
+   FIREBASE CONFIG
+===================================================== */
 
 const firebaseConfig = {
 
     apiKey:
-        "AIzaSyBHKOClpITXnQ1nZUViBdYd1KZfXIsmoMQ",
+    "AIzaSyBHKOClpITXnQ1nZUViBdYd1KZfXIsmoMQ",
 
     authDomain:
-        "sajan-edits.firebaseapp.com",
+    "sajan-edits.firebaseapp.com",
 
     projectId:
-        "sajan-edits",
+    "sajan-edits",
 
     storageBucket:
-        "sajan-edits.firebasestorage.app",
+    "sajan-edits.firebasestorage.app",
 
     messagingSenderId:
-        "282546165467",
+    "282546165467",
 
     appId:
-        "1:282546165467:web:9c7507ad756b19e4b95efe",
+    "1:282546165467:web:9c7507ad756b19e4b95efe",
 
     measurementId:
-        "G-0WJ91B96G3"
+    "G-0WJ91B96G3"
 
 };
 
-const app = initializeApp(firebaseConfig);
 
-const auth = getAuth(app);
+const app =
+    initializeApp(firebaseConfig);
+
+const auth =
+    getAuth(app);
 
 
-/* ================= AUTH ================= */
+
+/* =====================================================
+   AUTH
+===================================================== */
 
 let isSignUp = false;
 
@@ -1695,55 +2951,80 @@ window.switchAuthMode = function(){
 
     isSignUp = !isSignUp;
 
+
     const title =
-        document.getElementById("authTitle");
+        document.getElementById(
+            "authTitle"
+        );
 
     const submit =
-        document.querySelector(".auth-submit");
+        document.querySelector(
+            ".auth-submit"
+        );
 
     const switchText =
-        document.getElementById("authSwitchText");
+        document.getElementById(
+            "authSwitchText"
+        );
 
     const switchButton =
-        document.querySelector(".auth-switch button");
+        document.querySelector(
+            ".auth-switch button"
+        );
+
 
     if(isSignUp){
 
-        title.textContent = "📝 Sign Up";
+        title.textContent =
+            "📝 Sign Up";
 
-        submit.textContent = "📝 Create Account";
+        submit.textContent =
+            "📝 Create Account";
 
         switchText.textContent =
             "Already have an account?";
 
-        switchButton.textContent = "Login";
+        switchButton.textContent =
+            "Login";
 
     }else{
 
-        title.textContent = "🔐 Login";
+        title.textContent =
+            "🔐 Login";
 
-        submit.textContent = "🔐 Login";
+        submit.textContent =
+            "🔐 Login";
 
         switchText.textContent =
             "Don't have an account?";
 
-        switchButton.textContent = "Sign Up";
+        switchButton.textContent =
+            "Sign Up";
 
     }
 
 };
 
 
+
 window.signInUser = async function(){
 
     const email =
-        document.getElementById("email").value.trim();
+        document
+        .getElementById("email")
+        .value
+        .trim();
+
 
     const password =
-        document.getElementById("password").value;
+        document
+        .getElementById("password")
+        .value;
+
 
     const message =
-        document.getElementById("authMessage");
+        document
+        .getElementById("authMessage");
 
 
     if(!email || !password){
@@ -1752,30 +3033,35 @@ window.signInUser = async function(){
             "⚠️ Please enter email and password.";
 
         return;
-
     }
 
 
     try{
 
+
         if(isSignUp){
 
-            await createUserWithEmailAndPassword(
+            await
+            createUserWithEmailAndPassword(
                 auth,
                 email,
                 password
             );
+
 
             message.textContent =
                 "✅ Account created successfully!";
 
         }else{
 
-            await signInWithEmailAndPassword(
+
+            await
+            signInWithEmailAndPassword(
                 auth,
                 email,
                 password
             );
+
 
             message.textContent =
                 "✅ Login successful!";
@@ -1783,19 +3069,21 @@ window.signInUser = async function(){
         }
 
 
-        setTimeout(() => {
+        setTimeout(()=>{
 
             document
-                .getElementById("authModal")
-                .style.display = "none";
+            .getElementById("authModal")
+            .style.display="none";
 
         },700);
 
 
     }catch(error){
 
+
         let msg =
             "❌ Something went wrong.";
+
 
         if(
             error.code ===
@@ -1807,6 +3095,7 @@ window.signInUser = async function(){
 
         }
 
+
         else if(
             error.code ===
             "auth/invalid-email"
@@ -1816,6 +3105,7 @@ window.signInUser = async function(){
                 "❌ Invalid email.";
 
         }
+
 
         else if(
             error.code ===
@@ -1827,6 +3117,7 @@ window.signInUser = async function(){
 
         }
 
+
         else if(
             error.code ===
             "auth/invalid-credential"
@@ -1837,374 +3128,372 @@ window.signInUser = async function(){
 
         }
 
-        message.textContent = msg;
+
+        message.textContent =
+            msg;
 
     }
 
 };
 
 
-/* ================= AUTH STATE ================= */
 
-onAuthStateChanged(auth,(user)=>{
+/* =====================================================
+   AUTH STATE
+===================================================== */
 
-    const loginBtn =
-        document.getElementById("loginBtn");
+onAuthStateChanged(
+    auth,
+    (user)=>{
 
-    if(user){
+        const loginBtn =
+            document.getElementById(
+                "loginBtn"
+            );
 
-        loginBtn.textContent =
-            "🚪 Sign Out";
 
-        loginBtn.onclick = async ()=>{
+        if(user){
 
-            await signOut(auth);
+            loginBtn.textContent =
+                "🚪 Sign Out";
 
-        };
 
-    }else{
+            loginBtn.onclick =
+                async ()=>{
 
-        loginBtn.textContent =
-            "🔐 Login";
+                    await signOut(auth);
 
-        loginBtn.onclick = ()=>{
+                };
 
-            document
-                .getElementById("authModal")
-                .style.display = "flex";
+        }else{
 
-        };
+            loginBtn.textContent =
+                "🔐 Login";
+
+
+            loginBtn.onclick =
+                ()=>{
+
+                    document
+                    .getElementById("authModal")
+                    .style.display="flex";
+
+                };
+
+        }
 
     }
-
-});
-
-
-/* ================= DATA ================= */
+);
 
 
-/*
-    Maths playlists
 
-    Grade 9  = 1,2,3,4
-    Grade 10 = 5,6,7,8
-    Grade 11 = 9,10,11,12,13
-*/
+/* =====================================================
+   MATH PLAYLISTS
+===================================================== */
 
 const mathsPlaylists = [
 
-    {
-        id:
-        "PLc_3axmFr0BJXF6sPtJVIfdk9h0OyUepx",
+{
+id:
+"PLc_3axmFr0BJXF6sPtJVIfdk9h0OyUepx",
+grade:9,
+number:1
+},
 
-        grade:9,
+{
+id:
+"PLc_3axmFr0BL2Z0BYfQCMzpmj3PXoRgGn",
+grade:9,
+number:2
+},
 
-        number:1
-    },
+{
+id:
+"PLc_3axmFr0BKKdJWRKNovRXdNsJr-t6pl",
+grade:9,
+number:3
+},
 
-    {
-        id:
-        "PLc_3axmFr0BL2Z0BYfQCMzpmj3PXoRgGn",
+{
+id:
+"PLc_3axmFr0BIXRADTlGXr2pOTkxJEo40B",
+grade:9,
+number:4
+},
 
-        grade:9,
+{
+id:
+"PLc_3axmFr0BIcZhRjwKayVTrSrz1YnA8Q",
+grade:10,
+number:5
+},
 
-        number:2
-    },
+{
+id:
+"PLc_3axmFr0BJ2SfECDscWQjwkUmtlgmYa",
+grade:10,
+number:6
+},
 
-    {
-        id:
-        "PLc_3axmFr0BKKdJWRKNovRXdNsJr-t6pl",
+{
+id:
+"PLc_3axmFr0BK8BP4OvmSq8h2TYwFMLy6w",
+grade:10,
+number:7
+},
 
-        grade:9,
+{
+id:
+"PLc_3axmFr0BJ_KTPY-6vebFKFg2xAy6uM",
+grade:10,
+number:8
+},
 
-        number:3
-    },
+{
+id:
+"PLc_3axmFr0BKAVOfPq5yJAG0NWKfDC9tJ",
+grade:11,
+number:9
+},
 
-    {
-        id:
-        "PLc_3axmFr0BIXRADTlGXr2pOTkxJEo40B",
+{
+id:
+"PLc_3axmFr0BK1EaVLY8IaWBo4Z_Ea9f6o",
+grade:11,
+number:10
+},
 
-        grade:9,
+{
+id:
+"PLc_3axmFr0BI-MItQMGgeSdIrh6fENmJH",
+grade:11,
+number:11
+},
 
-        number:4
-    },
+{
+id:
+"PLc_3axmFr0BK5UHYttmBKlpOo0lmG8b18",
+grade:11,
+number:12
+},
 
-    {
-        id:
-        "PLc_3axmFr0BIcZhRjwKayVTrSrz1YnA8Q",
-
-        grade:10,
-
-        number:5
-    },
-
-    {
-        id:
-        "PLc_3axmFr0BJ2SfECDscWQjwkUmtlgmYa",
-
-        grade:10,
-
-        number:6
-    },
-
-    {
-        id:
-        "PLc_3axmFr0BK8BP4OvmSq8h2TYwFMLy6w",
-
-        grade:10,
-
-        number:7
-    },
-
-    {
-        id:
-        "PLc_3axmFr0BJ_KTPY-6vebFKFg2xAy6uM",
-
-        grade:10,
-
-        number:8
-    },
-
-    {
-        id:
-        "PLc_3axmFr0BKAVOfPq5yJAG0NWKfDC9tJ",
-
-        grade:11,
-
-        number:9
-    },
-
-    {
-        id:
-        "PLc_3axmFr0BK1EaVLY8IaWBo4Z_Ea9f6o",
-
-        grade:11,
-
-        number:10
-    },
-
-    {
-        id:
-        "PLc_3axmFr0BI-MItQMGgeSdIrh6fENmJH",
-
-        grade:11,
-
-        number:11
-    },
-
-    {
-        id:
-        "PLc_3axmFr0BK5UHYttmBKlpOo0lmG8b18",
-
-        grade:11,
-
-        number:12
-    },
-
-    {
-        id:
-        "PLc_3axmFr0BLjuCdG9-a294a8vz7c1e1A",
-
-        grade:11,
-
-        number:13
-    }
+{
+id:
+"PLc_3axmFr0BLjuCdG9-a294a8vz7c1e1A",
+grade:11,
+number:13
+}
 
 ];
 
 
-/* ================= SCIENCE ================= */
+
+/* =====================================================
+   SCIENCE - ALL GRADE 9
+===================================================== */
 
 const scienceVideos = [
 
-    "HWdIu5-LHhc",
-    "viqFacbGkbA",
-    "EE1m5Bd_MCM",
-    "c3bEJbE-zDM",
-    "Vu7itzyGsqE",
-    "VWgj5EKfbOA",
-    "rV0cEYnjLqA",
-    "_QPePE5B2LI",
-    "WYdefiJgpPs",
-    "UAG_4Lrg5AQ",
-    "tlCXXAa_7m0",
-    "k4SI1NFwmyk",
-    "3AYxCrgwLsk",
-    "tOJv8Zcs2Rg",
-    "EKkPdSYd3fM",
-    "Tl5mMhOPCmg"
+"HWdIu5-LHhc",
+"viqFacbGkbA",
+"EE1m5Bd_MCM",
+"c3bEJbE-zDM",
+"Vu7itzyGsqE",
+"VWgj5EKfbOA",
+"rV0cEYnjLqA",
+"_QPePE5B2LI",
+"WYdefiJgpPs",
+"UAG_4Lrg5AQ",
+"tlCXXAa_7m0",
+"k4SI1NFwmyk",
+"3AYxCrgwLsk",
+"tOJv8Zcs2Rg",
+"EKkPdSYd3fM",
+"Tl5mMhOPCmg"
 
 ];
 
 
-/* ================= SINHALA ================= */
+
+/* =====================================================
+   SINHALA - ALL GRADE 9
+===================================================== */
 
 const sinhalaVideos = [
 
-    "11muR__BWzg",
-    "gfg2MZGe03g",
-    "YBiDn_bqEnE",
-    "2ZNVOzibtXg",
-    "mHZPuqOH668",
-    "Lz7KjFhycEw",
-    "PfQv8MhAcAY",
-    "XeuNmk2eh40",
-    "AZjyvHyudME",
-    "GAxRRPEV6jQ",
-    "piFtd6vkQIg",
-    "HhIi0aJy47Q",
-    "hjznr6G8sXM",
-    "36HH8eHGozk",
-    "54dBl1daKSs",
-    "gBrzEbO8nUA"
+"11muR__BWzg",
+"gfg2MZGe03g",
+"YBiDn_bqEnE",
+"2ZNVOzibtXg",
+"mHZPuqOH668",
+"Lz7KjFhycEw",
+"PfQv8MhAcAY",
+"XeuNmk2eh40",
+"AZjyvHyudME",
+"GAxRRPEV6jQ",
+"piFtd6vkQIg",
+"HhIi0aJy47Q",
+"hjznr6G8sXM",
+"36HH8eHGozk",
+"54dBl1daKSs",
+"gBrzEbO8nUA"
 
 ];
 
 
-/* ================= HISTORY ================= */
+
+/* =====================================================
+   HISTORY
+===================================================== */
 
 const historyVideos = [
 
-    {
-        id:"Ko7puJQmYTI",
-        number:1
-    },
+{
+id:"Ko7puJQmYTI",
+number:1
+},
 
-    {
-        id:"jn1ZLMuEsA0",
-        number:2
-    },
+{
+id:"jn1ZLMuEsA0",
+number:2
+},
 
-    {
-        id:"HuDuvQTyL4A",
-        number:3
-    },
+{
+id:"HuDuvQTyL4A",
+number:3
+},
 
-    {
-        id:"ZdiqAI4ON50",
-        number:4
-    },
+{
+id:"ZdiqAI4ON50",
+number:4
+},
 
-    {
-        id:"NzbkmKruKfw",
-        number:5
-    },
+{
+id:"NzbkmKruKfw",
+number:5
+},
 
-    {
-        id:"5F1fkr1dHZY",
-        number:6
-    },
+{
+id:"5F1fkr1dHZY",
+number:6
+},
 
-    {
-        id:"rvT2nNxP57I",
-        number:7
-    }
+{
+id:"rvT2nNxP57I",
+number:7
+}
 
 ];
 
 
-/* ================= CHANNELS ================= */
+
+/* =====================================================
+   CHANNELS
+===================================================== */
 
 const channels = {
 
-    mathematics:{
+mathematics:{
 
-        name:
-        "📐 Mathematics Teacher Channel",
+name:
+"📐 Mathematics Teacher Channel",
 
-        description:
-        "Mathematics lessons and educational videos.",
+description:
+"Mathematics lessons and educational videos.",
 
-        teacher:
-        "👨‍🏫 Ishara Madushan",
+teacher:
+"👨‍🏫 Ishara Madushan",
 
-        url:
-        "https://www.youtube.com/@isharamadushanofficial"
+url:
+"https://www.youtube.com/@isharamadushanofficial"
 
-    },
+},
 
-    science:{
+science:{
 
-        name:
-        "🔬 Science Teacher Channel",
+name:
+"🔬 Science Teacher Channel",
 
-        description:
-        "Science lessons and educational videos.",
+description:
+"Science lessons and educational videos.",
 
-        teacher:
-        "👨‍🏫 Geethan Devinda",
+teacher:
+"👨‍🏫 Geethan Devinda",
 
-        url:
-        "https://www.youtube.com/@geethandevinda6483"
+url:
+"https://www.youtube.com/@geethandevinda6483"
 
-    },
+},
 
-    sinhala:{
+sinhala:{
 
-        name:
-        "📝 Sinhala Teacher Channel",
+name:
+"📝 Sinhala Teacher Channel",
 
-        description:
-        "Sinhala lessons and educational videos.",
+description:
+"Sinhala lessons and educational videos.",
 
-        teacher:
-        "👨‍🏫 භාෂා පාරාදීසය",
+teacher:
+"👨‍🏫 භාෂා පාරාදීසය",
 
-        url:
-        "https://www.youtube.com/@bashaparadisaya"
+url:
+"https://www.youtube.com/@bashaparadisaya"
 
-    },
+},
 
-    history:{
+history:{
 
-        name:
-        "🏛️ History Teacher Channel",
+name:
+"🏛️ History Teacher Channel",
 
-        description:
-        "History lessons and educational videos.",
+description:
+"History lessons and educational videos.",
 
-        teacher:
-        "👨‍🏫 Prabath Udayakantha",
+teacher:
+"👨‍🏫 Prabath Udayakantha",
 
-        url:
-        "https://www.youtube.com/@prabathudayakantha2795"
+url:
+"https://www.youtube.com/@prabathudayakantha2795"
 
-    },
+},
 
-    ict:{
+ict:{
 
-        name:
-        "💻 ICT Teacher Channel",
+name:
+"💻 ICT Teacher Channel",
 
-        description:
-        "ICT educational videos will be added soon.",
+description:
+"ICT educational videos will be added soon.",
 
-        teacher:
-        "👨‍🏫 ICT Teacher",
+teacher:
+"👨‍🏫 ICT Teacher",
 
-        url:"#"
+url:"#"
 
-    },
+},
 
-    english:{
+english:{
 
-        name:
-        "🇬🇧 English Teacher Channel",
+name:
+"🇬🇧 English Teacher Channel",
 
-        description:
-        "English educational videos will be added soon.",
+description:
+"English educational videos will be added soon.",
 
-        teacher:
-        "👨‍🏫 English Teacher",
+teacher:
+"👨‍🏫 English Teacher",
 
-        url:"#"
+url:"#"
 
-    }
+}
 
 };
 
 
-/* ================= ALL HOME VIDEOS ================= */
+
+/* =====================================================
+   VIDEO DATABASE
+===================================================== */
 
 const allVideos = [];
 
@@ -2213,76 +3502,78 @@ const allVideos = [];
 
 mathsPlaylists.forEach(item=>{
 
-    allVideos.push({
+allVideos.push({
 
-        subject:"mathematics",
+subject:"mathematics",
 
-        grade:item.grade,
+grade:item.grade,
 
-        title:
-        `📐 Mathematics Playlist ${item.number}`,
+title:
+`📐 Mathematics Playlist ${item.number}`,
 
-        embed:
-        `https://www.youtube.com/embed/videoseries?list=${item.id}`,
+embed:
+`https://www.youtube.com/embed/videoseries?list=${item.id}`,
 
-        live:false,
+live:false,
 
-        keywords:
-        `math maths mathematics grade ${item.grade} playlist ${item.number}`
+keywords:
+`math maths mathematics grade ${item.grade} playlist ${item.number}`
 
-    });
+});
 
 });
 
 
-/* Science - Grade 9 */
+/* Science */
 
-scienceVideos.forEach((id,index)=>{
+scienceVideos.forEach(
+(id,index)=>{
 
-    allVideos.push({
+allVideos.push({
 
-        subject:"science",
+subject:"science",
 
-        grade:9,
+grade:9,
 
-        title:
-        `🔬 Science Lesson ${index+1}`,
+title:
+`🔬 Science Lesson ${index+1}`,
 
-        embed:
-        `https://www.youtube.com/embed/${id}`,
+embed:
+`https://www.youtube.com/embed/${id}`,
 
-        live:true,
+live:true,
 
-        keywords:
-        `science sci grade 9 lesson ${index+1}`
+keywords:
+`science sci grade 9 lesson ${index+1}`
 
-    });
+});
 
 });
 
 
-/* Sinhala - Grade 9 */
+/* Sinhala */
 
-sinhalaVideos.forEach((id,index)=>{
+sinhalaVideos.forEach(
+(id,index)=>{
 
-    allVideos.push({
+allVideos.push({
 
-        subject:"sinhala",
+subject:"sinhala",
 
-        grade:9,
+grade:9,
 
-        title:
-        `📝 Sinhala Lesson ${index+1}`,
+title:
+`📝 Sinhala Lesson ${index+1}`,
 
-        embed:
-        `https://www.youtube.com/embed/${id}`,
+embed:
+`https://www.youtube.com/embed/${id}`,
 
-        live:true,
+live:true,
 
-        keywords:
-        `sinhala සිංහල grade 9 lesson ${index+1}`
+keywords:
+`sinhala සිංහල grade 9 lesson ${index+1}`
 
-    });
+});
 
 });
 
@@ -2291,517 +3582,544 @@ sinhalaVideos.forEach((id,index)=>{
 
 historyVideos.forEach(item=>{
 
-    let grade = null;
-
-    /*
-        User mapping:
-
-        Grade 10 = Video 1,3
-        Grade 6  = Video 4
-        Grade 9  = Video 5,6,7
-        Grade 11 = Video 2
-    */
-
-    if(
-        item.number === 1 ||
-        item.number === 3
-    ){
-
-        grade = 10;
-
-    }
-
-    else if(item.number === 4){
-
-        grade = 6;
-
-    }
-
-    else if(
-        item.number === 5 ||
-        item.number === 6 ||
-        item.number === 7
-    ){
-
-        grade = 9;
-
-    }
-
-    else if(item.number === 2){
-
-        grade = 11;
-
-    }
+let grade=null;
 
 
-    allVideos.push({
+if(
+item.number===1 ||
+item.number===3
+){
 
-        subject:"history",
+grade=10;
 
-        grade:grade,
+}
 
-        title:
-        `🏛️ History Video ${item.number}`,
+else if(item.number===4){
 
-        embed:
-        `https://www.youtube.com/embed/${item.id}`,
+grade=6;
 
-        live:true,
+}
 
-        keywords:
-        `history hist ඉතිහාසය grade ${grade} video ${item.number}`
+else if(
+item.number===5 ||
+item.number===6 ||
+item.number===7
+){
 
-    });
+grade=9;
+
+}
+
+else if(item.number===2){
+
+grade=11;
+
+}
+
+
+allVideos.push({
+
+subject:"history",
+
+grade:grade,
+
+title:
+`🏛️ History Video ${item.number}`,
+
+embed:
+`https://www.youtube.com/embed/${item.id}`,
+
+live:true,
+
+keywords:
+`history hist ඉතිහාසය grade ${grade} video ${item.number}`
+
+});
 
 });
 
 
-/* ================= PAGE FUNCTIONS ================= */
+
+/* =====================================================
+   PAGE NAVIGATION
+===================================================== */
 
 function hideAllPages(){
 
-    document
-        .querySelectorAll(".page")
-        .forEach(page=>{
+document
+.querySelectorAll(".page")
+.forEach(page=>{
 
-            page.classList.remove("active");
+page.classList.remove("active");
 
-        });
+});
 
 }
 
 
-window.showPage = function(page){
+window.showPage=function(page){
 
-    hideAllPages();
-
-
-    if(page === "home"){
-
-        document
-            .getElementById("homePage")
-            .classList.add("active");
-
-    }
-
-    else if(page === "grades"){
-
-        document
-            .getElementById("gradesPage")
-            .classList.add("active");
-
-    }
-
-    else if(page === "gradeSubjects"){
-
-        document
-            .getElementById("gradeSubjectsPage")
-            .classList.add("active");
-
-    }
-
-    else if(page === "gradeVideos"){
-
-        document
-            .getElementById("gradeVideosPage")
-            .classList.add("active");
-
-    }
-
-    else if(page === "about"){
-
-        document
-            .getElementById("aboutPage")
-            .classList.add("active");
-
-    }
-
-    else if(page === "support"){
-
-        document
-            .getElementById("supportPage")
-            .classList.add("active");
-
-    }
+hideAllPages();
 
 
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
+if(page==="home"){
 
-};
+document
+.getElementById("homePage")
+.classList.add("active");
+
+}
+
+else if(page==="grades"){
+
+document
+.getElementById("gradesPage")
+.classList.add("active");
+
+}
+
+else if(page==="gradeSubjects"){
+
+document
+.getElementById("gradeSubjectsPage")
+.classList.add("active");
+
+}
+
+else if(page==="gradeVideos"){
+
+document
+.getElementById("gradeVideosPage")
+.classList.add("active");
+
+}
+
+else if(page==="about"){
+
+document
+.getElementById("aboutPage")
+.classList.add("active");
+
+}
+
+else if(page==="support"){
+
+document
+.getElementById("supportPage")
+.classList.add("active");
+
+}
 
 
-/* ================= GRADE SUBJECTS ================= */
+window.scrollTo({
 
-let selectedGrade = null;
+top:0,
 
-let selectedSubject = null;
+behavior:"smooth"
 
-
-const subjectNames = {
-
-    mathematics:{
-        icon:"📐",
-        name:"Mathematics"
-    },
-
-    science:{
-        icon:"🔬",
-        name:"Science"
-    },
-
-    ict:{
-        icon:"💻",
-        name:"ICT"
-    },
-
-    english:{
-        icon:"🇬🇧",
-        name:"English"
-    },
-
-    history:{
-        icon:"🏛️",
-        name:"History"
-    },
-
-    sinhala:{
-        icon:"📝",
-        name:"Sinhala"
-    }
+});
 
 };
 
 
-window.openGrade = function(grade){
 
-    selectedGrade = grade;
+/* =====================================================
+   GRADE
+===================================================== */
 
-    document
-        .getElementById("selectedGradeTitle")
-        .textContent =
-        `📚 Grade ${grade}`;
+let selectedGrade=null;
 
-
-    const grid =
-        document.getElementById(
-            "gradeSubjectGrid"
-        );
-
-    grid.innerHTML = "";
+let selectedSubject=null;
 
 
-    Object.keys(subjectNames)
-        .forEach(subject=>{
+const subjectNames={
 
-            const data =
-                subjectNames[subject];
+mathematics:{
+icon:"📐",
+name:"Mathematics"
+},
 
+science:{
+icon:"🔬",
+name:"Science"
+},
 
-            const available =
-                allVideos.some(video=>
-                    video.grade === grade &&
-                    video.subject === subject
-                );
+ict:{
+icon:"💻",
+name:"ICT"
+},
 
+english:{
+icon:"🇬🇧",
+name:"English"
+},
 
-            const button =
-                document.createElement("button");
+history:{
+icon:"🏛️",
+name:"History"
+},
 
-            button.className =
-                "subject-select-card";
-
-
-            button.innerHTML = `
-
-                <span class="big-icon">
-                    ${data.icon}
-                </span>
-
-                ${data.name}
-
-                ${
-                    available
-                    ? ""
-                    : `<div class="coming">
-                        📚 Coming Soon
-                       </div>`
-                }
-
-            `;
-
-
-            button.onclick = ()=>{
-
-                openSubject(
-                    subject,
-                    available
-                );
-
-            };
-
-
-            grid.appendChild(button);
-
-        });
-
-
-    showPage("gradeSubjects");
+sinhala:{
+icon:"📝",
+name:"Sinhala"
+}
 
 };
 
 
-/* ================= SUBJECT VIDEOS ================= */
 
-window.openSubject = function(
-    subject,
-    available
+window.openGrade=function(grade){
+
+selectedGrade=grade;
+
+
+document
+.getElementById(
+"selectedGradeTitle"
+)
+.textContent=
+`📚 Grade ${grade}`;
+
+
+const grid=
+document.getElementById(
+"gradeSubjectGrid"
+);
+
+
+grid.innerHTML="";
+
+
+Object.keys(subjectNames)
+.forEach(subject=>{
+
+
+const data=
+subjectNames[subject];
+
+
+const available=
+allVideos.some(video=>
+
+video.grade===grade &&
+video.subject===subject
+
+);
+
+
+const button=
+document.createElement("button");
+
+
+button.className=
+"subject-select-card";
+
+
+button.innerHTML=`
+
+<span class="big-icon">
+${data.icon}
+</span>
+
+${data.name}
+
+${
+available
+?
+""
+:
+`<div class="coming">
+📚 Coming Soon
+</div>`
+}
+
+`;
+
+
+button.onclick=()=>{
+
+openSubject(
+subject,
+available
+);
+
+};
+
+
+grid.appendChild(button);
+
+});
+
+
+showPage("gradeSubjects");
+
+};
+
+
+
+/* =====================================================
+   SUBJECT
+===================================================== */
+
+window.openSubject=function(
+subject,
+available
 ){
 
-    selectedSubject = subject;
+selectedSubject=subject;
 
 
-    const data =
-        subjectNames[subject];
+const data=
+subjectNames[subject];
 
 
-    document
-        .getElementById(
-            "selectedVideosTitle"
-        )
-        .textContent =
-        `${data.icon} Grade ${selectedGrade} - ${data.name}`;
+document
+.getElementById(
+"selectedVideosTitle"
+)
+.textContent=
+`${data.icon} Grade ${selectedGrade} - ${data.name}`;
 
 
-    document
-        .getElementById(
-            "selectedVideosDescription"
-        )
-        .textContent =
-        `🎥 Grade ${selectedGrade} ${data.name} lessons`;
+document
+.getElementById(
+"selectedVideosDescription"
+)
+.textContent=
+`🎥 Grade ${selectedGrade} ${data.name} lessons`;
 
 
-    const grid =
-        document.getElementById(
-            "gradeVideoGrid"
-        );
-
-    const noVideos =
-        document.getElementById(
-            "gradeNoVideos"
-        );
-
-    const channelBox =
-        document.getElementById(
-            "gradeChannelResult"
-        );
+const grid=
+document.getElementById(
+"gradeVideoGrid"
+);
 
 
-    grid.innerHTML = "";
-
-    channelBox.innerHTML = "";
-
-
-    const videos =
-        allVideos.filter(video=>
-
-            video.grade === selectedGrade &&
-            video.subject === subject
-
-        );
+const noVideos=
+document.getElementById(
+"gradeNoVideos"
+);
 
 
-    if(videos.length === 0){
-
-        noVideos.style.display =
-            "block";
-
-    }else{
-
-        noVideos.style.display =
-            "none";
+const channelBox=
+document.getElementById(
+"gradeChannelResult"
+);
 
 
-        videos.forEach(video=>{
+grid.innerHTML="";
 
-            createVideoCard(
-                video,
-                grid
-            );
-
-        });
-
-    }
+channelBox.innerHTML="";
 
 
-    showChannel(
-        subject,
-        channelBox
-    );
+const videos=
+allVideos.filter(video=>
+
+video.grade===selectedGrade &&
+video.subject===subject
+
+);
 
 
-    showPage("gradeVideos");
+if(videos.length===0){
 
-};
+noVideos.style.display="block";
 
+}else{
 
-/* ================= CREATE VIDEO CARD ================= */
-
-function createVideoCard(video,grid){
-
-    const card =
-        document.createElement("div");
-
-    card.className =
-        "video-card";
+noVideos.style.display="none";
 
 
-    card.innerHTML = `
+videos.forEach(video=>{
 
-        <iframe
-            src="${video.embed}"
-            title="${video.title}"
-            allowfullscreen
-            loading="lazy">
-        </iframe>
+createVideoCard(
+video,
+grid
+);
 
-        <div class="video-info">
-
-            ${
-                video.live
-                ?
-                `<span class="live-badge">
-                    🔴 LIVE
-                 </span>`
-                :
-                ""
-            }
-
-            <h3>
-                ${video.title}
-            </h3>
-
-            <p>
-                🎓 Grade ${video.grade}
-            </p>
-
-        </div>
-
-    `;
-
-
-    grid.appendChild(card);
+});
 
 }
 
 
-/* ================= CHANNEL ================= */
+showChannel(
+subject,
+channelBox
+);
+
+
+showPage("gradeVideos");
+
+};
+
+
+
+/* =====================================================
+   VIDEO CARD
+===================================================== */
+
+function createVideoCard(
+video,
+grid
+){
+
+const card=
+document.createElement("div");
+
+
+card.className=
+"video-card";
+
+
+card.innerHTML=`
+
+<iframe
+src="${video.embed}"
+title="${video.title}"
+allowfullscreen
+loading="lazy">
+</iframe>
+
+<div class="video-info">
+
+${
+video.live
+?
+`
+<span class="live-badge">
+🔴 LIVE
+</span>
+`
+:
+""
+}
+
+<h3>
+${video.title}
+</h3>
+
+<p>
+🎓 Grade ${video.grade}
+</p>
+
+</div>
+
+`;
+
+
+grid.appendChild(card);
+
+}
+
+
+
+/* =====================================================
+   CHANNEL
+===================================================== */
 
 function showChannel(
-    subject,
-    container
+subject,
+container
 ){
 
-    const channel =
-        channels[subject];
+const channel=
+channels[subject];
 
 
-    if(!channel){
-
-        return;
-
-    }
+if(!channel)return;
 
 
-    if(channel.url === "#"){
+if(channel.url==="#"){
 
-        container.innerHTML = `
+container.innerHTML=`
 
-            <div class="channel-box">
+<div class="channel-box">
 
-                <div class="channel-info">
+<div class="channel-info">
 
-                    <h3>
-                        ${channel.name}
-                    </h3>
+<h3>
+${channel.name}
+</h3>
 
-                    <p>
-                        ${channel.description}
-                    </p>
+<p>
+${channel.description}
+</p>
 
-                    <p>
-                        ${channel.teacher}
-                    </p>
+<p>
+${channel.teacher}
+</p>
 
-                </div>
+</div>
 
-            </div>
+</div>
 
-        `;
+`;
 
-        return;
-
-    }
-
-
-    container.innerHTML = `
-
-        <div class="channel-box">
-
-            <div class="channel-info">
-
-                <h3>
-                    ${channel.name}
-                </h3>
-
-                <p>
-                    ${channel.description}
-                </p>
-
-                <p>
-                    ${channel.teacher}
-                </p>
-
-            </div>
-
-            <a
-                class="channel-button"
-                href="${channel.url}"
-                target="_blank"
-                rel="noopener"
-            >
-                ▶️ YouTube Channel
-            </a>
-
-        </div>
-
-    `;
+return;
 
 }
 
 
-/* ================= HOME VIDEO RENDER ================= */
+container.innerHTML=`
+
+<div class="channel-box">
+
+<div class="channel-info">
+
+<h3>
+${channel.name}
+</h3>
+
+<p>
+${channel.description}
+</p>
+
+<p>
+${channel.teacher}
+</p>
+
+</div>
+
+<a
+class="channel-button"
+href="${channel.url}"
+target="_blank"
+rel="noopener"
+>
+▶️ YouTube Channel
+</a>
+
+</div>
+
+`;
+
+}
+
+
+
+/* =====================================================
+   HOME VIDEOS
+===================================================== */
 
 function renderHomeVideos(){
 
-    const grid =
-        document.getElementById(
-            "videoGrid"
-        );
-
-    grid.innerHTML = "";
+const grid=
+document.getElementById(
+"videoGrid"
+);
 
 
-    allVideos.forEach(video=>{
+grid.innerHTML="";
 
-        createVideoCard(
-            video,
-            grid
-        );
 
-    });
+allVideos.forEach(video=>{
+
+createVideoCard(
+video,
+grid
+);
+
+});
 
 }
 
@@ -2809,240 +4127,248 @@ function renderHomeVideos(){
 renderHomeVideos();
 
 
-/* ================= SEARCH ================= */
+
+/* =====================================================
+   SEARCH
+===================================================== */
 
 function normalizeSearch(value){
 
-    value =
-        value
-        .toLowerCase()
-        .trim();
+value=
+value
+.toLowerCase()
+.trim();
 
 
-    const aliases = {
+const aliases={
 
-        math:"mathematics",
-        maths:"mathematics",
+math:"mathematics",
 
-        sci:"science",
+maths:"mathematics",
 
-        සිංහල:"sinhala",
+sci:"science",
 
-        hist:"history",
+සිංහල:"sinhala",
 
-        ඉතිහාසය:"history",
+hist:"history",
 
-        computer:"ict",
+ඉතිහාසය:"history",
 
-        eng:"english",
+computer:"ict",
 
-        ඉංග්‍රීසි:"english"
+eng:"english",
 
-    };
+ඉංග්‍රීසි:"english"
+
+};
 
 
-    return aliases[value] || value;
+return aliases[value] || value;
 
 }
 
 
-window.performSearch = function(){
 
-    const input =
-        document.getElementById(
-            "searchInput"
-        );
+window.performSearch=function(){
 
+const input=
+document.getElementById(
+"searchInput"
+);
 
-    const query =
-        normalizeSearch(
-            input.value
-        );
 
+const query=
+normalizeSearch(
+input.value
+);
 
-    /*
-        Search from Home.
-    */
 
-    showPage("home");
+showPage("home");
 
 
-    const cards =
-        document.querySelectorAll(
-            "#videoGrid .video-card"
-        );
+const cards=
+document.querySelectorAll(
+"#videoGrid .video-card"
+);
 
 
-    const channelResult =
-        document.getElementById(
-            "channelResult"
-        );
+const channelResult=
+document.getElementById(
+"channelResult"
+);
 
 
-    const noResults =
-        document.getElementById(
-            "noResults"
-        );
+const noResults=
+document.getElementById(
+"noResults"
+);
 
 
-    channelResult.innerHTML = "";
+channelResult.innerHTML="";
 
 
-    if(!query){
+if(!query){
 
-        cards.forEach(card=>{
+cards.forEach(card=>{
 
-            card.style.display =
-                "block";
+card.style.display="block";
 
-        });
+});
 
-        noResults.style.display =
-            "none";
 
-        return;
+noResults.style.display="none";
 
-    }
+return;
 
+}
 
-    let found = 0;
 
+let found=0;
 
-    cards.forEach((card,index)=>{
 
-        const video =
-            allVideos[index];
+cards.forEach(
+(card,index)=>{
 
 
-        const searchable =
-            (
-                video.title +
-                " " +
-                video.subject +
-                " " +
-                video.grade +
-                " " +
-                video.keywords
-            ).toLowerCase();
+const video=
+allVideos[index];
 
 
-        if(
-            searchable.includes(query)
-        ){
+const searchable=
+(
 
-            card.style.display =
-                "block";
+video.title+
+" "+
+video.subject+
+" "+
+video.grade+
+" "+
+video.keywords
 
-            found++;
+).toLowerCase();
 
-        }else{
 
-            card.style.display =
-                "none";
+if(
+searchable.includes(query)
+){
 
-        }
+card.style.display="block";
 
-    });
+found++;
 
+}else{
 
-    const subjects =
-        [
-            "mathematics",
-            "science",
-            "sinhala",
-            "history",
-            "ict",
-            "english"
-        ];
+card.style.display="none";
 
+}
 
-    if(
-        subjects.includes(query)
-    ){
+});
 
-        showChannel(
-            query,
-            channelResult
-        );
 
-    }
+const subjects=[
 
+"mathematics",
+"science",
+"sinhala",
+"history",
+"ict",
+"english"
 
-    if(found === 0){
+];
 
-        noResults.style.display =
-            "block";
 
-    }else{
+if(
+subjects.includes(query)
+){
 
-        noResults.style.display =
-            "none";
+showChannel(
+query,
+channelResult
+);
 
-    }
+}
 
 
-    document
-        .getElementById(
-            "videoSection"
-        )
-        .scrollIntoView({
-            behavior:"smooth"
-        });
+if(found===0){
 
-};
+noResults.style.display="block";
 
+}else{
 
-window.searchVideos = function(event){
+noResults.style.display="none";
 
-    if(event.key === "Enter"){
+}
 
-        performSearch();
-
-    }
-
-};
-
-
-/* ================= HOME SUBJECT SEARCH ================= */
-
-window.homeSubjectSearch = function(subject){
-
-    const input =
-        document.getElementById(
-            "searchInput"
-        );
-
-
-    input.value = subject;
-
-
-    performSearch();
-
-};
-
-
-/* ================= CLOSE MODAL OUTSIDE ================= */
 
 document
-    .getElementById("authModal")
-    .addEventListener(
-        "click",
-        function(event){
+.getElementById(
+"videoSection"
+)
+.scrollIntoView({
 
-            if(
-                event.target === this
-            ){
+behavior:"smooth"
 
-                this.style.display =
-                    "none";
+});
 
-            }
+};
 
-        }
-    );
+
+
+window.searchVideos=function(event){
+
+if(event.key==="Enter"){
+
+performSearch();
+
+}
+
+};
+
+
+
+/* =====================================================
+   HOME SUBJECT SEARCH
+===================================================== */
+
+window.homeSubjectSearch=
+function(subject){
+
+const input=
+document.getElementById(
+"searchInput"
+);
+
+
+input.value=subject;
+
+
+performSearch();
+
+};
+
+
+
+/* =====================================================
+   CLOSE AUTH
+===================================================== */
+
+document
+.getElementById("authModal")
+.addEventListener(
+"click",
+function(event){
+
+if(event.target===this){
+
+this.style.display="none";
+
+}
+
+});
 
 
 </script>
+
 
 </body>
 </html>
