@@ -371,6 +371,87 @@ main{
     background:linear-gradient(135deg,#dc2626,#ef4444);
 }
 
+.stream-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.stream-card{
+    min-height:185px;
+    border-radius:24px;
+    padding:28px;
+    color:white;
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
+    transition:.3s;
+    box-shadow:0 15px 30px rgba(15,23,42,.12);
+}
+
+.stream-card:hover{
+    transform:translateY(-7px) scale(1.015);
+    box-shadow:0 25px 45px rgba(15,23,42,.17);
+}
+
+.stream-card::after{
+    content:"";
+    position:absolute;
+    width:150px;
+    height:150px;
+    right:-45px;
+    bottom:-60px;
+    border-radius:50%;
+    background:rgba(255,255,255,.12);
+}
+
+.stream-card .subject-icon{
+    font-size:42px;
+    margin-bottom:14px;
+}
+
+.stream-card h3{
+    font-size:23px;
+    margin-bottom:7px;
+}
+
+.stream-card p{
+    opacity:.92;
+}
+
+.stream-science{
+    background:linear-gradient(135deg,#059669,#10b981);
+}
+
+.stream-maths{
+    background:linear-gradient(135deg,#2563eb,#4f46e5);
+}
+
+.stream-commerce{
+    background:linear-gradient(135deg,#b45309,#f59e0b);
+}
+
+.stream-art{
+    background:linear-gradient(135deg,#db2777,#ec4899);
+}
+
+.stream-technology{
+    background:linear-gradient(135deg,#0891b2,#06b6d4);
+}
+
+.stream-ict{
+    background:linear-gradient(135deg,#7c3aed,#a855f7);
+}
+
+.al-note{
+    margin-top:18px;
+    padding:16px 18px;
+    border-radius:16px;
+    background:#eef2ff;
+    color:#475569;
+    border:1px solid #c7d2fe;
+}
+
 
 /* =========================================================
    GRADE CARDS
@@ -1012,6 +1093,8 @@ footer p{
 
         <p>
             Select a subject to explore learning content.
+            Grade 12 and 13 students can use the Grades section
+            to choose their A/L stream and individual subjects.
         </p>
 
     </div>
@@ -1106,7 +1189,7 @@ footer p{
         <h1>🎓 Select Your Grade</h1>
 
         <p>
-            Choose your grade to find available subjects.
+            Choose your grade. Grade 12 and 13 include A/L streams and individual subjects.
         </p>
 
     </div>
@@ -1190,6 +1273,38 @@ footer p{
     </div>
 
     <div id="gradeSubjectGrid" class="subject-grid"></div>
+
+</section>
+
+
+<!-- =========================================================
+     STREAM SUBJECTS
+========================================================= -->
+
+<section id="streamSubjects" class="page">
+
+    <button class="back-btn" onclick="backToGradeStreams()">
+        ← Back to Streams
+    </button>
+
+    <div class="page-heading">
+
+        <h1 id="streamSubjectTitle">
+            📚 Grade 12 Stream
+        </h1>
+
+        <p id="streamSubjectDescription">
+            Select a subject.
+        </p>
+
+    </div>
+
+    <div id="streamSubjectGrid" class="subject-grid"></div>
+
+    <div class="al-note">
+        💡 Select a subject to open its lessons. If lessons have not been added yet,
+        the teacher/channel link will still be available.
+    </div>
 
 </section>
 
@@ -1783,6 +1898,91 @@ const teachers = {
     English:{
         name:"Tharaka Senadheera English",
         url:"https://www.youtube.com/@tharakasenadheeraenglish880"
+    },
+
+    "A/L Mathematics":{
+        name:"Ajantha Dissanayake Official",
+        url:"https://www.youtube.com/@ajanthadissanayakeofficial8370"
+    },
+
+    "A/L ICT":{
+        name:"Ravindu Bandaranayake",
+        url:"https://www.youtube.com/@RavinduBandaranayake"
+    },
+
+    "Physics":{
+        name:"A/L Physics Teacher Channel",
+        url:"https://www.youtube.com/"
+    },
+
+    "Chemistry":{
+        name:"A/L Chemistry Teacher Channel",
+        url:"https://www.youtube.com/"
+    },
+
+    "Biology":{
+        name:"A/L Biology Teacher Channel",
+        url:"https://www.youtube.com/"
+    },
+
+    "Combined Mathematics":{
+        name:"A/L Mathematics - Ajantha Dissanayake Official",
+        url:"https://www.youtube.com/@ajanthadissanayakeofficial8370"
+    },
+
+    "Accounting":{
+        name:"Accounting Teacher Channel",
+        url:"https://www.youtube.com/"
+    },
+
+    "Economics":{
+        name:"Economics Teacher Channel",
+        url:"https://www.youtube.com/"
+    },
+
+    "Business Studies":{
+        name:"Business Studies Teacher Channel",
+        url:"https://www.youtube.com/"
+    },
+
+    "Geography":{
+        name:"Geography Teacher Channel",
+        url:"https://www.youtube.com/"
+    },
+
+    "Political Science":{
+        name:"Political Science Teacher Channel",
+        url:"https://www.youtube.com/"
+    },
+
+    "Logic":{
+        name:"Logic Teacher Channel",
+        url:"https://www.youtube.com/"
+    },
+
+    "Buddhist Civilization":{
+        name:"Buddhist Civilization Teacher Channel",
+        url:"https://www.youtube.com/"
+    },
+
+    "Art":{
+        name:"Art Teacher Channel",
+        url:"https://www.youtube.com/"
+    },
+
+    "Engineering Technology":{
+        name:"Engineering Technology Teacher Channel",
+        url:"https://www.youtube.com/"
+    },
+
+    "Bio Systems Technology":{
+        name:"Bio Systems Technology Teacher Channel",
+        url:"https://www.youtube.com/"
+    },
+
+    "Science for Technology":{
+        name:"Science for Technology Teacher Channel",
+        url:"https://www.youtube.com/"
     }
 
 };
@@ -1800,6 +2000,77 @@ const allSubjects = [
     "History",
     "Sinhala"
 ];
+
+const alStreams = [
+    "Science",
+    "Mathematics",
+    "Commerce",
+    "Art",
+    "Technology",
+    "ICT"
+];
+
+const alStreamIcons = {
+    Science:"🔬",
+    Mathematics:"📐",
+    Commerce:"💼",
+    Art:"🎨",
+    Technology:"🛠️",
+    ICT:"💻"
+};
+
+const alStreamClasses = {
+    Science:"stream-science",
+    Mathematics:"stream-maths",
+    Commerce:"stream-commerce",
+    Art:"stream-art",
+    Technology:"stream-technology",
+    ICT:"stream-ict"
+};
+
+const alSubjects = {
+    Science:[
+        "Physics",
+        "Chemistry",
+        "Biology",
+        "Combined Mathematics"
+    ],
+
+    Mathematics:[
+        "Combined Mathematics",
+        "Physics",
+        "Chemistry",
+        "ICT"
+    ],
+
+    Commerce:[
+        "Accounting",
+        "Economics",
+        "Business Studies",
+        "ICT"
+    ],
+
+    Art:[
+        "Sinhala",
+        "History",
+        "Geography",
+        "Political Science",
+        "Logic",
+        "Buddhist Civilization",
+        "Art"
+    ],
+
+    Technology:[
+        "Engineering Technology",
+        "Bio Systems Technology",
+        "Science for Technology",
+        "ICT"
+    ],
+
+    ICT:[
+        "ICT"
+    ]
+};
 
 
 /* ---------------------------------------------------------
@@ -2453,11 +2724,19 @@ function activateNav(pageId){
 let currentGrade = null;
 
 let currentSubject = null;
+let currentStream = null;
 
 
 window.openGrade = function(grade){
 
     currentGrade = grade;
+
+    if(grade === 12 || grade === 13){
+
+        openALStreams(grade);
+        return;
+
+    }
 
     const title =
         document.getElementById(
@@ -2467,7 +2746,6 @@ window.openGrade = function(grade){
     title.textContent =
         `🎓 Grade ${grade} Subjects`;
 
-
     const grid =
         document.getElementById(
             "gradeSubjectGrid"
@@ -2475,15 +2753,11 @@ window.openGrade = function(grade){
 
     grid.innerHTML = "";
 
-
     const available =
         allSubjects.filter(subject=>{
-
             return subjectGrades[subject]
                 .includes(grade);
-
         });
-
 
     if(available.length === 0){
 
@@ -2512,7 +2786,6 @@ window.openGrade = function(grade){
                 openVideos(grade,subject);
             };
 
-
             card.innerHTML = `
 
                 <div class="subject-icon">
@@ -2527,18 +2800,247 @@ window.openGrade = function(grade){
 
             `;
 
-
             grid.appendChild(card);
 
         });
 
     }
 
-
     showPage("gradeSubjects");
 
 };
 
+
+/* =========================================================
+   GRADE 12 / 13 STREAMS
+========================================================= */
+
+function openALStreams(grade){
+
+    const title =
+        document.getElementById(
+            "gradeSubjectTitle"
+        );
+
+    title.textContent =
+        `🎓 Grade ${grade} - Select Stream`;
+
+    const grid =
+        document.getElementById(
+            "gradeSubjectGrid"
+        );
+
+    grid.innerHTML = "";
+
+    alStreams.forEach(stream=>{
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            `stream-card ${alStreamClasses[stream]}`;
+
+        card.onclick = ()=>{
+            openALStreamSubjects(
+                grade,
+                stream
+            );
+        };
+
+        card.innerHTML = `
+            <div class="subject-icon">
+                ${alStreamIcons[stream]}
+            </div>
+
+            <h3>${stream}</h3>
+
+            <p>
+                Grade ${grade} stream
+            </p>
+        `;
+
+        grid.appendChild(card);
+
+    });
+
+    showPage("gradeSubjects");
+}
+
+window.openALStreamSubjects = function(grade,stream){
+
+    currentGrade = grade;
+    currentStream = stream;
+    currentSubject = stream;
+
+    document.getElementById(
+        "streamSubjectTitle"
+    ).textContent =
+        `${alStreamIcons[stream]} Grade ${grade} - ${stream}`;
+
+    document.getElementById(
+        "streamSubjectDescription"
+    ).textContent =
+        "Select an individual subject.";
+
+    const grid =
+        document.getElementById(
+            "streamSubjectGrid"
+        );
+
+    grid.innerHTML = "";
+
+    const subjects =
+        alSubjects[stream] || [];
+
+    subjects.forEach(subject=>{
+
+        const card =
+            document.createElement("div");
+
+        const icon =
+            subject === "Physics" ? "⚛️" :
+            subject === "Chemistry" ? "🧪" :
+            subject === "Biology" ? "🧬" :
+            subject === "Combined Mathematics" ? "📐" :
+            subject === "Accounting" ? "🧾" :
+            subject === "Economics" ? "📊" :
+            subject === "Business Studies" ? "💼" :
+            subject === "Geography" ? "🌍" :
+            subject === "Political Science" ? "🏛️" :
+            subject === "Logic" ? "🧠" :
+            subject === "Buddhist Civilization" ? "☸️" :
+            subject === "Art" ? "🎨" :
+            subject === "Engineering Technology" ? "⚙️" :
+            subject === "Bio Systems Technology" ? "🌱" :
+            subject === "Science for Technology" ? "🔧" :
+            "📚";
+
+        card.className =
+            "subject-card " +
+            (subject === "ICT" ? "ict" :
+             subject === "Sinhala" ? "sinhala" :
+             subject === "History" ? "history" :
+             subject === "Mathematics" ? "math" :
+             "science");
+
+        card.onclick = ()=>{
+            openALSubject(
+                grade,
+                stream,
+                subject
+            );
+        };
+
+        card.innerHTML = `
+            <div class="subject-icon">
+                ${icon}
+            </div>
+
+            <h3>${subject}</h3>
+
+            <p>
+                Grade ${grade} • ${stream}
+            </p>
+        `;
+
+        grid.appendChild(card);
+
+    });
+
+    showPage("streamSubjects");
+};
+
+window.openALSubject = function(grade,stream,subject){
+
+    currentGrade = grade;
+    currentStream = stream;
+    currentSubject = subject;
+
+    document.getElementById(
+        "videoPageTitle"
+    ).textContent =
+        `📚 ${subject} - Grade ${grade}`;
+
+    document.getElementById(
+        "videoPageDescription"
+    ).textContent =
+        `${stream} Stream • Grade ${grade}`;
+
+    const grid =
+        document.getElementById(
+            "videoGrid"
+        );
+
+    grid.innerHTML = `
+        <div class="no-results">
+            <h3>📚 Lessons will be added soon</h3>
+            <p>
+                YouTube lessons for
+                <strong>${subject}</strong>
+                are not added yet.
+            </p>
+        </div>
+    `;
+
+    createALTeacherBox(subject);
+
+    showPage("videos");
+};
+
+function createALTeacherBox(subject){
+
+    const box =
+        document.getElementById(
+            "teacherBox"
+        );
+
+    const teacher =
+        teachers[subject] ||
+        (subject === "ICT" ? teachers["A/L ICT"] : null) ||
+        (subject === "Combined Mathematics" ? teachers["A/L Mathematics"] : null);
+
+    if(!teacher){
+        box.innerHTML = "";
+        return;
+    }
+
+    const isPlaceholder =
+        teacher.url === "https://www.youtube.com/";
+
+    box.innerHTML = `
+        <div class="teacher-box">
+            <h3>👨‍🏫 Teacher / YouTube Channel</h3>
+
+            <p>${teacher.name}</p>
+
+            ${
+                isPlaceholder
+                ? `<p style="margin-top:8px;color:#64748b;">
+                     🔗 Teacher link will be added later.
+                   </p>`
+                : `
+                   <a
+                       class="teacher-link"
+                       href="${teacher.url}"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                       ▶️ Visit YouTube Channel
+                   </a>
+                  `
+            }
+        </div>
+    `;
+}
+
+window.backToGradeStreams = function(){
+
+    if(currentGrade === 12 || currentGrade === 13){
+        openALStreams(currentGrade);
+    }else{
+        showPage("grades");
+    }
+
+};
 
 /* =========================================================
    OPEN SUBJECT DIRECTLY FROM HOME
@@ -2999,7 +3501,14 @@ function createTeacherBox(subject){
 
 window.backToGradeSubjects = function(){
 
-    if(currentSubject){
+    if(currentGrade === 12 || currentGrade === 13){
+
+        openALStreamSubjects(
+            currentGrade,
+            currentStream
+        );
+
+    }else if(currentSubject){
 
         openGrade(currentGrade);
 
