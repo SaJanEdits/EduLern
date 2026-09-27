@@ -726,6 +726,123 @@ main{
 
 
 /* =========================================================
+   PAPERS
+========================================================= */
+
+.papers-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+    gap:18px;
+}
+
+.paper-grade-card,
+.paper-term-card{
+    min-height:155px;
+    border-radius:22px;
+    padding:25px;
+    color:white;
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
+    transition:.3s;
+    box-shadow:0 15px 30px rgba(15,23,42,.12);
+}
+
+.paper-grade-card:hover,
+.paper-term-card:hover{
+    transform:translateY(-7px) scale(1.015);
+    box-shadow:0 25px 45px rgba(15,23,42,.17);
+}
+
+.paper-grade-card::after,
+.paper-term-card::after{
+    content:"";
+    position:absolute;
+    width:130px;
+    height:130px;
+    right:-40px;
+    bottom:-55px;
+    border-radius:50%;
+    background:rgba(255,255,255,.12);
+}
+
+.paper-grade-card h3,
+.paper-term-card h3{
+    font-size:25px;
+    margin-bottom:8px;
+    position:relative;
+    z-index:1;
+}
+
+.paper-grade-card p,
+.paper-term-card p{
+    opacity:.92;
+    position:relative;
+    z-index:1;
+}
+
+.paper-icon{
+    font-size:38px;
+    margin-bottom:12px;
+    position:relative;
+    z-index:1;
+}
+
+.paper-g6{background:linear-gradient(135deg,#2563eb,#38bdf8);}
+.paper-g7{background:linear-gradient(135deg,#7c3aed,#c084fc);}
+.paper-g8{background:linear-gradient(135deg,#db2777,#fb7185);}
+.paper-g9{background:linear-gradient(135deg,#059669,#34d399);}
+.paper-g10{background:linear-gradient(135deg,#ea580c,#fbbf24);}
+.paper-g11{background:linear-gradient(135deg,#0891b2,#22d3ee);}
+.paper-g12{background:linear-gradient(135deg,#4338ca,#818cf8);}
+.paper-g13{background:linear-gradient(135deg,#be123c,#fb7185);}
+
+.paper-term-1{background:linear-gradient(135deg,#2563eb,#60a5fa);}
+.paper-term-2{background:linear-gradient(135deg,#7c3aed,#a78bfa);}
+.paper-term-3{background:linear-gradient(135deg,#059669,#34d399);}
+
+.paper-info{
+    margin-top:20px;
+    padding:18px;
+    border-radius:18px;
+    background:#eef2ff;
+    border:1px solid #c7d2fe;
+    color:#475569;
+}
+
+.paper-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:18px;
+}
+
+.paper-item{
+    background:white;
+    border:1px solid #e2e8f0;
+    border-radius:20px;
+    padding:22px;
+    box-shadow:0 10px 25px rgba(15,23,42,.06);
+}
+
+.paper-item h3{
+    margin-bottom:8px;
+}
+
+.paper-item p{
+    color:#64748b;
+    margin-bottom:14px;
+}
+
+.paper-open-btn{
+    display:inline-block;
+    padding:10px 15px;
+    border-radius:12px;
+    background:linear-gradient(135deg,#6366f1,#8b5cf6);
+    color:white;
+    font-weight:700;
+}
+
+/* =========================================================
    ABOUT / SUPPORT
 ========================================================= */
 
@@ -1008,6 +1125,10 @@ footer p{
             🎓 Grades
         </button>
 
+        <button class="nav-btn" onclick="openPapers()">
+            📄 Papers
+        </button>
+
         <button class="nav-btn" onclick="showPage('about',this)">
             ℹ️ About
         </button>
@@ -1246,6 +1367,66 @@ footer p{
         </div>
 
     </div>
+
+</section>
+
+
+<!-- =========================================================
+     PAPERS - GRADES
+========================================================= -->
+
+<section id="papers" class="page">
+
+    <div class="page-heading">
+        <h1>📄 Past Papers</h1>
+        <p>Select your grade first, then choose the school term.</p>
+    </div>
+
+    <div id="papersGradeGrid" class="papers-grid"></div>
+
+    <div class="paper-info">
+        💡 Choose a Grade → choose 1st, 2nd or 3rd Term → open the available papers.
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PAPERS - TERMS
+========================================================= -->
+
+<section id="paperTerms" class="page">
+
+    <button class="back-btn" onclick="openPapers()">
+        ← Back to Grades
+    </button>
+
+    <div class="page-heading">
+        <h1 id="paperTermTitle">📄 Grade Papers</h1>
+        <p>Select the school term.</p>
+    </div>
+
+    <div id="paperTermGrid" class="papers-grid"></div>
+
+</section>
+
+
+<!-- =========================================================
+     PAPERS - LIST
+========================================================= -->
+
+<section id="paperListPage" class="page">
+
+    <button class="back-btn" onclick="backToPaperTerms()">
+        ← Back to Terms
+    </button>
+
+    <div class="page-heading">
+        <h1 id="paperListTitle">📄 Papers</h1>
+        <p id="paperListDescription">Available papers</p>
+    </div>
+
+    <div id="paperList" class="paper-list"></div>
 
 </section>
 
@@ -2696,8 +2877,9 @@ function activateNav(pageId){
 
         home:0,
         grades:1,
-        about:2,
-        support:3
+        papers:2,
+        about:3,
+        support:4
 
     };
 
@@ -2725,6 +2907,158 @@ let currentGrade = null;
 
 let currentSubject = null;
 let currentStream = null;
+let currentPaperGrade = null;
+let currentPaperTerm = null;
+
+
+/* =========================================================
+   PAPERS DATA
+========================================================= */
+
+const paperTerms = [
+    {id:1, name:"1st Term", icon:"1️⃣", className:"paper-term-1"},
+    {id:2, name:"2nd Term", icon:"2️⃣", className:"paper-term-2"},
+    {id:3, name:"3rd Term", icon:"3️⃣", className:"paper-term-3"}
+];
+
+/*
+   Add papers here later.
+   Example:
+   6: {
+       1: [
+           {title:"Mathematics - 1st Term Paper", url:"https://..."}
+       ]
+   }
+*/
+const papersData = {};
+
+
+/* =========================================================
+   PAPERS NAVIGATION
+========================================================= */
+
+window.openPapers = function(){
+
+    currentPaperGrade = null;
+    currentPaperTerm = null;
+
+    const grid = document.getElementById("papersGradeGrid");
+    grid.innerHTML = "";
+
+    for(let grade=6; grade<=13; grade++){
+
+        const card = document.createElement("div");
+        card.className = `paper-grade-card paper-g${grade}`;
+        card.onclick = ()=>openPaperGrade(grade);
+
+        card.innerHTML = `
+            <div class="paper-icon">🎓</div>
+            <h3>Grade ${grade}</h3>
+            <p>Choose term papers</p>
+        `;
+
+        grid.appendChild(card);
+    }
+
+    showPage("papers");
+    activateNav("papers");
+};
+
+window.openPaperGrade = function(grade){
+
+    currentPaperGrade = grade;
+    currentPaperTerm = null;
+
+    document.getElementById("paperTermTitle").textContent =
+        `📄 Grade ${grade} - Select Term`;
+
+    const grid = document.getElementById("paperTermGrid");
+    grid.innerHTML = "";
+
+    paperTerms.forEach(term=>{
+
+        const card = document.createElement("div");
+        card.className = `paper-term-card ${term.className}`;
+        card.onclick = ()=>openPaperTerm(grade,term.id);
+
+        card.innerHTML = `
+            <div class="paper-icon">${term.icon}</div>
+            <h3>${term.name}</h3>
+            <p>Grade ${grade} papers</p>
+        `;
+
+        grid.appendChild(card);
+    });
+
+    showPage("paperTerms");
+    activateNav("papers");
+};
+
+window.openPaperTerm = function(grade,term){
+
+    currentPaperGrade = grade;
+    currentPaperTerm = term;
+
+    const termInfo = paperTerms.find(t=>t.id === term);
+    const termName = termInfo ? termInfo.name : `Term ${term}`;
+    const papers = (papersData[grade] && papersData[grade][term]) || [];
+
+    document.getElementById("paperListTitle").textContent =
+        `📄 Grade ${grade} - ${termName}`;
+
+    document.getElementById("paperListDescription").textContent =
+        `Available ${termName.toLowerCase()} papers`;
+
+    const list = document.getElementById("paperList");
+    list.innerHTML = "";
+
+    if(papers.length === 0){
+
+        list.innerHTML = `
+            <div class="no-results">
+                <h3>📚 Papers will be added soon</h3>
+                <p>
+                    Grade ${grade} ${termName} papers are not added yet.
+                </p>
+            </div>
+        `;
+
+    }else{
+
+        papers.forEach((paper,index)=>{
+            const item = document.createElement("div");
+            item.className = "paper-item";
+
+            item.innerHTML = `
+                <h3>📑 ${paper.title || `Paper ${index+1}`}</h3>
+                <p>Grade ${grade} • ${termName}</p>
+                <a
+                    class="paper-open-btn"
+                    href="${paper.url}"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    📖 Open Paper
+                </a>
+            `;
+
+            list.appendChild(item);
+        });
+    }
+
+    showPage("paperListPage");
+    activateNav("papers");
+};
+
+window.backToPaperTerms = function(){
+
+    if(currentPaperGrade){
+        openPaperGrade(currentPaperGrade);
+    }else{
+        openPapers();
+    }
+};
+
+
 
 
 window.openGrade = function(grade){
