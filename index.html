@@ -254,6 +254,43 @@ for(let g=8;g<=11;g++){extraPaperData[g]={};for(let t=1;t<=3;t++){extraPaperData
 for(const g of Object.keys(extraPaperData))for(const t of Object.keys(extraPaperData[g]))for(const s of Object.keys(extraPaperData[g][t]))extraPaperData[g][t][s]=ensureFive(Number(g),t,s,extraPaperData[g][t][s]);
 for(const g of Object.keys(extraPaperData)) papersData[g]=Object.assign(papersData[g]||{},extraPaperData[g]);
 
+// ===== Sinhala + Science + ICT paper completion =====
+const subjectCollectionLinks={
+6:{Sinhala:'https://pastpapers.wiki/grade-06-sinhala-term-test-papers/',Science:'https://pastpapers.wiki/grade-06-science-term-test-papers-sinhala-medium/',ICT:'https://pastpapers.wiki/grade-06-ict-term-test-papers-sinhala-medium/'},
+7:{Sinhala:'https://pastpapers.wiki/grade-07-sinhala-term-test-papers/',Science:'https://pastpapers.wiki/grade-07-science-term-test-papers-sinhala-medium/',ICT:'https://pastpapers.wiki/grade-07-ict-term-test-papers-sinhala-medium/'},
+8:{Sinhala:'https://pastpapers.wiki/grade-08-sinhala-term-test-papers-sinhala-medium/',Science:'https://pastpapers.wiki/category/term-test-papers/grade-08-term-test-papers/grade-08-science-term-test-papers/',ICT:'https://pastpapers.wiki/grade-08-ict-term-test-papers-sinhala-medium/'},
+9:{Sinhala:'https://pastpapers.wiki/grade-09-sinhala-language-term-test-papers/',Science:'https://pastpapers.wiki/category/term-test-papers/grade-09-term-test-papers/grade-09-science-term-test-papers/',ICT:'https://pastpapers.wiki/grade-09-ict-term-test-papers-sinhala-medium/'},
+10:{Sinhala:'https://pastpapers.wiki/grade-10-sinhala-term-test-papers/',Science:'https://pastpapers.wiki/category/term-test-papers/grade-10-term-test-papers/grade-10-science-term-test-papers/',ICT:'https://pastpapers.wiki/grade-10-ict-term-test-papers-english-medium/'},
+11:{Sinhala:'https://pastpapers.wiki/grade-11-sinhala-term-test-papers/',Science:'https://pastpapers.wiki/category/term-test-papers/grade-11-term-test-papers/grade-11-science-term-test-papers/',ICT:'https://pastpapers.wiki/grade-11-ict-term-test-papers-english-medium/'}
+};
+
+// Make sure Sinhala and Science have 5 clickable entries for every grade/term.
+for(let g=6;g<=11;g++){
+  papersData[g]=papersData[g]||{};
+  for(let t=1;t<=3;t++){
+    papersData[g][t]=papersData[g][t]||{};
+    for(const sub of ['Sinhala','Science']){
+      const arr=papersData[g][t][sub]||[];
+      while(arr.length<5) arr.push([`${sub} Paper ${arr.length+1} – collection`,subjectCollectionLinks[g][sub]]);
+      papersData[g][t][sub]=arr.slice(0,5);
+    }
+  }
+}
+
+// ICT: add the papers available on the subject pages; when fewer than 5 are listed,
+// keep the subject collection page as a useful fallback (never invent a paper URL).
+for(let g=6;g<=11;g++){
+  for(let t=1;t<=3;t++){
+    const arr=(papersData[g][t].ICT||[]);
+    if(!arr.length){
+      papersData[g][t].ICT=[
+        [`ICT – ${t===1?'1st':t===2?'2nd':'3rd'} Term Collection`,subjectCollectionLinks[g].ICT]
+      ];
+    }
+    papersData[g][t].ICT=papersData[g][t].ICT.slice(0,5);
+  }
+}
+
 </script>
 </body>
 </html>
