@@ -43,6 +43,11 @@ main{max-width:1400px;margin:auto;padding:30px 22px 60px}.page{display:none;anim
 footer{background:#0f172a;color:#fff;text-align:center;padding:28px 20px}.creator{color:#a5b4fc;font-weight:700}
 @media(max-width:850px){.navbar{justify-content:center}.logo{width:100%;text-align:center;margin:0}.search-box{margin:0;width:100%}.search-box input{width:100%}.hero{padding:50px 28px}.video-grid{grid-template-columns:1fr}}
 @media(max-width:500px){main{padding:20px 14px 50px}.nav-links{justify-content:center}.nav-btn{padding:8px 10px;font-size:13px}.hero{border-radius:22px;padding:40px 22px}.hero h1{font-size:38px}.video-grid{grid-template-columns:1fr}}
+
+.study-pack-card{min-height:175px;border-radius:22px;padding:25px;color:#fff;cursor:pointer;position:relative;overflow:hidden;transition:.3s;box-shadow:0 15px 30px rgba(15,23,42,.12);background:linear-gradient(135deg,#0f766e,#06b6d4)}
+.study-pack-card:hover{transform:translateY(-7px) scale(1.015);box-shadow:0 25px 45px rgba(15,23,42,.17)}
+.study-pack-card h3{font-size:22px;margin:8px 0}.study-pack-card p{opacity:.94}.study-pack-open{display:block;margin-top:14px;padding:10px 14px;border-radius:12px;background:#ffffff2b;color:#fff;font-weight:700;text-align:center;border:1px solid #ffffff55}
+.pack-g6{background:linear-gradient(135deg,#2563eb,#38bdf8)}.pack-g7{background:linear-gradient(135deg,#7c3aed,#c084fc)}.pack-g8{background:linear-gradient(135deg,#db2777,#fb7185)}.pack-g9{background:linear-gradient(135deg,#059669,#34d399)}.pack-g10{background:linear-gradient(135deg,#ea580c,#fbbf24)}.pack-g11{background:linear-gradient(135deg,#0891b2,#22d3ee)}.pack-g12{background:linear-gradient(135deg,#4338ca,#818cf8)}.pack-g13{background:linear-gradient(135deg,#be123c,#fb7185)}
 </style>
 </head>
 <body>
@@ -51,7 +56,7 @@ footer{background:#0f172a;color:#fff;text-align:center;padding:28px 20px}.creato
 <div class="nav-links">
 <button class="nav-btn active" onclick="showPage('home',this)">🏠 Home</button>
 <button class="nav-btn" onclick="showPage('grades',this)">🎓 Grades</button>
-<button class="nav-btn" onclick="openPapers()">📄 Papers</button><button class="nav-btn" onclick="openShortNotes()">📝 Short Notes</button>
+<button class="nav-btn" onclick="openPapers()">📄 Papers</button><button class="nav-btn" onclick="openShortNotes()">📝 Short Notes</button><button class="nav-btn" onclick="openStudyPacks()">🎒 Study Packs</button>
 <button class="nav-btn" onclick="showPage('about',this)">ℹ️ About</button>
 <button class="nav-btn" onclick="showPage('support',this)">💬 Support</button>
 </div>
@@ -95,6 +100,8 @@ footer{background:#0f172a;color:#fff;text-align:center;padding:28px 20px}.creato
 <section id="searchPage" class="page"><div class="page-heading"><h1>🔎 Search Results</h1><p id="searchText">Search results</p></div><div id="searchResults" class="search-results"></div></section>
 <section id="shortNotes" class="page"><div class="page-heading"><h1>📝 Short Notes</h1><p>Grade → Subject → Official e-Thaksalawa learning materials.</p></div><div id="notesGradeGrid" class="notes-grid"></div><div class="notes-info">📚 These links open official e-Thaksalawa course pages/searches. e-Thaksalawa provides curriculum-aligned learning content for Grades 1–13. citeturn0search8turn0search0</div></section>
 <section id="notesSubjects" class="page"><button class="back-btn" onclick="openShortNotes()">← Back to Grades</button><div class="page-heading"><h1 id="notesSubjectsTitle">📝 Short Notes</h1><p>Select a subject to open the official learning materials.</p></div><div id="notesSubjectGrid" class="notes-grid"></div></section>
+<section id="studyPacks" class="page"><div class="page-heading"><h1>🎒 Study Packs</h1><p>Grade → Subject → Official e-Thaksalawa study materials.</p></div><div id="packsGradeGrid" class="notes-grid"></div><div class="notes-info">📚 Study Pack buttons open official e-Thaksalawa learning materials/search pages. Links are intended as subject study resources, not as hosted files on EduLearn.</div></section>
+<section id="packsSubjects" class="page"><button class="back-btn" onclick="openStudyPacks()">← Back to Grades</button><div class="page-heading"><h1 id="packsSubjectsTitle">🎒 Study Packs</h1><p>Select a subject to open the study pack.</p></div><div id="packsSubjectGrid" class="notes-grid"></div></section>
 <section id="about" class="page"><div class="page-heading"><h1>ℹ️ About EduLearn</h1><p>Learn anywhere. Learn anytime.</p></div><div class="info-card"><h2>📚 What is EduLearn?</h2><p>EduLearn is an online educational platform designed to help students access useful learning videos organized by grade and subject.</p><p>Students can select their grade, choose a subject, and watch available lessons through YouTube.</p></div></section>
 <section id="support" class="page"><div class="page-heading"><h1>💬 Support</h1><p>Need help using EduLearn?</p></div><div class="support-grid"><div class="support-card"><div class="icon">🎓</div><h3>Choose Your Grade</h3><p>Open Grades and select your grade.</p></div><div class="support-card"><div class="icon">📚</div><h3>Select Subject</h3><p>Choose the subject you want.</p></div><div class="support-card"><div class="icon">▶️</div><h3>Watch Videos</h3><p>Watch lessons through YouTube.</p></div><div class="support-card"><div class="icon">🔐</div><h3>Account</h3><p>Create an account or sign in.</p></div></div></section>
 </main>
@@ -223,6 +230,20 @@ window.openPaperGrade=g=>{currentPaperGrade=g;const grid=document.getElementById
 window.openPaperTerm=(g,t)=>{currentPaperGrade=g;currentPaperTerm=t;const n=paperTerms.find(x=>x[0]===t)[1],grid=document.getElementById("paperSubjectGrid");grid.innerHTML="";document.getElementById("paperSubjectsTitle").textContent=`📚 Grade ${g} - ${n}`;const subs=Object.keys((papersData[g]||{})[t]||{});if(!subs.length)grid.innerHTML=`<div class="no-results"><h3>📚 Papers will be added soon</h3></div>`;else subs.forEach(s=>{const c=document.createElement("div");c.className="paper-card paper-subject";c.onclick=()=>openPaperSubject(g,t,s);c.innerHTML=`<div class="paper-icon">📚</div><h3>${s}</h3><p>Open ${n} papers</p>`;grid.appendChild(c)});showPage("paperSubjects");activateNav("papers")};
 window.openPaperSubject=(g,t,s)=>{const n=paperTerms.find(x=>x[0]===t)[1],list=document.getElementById("paperList");document.getElementById("paperListTitle").textContent=`📄 Grade ${g} - ${s} - ${n}`;list.innerHTML="";((papersData[g]||{})[t]?.[s]||[]).forEach((p,i)=>{const d=document.createElement("div");d.className="paper-item";d.innerHTML=`<div><h3>📑 Paper ${i+1}</h3><p>${p[0]}</p></div><a class="paper-open-btn" href="${p[1]}" target="_blank" rel="noopener noreferrer">🔗 Open Paper</a>`;list.appendChild(d)});showPage("paperListPage");activateNav("papers")};
 
+const studyPackSubjects={
+  6:[['Mathematics','📐'],['Science','🔬'],['Sinhala','📖'],['English','🇬🇧'],['History','🏛️'],['ICT','💻']],
+  7:[['Mathematics','📐'],['Science','🔬'],['Sinhala','📖'],['English','🇬🇧'],['History','🏛️'],['ICT','💻']],
+  8:[['Mathematics','📐'],['Science','🔬'],['Sinhala','📖'],['English','🇬🇧'],['History','🏛️'],['ICT','💻']],
+  9:[['Mathematics','📐'],['Science','🔬'],['Sinhala','📖'],['English','🇬🇧'],['History','🏛️'],['ICT','💻']],
+  10:[['Mathematics','📐'],['Science','🔬'],['English','🇬🇧'],['History','🏛️'],['Business Studies & Accounting','💼'],['ICT','💻'],['Geography','🌍']],
+  11:[['Mathematics','📐'],['Science','🔬'],['Sinhala','📖'],['English','🇬🇧'],['History','🏛️'],['Business Studies & Accounting','💼'],['ICT','💻'],['Geography','🌍']],
+  12:[['Physics','⚛️'],['Chemistry','🧪'],['Biology','🧬'],['Combined Maths','📐'],['ICT','💻'],['Accounting','🧾'],['Business Studies','💼'],['Economics','📊'],['Geography','🌍'],['History','🏛️'],['Political Science','🏛️'],['Logic & Scientific Method','🧠'],['Art','🎨'],['Agricultural Science','🌱'],['Home Economics','🏠'],['Communication & Media Studies','🎙️']],
+  13:[['Physics','⚛️'],['Chemistry','🧪'],['Biology','🧬'],['Combined Maths','📐'],['ICT','💻'],['Accounting','🧾'],['Business Studies','💼'],['Economics','📊'],['Geography','🌍'],['History','🏛️'],['Political Science','🏛️'],['Logic & Scientific Method','🧠'],['Art','🎨'],['Agricultural Science','🌱'],['Home Economics','🏠'],['Communication & Media Studies','🎙️']]
+};
+function studyPackUrl(subject,grade){return `https://e-thaksalawa.moe.gov.lk/lcms/course/search.php?search=${encodeURIComponent(subject+' Grade '+grade)}`;}
+window.openStudyPacks=()=>{const grid=document.getElementById('packsGradeGrid');grid.innerHTML='';for(let g=6;g<=13;g++){const c=document.createElement('div');c.className=`study-pack-card pack-g${g}`;c.onclick=()=>openStudyPackGrade(g);c.innerHTML=`<div class="notes-icon">🎓</div><h3>Grade ${g}</h3><p>Subject Study Packs</p>`;grid.appendChild(c)}showPage('studyPacks');activateNav('studyPacks')};
+window.openStudyPackGrade=(g)=>{const grid=document.getElementById('packsSubjectGrid');grid.innerHTML='';document.getElementById('packsSubjectsTitle').textContent=`🎒 Grade ${g} - Study Packs`;(studyPackSubjects[g]||[]).forEach(([s,ic])=>{const c=document.createElement('div');c.className='study-pack-card';const url=studyPackUrl(s,g);c.innerHTML=`<div class="notes-icon">${ic}</div><h3>${s}</h3><p>Official e-Thaksalawa learning materials</p><a class="study-pack-open" href="${url}" target="_blank" rel="noopener noreferrer">📚 Open Study Pack</a>`;grid.appendChild(c)});showPage('packsSubjects');activateNav('studyPacks')};
+
 const notesSubjects={
   6:[['Mathematics','📐','notes-math'],['Science','🔬','notes-science'],['Sinhala','📖','notes-sinhala'],['English','🇬🇧','notes-english'],['History','🏛️','notes-history'],['ICT','💻','notes-ict']],
   7:[['Mathematics','📐','notes-math'],['Science','🔬','notes-science'],['Sinhala','📖','notes-sinhala'],['English','🇬🇧','notes-english'],['History','🏛️','notes-history'],['ICT','💻','notes-ict']],
@@ -259,7 +280,7 @@ window.openNotesGrade=(g)=>{
   showPage('notesSubjects'); activateNav('shortNotes');
 };
 
-function activateNav(id){const m={home:0,grades:1,papers:2,shortNotes:3,about:4,support:5},b=document.querySelectorAll(".nav-btn");b.forEach(x=>x.classList.remove("active"));if(m[id]!=null)b[m[id]]?.classList.add("active")}
+function activateNav(id){const m={home:0,grades:1,papers:2,shortNotes:3,studyPacks:4,about:5,support:6},b=document.querySelectorAll(".nav-btn");b.forEach(x=>x.classList.remove("active"));if(m[id]!=null)b[m[id]]?.classList.add("active")}
 window.showPage=(id,btn=null)=>{document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));document.getElementById(id)?.classList.add("active");document.querySelectorAll(".nav-btn").forEach(b=>b.classList.remove("active"));if(btn)btn.classList.add("active");window.scrollTo({top:0,behavior:"smooth"})};
 
 function getSubjectData(s,g){let a=[];if(s==="Science")a=scienceVideos.filter(x=>x.grade===g);if(s==="Mathematics")a=mathPlaylists.filter(x=>x.grade===g);if(s==="History")a=historyVideos.filter(x=>x.grade===g);if(s==="Sinhala")a=sinhalaVideos.filter(x=>x.grade===g);if(s==="ICT")a=ictPlaylists.filter(x=>x.grade===g);if(s==="English")a=[...englishPlaylists,...englishVideos].filter(x=>x.grade===g);return a}
