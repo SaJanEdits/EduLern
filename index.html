@@ -109,7 +109,7 @@ footer{background:#0f172a;color:#fff;text-align:center;padding:28px 20px}.creato
 <section id="studyPacks" class="page"><div class="page-heading"><h1>🎒 Study Packs</h1><p>Grade → Subject → Official e-Thaksalawa study materials.</p></div><div id="packsGradeGrid" class="notes-grid"></div><div class="notes-info">📚 Study Pack buttons open official e-Thaksalawa learning materials/search pages. Links are intended as subject study resources, not as hosted files on EduLearn.</div></section>
 <section id="packsSubjects" class="page"><button class="back-btn" onclick="openStudyPacks()">← Back to Grades</button><div class="page-heading"><h1 id="packsSubjectsTitle">🎒 Study Packs</h1><p>Select a subject to open the study pack.</p></div><div id="packsSubjectGrid" class="notes-grid"></div></section>
 <section id="dashboard" class="page"><div class="page-heading"><h1>📊 Student Dashboard</h1><p id="dashboardWelcome">Your learning progress in one place.</p></div><div class="dash-grid"><div class="dash-card"><div class="dash-icon">⭐</div><h3 id="dashPoints">0</h3><p>Quiz Points</p></div><div class="dash-card"><div class="dash-icon">📝</div><h3 id="dashQuizCount">0</h3><p>Quizzes Taken</p></div><div class="dash-card"><div class="dash-icon">🔖</div><h3 id="dashSaved">0</h3><p>Saved Items</p></div><div class="dash-card"><div class="dash-icon">📈</div><h3 id="dashProgress">0%</h3><p>Progress</p></div></div><div class="dashboard-panels"><div class="dash-panel"><h2>🏆 Achievements</h2><div id="achievementsBox" class="achievement-list"></div></div><div class="dash-panel"><h2>🔖 My Saved</h2><div id="savedBox" class="saved-list"></div></div></div><div class="dash-panel"><h2>📢 Latest Announcements</h2><div id="announcementBox" class="announcement-list"></div></div></section>
-<section id="quiz" class="page"><div class="page-heading"><h1>🧠 Online Quizzes</h1><p>Choose a subject and test your knowledge.</p></div><div id="quizChooser" class="quiz-grid"></div><div id="quizArea" style="display:none"></div></section>
+<section id="quiz" class="page"><div class="page-heading"><h1>🧠 Online Quizzes</h1><p>Grade එක තෝරලා සිංහල + English practice questions කරන්න.</p></div><div id="quizChooser" class="quiz-grid"></div><div id="quizArea" style="display:none"></div></section>
 <section id="aiAssistant" class="page"><div class="page-heading"><h1>🤖 EduLearn AI Assistant</h1><p>Ask questions, get explanations, summaries, quizzes and study plans.</p></div><div class="ai-shell"><div id="aiMessages" class="ai-messages"><div class="ai-msg ai-bot"><b>🤖 EduLearn AI</b><br>Hi! මට Grade, Subject, lesson එකක් ගැන අහන්න. මට explanation, summary, quiz questions සහ study plans හදලා දෙන්න පුළුවන්.</div></div><div class="ai-tools"><button onclick="aiQuick('Explain this topic simply for a school student.')">💡 Explain</button><button onclick="aiQuick('Give me a short summary with key points.')">📝 Summary</button><button onclick="aiQuick('Create 5 MCQ questions and answers.')">🧠 Make Quiz</button><button onclick="aiQuick('Create a 7-day study plan for this topic.')">📅 Study Plan</button></div><div class="ai-input-row"><textarea id="aiInput" rows="2" placeholder="Ask EduLearn AI anything..."></textarea><button onclick="sendAI()">➤ Send</button></div><p class="ai-status" id="aiStatus"></p></div></section>
 <section id="planner" class="page"><div class="page-heading"><h1>📅 Study Planner</h1><p>Create your daily study tasks and track them.</p></div><div class="planner-form"><input id="planTask" placeholder="e.g. Grade 10 Maths - Algebra"><input id="planDate" type="date"><select id="planType"><option>📚 Study</option><option>📝 Paper</option><option>🧠 Quiz</option><option>▶️ Video</option></select><button onclick="addPlanTask()">➕ Add Task</button></div><div id="plannerList" class="planner-list"></div></section>
 <section id="favorites" class="page"><div class="page-heading"><h1>🔖 My Saved Items</h1><p>Save useful resources for later.</p></div><div id="favoritesList" class="saved-list"></div></section>
@@ -297,35 +297,71 @@ window.openNotesGrade=(g)=>{
 
 
 const quizBank={
-  'Mathematics':[
-    ['What is 25% of 200?',['25','40','50','75'],2],
-    ['If x + 7 = 15, what is x?',['6','7','8','9'],2],
-    ['What is the area of a rectangle 8 cm × 5 cm?',['13 cm²','26 cm²','40 cm²','80 cm²'],2]
+  'Grade 6':[
+    ['ගණිතය: 3/4 ට සමාන භාගය කුමක්ද?',['1/2','6/8','2/3','4/5'],1],
+    ['විද්‍යාව: ශාක ප්‍රභාසංස්ලේෂණයේදී ප්‍රධාන වශයෙන් භාවිතා කරන වායුව කුමක්ද?',['ඔක්සිජන්','නයිට්‍රජන්','කාබන් ඩයොක්සයිඩ්','හයිඩ්‍රජන්'],2],
+    ['සිංහල: “දුවයි” යන වචනය අයත් වන්නේ කුමන පද වර්ගයටද?',['නාම පද','ක්‍රියා පද','විශේෂණ පද','නිපාත'],1],
+    ['English: What is the plural of “child”?',['Childs','Childes','Children','Childrens'],2],
+    ['ඉතිහාසය: ශ්‍රී ලංකාවේ පුරාණ රාජධානියක් වූයේ කුමක්ද?',['අනුරාධපුරය','ගාල්ල','කොළඹ','මීගමුව'],0],
+    ['ICT: Which device is mainly used to enter text into a computer?',['Monitor','Keyboard','Speaker','Projector'],1]
   ],
-  'Science':[
-    ['Which organ pumps blood around the body?',['Lung','Heart','Kidney','Brain'],1],
-    ['What gas do plants mainly use in photosynthesis?',['Oxygen','Nitrogen','Carbon dioxide','Hydrogen'],2],
-    ['Which is a source of renewable energy?',['Coal','Solar energy','Petrol','Natural gas'],1]
+  'Grade 7':[
+    ['ගණිතය: 0.5 × 20 හි පිළිතුර කුමක්ද?',['5','10','15','20'],1],
+    ['විද්‍යාව: මිනිස් සිරුරේ රුධිරය පොම්ප කරන අවයවය කුමක්ද?',['පෙනහළු','හෘදය','වකුගඩු','මොළය'],1],
+    ['සිංහල: “ලස්සන මලක්” යන වාක්‍ය ඛණ්ඩයේ “ලස්සන” යනු?',['නාම පද','ක්‍රියා පද','විශේෂණ පද','සර්වනාම'],2],
+    ['English: Choose the correct sentence.',['She are happy.','She is happy.','She am happy.','She be happy.'],1],
+    ['ඉතිහාසය: සීගිරිය සම්බන්ධ ප්‍රසිද්ධ රජු කවුද?',['කාවන්තිස්ස','වලගම්බා','කසුප්','දුටුගැමුණු'],2],
+    ['ICT: Which one is an output device?',['Keyboard','Mouse','Monitor','Scanner'],2]
   ],
-  'English':[
-    ['Choose the correct plural of “child”.',['Childs','Childes','Children','Childrens'],2],
-    ['Which word is a verb?',['Beautiful','Quickly','Run','Blue'],2],
-    ['Choose the correct sentence.',['He are happy.','He is happy.','He am happy.','He be happy.'],1]
+  'Grade 8':[
+    ['ගණිතය: 25% of 200 = ?',['25','40','50','75'],2],
+    ['විද්‍යාව: බලය මැනීමට භාවිතා කරන SI ඒකකය කුමක්ද?',['Joule','Newton','Watt','Pascal'],1],
+    ['සිංහල: “ඔහු පාසලට යයි.” වාක්‍යයේ ක්‍රියා පදය කුමක්ද?',['ඔහු','පාසලට','යයි','පාසල'],2],
+    ['English: Which word is a verb?',['Beautiful','Quickly','Run','Blue'],2],
+    ['ඉතිහාසය: පොළොන්නරු රාජධානියේ ප්‍රසිද්ධ රජෙකු කවුද?',['පරාක්‍රමබාහු I','ශ්‍රී වික්‍රම රාජසිංහ','කීර්ති ශ්‍රී','භාතිය'],0],
+    ['ICT: What does URL identify?',['A web address','A printer','A keyboard','A file type'],0]
   ],
-  'History':[
-    ['Which ancient civilization built Sigiriya?',['Anuradhapura Kingdom','Polonnaruwa Kingdom','Kandy Kingdom','Dambadeniya Kingdom'],0],
-    ['Sri Lanka gained independence in which year?',['1945','1948','1950','1952'],1],
-    ['Which city was an ancient capital of Sri Lanka?',['Anuradhapura','Galle','Colombo','Jaffna'],0]
+  'Grade 9':[
+    ['ගණිතය: x + 7 = 15 නම් x කීයද?',['6','7','8','9'],2],
+    ['විද්‍යාව: ජලය 100°C දී සාමාන්‍ය වායුගෝලීය පීඩනය යටතේ කුමක් කරයිද?',['දියවෙයි','උණු වී වාෂ්ප වේ','ඝන වේ','වර්ණය වෙනස් වේ'],1],
+    ['සිංහල: “මම පොත කියවමි.” වාක්‍යයේ සර්වනාමය කුමක්ද?',['මම','පොත','කියවමි','කිසිවක් නැත'],0],
+    ['English: What is the past tense of “go”?',['Goed','Gone','Went','Going'],2],
+    ['ඉතිහාසය: ශ්‍රී ලංකාව නිදහස ලබාගත්තේ කුමන වර්ෂයේද?',['1945','1948','1950','1952'],1],
+    ['ICT: Which language is used to structure a web page?',['HTML','CSS','SQL','Python'],0]
   ],
-  'ICT':[
-    ['What does CPU stand for?',['Central Processing Unit','Computer Personal Unit','Central Program Utility','Control Processing User'],0],
-    ['Which is an input device?',['Monitor','Printer','Keyboard','Speaker'],2],
-    ['Which language is mainly used to structure web pages?',['HTML','CSS','SQL','Python'],0]
+  'Grade 10':[
+    ['ගණිතය: 2x = 18 නම් x කීයද?',['6','8','9','12'],2],
+    ['විද්‍යාව: විදුලි ධාරාව මැනීමට භාවිතා කරන ඒකකය කුමක්ද?',['Volt','Ampere','Ohm','Watt'],1],
+    ['සිංහල: “වේගයෙන් දිව යයි.” යන්නෙහි “වේගයෙන්” යනු කුමන පද වර්ගයට අයත්ද?',['නාම පද','ක්‍රියා විශේෂණ','සර්වනාම','නිපාත'],1],
+    ['English: Choose the passive form: “They built the house.”',['The house built them.','The house was built by them.','The house is building them.','They were built by the house.'],1],
+    ['ඉතිහාසය: ශ්‍රී ලංකාවේ පෘතුගීසි ආක්‍රමණයට පෙර පැවති රාජධානියක් කුමක්ද?',['කෝට්ටේ','රෝමය','ඊජිප්තුව','මැසිඩෝනියාව'],0],
+    ['ICT: What does CPU stand for?',['Central Processing Unit','Computer Personal Unit','Central Program Utility','Control Processing User'],0]
   ],
-  'Sinhala':[
-    ['“ගස” යන වචනය අයත් වන්නේ කුමන වර්ගයටද?',['නාම පද','ක්‍රියා පද','විශේෂණ පද','නිපාත'],0],
-    ['“දුවයි” යන්න කුමන පද වර්ගයක්ද?',['නාම පද','ක්‍රියා පද','සර්වනාම','විශේෂණ'],1],
-    ['“ලස්සන” යන්නට ආසන්න අර්ථයක් ඇත්තේ?',['අලංකාර','කැත','විශාල','වේගවත්'],0]
+  'Grade 11':[
+    ['ගණිතය: y = 2x + 3 හි x = 4 නම් y කීයද?',['7','9','11','12'],2],
+    ['විද්‍යාව: Ohm නියමයට අනුව V = ?',['IR','I/R','R/I','I+R'],0],
+    ['සිංහල: “ගුරුවරයා සිසුන්ට පාඩම කියා දුන්නේය.” මෙහි කර්තෘ කවුද?',['සිසුන්','පාඩම','ගුරුවරයා','කියා දුන්නේය'],2],
+    ['English: Which is a synonym for “rapid”?',['Slow','Fast','Weak','Late'],1],
+    ['ඉතිහාසය: ශ්‍රී ලංකාව ජනරජයක් බවට පත්වූයේ කුමන වර්ෂයේද?',['1948','1956','1972','1978'],2],
+    ['ICT: Which SQL command is commonly used to retrieve data?',['SELECT','DELETE','DROP','INSERT'],0]
+  ],
+  'Grade 12':[
+    ['Combined Maths: If f(x)=2x+1, what is f(3)?',['5','6','7','8'],2],
+    ['Physics: What is the SI unit of force?',['Joule','Newton','Watt','Pascal'],1],
+    ['Chemistry: Atomic number represents the number of what in a neutral atom?',['Neutrons','Protons','Nuclei','Shells'],1],
+    ['Biology: Which organelle is mainly responsible for photosynthesis?',['Mitochondrion','Nucleus','Chloroplast','Ribosome'],2],
+    ['Commerce: Which document is commonly issued when goods are sold on credit?',['Invoice','Receipt','Cheque','Passbook'],0],
+    ['ICT: Which data structure follows FIFO?',['Stack','Queue','Tree','Graph'],1],
+    ['සිංහල: “සාහිත්‍යය” යන්නෙහි ප්‍රධාන අරමුණක් වන්නේ?',['අර්ථවත් කලාත්මක ප්‍රකාශනය','ගණනය කිරීම','දත්ත සමුදාය සැකසීම','විදුලි මිනුම්'],0]
+  ],
+  'Grade 13':[
+    ['Combined Maths: The derivative of x² is?',['x','2x','x²','2'],1],
+    ['Physics: Which quantity is measured in joules?',['Force','Energy','Power','Current'],1],
+    ['Chemistry: A solution with pH 7 at 25°C is generally?',['Acidic','Neutral','Basic','Oxidizing'],1],
+    ['Biology: DNA is mainly located in which cell structure of eukaryotes?',['Cell wall','Nucleus','Vacuole','Golgi body'],1],
+    ['Economics: Inflation generally refers to?',['A sustained rise in the general price level','A fall in all prices','An increase in exports only','A fall in population'],0],
+    ['Art: Which element refers to the lightness or darkness of a colour?',['Texture','Value','Shape','Space'],1],
+    ['Technology: What is the main purpose of a sensor in an automated system?',['To detect a physical condition','To print documents','To store music','To draw images'],0]
   ]
 };
 let currentQuiz=null,quizIndex=0,quizScore=0;
@@ -334,7 +370,7 @@ function getState(){try{return JSON.parse(localStorage.getItem(storeKey)||'{"poi
 function saveState(st){localStorage.setItem(storeKey,JSON.stringify(st));updateDashboard()}
 function updateDashboard(){const st=getState();document.getElementById('dashPoints').textContent=st.points||0;document.getElementById('dashQuizCount').textContent=st.quizzes||0;document.getElementById('dashSaved').textContent=(st.saved||[]).length;document.getElementById('dashProgress').textContent=Math.min(100,Number(st.progress||0))+'%';const u=window.currentUser;document.getElementById('dashboardWelcome').textContent=u?`Welcome, ${u.email}. Keep learning!`:'Sign in to connect your account; your demo progress is saved in this browser.';const ach=document.getElementById('achievementsBox');const list=[['🌱 First Steps',(st.quizzes||0)>=1],['⭐ 10 Points',(st.points||0)>=10],['🔥 Quiz Explorer',(st.quizzes||0)>=3],['🔖 Saver',(st.saved||[]).length>=3],['🏆 50 Points',(st.points||0)>=50]];ach.innerHTML=list.map(x=>`<div class="achievement ${x[1]?'':'locked'}"><b>${x[0]}</b><span>${x[1]?'Unlocked':'Locked'}</span></div>`).join('');const saved=document.getElementById('savedBox');saved.innerHTML=(st.saved||[]).length?(st.saved||[]).slice(0,6).map((x,i)=>`<div class="saved-item">🔖 ${x.title}<br><small>${x.type||'Resource'}</small></div>`).join(''):'<div class="favorite-empty">No saved items yet.</div>';document.getElementById('announcementBox').innerHTML='<div class="announcement">🚀 EduLearn is growing — explore Papers, Short Notes, Study Packs, Quizzes and AI Assistant.</div><div class="announcement">🤖 Ask EduLearn AI to explain lessons, make quizzes or create a study plan.</div>';}
 window.openDashboard=()=>{updateDashboard();showPage('dashboard');activateNav('dashboard')};
-function renderQuizChooser(){const box=document.getElementById('quizChooser');box.innerHTML='';Object.entries(quizBank).forEach(([s,q])=>{const c=document.createElement('button');c.className='quiz-choice';c.onclick=()=>startQuiz(s);c.innerHTML=`<div style="font-size:34px">🧠</div><h3>${s}</h3><p>${q.length} practice questions</p>`;box.appendChild(c)})}
+function renderQuizChooser(){const box=document.getElementById('quizChooser');box.innerHTML='';Object.entries(quizBank).forEach(([g,q])=>{const c=document.createElement('button');c.className='quiz-choice';c.onclick=()=>startQuiz(g);c.innerHTML=`<div style="font-size:34px">🎓</div><h3>${g}</h3><p>${q.length} practice questions • සිංහල + English</p>`;box.appendChild(c)})}
 window.openQuiz=()=>{document.getElementById('quizArea').style.display='none';document.getElementById('quizChooser').style.display='grid';renderQuizChooser();showPage('quiz');activateNav('quiz')};
 function startQuiz(subject){currentQuiz=subject;quizIndex=0;quizScore=0;document.getElementById('quizChooser').style.display='none';document.getElementById('quizArea').style.display='block';renderQuizQuestion()}
 function renderQuizQuestion(){const q=quizBank[currentQuiz][quizIndex];document.getElementById('quizArea').innerHTML=`<div class="quiz-box"><button class="back-btn" onclick="openQuiz()">← Quiz Subjects</button><h2>🧠 ${currentQuiz} Quiz</h2><p>Question ${quizIndex+1} of ${quizBank[currentQuiz].length}</p><h3 style="margin:18px 0">${q[0]}</h3>${q[1].map((o,i)=>`<button class="quiz-option" onclick="answerQuiz(${i})">${String.fromCharCode(65+i)}. ${o}</button>`).join('')}</div>`}
