@@ -30,6 +30,8 @@ main{max-width:1400px;margin:auto;padding:30px 22px 60px}.page{display:none;anim
 .math,.paper-g9{background:linear-gradient(135deg,#2563eb,#4f46e5)}.science{background:linear-gradient(135deg,#059669,#10b981)}.ict{background:linear-gradient(135deg,#7c3aed,#a855f7)}.english{background:linear-gradient(135deg,#db2777,#ec4899)}.history{background:linear-gradient(135deg,#b45309,#f59e0b)}.sinhala{background:linear-gradient(135deg,#dc2626,#ef4444)}
 .g6,.paper-g6{background:linear-gradient(135deg,#2563eb,#38bdf8)}.g7,.paper-g7{background:linear-gradient(135deg,#7c3aed,#c084fc)}.g8,.paper-g8{background:linear-gradient(135deg,#db2777,#fb7185)}.g9{background:linear-gradient(135deg,#059669,#34d399)}.g10,.paper-g10{background:linear-gradient(135deg,#ea580c,#fbbf24)}.g11,.paper-g11{background:linear-gradient(135deg,#0891b2,#22d3ee)}.g12,.paper-g12{background:linear-gradient(135deg,#4338ca,#818cf8)}.g13,.paper-g13{background:linear-gradient(135deg,#be123c,#fb7185)}
 .paper-t1{background:linear-gradient(135deg,#2563eb,#60a5fa)}.paper-t2{background:linear-gradient(135deg,#7c3aed,#a78bfa)}.paper-t3{background:linear-gradient(135deg,#059669,#34d399)}.paper-subject{background:linear-gradient(135deg,#0f766e,#14b8a6)}
+
+.notes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}.notes-grade-card,.notes-subject-card{min-height:155px;border-radius:22px;padding:25px;color:#fff;cursor:pointer;position:relative;overflow:hidden;transition:.3s;box-shadow:0 15px 30px rgba(15,23,42,.12)}.notes-grade-card:hover,.notes-subject-card:hover{transform:translateY(-7px) scale(1.015);box-shadow:0 25px 45px rgba(15,23,42,.17)}.notes-grade-card h3,.notes-subject-card h3{font-size:23px;margin:8px 0}.notes-icon{font-size:38px;margin-bottom:12px}.notes-g6{background:linear-gradient(135deg,#2563eb,#38bdf8)}.notes-g7{background:linear-gradient(135deg,#7c3aed,#c084fc)}.notes-g8{background:linear-gradient(135deg,#db2777,#fb7185)}.notes-g9{background:linear-gradient(135deg,#059669,#34d399)}.notes-g10{background:linear-gradient(135deg,#ea580c,#fbbf24)}.notes-g11{background:linear-gradient(135deg,#0891b2,#22d3ee)}.notes-g12{background:linear-gradient(135deg,#4338ca,#818cf8)}.notes-g13{background:linear-gradient(135deg,#be123c,#fb7185)}.notes-math{background:linear-gradient(135deg,#2563eb,#4f46e5)}.notes-science{background:linear-gradient(135deg,#059669,#10b981)}.notes-ict{background:linear-gradient(135deg,#7c3aed,#a855f7)}.notes-english{background:linear-gradient(135deg,#db2777,#ec4899)}.notes-history{background:linear-gradient(135deg,#b45309,#f59e0b)}.notes-sinhala{background:linear-gradient(135deg,#dc2626,#ef4444)}.notes-al{background:linear-gradient(135deg,#0f766e,#14b8a6)}.notes-open{display:block;margin-top:14px;padding:10px 14px;border-radius:12px;background:#ffffff2b;color:#fff;font-weight:700;text-align:center;border:1px solid #ffffff55}.notes-info{margin-top:20px;padding:16px 18px;border-radius:16px;background:#ecfeff;border:1px solid #a5f3fc;color:#475569}
 .paper-item{background:#fff;border:1px solid #e2e8f0;border-radius:20px;padding:20px;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;box-shadow:0 10px 25px #0f172a0f}.paper-item p{margin:4px 0;color:#64748b}.paper-open-btn{display:inline-block;padding:11px 16px;border-radius:12px;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;font-weight:700}.paper-note,.al-note{margin-top:20px;padding:16px 18px;border-radius:16px;background:#eef2ff;border:1px solid #c7d2fe;color:#475569}
 .page-heading{padding:25px;background:#ffffffb8;border:1px solid #e2e8f0;border-radius:22px;margin-bottom:25px}.page-heading h1{font-size:34px;margin-bottom:6px}
 .back-btn{border:0;background:#fff;color:#475569;padding:11px 17px;border-radius:12px;font-weight:700;box-shadow:0 5px 15px #0f172a14;margin-bottom:20px}
@@ -49,7 +51,7 @@ footer{background:#0f172a;color:#fff;text-align:center;padding:28px 20px}.creato
 <div class="nav-links">
 <button class="nav-btn active" onclick="showPage('home',this)">🏠 Home</button>
 <button class="nav-btn" onclick="showPage('grades',this)">🎓 Grades</button>
-<button class="nav-btn" onclick="openPapers()">📄 Papers</button>
+<button class="nav-btn" onclick="openPapers()">📄 Papers</button><button class="nav-btn" onclick="openShortNotes()">📝 Short Notes</button>
 <button class="nav-btn" onclick="showPage('about',this)">ℹ️ About</button>
 <button class="nav-btn" onclick="showPage('support',this)">💬 Support</button>
 </div>
@@ -91,6 +93,8 @@ footer{background:#0f172a;color:#fff;text-align:center;padding:28px 20px}.creato
 <section id="streamSubjects" class="page"><button class="back-btn" onclick="backToGradeStreams()">← Back to Streams</button><div class="page-heading"><h1 id="streamSubjectTitle">📚 Stream</h1><p id="streamSubjectDescription">Select a subject.</p></div><div id="streamSubjectGrid" class="subject-grid"></div></section>
 <section id="videos" class="page"><button class="back-btn" onclick="backToGradeSubjects()">← Back</button><div class="page-heading"><h1 id="videoPageTitle">📺 Videos</h1><p id="videoPageDescription">Educational lessons</p></div><div id="videoGrid" class="video-grid"></div><div id="teacherBox"></div></section>
 <section id="searchPage" class="page"><div class="page-heading"><h1>🔎 Search Results</h1><p id="searchText">Search results</p></div><div id="searchResults" class="search-results"></div></section>
+<section id="shortNotes" class="page"><div class="page-heading"><h1>📝 Short Notes</h1><p>Grade → Subject → Official e-Thaksalawa learning materials.</p></div><div id="notesGradeGrid" class="notes-grid"></div><div class="notes-info">📚 These links open official e-Thaksalawa course pages/searches. e-Thaksalawa provides curriculum-aligned learning content for Grades 1–13. citeturn0search8turn0search0</div></section>
+<section id="notesSubjects" class="page"><button class="back-btn" onclick="openShortNotes()">← Back to Grades</button><div class="page-heading"><h1 id="notesSubjectsTitle">📝 Short Notes</h1><p>Select a subject to open the official learning materials.</p></div><div id="notesSubjectGrid" class="notes-grid"></div></section>
 <section id="about" class="page"><div class="page-heading"><h1>ℹ️ About EduLearn</h1><p>Learn anywhere. Learn anytime.</p></div><div class="info-card"><h2>📚 What is EduLearn?</h2><p>EduLearn is an online educational platform designed to help students access useful learning videos organized by grade and subject.</p><p>Students can select their grade, choose a subject, and watch available lessons through YouTube.</p></div></section>
 <section id="support" class="page"><div class="page-heading"><h1>💬 Support</h1><p>Need help using EduLearn?</p></div><div class="support-grid"><div class="support-card"><div class="icon">🎓</div><h3>Choose Your Grade</h3><p>Open Grades and select your grade.</p></div><div class="support-card"><div class="icon">📚</div><h3>Select Subject</h3><p>Choose the subject you want.</p></div><div class="support-card"><div class="icon">▶️</div><h3>Watch Videos</h3><p>Watch lessons through YouTube.</p></div><div class="support-card"><div class="icon">🔐</div><h3>Account</h3><p>Create an account or sign in.</p></div></div></section>
 </main>
@@ -219,7 +223,43 @@ window.openPaperGrade=g=>{currentPaperGrade=g;const grid=document.getElementById
 window.openPaperTerm=(g,t)=>{currentPaperGrade=g;currentPaperTerm=t;const n=paperTerms.find(x=>x[0]===t)[1],grid=document.getElementById("paperSubjectGrid");grid.innerHTML="";document.getElementById("paperSubjectsTitle").textContent=`📚 Grade ${g} - ${n}`;const subs=Object.keys((papersData[g]||{})[t]||{});if(!subs.length)grid.innerHTML=`<div class="no-results"><h3>📚 Papers will be added soon</h3></div>`;else subs.forEach(s=>{const c=document.createElement("div");c.className="paper-card paper-subject";c.onclick=()=>openPaperSubject(g,t,s);c.innerHTML=`<div class="paper-icon">📚</div><h3>${s}</h3><p>Open ${n} papers</p>`;grid.appendChild(c)});showPage("paperSubjects");activateNav("papers")};
 window.openPaperSubject=(g,t,s)=>{const n=paperTerms.find(x=>x[0]===t)[1],list=document.getElementById("paperList");document.getElementById("paperListTitle").textContent=`📄 Grade ${g} - ${s} - ${n}`;list.innerHTML="";((papersData[g]||{})[t]?.[s]||[]).forEach((p,i)=>{const d=document.createElement("div");d.className="paper-item";d.innerHTML=`<div><h3>📑 Paper ${i+1}</h3><p>${p[0]}</p></div><a class="paper-open-btn" href="${p[1]}" target="_blank" rel="noopener noreferrer">🔗 Open Paper</a>`;list.appendChild(d)});showPage("paperListPage");activateNav("papers")};
 
-function activateNav(id){const m={home:0,grades:1,papers:2,about:3,support:4},b=document.querySelectorAll(".nav-btn");b.forEach(x=>x.classList.remove("active"));if(m[id]!=null)b[m[id]]?.classList.add("active")}
+const notesSubjects={
+  6:[['Mathematics','📐','notes-math'],['Science','🔬','notes-science'],['Sinhala','📖','notes-sinhala'],['English','🇬🇧','notes-english'],['History','🏛️','notes-history'],['ICT','💻','notes-ict']],
+  7:[['Mathematics','📐','notes-math'],['Science','🔬','notes-science'],['Sinhala','📖','notes-sinhala'],['English','🇬🇧','notes-english'],['History','🏛️','notes-history'],['ICT','💻','notes-ict']],
+  8:[['Mathematics','📐','notes-math'],['Science','🔬','notes-science'],['Sinhala','📖','notes-sinhala'],['English','🇬🇧','notes-english'],['History','🏛️','notes-history'],['ICT','💻','notes-ict']],
+  9:[['Mathematics','📐','notes-math'],['Science','🔬','notes-science'],['Sinhala','📖','notes-sinhala'],['English','🇬🇧','notes-english'],['History','🏛️','notes-history'],['ICT','💻','notes-ict']],
+  10:[['Mathematics','📐','notes-math'],['Science','🔬','notes-science'],['Sinhala','📖','notes-sinhala'],['English','🇬🇧','notes-english'],['History','🏛️','notes-history'],['ICT','💻','notes-ict']],
+  11:[['Mathematics','📐','notes-math'],['Science','🔬','notes-science'],['Sinhala','📖','notes-sinhala'],['English','🇬🇧','notes-english'],['History','🏛️','notes-history'],['ICT','💻','notes-ict']],
+  12:[['Physics','⚛️','notes-science'],['Chemistry','🧪','notes-science'],['Biology','🧬','notes-science'],['Combined Maths','📐','notes-math'],['ICT','💻','notes-ict']],
+  13:[['Physics','⚛️','notes-science'],['Chemistry','🧪','notes-science'],['Biology','🧬','notes-science'],['Combined Maths','📐','notes-math'],['ICT','💻','notes-ict']]
+};
+function eThaksalawaSearch(subject,grade){
+  const q=encodeURIComponent(`${subject} Grade ${grade}`);
+  return `https://e-thaksalawa.moe.gov.lk/lcms/course/search.php?search=${q}`;
+}
+window.openShortNotes=()=>{
+  const grid=document.getElementById('notesGradeGrid'); grid.innerHTML='';
+  for(let g=6;g<=13;g++){
+    const c=document.createElement('div'); c.className=`notes-grade-card notes-g${g}`;
+    c.onclick=()=>openNotesGrade(g);
+    c.innerHTML=`<div class="notes-icon">🎓</div><h3>Grade ${g}</h3><p>Short Notes & Learning Materials</p>`;
+    grid.appendChild(c);
+  }
+  showPage('shortNotes'); activateNav('shortNotes');
+};
+window.openNotesGrade=(g)=>{
+  const grid=document.getElementById('notesSubjectGrid'); grid.innerHTML='';
+  document.getElementById('notesSubjectsTitle').textContent=`📝 Grade ${g} - Short Notes`;
+  (notesSubjects[g]||[]).forEach(([s,ic,cl])=>{
+    const c=document.createElement('div'); c.className=`notes-subject-card ${cl}`;
+    const url=eThaksalawaSearch(s,g);
+    c.innerHTML=`<div class="notes-icon">${ic}</div><h3>${s}</h3><p>Official e-Thaksalawa materials</p><a class="notes-open" href="${url}" target="_blank" rel="noopener noreferrer">🔗 Open Notes</a>`;
+    grid.appendChild(c);
+  });
+  showPage('notesSubjects'); activateNav('shortNotes');
+};
+
+function activateNav(id){const m={home:0,grades:1,papers:2,shortNotes:3,about:4,support:5},b=document.querySelectorAll(".nav-btn");b.forEach(x=>x.classList.remove("active"));if(m[id]!=null)b[m[id]]?.classList.add("active")}
 window.showPage=(id,btn=null)=>{document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));document.getElementById(id)?.classList.add("active");document.querySelectorAll(".nav-btn").forEach(b=>b.classList.remove("active"));if(btn)btn.classList.add("active");window.scrollTo({top:0,behavior:"smooth"})};
 
 function getSubjectData(s,g){let a=[];if(s==="Science")a=scienceVideos.filter(x=>x.grade===g);if(s==="Mathematics")a=mathPlaylists.filter(x=>x.grade===g);if(s==="History")a=historyVideos.filter(x=>x.grade===g);if(s==="Sinhala")a=sinhalaVideos.filter(x=>x.grade===g);if(s==="ICT")a=ictPlaylists.filter(x=>x.grade===g);if(s==="English")a=[...englishPlaylists,...englishVideos].filter(x=>x.grade===g);return a}
